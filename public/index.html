@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>Daily Relay · NetEase to Spotify</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="Daily Relay home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Daily Relay</span>
+        </a>
+        <div class="connection-pill" id="connection-pill"><span></span> Setup needed</div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">NETEASE <span>→</span> SPOTIFY</div>
+        <h1>Your daily mix,<br /><em>carried over.</em></h1>
+        <p class="hero-copy">Mirror today’s NetEase recommendations into one Spotify playlist—automatically, in order, every morning.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="sync-button" disabled>
+            <span class="button-icon">↻</span> Sync today’s mix
+          </button>
+          <a class="button button-quiet hidden" id="playlist-link" target="_blank" rel="noreferrer">Open in Spotify ↗</a>
+        </div>
+        <div class="vinyl" aria-hidden="true">
+          <div class="vinyl-ring vinyl-ring-one"></div>
+          <div class="vinyl-ring vinyl-ring-two"></div>
+          <div class="vinyl-label"><span>DAILY</span><strong>30</strong><span>TRACKS</span></div>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="Sync summary">
+        <article><span class="status-kicker">LAST RUN</span><strong id="last-run">Not yet</strong></article>
+        <article><span class="status-kicker">MATCHED</span><strong id="match-count">—</strong></article>
+        <article><span class="status-kicker">NEXT SYNC</span><strong id="next-sync">After setup</strong></article>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading">
+          <div><span class="section-number">01</span><h2>Connect the dots</h2></div>
+          <p>Everything stays on this computer. Secrets are stored locally and never shown back in the browser.</p>
+        </div>
+
+        <div class="setup-grid">
+          <article class="setup-card">
+            <div class="card-topline"><span class="service-mark netease">N</span><span class="step-state" id="netease-state">Not connected</span></div>
+            <h3>NetEase Cloud Music</h3>
+            <p>Connect by scanning a QR code with the NetEase mobile app. The resulting session stays on this computer.</p>
+            <button class="button button-netease" id="netease-button" type="button">Connect with QR code</button>
+            <div class="qr-panel hidden" id="qr-panel">
+              <img id="netease-qr" alt="NetEase login QR code" />
+              <div><strong id="qr-title">Scan this code</strong><span id="qr-status">Open NetEase on your phone and scan</span></div>
+            </div>
+            <details class="manual-login">
+              <summary>Use MUSIC_U cookie instead</summary>
+              <label for="netease-cookie">NetEase cookie</label>
+              <div class="secret-field">
+                <input id="netease-cookie" type="password" autocomplete="off" placeholder="MUSIC_U=…" />
+                <button class="reveal" type="button" data-reveal="netease-cookie" aria-label="Show cookie">Show</button>
+              </div>
+              <p class="cookie-help">In browser developer tools: Network → select a music.163.com request → Request Headers → Cookie → copy the full value containing <code>MUSIC_U</code>.</p>
+            </details>
+          </article>
+
+          <article class="setup-card">
+            <div class="card-topline"><span class="service-mark spotify">S</span><span class="step-state" id="spotify-state">Not connected</span></div>
+            <h3>Spotify</h3>
+            <p>Create a Spotify developer app, add the redirect URI below, then paste its Client ID. No client secret is required.</p>
+            <label for="spotify-client-id">Spotify Client ID</label>
+            <input id="spotify-client-id" type="text" autocomplete="off" placeholder="Paste your Client ID" />
+            <div class="copy-row"><code id="redirect-uri"></code><button id="copy-redirect" type="button">Copy</button></div>
+            <button class="button button-dark" id="spotify-button" type="button">Save & connect Spotify</button>
+          </article>
+        </div>
+
+        <div class="save-bar">
+          <p id="setup-help">Add both account connections to enable syncing.</p>
+          <button class="button button-outline" id="save-settings" type="button">Save setup</button>
+        </div>
+      </section>
+
+      <section class="workspace schedule-section">
+        <div class="section-heading">
+          <div><span class="section-number">02</span><h2>Set the rhythm</h2></div>
+          <p>The service checks once a minute while it is running and updates at most once each calendar day.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="field-group wide">
+            <label for="playlist-name">Spotify playlist name</label>
+            <input id="playlist-name" type="text" maxlength="100" />
+          </div>
+          <div class="field-group">
+            <label for="schedule-hour">Sync at</label>
+            <select id="schedule-hour"></select>
+          </div>
+          <div class="field-group">
+            <label for="timezone">Timezone</label>
+            <select id="timezone"></select>
+          </div>
+          <label class="toggle-row"><input id="schedule-enabled" type="checkbox" /><span class="toggle"></span><span>Update automatically every day</span></label>
+          <label class="toggle-row"><input id="playlist-public" type="checkbox" /><span class="toggle"></span><span>Make playlist public</span></label>
+        </div>
+        <div class="cover-card">
+          <img src="/assets/daily-relay-cover.jpg" alt="Daily Relay playlist cover" />
+          <div class="cover-copy">
+            <span class="status-kicker">CUSTOM ARTWORK</span>
+            <h3>Daily Relay</h3>
+            <p id="cover-state">Ready to replace Spotify’s automatic album collage.</p>
+          </div>
+          <button class="button button-outline" id="cover-button" type="button">Apply cover</button>
+        </div>
+      </section>
+
+      <section class="workspace results-section">
+        <div class="section-heading compact">
+          <div><span class="section-number">03</span><h2>Latest transfer</h2></div>
+          <span class="date-stamp" id="result-date">Waiting for first sync</span>
+        </div>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon">♫</span>
+          <p>Your matched tracks will appear here after the first sync.</p>
+        </div>
+        <div class="results hidden" id="results">
+          <div class="result-summary" id="result-summary"></div>
+          <div class="track-list" id="track-list"></div>
+          <details id="unmatched-details" class="unmatched hidden"><summary>Unmatched tracks</summary><ul id="unmatched-list"></ul></details>
+        </div>
+      </section>
+
+      <footer><span>Daily Relay</span><p>Local-first playlist syncing. Not affiliated with NetEase or Spotify.</p></footer>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
