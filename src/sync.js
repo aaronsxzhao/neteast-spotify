@@ -1,5 +1,5 @@
 import { getDailyRecommendations } from './netease.js'
-import { pickBestMatch, songSearchQueries, sourceSongView } from './matcher.js'
+import { findTrackMatch, sourceSongView } from './matcher.js'
 
 export function dateInTimezone(timezone, date = new Date()) {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -52,12 +52,7 @@ export class SyncService {
       const unmatched = []
 
       for (const song of songs) {
-        let match = null
-        for (const query of songSearchQueries(song)) {
-          const candidates = await this.spotify.searchTracks(query, 10)
-          match = pickBestMatch(song, candidates)
-          if (match) break
-        }
+        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit))
 
         if (match) {
           matches.push({
@@ -71,6 +66,7 @@ export class SyncService {
               image: match.candidate.album?.images?.at(-1)?.url,
             },
             score: match.score,
+            searchStage: match.searchStage,
           })
         } else {
           unmatched.push(sourceSongView(song))

@@ -58,6 +58,12 @@ For a quick local setup, keep `pnpm start` running in a terminal. For unattended
 
 ## Notes and limitations
 
+Matching first uses NetEase's title, `tns`, `transNames`, `alia`, and `alias` fields, including translated artist and album metadata. Bilingual titles such as `韩文 (English)` are searched both as a full title and as individual names. Parenthetical edition labels are not treated as translations.
+
+Search proceeds through title-and-artist queries, title-only queries, then the manual alias table as a last fallback. Candidates are collected and deduplicated across queries; every stage compares its results before choosing a match. Search expansion is bounded to avoid unbounded requests from unusually verbose metadata. Difficult tracks can take longer than before.
+
+When artist names use different writing systems, an exact title and a duration within 2.5 seconds can qualify, with matching album metadata or a sufficiently distinctive title. Same-script conflicting artist credits do not qualify through that exception. Close competing recordings remain unmatched, and obvious live/acoustic/remix/instrumental/speed-altered version differences are rejected. This is a heuristic, not proof of recording identity; missing metadata, short titles, unavailable tracks, and cross-language names without any shared title can still require manual aliases.
+
 NetEase does not offer a public official API for daily recommendations. This project uses the community-maintained `@neteasecloudmusicapienhanced/api` package, so NetEase changes may occasionally require a dependency update. Spotify authorization refresh tokens currently expire after six months; the dashboard will ask you to reconnect when necessary.
 
 This project does not download or transfer audio. It only recreates a list of matching tracks that already exist on Spotify.

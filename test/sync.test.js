@@ -53,3 +53,23 @@ test('sync preserves order and leaves unrelated songs unmatched', async () => {
   assert.deepEqual(calls.replaced[0], { id: 'playlist-1', uris: ['spotify:track:spotify-1'] })
   assert.equal(state.sync.lastRun.ok, true)
 })
+
+test('sync uses bilingual metadata and title-only fallback before writing the playlist', async () => {
+  const state = {
+    settings: { neteaseCookie: 'MUSIC_U=test', playlistName: 'Daily mirror', timezone: 'Asia/Shanghai' },
+    spotify: { refreshToken: 'test' }, sync: { playlistId: 'existing', history: [] },
+  }
+  const store = { state, async update(mutator) { await mutator(state) } }
+  const songs = [{ id: 1, name: '새 아침 (New Morning)', ar: [{ name: '새가수' }], dt: 200_000 }]
+  const candidate = { id: 'translated', uri: 'spotify:track:translated', name: 'New Morning', artists: [{ name: 'New Singer' }], duration_ms: 200_100 }
+  let written
+  const spotify = {
+    async searchTracks(query) { return query === 'track:"New Morning"' ? [candidate] : [] },
+    async replacePlaylist(id, uris) { written = { id, uris } },
+    async updatePlaylist() {},
+  }
+  const run = await new SyncService(store, spotify, async () => songs).run()
+  assert.equal(run.matchedCount, 1)
+  assert.equal(run.matches[0].searchStage, 'title-only')
+  assert.deepEqual(written, { id: 'existing', uris: ['spotify:track:translated'] })
+})
