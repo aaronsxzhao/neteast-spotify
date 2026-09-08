@@ -46,10 +46,14 @@ test('search pacing and Retry-After respect provider cooldowns longer than ten s
 test('a cooldown beyond the run budget stops without retrying early', async () => {
   let calls = 0
   const store = { state: { spotify: { accessToken: 'test', refreshToken: 'test', expiresAt: Date.now() + 60000 } } }
+  store.update = async mutator => mutator(store.state)
   const client = new SpotifyClient(store, async () => {
     calls++
     return { status: 429, headers: new Headers({ 'retry-after': '3600' }) }
   }, { sleep: async () => {} })
   await assert.rejects(client.searchTracks('example'), error => error.status === 429 && error.retryAfterSeconds === 3600)
   assert.equal(calls, 1)
+  assert.ok(store.state.spotify.retryAfterUntil > Date.now() + 3500000)
+  await assert.rejects(client.searchTracks('example'), error => error.status === 429)
+  assert.equal(calls, 1, 'later calls must not hit the provider during the saved cooldown')
 })

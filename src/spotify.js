@@ -126,6 +126,13 @@ export class SpotifyClient {
   }
 
   async request(path, options = {}, attempt = 0) {
+    const cooldown = Number(this.store.state.spotify.retryAfterUntil || 0) - Date.now()
+    if (cooldown > 0) {
+      const error = new Error('Spotify provider cooldown is still active')
+      error.status = 429
+      error.retryAfterSeconds = Math.ceil(cooldown / 1000)
+      throw error
+    }
     const token = await this.accessToken()
     const response = await this.fetch(`${API_BASE}${path}`, {
       ...options,
@@ -142,6 +149,7 @@ export class SpotifyClient {
       // Never shorten the provider's cooldown. Very long blocks should stop
       // this run rather than exceed the cloud job budget or keep retrying.
       if (waitSeconds > 600) {
+        await this.store.update(data => { data.spotify.retryAfterUntil = Date.now() + waitSeconds * 1000 })
         const error = new Error('Spotify rate limit requires a later retry')
         error.status = 429
         error.retryAfterSeconds = waitSeconds
