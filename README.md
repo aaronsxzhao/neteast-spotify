@@ -48,6 +48,8 @@ Daily Relay mirrors the current day's NetEase Cloud Music recommendations into a
 
 ## Running continuously on macOS
 
+For cloud automation instead, see [GitHub Actions setup](docs/github-actions.md). It runs without this computer, preserves refreshed Spotify authorization as encrypted state, and offers a manual run button.
+
 For a quick local setup, keep `pnpm start` running in a terminal. For unattended use, configure a macOS LaunchAgent or run the app on a private server. The state file contains login tokens, so do not deploy it to a public host without adding authentication and a proper secrets store.
 
 ## Configuration

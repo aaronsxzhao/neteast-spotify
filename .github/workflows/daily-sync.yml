@@ -1,0 +1,45 @@
+name: Daily Spotify Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Sync again even if today already succeeded
+        type: boolean
+        default: false
+  schedule:
+    # UTC: Beijing 08:17, with recovery runs at 09:17 and 10:17.
+    - cron: '17 0,1,2 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-relay-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: |
+          npm install --global pnpm@9.15.9
+          pnpm install --frozen-lockfile --ignore-scripts
+      - name: Test
+        run: node --test
+      - name: Sync existing playlist
+        env:
+          DAILY_RELAY_CONFIG: ${{ secrets.DAILY_RELAY_CONFIG }}
+          DAILY_RELAY_STATE_KEY: ${{ secrets.DAILY_RELAY_STATE_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          FORCE_SYNC: ${{ inputs.force || false }}
+        run: node src/cloud-run.js

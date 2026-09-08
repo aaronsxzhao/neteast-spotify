@@ -35,12 +35,13 @@ export class SyncService {
     return this.#running
   }
 
-  async #run({ scheduled = false } = {}) {
+  async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false } = {}) {
     const { settings, sync } = this.store.state
     const date = dateInTimezone(settings.timezone)
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
     if (!settings.neteaseCookie) throw new Error('Save a NetEase cookie first')
     if (!this.store.state.spotify.refreshToken) throw new Error('Connect Spotify first')
+    if (requireExistingPlaylist && !sync.playlistId) throw new Error('Configure the existing Spotify playlist ID')
 
     const startedAt = new Date().toISOString()
     if (scheduled) {
@@ -73,6 +74,8 @@ export class SyncService {
         }
       }
 
+      if (rejectEmptyMatches && matches.length === 0) throw new Error('No confident matches; keeping the existing playlist')
+
       let playlistId = sync.playlistId
       let playlistUrl = sync.playlistUrl
       if (!playlistId) {
@@ -84,7 +87,7 @@ export class SyncService {
       try {
         await this.spotify.replacePlaylist(playlistId, matches.map((match) => match.spotify.uri))
       } catch (error) {
-        if (error.status !== 404) throw error
+        if (error.status !== 404 || requireExistingPlaylist) throw error
         const playlist = await this.spotify.createPlaylist(settings.playlistName, settings.playlistPublic)
         playlistId = playlist.id
         playlistUrl = playlist.external_urls?.spotify
