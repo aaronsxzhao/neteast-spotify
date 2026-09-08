@@ -80,3 +80,24 @@ test('unmatched diagnostics retain bounded metadata, not raw provider responses'
   assert.ok(diagnostics.queryCount > 0)
   assert.equal(JSON.stringify(diagnostics).includes('secret'), false)
 })
+
+test('subtitle query shortening retrieves without weakening full-title identity', async () => {
+  const song = source('空に星が綺麗~悲しい吉祥寺~', '斉藤和義', 154250, { al: { name: 'FIRE DOG' } })
+  const correct = target('空に星が綺麗～悲しい吉祥寺～', 'Kazuyoshi Saito', 153000, { album: { name: 'FIRE DOG' } })
+  const match = await findTrackMatch(song, async query => query === 'track:"空に星が綺麗"' ? [correct] : [])
+  assert.equal(match?.candidate.id, 'correct')
+})
+
+test('compound band names retain their full identity when splitting guest credits', () => {
+  const song = source('Morning Selection (2019 Remaster)', 'Honey & B-Boys', 215080)
+  assert.ok(pickBestMatch(song, [target('Morning Selection - 2019 Remaster', 'HONEY&B-BOYS', 215080)]))
+})
+
+test('alternate featured singer is not a rival for the verified recording', () => {
+  const song = source('처음만 힘들지', '015B', 205859, { tns: ['Hard to Start'], ar: [{ name: '015B' }, { name: 'NAYUL' }] })
+  const a = target('Hard to Start', '015B', 205859, { artists: [{ id: '015b', name: '015B' }, { id: 'nayul', name: 'Nayul' }] })
+  const b = { ...a, id: 'compilation', duration_ms: 207227, artists: [{ id: '015b', name: '015B' }, { id: 'nayul-ko', name: '나율' }] }
+  const other = { ...a, id: 'different-singer', name: '처음만 힘들지', duration_ms: 202971, artists: [{ id: '015b', name: '015B' }, { id: 'yozo', name: 'Yozo' }] }
+  assert.equal(pickBestMatch(song, [other]), null)
+  assert.equal(pickBestMatch(song, [a, b, other])?.candidate.id, 'correct')
+})

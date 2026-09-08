@@ -164,7 +164,11 @@ function queryVariants(values) {
   // Do not deduplicate with normalize(): Spotify must receive both glyph forms.
   return [...new Set(values.flatMap((value) => {
     const clean = searchTitle(value)
-    return [clean, toTraditional(clean), toJapanese(clean)]
+    // A tilde-delimited subtitle can prevent Spotify from retrieving even the
+    // exact recording. Shorten queries only; retain the full title for scoring.
+    const base = clean.split(/[~〜～]/u)[0].trim()
+    const names = [clean, clean.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim(), ...(base.length >= 4 ? [base] : [])]
+    return names.flatMap(name => [name, toTraditional(name), toJapanese(name)])
   }).filter(Boolean))]
 }
 
@@ -212,7 +216,7 @@ function evidence(song, candidate, options) {
   let artist = 0
   for (const left of neteaseArtists) {
     for (const right of spotifyArtists) {
-      const credits = String(left).split(/\s*[,&]\s*/)
+      const credits = [left, ...String(left).split(/\s*[,&]\s*/)]
       artist = Math.max(artist, ...credits.map((credit) => similarity(credit, right)))
     }
   }
@@ -231,11 +235,21 @@ function evidence(song, candidate, options) {
   })
   const crossLanguage = crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name) !== recordingKinds(candidate.name)
+  const sourceCredits = song.ar || song.artists || []
+  const guestNames = sourceCredits.slice(1).flatMap(metadataNames)
+  const targetGuests = spotifyArtists.slice(1)
+  // The same band may re-record a song with another singer. A shared primary
+  // credit is insufficient when the additional credits explicitly disagree.
+  // Unknown cross-script guest names remain neutral, not presumed different.
+  const primaryNames = metadataNames(sourceCredits[0])
+  const primaryAgrees = primaryNames.some(name => similarity(name, spotifyArtists[0]) >= 0.98)
+  const creditConflict = primaryAgrees && guestNames.length > 0 && targetGuests.length > 0 &&
+    guestNames.every(left => targetGuests.every(right => !differentScripts(left, right) && similarity(left, right) < 0.85))
   const durationCompatible = !sourceDuration || !targetDuration || difference <= 18000
-  const eligible = !versionMismatch && durationCompatible && title >= 0.78 && (artist >= 0.85 || crossLanguage)
+  const eligible = !versionMismatch && !creditConflict && durationCompatible && title >= 0.78 && (artist >= 0.85 || crossLanguage)
   const weighted = title * 0.56 + artist * 0.28 + duration * 0.12 + album * 0.04
   const score = Number(Math.max(weighted, crossLanguage ? 0.82 + album * 0.1 : 0).toFixed(4))
-  return { title, artist, album, difference, crossLanguage, eligible, score }
+  return { title, artist, album, difference, crossLanguage, creditConflict, eligible, score }
 }
 
 function recordingKinds(name = '') {
