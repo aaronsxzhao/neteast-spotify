@@ -167,7 +167,7 @@ function queryVariants(values) {
     // A tilde-delimited subtitle can prevent Spotify from retrieving even the
     // exact recording. Shorten queries only; retain the full title for scoring.
     const base = clean.split(/[~〜～]/u)[0].trim()
-    const names = [clean, clean.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim(), ...(base.length >= 4 ? [base] : [])]
+    const names = [clean, clean.replace(/~/g, '～'), clean.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim(), ...(base.length >= 4 ? [base] : [])]
     return names.flatMap(name => [name, toTraditional(name), toJapanese(name)])
   }).filter(Boolean))]
 }
@@ -183,12 +183,20 @@ export function songSearchStages(song) {
     credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`))]
   const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
+  const albums = queryVariants(metadataNames(song.al || song.album)).slice(0, 2)
+  // Album filters can surface an original recording buried under many live
+  // releases. These are retrieval hints, never exemptions from scoring.
+  const albumQueries = (credits) => albums.flatMap(album => [
+    ...credits.map(artist => `album:"${quoted(album)}" artist:"${quoted(artist)}"`),
+    ...titles.slice(0, 4).map(title => `track:"${quoted(title)}" album:"${quoted(album)}"`),
+  ])
   const seen = new Set()
   return [
     { name: 'metadata', manual: false, queries: combined(titles, artists) },
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
     { name: 'free-text', manual: false, queries: plain(titles, artists) },
-    { name: 'manual-alias', manual: true, queries: [...combined(fallbackTitles, fallbackArtists), ...titleOnly(fallbackTitles), ...plain(fallbackTitles, fallbackArtists)] },
+    { name: 'album', manual: false, queries: albumQueries(artists) },
+    { name: 'manual-alias', manual: true, queries: [...combined(fallbackTitles, fallbackArtists), ...titleOnly(fallbackTitles), ...plain(fallbackTitles, fallbackArtists), ...albumQueries(fallbackArtists)] },
   ].map((stage) => ({ ...stage, queries: stage.queries.filter((query) => {
     if (seen.has(query)) return false
     seen.add(query)

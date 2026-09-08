@@ -101,3 +101,12 @@ test('alternate featured singer is not a rival for the verified recording', () =
   assert.equal(pickBestMatch(song, [other]), null)
   assert.equal(pickBestMatch(song, [a, b, other])?.candidate.id, 'correct')
 })
+
+test('album-scoped retrieval finds studio recordings buried under live search results', async () => {
+  const song = source('空に星が綺麗~悲しい吉祥寺~', '斉藤和義', 154250, { al: { name: 'FIRE DOG' } })
+  const correct = target('空に星が綺麗～悲しい吉祥寺～', 'Kazuyoshi Saito', 153000, { album: { name: 'FIRE DOG' } })
+  const live = { ...correct, id: 'live', name: '空に星が綺麗 - Live', album: { name: 'Live Tour' } }
+  const match = await findTrackMatch(song, async query => query === 'album:"FIRE DOG" artist:"Kazuyoshi Saito"' ? [correct] : [live])
+  assert.equal(match?.candidate.id, 'correct')
+  assert.ok(songSearchStages(song).flatMap(stage => stage.queries).includes('track:"空に星が綺麗～悲しい吉祥寺～"'))
+})
