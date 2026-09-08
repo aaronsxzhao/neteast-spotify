@@ -20,9 +20,10 @@ async function readResponse(response) {
 }
 
 export class SpotifyClient {
-  constructor(store, fetchImpl = fetch) {
+  constructor(store, fetchImpl = fetch, { sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
     this.store = store
     this.fetch = fetchImpl
+    this.sleep = sleep
   }
 
   async beginAuthorization(action = null) {
@@ -136,8 +137,17 @@ export class SpotifyClient {
     })
 
     if (response.status === 429 && attempt < 2) {
-      const waitSeconds = Math.min(Number(response.headers.get('retry-after') || 1), 10)
-      await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
+      const requested = Number(response.headers.get('retry-after'))
+      const waitSeconds = Number.isFinite(requested) && requested > 0 ? requested : 30
+      // Never shorten the provider's cooldown. Very long blocks should stop
+      // this run rather than exceed the cloud job budget or keep retrying.
+      if (waitSeconds > 600) {
+        const error = new Error('Spotify rate limit requires a later retry')
+        error.status = 429
+        error.retryAfterSeconds = waitSeconds
+        throw error
+      }
+      await this.sleep(waitSeconds * 1000)
       return this.request(path, options, attempt + 1)
     }
 
@@ -157,6 +167,8 @@ export class SpotifyClient {
   }
 
   async searchTracks(query, limit = 10) {
+    // Expanded multilingual retrieval needs pacing, not a burst of requests.
+    await this.sleep(350)
     const params = new URLSearchParams({ q: query, type: 'track', limit: String(limit) })
     const result = await this.request(`/search?${params}`)
     return result?.tracks?.items || []

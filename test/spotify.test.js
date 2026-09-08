@@ -30,3 +30,26 @@ test('uploads a base64 JPEG with the custom-cover content type', async () => {
   assert.equal(calls[0].options.headers['content-type'], 'image/jpeg')
   assert.equal(calls[0].options.body, '/9j/example')
 })
+
+test('search pacing and Retry-After respect provider cooldowns longer than ten seconds', async () => {
+  const waits = []
+  let calls = 0
+  const store = { state: { spotify: { accessToken: 'test', refreshToken: 'test', expiresAt: Date.now() + 60000 } } }
+  const client = new SpotifyClient(store, async () => ++calls === 1
+    ? { status: 429, headers: new Headers({ 'retry-after': '45' }) }
+    : new Response(JSON.stringify({ tracks: { items: [] } })), { sleep: async ms => waits.push(ms) })
+  assert.deepEqual(await client.searchTracks('example'), [])
+  assert.deepEqual(waits, [350, 45000])
+  assert.equal(calls, 2)
+})
+
+test('a cooldown beyond the run budget stops without retrying early', async () => {
+  let calls = 0
+  const store = { state: { spotify: { accessToken: 'test', refreshToken: 'test', expiresAt: Date.now() + 60000 } } }
+  const client = new SpotifyClient(store, async () => {
+    calls++
+    return { status: 429, headers: new Headers({ 'retry-after': '3600' }) }
+  }, { sleep: async () => {} })
+  await assert.rejects(client.searchTracks('example'), error => error.status === 429 && error.retryAfterSeconds === 3600)
+  assert.equal(calls, 1)
+})

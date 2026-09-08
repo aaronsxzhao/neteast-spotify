@@ -52,5 +52,6 @@ async function main() {
 main().catch((error) => {
   // Provider errors may embed private request data. Public logs only get a code.
   console.error(`Daily Relay failed (${error.status || error.name || 'Error'}). Check GitHub Secrets, account authorization, provider availability, and state-branch write permission.`)
+  if (Number.isFinite(error.retryAfterSeconds)) console.error(`Provider cooldown: retry after ${error.retryAfterSeconds} seconds.`)
   process.exitCode = 1
 })
