@@ -14,7 +14,11 @@ async function main() {
   mask(process.env.DAILY_RELAY_CONFIG)
   mask(config.spotifyRefreshToken)
   mask(config.neteaseCookie)
-  for (const cookie of config.neteaseCookie.split(';')) mask(cookie.slice(cookie.indexOf('=') + 1).trim())
+  for (const cookie of config.neteaseCookie.split(';')) {
+    const value = cookie.slice(cookie.indexOf('=') + 1).trim()
+    // Non-secret flags like 0 and / would corrupt every date and URL in logs.
+    if (value.length >= 8) mask(value)
+  }
   mask(process.env.DAILY_RELAY_STATE_KEY)
   const remote = new GitHubState({ repository: process.env.GITHUB_REPOSITORY, token: process.env.GITHUB_TOKEN, commit: process.env.GITHUB_SHA })
   const store = new CloudStore(config, process.env.DAILY_RELAY_STATE_KEY, remote)

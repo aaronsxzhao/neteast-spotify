@@ -59,6 +59,20 @@ test('updated config supersedes encrypted token; wrong key fails closed', async 
   await assert.rejects(new CloudStore(config, 'bb'.repeat(32), remote).load(), /Cannot decrypt/)
 })
 
+test('successful track report persists encrypted and survives subsequent failures', async () => {
+  const remote = remoteMemory()
+  const store = new CloudStore(config, key, remote)
+  await store.load()
+  const report = { ok: true, date: '2026-09-08', matches: [{ source: { name: 'private-song' } }], unmatched: [] }
+  await store.update(state => { state.sync.lastSuccessfulRun = report })
+  await store.update(state => { state.sync.lastRun = { ok: false, error: 'unsafe-provider-body' } })
+  const next = new CloudStore(config, key, remote)
+  await next.load()
+  assert.deepEqual(next.state.sync.lastSuccessfulRun, report)
+  assert.equal(remote.text.includes('private-song'), false)
+  assert.equal(JSON.stringify(decryptState(remote.text, key)).includes('unsafe-provider-body'), false)
+})
+
 test('successful date persists and recovery runs skip until a forced manual run', async () => {
   const remote = remoteMemory()
   const store = new CloudStore(config, key, remote)

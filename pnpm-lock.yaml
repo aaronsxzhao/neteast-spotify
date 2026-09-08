@@ -11,6 +11,9 @@ importers:
       '@neteasecloudmusicapienhanced/api':
         specifier: 4.40.1
         version: 4.40.1(debug@4.4.3(supports-color@5.5.0))(supports-color@5.5.0)
+      opencc-js:
+        specifier: 1.4.1
+        version: 1.4.1
 
 packages:
 
@@ -658,6 +661,9 @@ packages:
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
+
+  opencc-js@1.4.1:
+    resolution: {integrity: sha512-2lPLcrg7cnh1ATSduOxhnk/jq6KlR6w+5Ihl4wF7Z5e5Rva4vxTyugV5rZ7EiUCOZl+EDOLetIix+BhgYDCC+A==}
 
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
@@ -1815,6 +1821,8 @@ snapshots:
   once@1.4.0:
     dependencies:
       wrappy: 1.0.2
+
+  opencc-js@1.4.1: {}
 
   p-limit@2.3.0:
     dependencies:

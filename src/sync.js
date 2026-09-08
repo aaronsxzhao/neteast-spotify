@@ -53,7 +53,8 @@ export class SyncService {
       const unmatched = []
 
       for (const song of songs) {
-        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit))
+        const diagnostics = {}
+        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics)
 
         if (match) {
           matches.push({
@@ -70,7 +71,7 @@ export class SyncService {
             searchStage: match.searchStage,
           })
         } else {
-          unmatched.push(sourceSongView(song))
+          unmatched.push({ ...sourceSongView(song), diagnostics })
         }
       }
 
@@ -118,6 +119,7 @@ export class SyncService {
         data.sync.playlistUrl = playlistUrl
         data.sync.lastSyncedDate = date
         data.sync.lastRun = run
+        data.sync.lastSuccessfulRun = run
         data.sync.history = [run, ...(data.sync.history || [])].slice(0, 14)
       })
       return run

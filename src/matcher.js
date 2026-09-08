@@ -1,3 +1,8 @@
+import OpenCC from 'opencc-js'
+
+const toSimplified = OpenCC.Converter({ from: 'hk', to: 'cn' })
+const toTraditional = OpenCC.Converter({ from: 'cn', to: 'tw' })
+const toJapanese = OpenCC.Converter({ from: 'cn', to: 'jp' })
 const EDITION_WORDS = /\b(remaster(?:ed)?|live|acoustic|radio edit|deluxe|version|mono|stereo|explicit)\b/gi
 
 // Cross-catalog aliases that cannot be derived by normalizing punctuation alone.
@@ -11,6 +16,13 @@ const TITLE_ALIASES = new Map([
   ["사랑 하지 마 (Don't Love Me)", ["Don't Love Me"]],
 ])
 
+// Verified translations are scoped to a source track, not every song sharing a
+// title. They are a last resort; they never bypass identity/version checks.
+const VERIFIED_TITLES = new Map([
+  ['1317162660', ['Haru no Mori no Kaiten Mokuba']],
+  ['1305365761', ['素顔のままで']],
+])
+
 const ARTIST_ALIASES = new Map([
   ['大橋純子', ['Junko Ohashi']],
   ['林哲司', ['Tetsuji Hayashi']],
@@ -21,10 +33,16 @@ const ARTIST_ALIASES = new Map([
   ['原田知世', ['Tomoyo Harada']],
   ['효린', ['HYOLYN']],
   ['孝琳', ['HYOLYN']],
+  ['郑中基', ['Ronald Cheng']],
+  ['卫兰', ['Janice Vidal']],
+  ['森山直太朗', ['Naotaro Moriyama']],
+  ['中嶋美智代', ['Michiyo Nakajima']],
+  ['斉藤和義', ['Kazuyoshi Saito']],
+  ['西原健一郎', ['Kenichiro Nishihara']],
 ])
 
 export function normalize(value = '') {
-  return String(value)
+  return toSimplified(String(value))
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(EDITION_WORDS, ' ')
@@ -50,7 +68,11 @@ export function similarity(left, right) {
   const b = normalize(right)
   if (!a || !b) return 0
   if (a === b) return 1
-  if (a.includes(b) || b.includes(a)) return 0.9
+  const shorter = a.length < b.length ? a : b
+  const longer = a.length < b.length ? b : a
+  // A short substring is not an identity: some/Someone and werf/Werff.
+  if (shorter.length >= 8 && shorter.length / longer.length >= 0.5 &&
+    (` ${longer} `).includes(` ${shorter} `)) return 0.9
   const aSet = bigrams(a)
   const bSet = bigrams(b)
   let overlap = 0
@@ -119,6 +141,7 @@ export function songTitles(song, { manual = true } = {}) {
   return unique([
     ...metadataNames(song).flatMap(titleVariants),
     ...(manual ? catalogAliases(TITLE_ALIASES, song.name).flatMap(titleVariants) : []),
+    ...(manual ? VERIFIED_TITLES.get(String(song.id)) || [] : []),
   ])
 }
 
@@ -131,20 +154,37 @@ function quoted(value) {
   return String(value).replace(/["\\\r\n]/g, ' ').trim()
 }
 
+function searchTitle(value) {
+  // Spotify free-text search understands aliases better than exact filters.
+  // Remove feature credits from queries, but retain recording-version labels.
+  return String(value).normalize('NFKC').replace(/\s*\(?\b(?:feat|featuring|ft)\b\.?\s+.*$/i, '').trim()
+}
+
+function queryVariants(values) {
+  // Do not deduplicate with normalize(): Spotify must receive both glyph forms.
+  return [...new Set(values.flatMap((value) => {
+    const clean = searchTitle(value)
+    return [clean, toTraditional(clean), toJapanese(clean)]
+  }).filter(Boolean))]
+}
+
 export function songSearchStages(song) {
   // Bound fan-out on unusually verbose catalog metadata.
-  const titles = songTitles(song, { manual: false }).slice(0, 8)
-  const artists = searchableArtists(song, { manual: false }).slice(0, 4)
+  const titles = queryVariants(songTitles(song, { manual: false })).slice(0, 12)
+  const artists = queryVariants(searchableArtists(song, { manual: false })).slice(0, 4)
   const combined = (names, credits) => names.flatMap((title) => credits.map((artist) =>
     `track:"${quoted(title)}" artist:"${quoted(artist)}"`))
   const titleOnly = (names) => names.map((title) => `track:"${quoted(title)}"`)
-  const fallbackTitles = songTitles(song).slice(0, 12)
+  const plain = (names, credits) => [...names, ...names.slice(0, 4).flatMap((title) =>
+    credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`))]
+  const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
   const seen = new Set()
   return [
     { name: 'metadata', manual: false, queries: combined(titles, artists) },
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
-    { name: 'manual-alias', manual: true, queries: [...combined(fallbackTitles, fallbackArtists), ...titleOnly(fallbackTitles)] },
+    { name: 'free-text', manual: false, queries: plain(titles, artists) },
+    { name: 'manual-alias', manual: true, queries: [...combined(fallbackTitles, fallbackArtists), ...titleOnly(fallbackTitles), ...plain(fallbackTitles, fallbackArtists)] },
   ].map((stage) => ({ ...stage, queries: stage.queries.filter((query) => {
     if (seen.has(query)) return false
     seen.add(query)
@@ -171,7 +211,10 @@ function evidence(song, candidate, options) {
   const spotifyArtists = (candidate.artists || []).map((artist) => artist.name)
   let artist = 0
   for (const left of neteaseArtists) {
-    for (const right of spotifyArtists) artist = Math.max(artist, similarity(left, right))
+    for (const right of spotifyArtists) {
+      const credits = String(left).split(/\s*[,&]\s*/)
+      artist = Math.max(artist, ...credits.map((credit) => similarity(credit, right)))
+    }
   }
 
   const sourceDuration = songDuration(song)
@@ -189,7 +232,7 @@ function evidence(song, candidate, options) {
   const crossLanguage = crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name) !== recordingKinds(candidate.name)
   const durationCompatible = !sourceDuration || !targetDuration || difference <= 18000
-  const eligible = !versionMismatch && durationCompatible && title >= 0.78 && (artist >= 0.6 || crossLanguage)
+  const eligible = !versionMismatch && durationCompatible && title >= 0.78 && (artist >= 0.85 || crossLanguage)
   const weighted = title * 0.56 + artist * 0.28 + duration * 0.12 + album * 0.04
   const score = Number(Math.max(weighted, crossLanguage ? 0.82 + album * 0.1 : 0).toFixed(4))
   return { title, artist, album, difference, crossLanguage, eligible, score }
@@ -203,6 +246,7 @@ function recordingKinds(name = '') {
     /\binstrumental\b|\bkaraoke\b|伴奏|カラオケ/i,
     /\bremix\b|\bre-mix\b|リミックス/i,
     /\bsped\s*up\b|\bslowed\b/i,
+    /\boriginal\s+ver(?:sion)?\b/i,
   ].map((pattern) => Number(pattern.test(value))).join('')
 }
 
@@ -218,6 +262,19 @@ function sameRecording(left, right) {
     Math.abs(Number(left.duration_ms) - Number(right.duration_ms)) <= 2500
 }
 
+function compatibleRelease(left, right, source) {
+  if (sameRecording(left.candidate, right.candidate)) return true
+  // Distributors may use separate localized guest-artist IDs on a compilation.
+  // Only collapse these when the primary artist ID, title and duration agree,
+  // and both candidates independently match the source's artist and title.
+  const a = left.candidate; const b = right.candidate
+  return left.artist >= 0.98 && right.artist >= 0.98 && left.title >= 0.98 && right.title >= 0.98 &&
+    a.artists?.[0]?.id && a.artists[0].id === b.artists?.[0]?.id &&
+    normalize(a.name) === normalize(b.name) && recordingKinds(a.name) === recordingKinds(b.name) &&
+    Math.abs(a.duration_ms - b.duration_ms) <= 2500 &&
+    Math.abs(songDuration(source) - a.duration_ms) <= 2500 && Math.abs(songDuration(source) - b.duration_ms) <= 2500
+}
+
 export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) {
   const ranked = candidates.filter((candidate) => candidate && candidate.is_playable !== false)
     .map((candidate) => ({ candidate, ...evidence(song, candidate, options) }))
@@ -226,15 +283,17 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   const best = ranked[0]
   if (!best) return null
   // Duplicated releases are fine; competing recordings need a clear winner.
-  const rival = ranked.find((match) => !sameRecording(best.candidate, match.candidate))
+  const rival = ranked.find((match) => !compatibleRelease(best, match, song))
   if (rival && best.score - rival.score < 0.05) return null
   return best
 }
 
-export async function findTrackMatch(song, searchTracks) {
+export async function findTrackMatch(song, searchTracks, diagnostics = null) {
   const candidates = new Map()
+  let queryCount = 0
   for (const stage of songSearchStages(song)) {
     for (const query of stage.queries) {
+      queryCount++
       for (const candidate of await searchTracks(query, 10)) {
         const key = candidate.id || candidate.uri || JSON.stringify(candidate)
         candidates.set(key, candidate)
@@ -248,6 +307,14 @@ export async function findTrackMatch(song, searchTracks) {
     if (match?.crossLanguage && stage.name === 'metadata') continue
     if (match) return { ...match, searchStage: stage.name }
   }
+  if (diagnostics) Object.assign(diagnostics, {
+    queryCount, candidateCount: candidates.size,
+    candidates: [...candidates.values()].map((candidate) => ({
+      ...evidence(song, candidate, { manual: true }), id: candidate.id, name: candidate.name,
+      artists: (candidate.artists || []).map((artist) => artist.name), album: candidate.album?.name,
+      durationMs: candidate.duration_ms,
+    })).sort((a, b) => b.score - a.score).slice(0, 5),
+  })
   return null
 }
 

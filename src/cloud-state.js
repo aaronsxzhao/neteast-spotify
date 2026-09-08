@@ -110,7 +110,9 @@ export class CloudStore {
   snapshot() {
     const { spotify, sync } = this.state
     return { seed: this.seed, spotify: { refreshToken: spotify.refreshToken, scope: spotify.scope },
-      sync: { playlistId: sync.playlistId, playlistUrl: sync.playlistUrl, lastSyncedDate: sync.lastSyncedDate } }
+      sync: { playlistId: sync.playlistId, playlistUrl: sync.playlistUrl, lastSyncedDate: sync.lastSyncedDate,
+        // Successful app-generated metadata only, never provider error bodies.
+        lastSuccessfulRun: sync.lastSuccessfulRun } }
   }
 
   async load() {
