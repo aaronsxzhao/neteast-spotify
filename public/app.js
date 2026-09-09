@@ -108,7 +108,8 @@ function renderRun(run) {
     source.textContent = `from ${match.source.name}`
     const score = document.createElement('span')
     score.className = 'track-score'
-    score.textContent = `${Math.round(match.score * 100)}%`
+    score.textContent = match.alternateVersion ? '替代版本' : `${Math.round(match.score * 100)}%`
+    if (match.alternateVersion) score.title = `同一歌手、同一首歌的替代版本 · ${match.spotify.album || ''}`
     row.append(number, title, source, score)
     elements.trackList.append(row)
   }

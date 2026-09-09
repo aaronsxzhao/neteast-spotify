@@ -367,8 +367,41 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   return best
 }
 
-export async function findTrackMatch(song, searchTracks, diagnostics = null) {
+const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|リミックス|アコースティック/i
+
+function compositionTitle(value) {
+  return searchTitle(value)
+    .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu,
+      (full, a, b, c) => VERSION_LABEL.test(a || b || c) ? ' ' : full)
+    .replace(/\s+[-–—]\s+(.+)$/u, (full, suffix) => VERSION_LABEL.test(suffix) ? '' : full)
+    .trim()
+}
+
+// Recall-first second pass: explicit same primary artist + exact composition
+// title. Duration and edition become ranking hints, not rejection gates.
+// A shared guest credit or unknown cross-script identity is NOT sufficient.
+export function pickAlternateVersion(song, candidates) {
+  const primary = (song.ar || song.artists || [])[0]
+  if (!primary) return null
+  const primaryNames = searchableArtists({ ar: [primary] }).flatMap(artistNameVariants).map(normalize)
+  const titles = songTitles(song).map(compositionTitle).map(normalize).filter(Boolean)
+  const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
+    .filter(candidate => artistNameVariants(candidate.artists?.[0]?.name).some(name => primaryNames.includes(normalize(name))))
+    .filter(candidate => titleVariants(candidate.name).map(compositionTitle).map(normalize).some(title => title && titles.includes(title)))
+    .map(candidate => ({ candidate, ...evidence(song, candidate, { manual: true }) }))
+    .sort((a, b) => Number(a.versionMismatch) - Number(b.versionMismatch) ||
+      a.difference - b.difference || b.albumSimilarity - a.albumSimilarity ||
+      String(a.candidate.id).localeCompare(String(b.candidate.id)))
+  const best = ranked[0]
+  return best ? {
+    ...best, eligible: true, alternateVersion: true, searchStage: 'alternate-version',
+    substitutionReasons: best.rejectionReasons.length ? best.rejectionReasons : ['competing-versions'],
+  } : null
+}
+
+export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false } = {}) {
   const candidates = new Map()
+  const searched = new Set()
   let queryCount = 0
   for (const stage of songSearchStages(song)) {
     // Re-score retrieved candidates with curated names before spending more
@@ -378,6 +411,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null) {
       if (existing) return { ...existing, searchStage: stage.name }
     }
     for (const query of stage.queries) {
+      searched.add(query)
       queryCount++
       for (const candidate of await searchTracks(query, 10)) {
         const key = candidate.id || candidate.uri || JSON.stringify(candidate)
@@ -392,7 +426,31 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null) {
     if (match?.crossLanguage && stage.name === 'metadata') continue
     if (match) return { ...match, searchStage: stage.name }
   }
+  if (allowAlternateVersions) {
+    // Reuse ALL retrieved candidates, not only the five diagnostic previews.
+    const existing = pickAlternateVersion(song, [...candidates.values()])
+    if (existing) return existing
+    const titles = unique(songTitles(song).map(compositionTitle)).slice(0, 3)
+    const primary = (song.ar || song.artists || [])[0]
+    const artists = searchableArtists({ ar: primary ? [primary] : [] }).slice(0, 2)
+    const queries = [...new Set(titles.flatMap(title => [
+      ...artists.map(artist => `${quoted(title)} ${quoted(artist)}`),
+      `track:"${quoted(title)}"`,
+    ]))].filter(query => !searched.has(query)).slice(0, 6)
+    for (const query of queries) {
+      queryCount++
+      for (const candidate of await searchTracks(query, 10)) {
+        candidates.set(candidate.id || candidate.uri || JSON.stringify(candidate), candidate)
+      }
+    }
+    // New retrieval might find an exact edition after all: still prefer it.
+    const strict = pickBestMatch(song, [...candidates.values()])
+    if (strict) return { ...strict, searchStage: 'second-pass-strict' }
+    const alternate = pickAlternateVersion(song, [...candidates.values()])
+    if (alternate) return alternate
+  }
   if (diagnostics) Object.assign(diagnostics, {
+    alternateVersionChecked: allowAlternateVersions,
     reason: [...candidates.values()].some(candidate => candidate.is_playable !== false && evidence(song, candidate, { manual: true }).eligible) ? 'ambiguous-recordings' : candidates.size ? 'no-eligible-candidate' : 'no-results',
     queryCount, candidateCount: candidates.size,
     candidates: [...candidates.values()].map((candidate) => ({

@@ -78,7 +78,7 @@ export class SyncService {
           continue
         }
         const diagnostics = {}
-        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics)
+        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics, { allowAlternateVersions: true })
 
         if (match) {
           matches.push({
@@ -90,9 +90,13 @@ export class SyncService {
               artists: (match.candidate.artists || []).map((artist) => artist.name),
               url: match.candidate.external_urls?.spotify,
               image: match.candidate.album?.images?.at(-1)?.url,
+              album: match.candidate.album?.name,
+              durationMs: match.candidate.duration_ms,
             },
             score: match.score,
             searchStage: match.searchStage,
+            alternateVersion: Boolean(match.alternateVersion),
+            substitutionReasons: match.substitutionReasons || [],
           })
         } else {
           unmatched.push({ ...sourceSongView(song), diagnostics })
@@ -119,10 +123,11 @@ export class SyncService {
         await this.spotify.replacePlaylist(playlistId, matches.map((match) => match.spotify.uri))
       }
 
+      const alternateVersionCount = matches.filter(match => match.alternateVersion).length
       await this.spotify.updatePlaylist(playlistId, {
         name: settings.playlistName,
         public: settings.playlistPublic,
-        description: `NetEase daily recommendations for ${date}. Matched ${matches.length} of ${songs.length} tracks.`,
+        description: `NetEase daily recommendations for ${date}. Matched ${matches.length} of ${songs.length} tracks.${alternateVersionCount ? ` Includes ${alternateVersionCount} alternate versions by the same artists.` : ''}`,
       })
 
       const run = {
@@ -133,6 +138,7 @@ export class SyncService {
         sourceCount: songs.length,
         matchedCount: matches.length,
         unmatchedCount: unmatched.length,
+        alternateVersionCount,
         matches,
         unmatched,
         playlistId,

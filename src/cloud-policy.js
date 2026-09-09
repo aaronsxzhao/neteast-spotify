@@ -19,7 +19,7 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
 }
 
 export function cloudRunSummary(run) {
-  if (!run.skipped) return `Synced ${run.matchedCount} of ${run.sourceCount} tracks for ${run.date}.`
+  if (!run.skipped) return `Synced ${run.matchedCount} of ${run.sourceCount} tracks for ${run.date}.${run.alternateVersionCount ? ` Includes ${run.alternateVersionCount} alternate versions by the same artists.` : ''}`
   if (run.reason === 'provider-cooldown') return `Waiting for provider cooldown until ${run.retryAt}; no music-provider requests made. Hourly recovery will retry after expiry.`
   if (run.reason === 'no-pending-recovery') return 'No pending cooldown recovery; no music-provider requests made.'
   return 'Already synced today; no playlist changes.'
