@@ -1,6 +1,46 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { dateInTimezone, hourInTimezone, SyncService } from '../src/sync.js'
+import { sourceSongView } from '../src/matcher.js'
+
+test('explicit unmatched repair reuses only unchanged same-day matches in source order', async () => {
+  const a = { id: 1, name: 'Alpha', ar: [{ name: 'Singer' }], dt: 200000 }
+  const b = { id: 2, name: 'Beta', ar: [{ name: 'Singer' }], dt: 210000 }
+  const c = { id: 3, name: 'Gamma', ar: [{ name: 'Singer' }], dt: 220000 }
+  const state = {
+    settings: { neteaseCookie: 'MUSIC_U=test', timezone: 'Asia/Shanghai' },
+    spotify: { refreshToken: 'test' },
+    sync: { playlistId: 'playlist', lastSuccessfulRun: {
+      date: dateInTimezone('Asia/Shanghai'), playlistId: 'playlist',
+      matches: [
+        { source: sourceSongView(a), spotify: { uri: 'spotify:track:a' } },
+        { source: { ...sourceSongView(c), durationMs: 190000 }, spotify: { uri: 'spotify:track:stale' } },
+      ],
+    } },
+  }
+  const queries = []; let written
+  const spotify = {
+    async searchTracks(query) {
+      queries.push(query)
+      return [a, b, c].map(s => ({ id: String(s.id), uri: `spotify:track:${s.id}`, name: s.name, artists: s.ar, duration_ms: s.dt }))
+    },
+    async replacePlaylist(id, uris) { written = uris },
+    async updatePlaylist() {},
+  }
+  const store = { state, async update(fn) { fn(state) } }
+  const service = new SyncService(store, spotify, async () => [b, a, c])
+  await service.run({ retryUnmatched: true })
+  assert.deepEqual(written, ['spotify:track:2', 'spotify:track:a', 'spotify:track:3'])
+  assert.ok(!queries.some(q => q.includes('Alpha')))
+  assert.ok(queries.some(q => q.includes('Gamma')))
+  queries.length = 0
+  await service.run()
+  assert.ok(queries.some(q => q.includes('Alpha')), 'ordinary sync must not reuse old decisions')
+  state.sync.lastSuccessfulRun.date = '2000-01-01'
+  queries.length = 0
+  await service.run({ retryUnmatched: true })
+  assert.ok(queries.some(q => q.includes('Alpha')), 'never reuse a previous day')
+})
 
 test('schedule helpers respect the configured timezone', () => {
   const instant = new Date('2026-08-31T16:30:00.000Z')

@@ -183,7 +183,10 @@ test('manual aliases are only searched and scored after metadata and title-only 
     return [candidate]
   })
   assert.equal(match.searchStage, 'manual-alias')
-  assert.ok(calls.indexOf('track:"썸"') < calls.findIndex((query) => query.includes('Some')))
+  assert.ok(calls.includes('track:"썸"'))
+  // The candidate was already retrieved: manual scoring may now reuse it,
+  // but only after all metadata stages have failed.
+  assert.ok(!calls.some(query => query.includes('Some')))
   assert.equal(new Set(calls).size, calls.length)
 })
 

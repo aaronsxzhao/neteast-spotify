@@ -21,6 +21,15 @@ const TITLE_ALIASES = new Map([
 const VERIFIED_TITLES = new Map([
   ['1317162660', ['Haru no Mori no Kaiten Mokuba']],
   ['1305365761', ['素顔のままで']],
+  ['1857311472', ['Rain Song (Feat. Colde)']],
+  ['28593407', ['Your scent']],
+  ['441489617', ['Find out～One Thing～']],
+])
+
+// Reviewed re-recordings whose Spotify titles omit their edition label.
+// Never replace the 1999 Back recording with Karen Mok's 2021 re-recording.
+const DIFFERENT_RECORDINGS = new Map([
+  ['277771', new Set(['3PxBghSD7mhVd4ozof4XSd', '4Ul5j6ipSKRZupur8fuBw5'])],
 ])
 
 const ARTIST_ALIASES = new Map([
@@ -39,6 +48,13 @@ const ARTIST_ALIASES = new Map([
   ['中嶋美智代', ['Michiyo Nakajima']],
   ['斉藤和義', ['Kazuyoshi Saito']],
   ['西原健一郎', ['Kenichiro Nishihara']],
+  ['広瀬香美', ['Kohmi Hirose']],
+  ['小林明子', ['Akiko Kobayashi']],
+  ['パイパー', ['PIPER']],
+  ['有里知花', ['Chika Yuri', 'Yuri Chika']],
+  ['角松敏生', ['Toshiki Kadomatsu']],
+  ['黒川沙良', ['Sala Kurokawa']],
+  ['莫文蔚', ['Karen Mok']],
 ])
 
 export function normalize(value = '') {
@@ -146,8 +162,22 @@ export function songTitles(song, { manual = true } = {}) {
 }
 
 export function searchableArtists(song, { manual = true } = {}) {
-  const names = (song.ar || song.artists || []).flatMap(metadataNames)
+  const names = (song.ar || song.artists || []).flatMap(metadataNames).flatMap(artistNameVariants)
   return unique(names.flatMap((artist) => [artist, ...(manual ? catalogAliases(ARTIST_ALIASES, artist) : [])]))
+}
+
+// Preserve the full credit (including band names with &) and add only bounded
+// components. Never accept arbitrary substrings such as Some / Someone.
+function artistNameVariants(value) {
+  const full = String(value || '').normalize('NFKC')
+  const parts = full.split(/(?<=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Latin}])|(?<=[\p{Script=Latin}])\s+(?=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/u)
+  return unique([full, ...parts, ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
+}
+
+function recordingTitle(value) {
+  // Strip a clearly delimited edition suffix, not ordinary song subtitles.
+  // Version compatibility is checked separately using title AND album context.
+  return String(value).normalize('NFKC').replace(/\s*(?:[-–—]|\()\s*(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
 }
 
 function quoted(value) {
@@ -189,6 +219,7 @@ export function songSearchStages(song) {
   const albumQueries = (credits) => albums.flatMap(album => [
     ...credits.map(artist => `album:"${quoted(album)}" artist:"${quoted(artist)}"`),
     ...titles.slice(0, 4).map(title => `track:"${quoted(title)}" album:"${quoted(album)}"`),
+    ...titles.slice(0, 2).map(title => `${quoted(title)} ${quoted(album)}`),
   ])
   const seen = new Set()
   return [
@@ -217,15 +248,14 @@ export function songDuration(song) {
 }
 
 function evidence(song, candidate, options) {
-  const targetTitles = titleVariants(candidate.name)
-  const title = Math.max(0, ...songTitles(song, options).flatMap((value) => targetTitles.map((target) => similarity(value, target))))
+  const targetTitles = titleVariants(candidate.name).map(recordingTitle)
+  const title = Math.max(0, ...songTitles(song, options).flatMap((value) => targetTitles.map((target) => similarity(recordingTitle(value), target))))
   const neteaseArtists = searchableArtists(song, options)
   const spotifyArtists = (candidate.artists || []).map((artist) => artist.name)
   let artist = 0
   for (const left of neteaseArtists) {
     for (const right of spotifyArtists) {
-      const credits = [left, ...String(left).split(/\s*[,&]\s*/)]
-      artist = Math.max(artist, ...credits.map((credit) => similarity(credit, right)))
+      artist = Math.max(artist, ...artistNameVariants(left).flatMap(credit => artistNameVariants(right).map(target => similarity(credit, target))))
     }
   }
 
@@ -242,7 +272,8 @@ function evidence(song, candidate, options) {
     return /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u.test(name) ? length >= 5 : length >= 8
   })
   const crossLanguage = crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
-  const versionMismatch = recordingKinds(song.name) !== recordingKinds(candidate.name)
+  const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
+    Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []
   const guestNames = sourceCredits.slice(1).flatMap(metadataNames)
   const targetGuests = spotifyArtists.slice(1)
@@ -257,19 +288,32 @@ function evidence(song, candidate, options) {
   const eligible = !versionMismatch && !creditConflict && durationCompatible && title >= 0.78 && (artist >= 0.85 || crossLanguage)
   const weighted = title * 0.56 + artist * 0.28 + duration * 0.12 + album * 0.04
   const score = Number(Math.max(weighted, crossLanguage ? 0.82 + album * 0.1 : 0).toFixed(4))
-  return { title, artist, album, difference, crossLanguage, creditConflict, eligible, score }
+  const rejectionReasons = [
+    ...(candidate.is_playable === false ? ['unplayable'] : []),
+    ...(versionMismatch ? ['recording-version'] : []),
+    ...(creditConflict ? ['guest-credits'] : []),
+    ...(!durationCompatible ? ['duration'] : []),
+    ...(title < 0.78 ? ['title'] : []),
+    ...(artist < 0.85 && !crossLanguage ? ['artist-identity'] : []),
+  ]
+  return { title, artist, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, eligible, score, rejectionReasons }
 }
 
-function recordingKinds(name = '') {
+function recordingKinds(name = '', album = '') {
   const value = String(name).normalize('NFKC')
+  const context = `${value} ${album}`.normalize('NFKC')
   return [
-    /\blive\b|现场|現場|ライブ/i,
-    /\bacoustic\b|不插电|不插電|アコースティック/i,
+    /\blive\b|\bunplugged\b|现场|現場|ライブ/i.test(context),
+    /\bacoustic\b|\bunplugged\b|不插电|不插電|アコースティック/i.test(context),
+    ...[
     /\binstrumental\b|\bkaraoke\b|伴奏|カラオケ/i,
     /\bremix\b|\bre-mix\b|リミックス/i,
     /\bsped\s*up\b|\bslowed\b/i,
     /\boriginal\s+ver(?:sion)?\b/i,
-  ].map((pattern) => Number(pattern.test(value))).join('')
+    /\bbootleg\b/i,
+    /\bmashup\b/i,
+  ].map(pattern => pattern.test(value)),
+  ].map(Number).join('')
 }
 
 export function scoreCandidate(song, candidate, options = {}) {
@@ -314,6 +358,12 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null) {
   const candidates = new Map()
   let queryCount = 0
   for (const stage of songSearchStages(song)) {
+    // Re-score retrieved candidates with curated names before spending more
+    // requests. Aliases remain a last resort, after every metadata stage.
+    if (stage.manual) {
+      const existing = pickBestMatch(song, [...candidates.values()], 0.68, { manual: true })
+      if (existing) return { ...existing, searchStage: stage.name }
+    }
     for (const query of stage.queries) {
       queryCount++
       for (const candidate of await searchTracks(query, 10)) {
@@ -330,6 +380,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null) {
     if (match) return { ...match, searchStage: stage.name }
   }
   if (diagnostics) Object.assign(diagnostics, {
+    reason: [...candidates.values()].some(candidate => candidate.is_playable !== false && evidence(song, candidate, { manual: true }).eligible) ? 'ambiguous-recordings' : candidates.size ? 'no-eligible-candidate' : 'no-results',
     queryCount, candidateCount: candidates.size,
     candidates: [...candidates.values()].map((candidate) => ({
       ...evidence(song, candidate, { manual: true }), id: candidate.id, name: candidate.name,
@@ -347,5 +398,9 @@ export function sourceSongView(song) {
     artists: songArtists(song),
     album: songAlbum(song),
     durationMs: songDuration(song),
+    // Keep safe catalog metadata for offline replay; never include cookies.
+    titles: metadataNames(song),
+    artistNames: (song.ar || song.artists || []).map(metadataNames),
+    albumNames: metadataNames(song.al || song.album),
   }
 }

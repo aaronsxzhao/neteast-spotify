@@ -2,7 +2,7 @@ import { dateInTimezone } from './sync.js'
 
 // Hourly recovery runs only act on a persisted cooldown. They must not move
 // the normal morning sync to midnight or re-fetch an already successful day.
-export async function runCloudSync(sync, { force = false, recoveryOnly = false } = {}, now = new Date()) {
+export async function runCloudSync(sync, { force = false, recoveryOnly = false, retryUnmatched = false } = {}, now = new Date()) {
   const { spotify, settings, sync: status } = sync.store.state
   const retryAt = Number(spotify.retryAfterUntil || 0)
   if (retryAt > now.getTime()) {
@@ -15,7 +15,7 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false }
   }
   // A failed forced update may follow a successful sync on the same day.
   // Its pending cooldown still needs one recovery, cleared only on success.
-  return sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true })
+  return sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true } : {}) })
 }
 
 export function cloudRunSummary(run) {

@@ -35,7 +35,7 @@ export class SyncService {
     return this.#running
   }
 
-  async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false } = {}) {
+  async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false, retryUnmatched = false } = {}) {
     const { settings, sync } = this.store.state
     const date = dateInTimezone(settings.timezone)
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
@@ -51,8 +51,23 @@ export class SyncService {
       const songs = await this.getRecommendations(settings.neteaseCookie)
       const matches = []
       const unmatched = []
+      const previous = sync.lastSuccessfulRun
+      const reusable = retryUnmatched && previous?.date === date && previous.playlistId === sync.playlistId
+        ? previous.matches || [] : []
 
       for (const song of songs) {
+        const source = sourceSongView(song)
+        // Explicit repair mode only: keep today's already confirmed entries,
+        // but re-search if any identity field changed. Never reuse misses.
+        const cached = reusable.find(match => match.source.id === source.id &&
+          match.source.name === source.name && match.source.album === source.album &&
+          match.source.durationMs === source.durationMs &&
+          JSON.stringify(match.source.artists) === JSON.stringify(source.artists) &&
+          match.spotify?.uri?.startsWith('spotify:track:'))
+        if (cached) {
+          matches.push({ ...cached, source, searchStage: 'same-day-confirmed' })
+          continue
+        }
         const diagnostics = {}
         const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics)
 

@@ -66,6 +66,10 @@ Search proceeds through title-and-artist queries, title-only queries, then the m
 
 When artist names use different writing systems, an exact title and a duration within 2.5 seconds can qualify, with matching album metadata or a sufficiently distinctive title. Same-script conflicting artist credits do not qualify through that exception. Close competing recordings remain unmatched, and obvious live/acoustic/remix/instrumental/speed-altered version differences are rejected. This is a heuristic, not proof of recording identity; missing metadata, short titles, unavailable tracks, and cross-language names without any shared title can still require manual aliases.
 
+Mixed-script display credits (such as `김수영 Kim Suyoung`) are compared using complete name components, not arbitrary substrings. Live/unplugged album context is checked alongside track edition labels. Diagnostic reports retain safe source aliases and explicit rejection reasons. Verified fallback names are applied only after metadata searches, first re-scoring existing candidates to avoid redundant requests.
+
+For a same-day repair in GitHub Actions, enable both **force** and **retry_unmatched**. This reuses unchanged, previously confirmed matches from today's successful run and searches the remaining tracks, preserving the current NetEase order. Ordinary runs still search every track; a new day or changed source identity is never reused. Repair mode does not override Spotify cooldowns.
+
 NetEase does not offer a public official API for daily recommendations. This project uses the community-maintained `@neteasecloudmusicapienhanced/api` package, so NetEase changes may occasionally require a dependency update. Spotify authorization refresh tokens currently expire after six months; the dashboard will ask you to reconnect when necessary.
 
 This project does not download or transfer audio. It only recreates a list of matching tracks that already exist on Spotify.
