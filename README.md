@@ -70,6 +70,8 @@ Mixed-script display credits (such as `김수영 Kim Suyoung`) are compared usin
 
 For a same-day repair in GitHub Actions, enable both **force** and **retry_unmatched**. This reuses unchanged, previously confirmed matches from today's successful run and searches the remaining tracks, preserving the current NetEase order. Ordinary runs still search every track; a new day or changed source identity is never reused. Repair mode does not override Spotify cooldowns.
 
+Optionally set **retry_source_ids** to comma-separated NetEase song IDs for a targeted repair. Other unchanged same-day misses remain explicitly unmatched; new or changed source entries are still searched. Leaving this field empty retries all misses.
+
 NetEase does not offer a public official API for daily recommendations. This project uses the community-maintained `@neteasecloudmusicapienhanced/api` package, so NetEase changes may occasionally require a dependency update. Spotify authorization refresh tokens currently expire after six months; the dashboard will ask you to reconnect when necessary.
 
 This project does not download or transfer audio. It only recreates a list of matching tracks that already exist on Spotify.

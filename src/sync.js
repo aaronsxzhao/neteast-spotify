@@ -20,6 +20,11 @@ export function hourInTimezone(timezone, date = new Date()) {
   }).format(date))
 }
 
+function sameSource(left, right) {
+  return left.id === right.id && left.name === right.name && left.album === right.album &&
+    left.durationMs === right.durationMs && JSON.stringify(left.artists) === JSON.stringify(right.artists)
+}
+
 export class SyncService {
   #running = null
 
@@ -35,7 +40,7 @@ export class SyncService {
     return this.#running
   }
 
-  async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false, retryUnmatched = false } = {}) {
+  async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false, retryUnmatched = false, retrySourceIds = [] } = {}) {
     const { settings, sync } = this.store.state
     const date = dateInTimezone(settings.timezone)
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
@@ -52,20 +57,24 @@ export class SyncService {
       const matches = []
       const unmatched = []
       const previous = sync.lastSuccessfulRun
-      const reusable = retryUnmatched && previous?.date === date && previous.playlistId === sync.playlistId
-        ? previous.matches || [] : []
+      const sameDayRepair = retryUnmatched && previous?.date === date && previous.playlistId === sync.playlistId
+      const reusable = sameDayRepair ? previous.matches || [] : []
+      const selected = new Set(retrySourceIds.map(String))
 
       for (const song of songs) {
         const source = sourceSongView(song)
         // Explicit repair mode only: keep today's already confirmed entries,
         // but re-search if any identity field changed. Never reuse misses.
-        const cached = reusable.find(match => match.source.id === source.id &&
-          match.source.name === source.name && match.source.album === source.album &&
-          match.source.durationMs === source.durationMs &&
-          JSON.stringify(match.source.artists) === JSON.stringify(source.artists) &&
+        const cached = reusable.find(match => sameSource(match.source, source) &&
           match.spotify?.uri?.startsWith('spotify:track:'))
         if (cached) {
           matches.push({ ...cached, source, searchStage: 'same-day-confirmed' })
+          continue
+        }
+        const deferred = sameDayRepair && selected.size && !selected.has(String(song.id)) &&
+          previous.unmatched?.find(miss => sameSource(miss, source))
+        if (deferred) {
+          unmatched.push({ ...deferred, ...source })
           continue
         }
         const diagnostics = {}

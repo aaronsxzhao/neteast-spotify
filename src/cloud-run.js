@@ -44,7 +44,11 @@ async function main() {
     finally { methods.forEach((name, index) => { console[name] = originals[index] }) }
   })
   const force = process.env.FORCE_SYNC === 'true'
-  const run = await runCloudSync(sync, { force, recoveryOnly: process.env.RECOVERY_ONLY === 'true', retryUnmatched: process.env.RETRY_UNMATCHED === 'true' })
+  const run = await runCloudSync(sync, {
+    force, recoveryOnly: process.env.RECOVERY_ONLY === 'true',
+    retryUnmatched: process.env.RETRY_UNMATCHED === 'true',
+    retrySourceIds: (process.env.RETRY_SOURCE_IDS || '').split(',').map(id => id.trim()).filter(Boolean),
+  })
   const summary = cloudRunSummary(run)
   console.log(summary)
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`)

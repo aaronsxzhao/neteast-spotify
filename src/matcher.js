@@ -341,6 +341,18 @@ function compatibleRelease(left, right, source) {
     Math.abs(songDuration(source) - a.duration_ms) <= 2500 && Math.abs(songDuration(source) - b.duration_ms) <= 2500
 }
 
+function strongerSourceEvidence(best, rival) {
+  const credits = candidate => (candidate.artists || []).map(artist => artist.id).filter(Boolean).sort().join('|')
+  // A near-exact source duration PLUS closer album metadata can disambiguate
+  // reissues by the same credited artists. Do not collapse them as identical,
+  // and never use this for another artist, unknown IDs, or equal album evidence.
+  return best.title >= 0.98 && rival.title >= 0.98 && best.artist >= 0.98 && rival.artist >= 0.98 &&
+    credits(best.candidate) && credits(best.candidate) === credits(rival.candidate) &&
+    best.candidate.artists.every(artist => artist.id) && rival.candidate.artists.every(artist => artist.id) &&
+    best.difference <= 250 && rival.difference >= 2500 && rival.difference <= 8000 &&
+    best.albumSimilarity > rival.albumSimilarity && best.score > rival.score
+}
+
 export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) {
   const ranked = candidates.filter((candidate) => candidate && candidate.is_playable !== false)
     .map((candidate) => ({ candidate, ...evidence(song, candidate, options) }))
@@ -349,8 +361,9 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   const best = ranked[0]
   if (!best) return null
   // Duplicated releases are fine; competing recordings need a clear winner.
-  const rival = ranked.find((match) => !compatibleRelease(best, match, song))
-  if (rival && best.score - rival.score < 0.05) return null
+  const ambiguous = ranked.some(match => !compatibleRelease(best, match, song) &&
+    best.score - match.score < 0.05 && !strongerSourceEvidence(best, match))
+  if (ambiguous) return null
   return best
 }
 

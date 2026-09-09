@@ -39,6 +39,16 @@ test('source-scoped Korean translation and compound target credits retain checks
   assert.ok(pickBestMatch(rain, [target('Rain Song (Feat. Colde)', 'Epik High', 245000)]))
 })
 
+test('near-exact duration and closer album evidence disambiguate same-artist reissues', () => {
+  const song = source('恋におちて -Fall In love-', '小林明子', 301603, { al: { name: '小林明子 ゴールデン☆ベスト' } })
+  const original = target('恋におちて -Fall in love-', 'Akiko Kobayashi', 301546, { album: { name: 'GOLDEN☆BEST 小林明子 Single Collection～恋におちて～' } })
+  const reissue = target(original.name, 'Akiko Kobayashi', 304705, { id: 'reissue', album: { name: '恋におちて－Fall in love－ / 夏の終わりに BESTタッグ' } })
+  assert.equal(pickBestMatch(song, [reissue, original])?.candidate.id, 'correct')
+  assert.equal(pickBestMatch(song, [original, { ...reissue, artists: [{ id: 'other', name: 'Akiko Kobayashi' }] }]), null)
+  assert.equal(pickBestMatch(song, [original, { ...reissue, album: original.album }]), null)
+  assert.equal(pickBestMatch(song, [{ ...original, duration_ms: 300600 }, reissue]), null)
+})
+
 test('reviewed romanized credits and missing subtitle are retrieval hints, not exemptions', () => {
   const cases = [
     [source('Groovy!', '広瀬香美', 266973), target('Groovy!', 'Kohmi Hirose', 259133)],

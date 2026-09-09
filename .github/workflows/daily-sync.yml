@@ -11,6 +11,10 @@ on:
         description: Repair unmatched only (enable force too); reuse unchanged matches from today
         type: boolean
         default: false
+      retry_source_ids:
+        description: Optional comma-separated NetEase song IDs to retry in repair mode
+        type: string
+        default: ''
   schedule:
     # UTC: Beijing 08:17, with recovery runs at 09:17 and 10:17.
     - cron: '17 0,1,2 * * *'
@@ -50,5 +54,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           FORCE_SYNC: ${{ inputs.force || false }}
           RETRY_UNMATCHED: ${{ inputs.retry_unmatched || false }}
+          RETRY_SOURCE_IDS: ${{ inputs.retry_source_ids || '' }}
           RECOVERY_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '35 * * * *' }}
         run: node src/cloud-run.js

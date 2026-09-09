@@ -7,11 +7,13 @@ test('explicit unmatched repair reuses only unchanged same-day matches in source
   const a = { id: 1, name: 'Alpha', ar: [{ name: 'Singer' }], dt: 200000 }
   const b = { id: 2, name: 'Beta', ar: [{ name: 'Singer' }], dt: 210000 }
   const c = { id: 3, name: 'Gamma', ar: [{ name: 'Singer' }], dt: 220000 }
+  const d = { id: 4, name: 'Missing recording', ar: [{ name: 'Different' }], dt: 280000 }
   const state = {
     settings: { neteaseCookie: 'MUSIC_U=test', timezone: 'Asia/Shanghai' },
     spotify: { refreshToken: 'test' },
     sync: { playlistId: 'playlist', lastSuccessfulRun: {
       date: dateInTimezone('Asia/Shanghai'), playlistId: 'playlist',
+      unmatched: [{ ...sourceSongView(d), diagnostics: { reason: 'no-results' } }],
       matches: [
         { source: sourceSongView(a), spotify: { uri: 'spotify:track:a' } },
         { source: { ...sourceSongView(c), durationMs: 190000 }, spotify: { uri: 'spotify:track:stale' } },
@@ -28,17 +30,21 @@ test('explicit unmatched repair reuses only unchanged same-day matches in source
     async updatePlaylist() {},
   }
   const store = { state, async update(fn) { fn(state) } }
-  const service = new SyncService(store, spotify, async () => [b, a, c])
-  await service.run({ retryUnmatched: true })
+  const service = new SyncService(store, spotify, async () => [b, a, c, d])
+  const repaired = await service.run({ retryUnmatched: true, retrySourceIds: ['2'] })
+  assert.equal(repaired.unmatchedCount, 1)
+  assert.ok(!queries.some(q => q.includes('Missing recording')))
   assert.deepEqual(written, ['spotify:track:2', 'spotify:track:a', 'spotify:track:3'])
   assert.ok(!queries.some(q => q.includes('Alpha')))
   assert.ok(queries.some(q => q.includes('Gamma')))
   queries.length = 0
   await service.run()
+  assert.ok(queries.some(q => q.includes('Missing recording')))
   assert.ok(queries.some(q => q.includes('Alpha')), 'ordinary sync must not reuse old decisions')
   state.sync.lastSuccessfulRun.date = '2000-01-01'
   queries.length = 0
-  await service.run({ retryUnmatched: true })
+  await service.run({ retryUnmatched: true, retrySourceIds: ['2'] })
+  assert.ok(queries.some(q => q.includes('Missing recording')))
   assert.ok(queries.some(q => q.includes('Alpha')), 'never reuse a previous day')
 })
 
