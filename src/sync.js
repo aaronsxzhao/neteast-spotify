@@ -120,6 +120,7 @@ export class SyncService {
         data.sync.lastSyncedDate = date
         data.sync.lastRun = run
         data.sync.lastSuccessfulRun = run
+        delete data.spotify.retryAfterUntil
         data.sync.history = [run, ...(data.sync.history || [])].slice(0, 14)
       })
       return run

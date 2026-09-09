@@ -10,6 +10,9 @@ on:
   schedule:
     # UTC: Beijing 08:17, with recovery runs at 09:17 and 10:17.
     - cron: '17 0,1,2 * * *'
+    # Check pending cooldowns hourly. No provider requests before expiry or
+    # when there is nothing to recover; successful runs clear the pending flag.
+    - cron: '35 * * * *'
 
 permissions:
   contents: write
@@ -42,4 +45,5 @@ jobs:
           DAILY_RELAY_STATE_KEY: ${{ secrets.DAILY_RELAY_STATE_KEY }}
           GITHUB_TOKEN: ${{ github.token }}
           FORCE_SYNC: ${{ inputs.force || false }}
+          RECOVERY_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '35 * * * *' }}
         run: node src/cloud-run.js

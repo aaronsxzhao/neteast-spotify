@@ -3,6 +3,7 @@ import { CloudStore, GitHubState, parseConfig } from './cloud-state.js'
 import { SpotifyClient } from './spotify.js'
 import { SyncService } from './sync.js'
 import { getDailyRecommendations } from './netease.js'
+import { runCloudSync, cloudRunSummary } from './cloud-policy.js'
 
 function mask(value) {
   if (typeof value !== 'string' || !value) return
@@ -43,8 +44,8 @@ async function main() {
     finally { methods.forEach((name, index) => { console[name] = originals[index] }) }
   })
   const force = process.env.FORCE_SYNC === 'true'
-  const run = await sync.run({ scheduled: !force, requireExistingPlaylist: true, rejectEmptyMatches: true })
-  const summary = run.skipped ? 'Already synced today; no playlist changes.' : `Synced ${run.matchedCount} of ${run.sourceCount} tracks for ${run.date}.`
+  const run = await runCloudSync(sync, { force, recoveryOnly: process.env.RECOVERY_ONLY === 'true' })
+  const summary = cloudRunSummary(run)
   console.log(summary)
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`)
 }

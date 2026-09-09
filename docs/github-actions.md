@@ -2,6 +2,8 @@
 
 The `Daily Spotify Sync` workflow runs on GitHub's Ubuntu runners at approximately 08:17 Beijing time. Recovery runs at 09:17 and 10:17 skip automatically if today's sync succeeded. GitHub may delay or drop schedules; this is not an exact-time guarantee.
 
+Additional recovery checks run at minute 35 of every hour. They read the encrypted cooldown deadline and do not contact either music provider while it is active. After expiry, a pending recovery runs once; success clears the cooldown and later hourly checks do nothing. If another long rate limit occurs, the new deadline is saved. Other recovery failures retain the pending state for the next hourly check. With no pending cooldown, these checks do not perform the day's normal sync early. Manual force cannot override an active provider cooldown. Waiting checks finish successfully with a clear waiting message rather than a misleading sync-failure error.
+
 ## One-time setup
 
 1. Connect both accounts in the local dashboard and sync once to create the target playlist.
