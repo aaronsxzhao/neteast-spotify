@@ -18,8 +18,8 @@ on:
   schedule:
     # UTC: Beijing 08:17, with recovery runs at 09:17 and 10:17.
     - cron: '17 0,1,2 * * *'
-    # Check pending cooldowns hourly. No provider requests before expiry or
-    # when there is nothing to recover; successful runs clear the pending flag.
+    # Hourly catch-up after 08:00 Beijing if today's sync was missed or failed.
+    # Also recover expired cooldowns; never bypass an active provider cooldown.
     - cron: '35 * * * *'
 
 permissions:
