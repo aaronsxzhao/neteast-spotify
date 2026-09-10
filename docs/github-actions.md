@@ -1,6 +1,6 @@
 # GitHub Actions daily sync
 
-The `Daily Spotify Sync` workflow runs on GitHub's Ubuntu runners at approximately 08:17 Beijing time. Recovery runs at 09:17 and 10:17 skip automatically if today's sync succeeded. GitHub may delay or drop schedules; this is not an exact-time guarantee.
+The `Daily Spotify Sync` workflow runs on GitHub's Ubuntu runners at approximately 08:00 Beijing time. Recovery runs at 09:00 and 10:00 skip automatically if today's sync succeeded. The cron uses UTC: 00:00, 01:00 and 02:00 respectively. GitHub may delay or drop schedules; this is not an exact-time guarantee.
 
 Additional checks run at minute 35 of every hour. After 08:00 in the configured timezone (Beijing by default), they catch up any day that has not synced successfully, including missed morning schedules and ordinary failed attempts. They skip an already successful day and do not start a new day's sync before 08:00. They also read the encrypted cooldown deadline and never contact either music provider while it is active. After expiry, a pending recovery can run even before 08:00 or after an earlier same-day success; success clears the cooldown. If another long rate limit occurs, the new deadline is saved. Other failures remain eligible for the next check. Manual force cannot override an active provider cooldown. Waiting/skipped checks finish successfully with a clear reason; only a `Synced ...` summary means the playlist was updated. GitHub scheduling delays can also affect hourly checks.
 

@@ -16,8 +16,8 @@ on:
         type: string
         default: ''
   schedule:
-    # UTC: Beijing 08:17, with recovery runs at 09:17 and 10:17.
-    - cron: '17 0,1,2 * * *'
+    # UTC 00:00/01:00/02:00 = Beijing 08:00/09:00/10:00.
+    - cron: '0 0,1,2 * * *'
     # Hourly catch-up after 08:00 Beijing if today's sync was missed or failed.
     # Also recover expired cooldowns; never bypass an active provider cooldown.
     - cron: '35 * * * *'
