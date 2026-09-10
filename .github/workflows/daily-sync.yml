@@ -18,9 +18,9 @@ on:
   schedule:
     # UTC 00:00/01:00/02:00 = Beijing 08:00/09:00/10:00.
     - cron: '0 0,1,2 * * *'
-    # Hourly catch-up after 08:00 Beijing if today's sync was missed or failed.
+    # Check every 15 minutes, off the busy hour, after 08:00 Beijing.
     # Also recover expired cooldowns; never bypass an active provider cooldown.
-    - cron: '35 * * * *'
+    - cron: '5,20,35,50 * * * *'
 
 permissions:
   contents: write
@@ -55,5 +55,5 @@ jobs:
           FORCE_SYNC: ${{ inputs.force || false }}
           RETRY_UNMATCHED: ${{ inputs.retry_unmatched || false }}
           RETRY_SOURCE_IDS: ${{ inputs.retry_source_ids || '' }}
-          RECOVERY_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '35 * * * *' }}
+          RECOVERY_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '5,20,35,50 * * * *' }}
         run: node src/cloud-run.js

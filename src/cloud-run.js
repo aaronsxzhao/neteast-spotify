@@ -52,8 +52,8 @@ async function main() {
     retryUnmatched: process.env.RETRY_UNMATCHED === 'true',
     retrySourceIds: (process.env.RETRY_SOURCE_IDS || '').split(',').map(id => id.trim()).filter(Boolean),
   }) } finally {
-    const { requests, cacheHits, lastStatus, lastOperation } = spotify.safety.stats
-    console.log(`Spotify request metrics: requests=${requests}, cachedQueries=${cacheHits}, lastOperation=${lastOperation ?? 'none'}, lastStatus=${lastStatus ?? 'none'}, completedSongs=${run?.sourceCount ?? store.state.sync.checkpoint?.completed ?? 0}.`)
+    const { requests, cacheHits, retries, lastStatus, lastOperation } = spotify.safety.stats
+    console.log(`Spotify request metrics: requests=${requests}, cachedQueries=${cacheHits}, retries=${retries}, lastOperation=${lastOperation ?? 'none'}, lastStatus=${lastStatus ?? 'none'}, completedSongs=${run?.sourceCount ?? store.state.sync.checkpoint?.completed ?? 0}.`)
   }
   const summary = cloudRunSummary(run)
   console.log(summary)

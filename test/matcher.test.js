@@ -198,6 +198,27 @@ test('scores all candidates from a search stage instead of accepting the first r
   assert.equal(match.candidate.id, 'correct')
 })
 
+test('exact title, primary artist, album and duration stop redundant alias searches', async () => {
+  const source = { ...song, tns: ['Translated Title', 'Another Alias'] }
+  let calls = 0
+  const match = await findTrackMatch(source, async () => {
+    calls++; return [{ id: 'exact', name: song.name, artists: song.ar, album: song.al, duration_ms: song.dt }]
+  })
+  assert.equal(match.candidate.id, 'exact'); assert.equal(match.earlyExit, true)
+  assert.equal(calls, 1)
+})
+
+test('fast matching never skips an ambiguous result pool or accepts guest-only identity', async () => {
+  const source = { ...song, tns: ['Translated Title'] }
+  let calls = 0
+  const match = await findTrackMatch(source, async () => {
+    calls++; return ['one', 'two'].map(id => ({ id, name: song.name, artists: [{ name: 'The Weeknd', id }], album: song.al, duration_ms: song.dt }))
+  })
+  assert.equal(match, null); assert.ok(calls > 1)
+  const guest = await findTrackMatch(source, async () => [{id:'guest', name:song.name, artists:[{name:'Another Artist'},...song.ar],album:song.al,duration_ms:song.dt}])
+  assert.notEqual(guest?.earlyExit, true)
+})
+
 test('cross-language matches require exact title, tight duration, and evidence for short titles', () => {
   const source = { name: 'Some', ar: [{ name: '歌手' }], al: { name: 'Summer Album' }, dt: 210_000 }
   const candidate = { name: 'Some', artists: [{ name: 'Singer' }], duration_ms: 210_000 }

@@ -41,7 +41,7 @@ export class RequestSafety {
   }
 
   beginRun() {
-    this.stats = { requests: 0, cacheHits: 0, lastStatus: null, lastOperation: null }
+    this.stats = { requests: 0, cacheHits: 0, retries: 0, lastStatus: null, lastOperation: null }
   }
 
   check() {
@@ -70,7 +70,41 @@ export class RequestSafety {
   }
 
   fetch(fetchImpl, url, options) {
-    const operation = this.queue.then(async () => {
+    const operation = this.queue.then(() => this.fetchWithRetries(fetchImpl, url, options))
+    this.queue = operation.catch(() => {})
+    return operation
+  }
+
+  async fetchWithRetries(fetchImpl, url, options) {
+    // Retry only reads: a timed-out token rotation or playlist POST may have
+    // already taken effect. Never replay these ambiguous writes automatically.
+    const readOnly = ['GET', 'HEAD'].includes((options?.method || 'GET').toUpperCase())
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const response = await this.sendOnce(fetchImpl, url, options)
+        if (this.store.state.spotify.pauseReason === 'transient-retry') {
+          await this.store.update(state => {
+            delete state.spotify.retryNotBefore
+            delete state.spotify.pauseReason
+          })
+        }
+        return response
+      } catch (error) {
+        if (!error.transient) throw error // In particular: never retry a 429.
+        const until = Math.max(this.now() + [2000, 8000][Math.min(attempt, 1)],
+          error.retryAfter ? retryDeadline(error.retryAfter, this.now()) : 0)
+        if (!readOnly || attempt >= 2 || until - this.now() > 60_000) {
+          throw await this.transient(error.status, error.retryAfter)
+        }
+        // Persist BEFORE waiting: crashes/new runners cannot bypass the wait.
+        await this.backoff('transient-retry', until)
+        this.stats.retries++
+        await this.sleep(Math.max(0, until - this.now()))
+      }
+    }
+  }
+
+  async sendOnce(fetchImpl, url, options) {
       this.check()
       let previous = this.store.state.spotify.requestTimes || []
       const wait = Math.max(0, (previous.at(-1) || 0) + this.minIntervalMs - this.now())
@@ -103,8 +137,9 @@ export class RequestSafety {
       this.stats.requests++
       this.stats.lastOperation = url.includes('/api/token') ? 'authorization' : url.includes('/search?') ? 'search' : 'playlist-or-profile'
       let response
+      this.stats.lastStatus = null
       try { response = await fetchImpl(url, options) }
-      catch { throw await this.transient(undefined) }
+      catch { throw Object.assign(new Error('network-error'), { transient: true }) }
       this.stats.lastStatus = response.status
       if (response.status === 429) {
         const until = retryDeadline(response.headers?.get('retry-after'), this.now())
@@ -113,10 +148,9 @@ export class RequestSafety {
         })
         throw pauseError('provider-cooldown', this.store.state.spotify.retryAfterUntil, 429)
       }
-      if (response.status >= 500) throw await this.transient(response.status, response.headers?.get('retry-after'))
+      if (response.status >= 500) throw Object.assign(new Error('provider-error'), {
+        transient: true, status: response.status, retryAfter: response.headers?.get('retry-after'),
+      })
       return response
-    })
-    this.queue = operation.catch(() => {})
-    return operation
   }
 }

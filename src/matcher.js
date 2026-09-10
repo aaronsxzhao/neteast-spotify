@@ -417,6 +417,19 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
         const key = candidate.id || candidate.uri || JSON.stringify(candidate)
         candidates.set(key, candidate)
       }
+      // Stop generating script/alias combinations once all identity fields
+      // agree. Borderline, cross-language and ambiguous results still use the
+      // full stage and the existing recall/alternate-version fallbacks.
+      const definite = pickBestMatch(song, [...candidates.values()], 0.68, { manual: stage.manual })
+      const primary = (song.ar || song.artists || [])[0]
+      const primaryNames = searchableArtists({ ar: primary ? [primary] : [] }, { manual: stage.manual })
+        .flatMap(artistNameVariants).map(normalize)
+      const samePrimary = artistNameVariants(definite?.candidate.artists?.[0]?.name)
+        .some(name => primaryNames.includes(normalize(name)))
+      if (definite && samePrimary && !definite.crossLanguage && definite.title >= 0.98 &&
+        definite.artist >= 0.98 && definite.albumSimilarity >= 0.98 && definite.difference <= 1000) {
+        return { ...definite, searchStage: stage.name, earlyExit: true }
+      }
     }
     // Assess the whole stage, not the first vaguely plausible search result.
     const pool = [...candidates.values()]

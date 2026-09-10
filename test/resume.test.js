@@ -21,7 +21,7 @@ for (const failure of ['503', 'budget']) test(`fresh cloud runner resumes songs 
     if (url.includes('/search?')) {
       const q = new URL(url).searchParams.get('q')
       queries.push(q)
-      if (q.includes('Beta') && ++betaCount === 2 && fail && failure === '503') return new Response('', { status: 503 })
+      if (q.includes('Beta') && ++betaCount >= 2 && fail && failure === '503') return new Response('', { status: 503 })
       return Response.json({ tracks: { items: sources.filter(s => q.includes(s.name)).map(candidate) } })
     }
     writes.push({ url, body: JSON.parse(options.body) })

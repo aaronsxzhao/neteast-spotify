@@ -103,14 +103,14 @@ test('budget migration clears only legacy local pause, retaining real cooldown a
   }
 })
 
-test('503 and network failures persist exponential backoff and never retry in-place', async () => {
+test('persistent 503 and network failures stop after two read retries and preserve backoff', async () => {
   const f = fixture()
   const guard = new RequestSafety(f.store, f.options)
   let calls = 0
   await assert.rejects(guard.fetch(async () => { calls++; return new Response('private error', { status: 503 }) }, 'search'), { status: 503, pauseReason: 'transient-backoff' })
   assert.equal(f.store.state.spotify.retryNotBefore, f.options.now() + 15 * 60_000)
   await assert.rejects(guard.fetch(async () => { calls++ }, 'search'), { pauseReason: 'transient-backoff' })
-  assert.equal(calls, 1)
+  assert.equal(calls, 3)
   f.advance(16 * 60_000)
   const next = new CloudStore(config, key, f.remote)
   await next.load()
@@ -118,6 +118,38 @@ test('503 and network failures persist exponential backoff and never retry in-pl
   await assert.rejects(second.fetch(async () => { throw Error('private URL and credentials') }, 'search'), { pauseReason: 'transient-backoff' })
   assert.equal(next.state.spotify.retryNotBefore, f.options.now() + 30 * 60_000)
   assert.ok(!JSON.stringify(decryptState(f.remote.text, key)).includes('private'))
+})
+
+test('a single 502 on a read retries in the same run, persists its wait, then clears it', async () => {
+  const f = fixture(); const guard = new RequestSafety(f.store, f.options)
+  let calls = 0
+  const response = await guard.fetch(async () => {
+    calls++
+    if (calls === 2) assert.equal(f.store.state.spotify.pauseReason, 'transient-retry')
+    return new Response('{}', { status: calls === 1 ? 502 : 200 })
+  }, 'search')
+  assert.equal(response.status, 200); assert.equal(calls, 2)
+  assert.equal(guard.stats.retries, 1); assert.equal(guard.stats.requests, 2)
+  assert.equal(f.store.state.spotify.retryNotBefore, undefined)
+  assert.ok(f.waits.reduce((a, b) => a + b, 0) >= 6000)
+})
+
+test('a 429 after a 502 immediately ends read retries and persists the full provider wait', async () => {
+  const f = fixture(); const guard = new RequestSafety(f.store, f.options); let calls = 0
+  await assert.rejects(guard.fetch(async () => ++calls === 1 ? new Response('', { status: 502 }) :
+    new Response('', { status: 429, headers: { 'retry-after': '3600' } }), 'search'), { pauseReason: 'provider-cooldown' })
+  assert.equal(calls, 2); assert.equal(f.store.state.spotify.retryAfterUntil, f.options.now() + 3600000)
+})
+
+test('token and playlist writes are not replayed; long Retry-After is never shortened', async () => {
+  for (const method of ['POST', 'PUT', 'DELETE']) {
+    const f = fixture(); const guard = new RequestSafety(f.store, f.options); let calls = 0
+    await assert.rejects(guard.fetch(async () => { calls++; return new Response('', { status: 502 }) }, 'write', { method }), { pauseReason: 'transient-backoff' })
+    assert.equal(calls, 1)
+  }
+  const f = fixture(); const guard = new RequestSafety(f.store, f.options); let calls = 0
+  await assert.rejects(guard.fetch(async () => { calls++; return new Response('', { status: 503, headers: { 'retry-after': '1800' } }) }, 'search'), { pauseReason: 'transient-backoff' })
+  assert.equal(calls, 1); assert.equal(f.store.state.spotify.retryNotBefore, f.options.now() + 1800000)
 })
 
 test('429 on token endpoint persists deadline and a fresh runner makes zero requests', async () => {
