@@ -31,16 +31,17 @@ test('uploads a base64 JPEG with the custom-cover content type', async () => {
   assert.equal(calls[0].options.body, '/9j/example')
 })
 
-test('search pacing and Retry-After respect provider cooldowns longer than ten seconds', async () => {
+test('even a short Retry-After is persisted and stops instead of retrying in place', async () => {
   const waits = []
   let calls = 0
   const store = { state: { spotify: { accessToken: 'test', refreshToken: 'test', expiresAt: Date.now() + 60000 } } }
+  store.update = async mutator => mutator(store.state)
   const client = new SpotifyClient(store, async () => ++calls === 1
     ? { status: 429, headers: new Headers({ 'retry-after': '45' }) }
     : new Response(JSON.stringify({ tracks: { items: [] } })), { sleep: async ms => waits.push(ms) })
-  assert.deepEqual(await client.searchTracks('example'), [])
-  assert.deepEqual(waits, [350, 45000])
-  assert.equal(calls, 2)
+  await assert.rejects(client.searchTracks('example'), error => error.status === 429 && error.retryAt > Date.now() + 44000)
+  assert.deepEqual(waits, [])
+  assert.equal(calls, 1)
 })
 
 test('a cooldown beyond the run budget stops without retrying early', async () => {
@@ -51,7 +52,7 @@ test('a cooldown beyond the run budget stops without retrying early', async () =
     calls++
     return { status: 429, headers: new Headers({ 'retry-after': '3600' }) }
   }, { sleep: async () => {} })
-  await assert.rejects(client.searchTracks('example'), error => error.status === 429 && error.retryAfterSeconds === 3600)
+  await assert.rejects(client.searchTracks('example'), error => error.status === 429 && error.retryAt > Date.now() + 3500000)
   assert.equal(calls, 1)
   assert.ok(store.state.spotify.retryAfterUntil > Date.now() + 3500000)
   await assert.rejects(client.searchTracks('example'), error => error.status === 429)

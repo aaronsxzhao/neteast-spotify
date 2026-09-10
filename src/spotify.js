@@ -1,5 +1,6 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { SPOTIFY_REDIRECT_URI, SPOTIFY_SCOPES } from './config.js'
+import { RequestSafety } from './request-safety.js'
 
 const API_BASE = 'https://api.spotify.com/v1'
 const ACCOUNTS_BASE = 'https://accounts.spotify.com'
@@ -20,10 +21,10 @@ async function readResponse(response) {
 }
 
 export class SpotifyClient {
-  constructor(store, fetchImpl = fetch, { sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
+  constructor(store, fetchImpl = fetch, safetyOptions = {}) {
     this.store = store
-    this.fetch = fetchImpl
-    this.sleep = sleep
+    this.safety = new RequestSafety(store, safetyOptions)
+    this.fetch = (url, options) => this.safety.fetch(fetchImpl, url, options)
   }
 
   async beginAuthorization(action = null) {
@@ -143,22 +144,6 @@ export class SpotifyClient {
       },
     })
 
-    if (response.status === 429 && attempt < 2) {
-      const requested = Number(response.headers.get('retry-after'))
-      const waitSeconds = Number.isFinite(requested) && requested > 0 ? requested : 30
-      // Never shorten the provider's cooldown. Very long blocks should stop
-      // this run rather than exceed the cloud job budget or keep retrying.
-      if (waitSeconds > 600) {
-        await this.store.update(data => { data.spotify.retryAfterUntil = Date.now() + waitSeconds * 1000 })
-        const error = new Error('Spotify rate limit requires a later retry')
-        error.status = 429
-        error.retryAfterSeconds = waitSeconds
-        throw error
-      }
-      await this.sleep(waitSeconds * 1000)
-      return this.request(path, options, attempt + 1)
-    }
-
     if (response.status === 401 && attempt === 0) {
       await this.store.update((data) => { data.spotify.expiresAt = 0 })
       return this.request(path, options, attempt + 1)
@@ -175,11 +160,31 @@ export class SpotifyClient {
   }
 
   async searchTracks(query, limit = 10) {
-    // Expanded multilingual retrieval needs pacing, not a burst of requests.
-    await this.sleep(350)
+    // Per-song checkpoints clear this cache. A crashed/incomplete song resumes
+    // successful queries, including empty results, without repeating requests.
+    const key = createHash('sha256').update(JSON.stringify([query, limit])).digest('hex')
+    const cache = this.store.state.sync?.searchCache
+    if (cache && Object.hasOwn(cache, key)) {
+      this.safety.stats.cacheHits++
+      return cache[key]
+    }
     const params = new URLSearchParams({ q: query, type: 'track', limit: String(limit) })
     const result = await this.request(`/search?${params}`)
-    return result?.tracks?.items || []
+    const tracks = (result?.tracks?.items || []).map(track => ({
+      id: track.id, uri: track.uri, name: track.name, duration_ms: track.duration_ms,
+      is_playable: track.is_playable,
+      artists: track.artists?.map(artist => ({ id: artist.id, name: artist.name })),
+      album: { id: track.album?.id, name: track.album?.name,
+        images: track.album?.images?.slice(-1).map(image => ({ url: image.url })) },
+      external_urls: { spotify: track.external_urls?.spotify },
+    }))
+    if (this.store.state.sync?.checkpoint) {
+      await this.store.update(state => {
+        state.sync.searchCache ||= {}
+        state.sync.searchCache[key] = tracks
+      })
+    }
+    return tracks
   }
 
   async createPlaylist(name, isPublic) {

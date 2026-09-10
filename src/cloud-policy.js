@@ -8,7 +8,11 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
   if (retryAt > now.getTime()) {
     return { skipped: true, reason: 'provider-cooldown', retryAt: new Date(retryAt).toISOString() }
   }
-  const recoveryPending = Number.isFinite(retryAt) && retryAt > 0
+  const localRetryAt = Number(spotify.retryNotBefore || 0)
+  if (localRetryAt > now.getTime()) {
+    return { skipped: true, reason: spotify.pauseReason || 'local-backoff', retryAt: new Date(localRetryAt).toISOString() }
+  }
+  const recoveryPending = (Number.isFinite(retryAt) && retryAt > 0) || (Number.isFinite(localRetryAt) && localRetryAt > 0)
   if (!force && !recoveryPending && status.lastSyncedDate === dateInTimezone(settings.timezone, now)) {
     return { skipped: true, reason: 'already-synced' }
   }
@@ -17,12 +21,28 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
   }
   // A failed forced update may follow a successful sync on the same day.
   // Its pending cooldown still needs one recovery, cleared only on success.
-  return sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true, retrySourceIds } : {}) })
+  try {
+    return await sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true, retrySourceIds } : {}) })
+  } catch (error) {
+    // Spotify safety already persisted its pause. Also back off other transient
+    // failures (e.g. NetEase), without logging potentially private error bodies.
+    if (!error.pauseReason && sync.store.update) {
+      await sync.store.update(state => {
+        const failures = (state.spotify.transientFailures || 0) + 1
+        state.spotify.transientFailures = failures
+        state.spotify.pauseReason = 'transient-backoff'
+        state.spotify.retryNotBefore = Math.max(state.spotify.retryNotBefore || 0,
+          Date.now() + Math.min(4 * 60 * 60_000, 15 * 60_000 * 2 ** Math.min(failures - 1, 4)))
+      })
+    }
+    throw error
+  }
 }
 
 export function cloudRunSummary(run) {
   if (!run.skipped) return `Synced ${run.matchedCount} of ${run.sourceCount} tracks for ${run.date}.${run.alternateVersionCount ? ` Includes ${run.alternateVersionCount} alternate versions by the same artists.` : ''}`
   if (run.reason === 'provider-cooldown') return `Waiting for provider cooldown until ${run.retryAt}; no music-provider requests made. Hourly recovery will retry after expiry.`
   if (run.reason === 'before-daily-window') return 'Before 08:00 local time; no pending cooldown recovery. Daily catch-up will be checked after 08:00; no music-provider requests made.'
+  if (run.retryAt) return `Local safety pause (${run.reason}) until ${run.retryAt}; no music-provider requests made. Saved progress will resume on a later run.`
   return 'Already synced today; no playlist changes.'
 }

@@ -44,11 +44,15 @@ async function main() {
     finally { methods.forEach((name, index) => { console[name] = originals[index] }) }
   })
   const force = process.env.FORCE_SYNC === 'true'
-  const run = await runCloudSync(sync, {
+  let run
+  try { run = await runCloudSync(sync, {
     force, recoveryOnly: process.env.RECOVERY_ONLY === 'true',
     retryUnmatched: process.env.RETRY_UNMATCHED === 'true',
     retrySourceIds: (process.env.RETRY_SOURCE_IDS || '').split(',').map(id => id.trim()).filter(Boolean),
-  })
+  }) } finally {
+    const { requests, cacheHits, lastStatus, lastOperation } = spotify.safety.stats
+    console.log(`Spotify request metrics: requests=${requests}, cachedQueries=${cacheHits}, lastOperation=${lastOperation ?? 'none'}, lastStatus=${lastStatus ?? 'none'}, completedSongs=${run?.sourceCount ?? store.state.sync.checkpoint?.completed ?? 0}.`)
+  }
   const summary = cloudRunSummary(run)
   console.log(summary)
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`)
@@ -58,5 +62,6 @@ main().catch((error) => {
   // Provider errors may embed private request data. Public logs only get a code.
   console.error(`Daily Relay failed (${error.status || error.name || 'Error'}). Check GitHub Secrets, account authorization, provider availability, and state-branch write permission.`)
   if (Number.isFinite(error.retryAfterSeconds)) console.error(`Provider cooldown: retry after ${error.retryAfterSeconds} seconds.`)
+  if (Number.isFinite(error.retryAt)) console.error(`Sync paused (${error.pauseReason}) until ${new Date(error.retryAt).toISOString()}; saved progress retained.`)
   process.exitCode = 1
 })
