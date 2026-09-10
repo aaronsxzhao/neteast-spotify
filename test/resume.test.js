@@ -30,7 +30,7 @@ for (const failure of ['503', 'budget']) test(`fresh cloud runner resumes songs 
   const first = new CloudStore(config, key, remote)
   await first.load()
   await assert.rejects(new SyncService(first, new SpotifyClient(first, fetch, { ...options, maxPerRun: failure === 'budget' ? 3 : 60 }), async () => sources).run(),
-    { pauseReason: failure === 'budget' ? 'request-budget' : 'transient-backoff' })
+    { pauseReason: failure === 'budget' ? 'run-budget' : 'transient-backoff' })
   assert.equal(first.state.sync.checkpoint.completed, 1)
   assert.equal(writes.length, 0)
   const previousQueries = [...queries]

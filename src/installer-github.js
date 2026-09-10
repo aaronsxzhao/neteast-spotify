@@ -157,7 +157,7 @@ export class GitHubInstaller {
     const cloud = new CloudStore(config, installation.stateKey, {})
     Object.assign(cloud.state.spotify, { requestTimes: this.store.state.spotify.requestTimes, retryAfterUntil: this.store.state.spotify.retryAfterUntil,
       retryNotBefore: this.store.state.spotify.retryNotBefore, pauseReason: this.store.state.spotify.pauseReason,
-      transientFailures: this.store.state.spotify.transientFailures })
+      transientFailures: this.store.state.spotify.transientFailures, budgetPolicyVersion: this.store.state.spotify.budgetPolicyVersion })
     // Hand off the local run, including unfinished query checkpoints and today's
     // successful date. Deployment must not repeat a completed manual sync.
     Object.assign(cloud.state.sync, this.store.state.sync)
@@ -235,7 +235,7 @@ export class GitHubInstaller {
     const file = await this.api(`repos/${repo}/contents/state.enc?ref=daily-relay-state`)
     const cloud = new CloudStore(config, installation.stateKey, {})
     Object.assign(cloud.state.spotify, { requestTimes: auth.requestTimes, retryAfterUntil: auth.retryAfterUntil, retryNotBefore: auth.retryNotBefore,
-      pauseReason: auth.pauseReason, transientFailures: auth.transientFailures })
+      pauseReason: auth.pauseReason, transientFailures: auth.transientFailures, budgetPolicyVersion: auth.budgetPolicyVersion })
     await this.execute(['secret', 'set', 'DAILY_RELAY_CONFIG', '--repo', repo], JSON.stringify(config))
     await this.api(`repos/${repo}/contents/state.enc`, 'PUT', { branch: 'daily-relay-state', sha: file.sha, message: 'Update encrypted personal authorization',
       content: Buffer.from(encryptState(cloud.snapshot(), installation.stateKey)).toString('base64') })

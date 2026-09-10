@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { RequestSafety, retryDeadline } from '../src/request-safety.js'
+import { RequestSafety, retryDeadline, migrateRequestBudget } from '../src/request-safety.js'
 import { SpotifyClient } from '../src/spotify.js'
 import { CloudStore, decryptState } from '../src/cloud-state.js'
 import { runCloudSync } from '../src/cloud-policy.js'
@@ -23,7 +23,7 @@ test('serializes concurrent requests, paces them and counts auth/search/writes t
   const fetch = async url => { calls.push(url); return new Response('{}') }
   await Promise.all(['token', 'search', 'write'].map(url => guard.fetch(fetch, url)))
   assert.deepEqual(calls, ['token', 'search', 'write'])
-  assert.deepEqual(f.waits, [2000, 2000])
+  assert.deepEqual(f.waits, [6000, 6000])
   assert.equal(guard.stats.requests, 3)
   assert.equal(f.store.state.spotify.requestTimes.length, 3)
 })
@@ -51,11 +51,56 @@ test('per-run budget stops even when the rolling budget allows more', async () =
   const f = fixture()
   const guard = new RequestSafety(f.store, { ...f.options, maxPerRun: 1 })
   await guard.fetch(async () => new Response('{}'), 'one')
-  await assert.rejects(guard.fetch(async () => { throw Error('must not fetch') }, 'two'), { pauseReason: 'request-budget' })
+  await assert.rejects(guard.fetch(async () => { throw Error('must not fetch') }, 'two'), { pauseReason: 'run-budget' })
   f.advance(61 * 60_000)
   guard.beginRun()
   await guard.fetch(async () => new Response('{}'), 'later local sync')
   assert.equal(guard.stats.requests, 1)
+})
+
+test('default budget completes more than 60 requests without an hour pause', async () => {
+  const f = fixture()
+  const guard = new RequestSafety(f.store, f.options)
+  const sent = []
+  for (let i = 0; i < 65; i++) await guard.fetch(async () => { sent.push(f.options.now()); return new Response('{}') }, 'search')
+  assert.equal(guard.stats.requests, 65)
+  assert.equal(f.store.state.spotify.retryNotBefore, undefined)
+  for (let i = 1; i < sent.length; i++) assert.ok(sent[i] - sent[i - 1] >= 6000)
+})
+
+test('rolling window waits in place across a fresh runner, then resumes', async () => {
+  const f = fixture()
+  await f.store.update(s => { s.spotify.requestTimes = Array(5).fill(f.options.now()) })
+  const next = new CloudStore(config, key, f.remote); await next.load()
+  const start = f.options.now()
+  const guard = new RequestSafety(next, { ...f.options, minIntervalMs: 0 })
+  await guard.fetch(async () => new Response('{}'), 'search')
+  assert.equal(f.options.now() - start, 30000)
+  assert.equal(next.state.spotify.retryNotBefore, undefined)
+})
+
+test('a provider cooldown appearing during a pacing wait prevents sending', async () => {
+  const f = fixture()
+  await f.store.update(s => { s.spotify.requestTimes = [f.options.now()] })
+  const guard = new RequestSafety(f.store, { ...f.options, sleep: async ms => {
+    f.advance(ms); f.store.state.spotify.retryAfterUntil = f.options.now() + 60000
+  } })
+  await assert.rejects(guard.fetch(async () => { throw Error('must not send') }, 'search'), { pauseReason: 'provider-cooldown' })
+  assert.equal(guard.stats.requests, 0)
+})
+
+test('budget migration clears only legacy local pause, retaining real cooldown and progress', async () => {
+  for (const reason of ['request-budget', 'transient-backoff', 'run-budget']) {
+    const f = fixture()
+    await f.store.update(s => { Object.assign(s.spotify, { pauseReason: reason, retryNotBefore: 999, retryAfterUntil: 888, requestTimes: [100] }); s.sync.checkpoint = { completed: 12 } })
+    await migrateRequestBudget(f.store)
+    const next = new CloudStore(config, key, f.remote); await next.load()
+    assert.equal(next.state.spotify.retryNotBefore, reason === 'request-budget' ? undefined : 999)
+    assert.equal(next.state.spotify.retryAfterUntil, 888)
+    assert.deepEqual(next.state.spotify.requestTimes, [100])
+    assert.equal(next.state.sync.checkpoint.completed, 12)
+    assert.equal(next.state.spotify.budgetPolicyVersion, 2)
+  }
 })
 
 test('503 and network failures persist exponential backoff and never retry in-place', async () => {

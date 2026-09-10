@@ -125,7 +125,7 @@ function renderCloud(cloud) {
   $('cloud-badge').textContent = current.paused ? '已暂停' : waiting ? '等待恢复' : active ? '同步进行中' : cloud.lastSyncedDate ? '已有成功记录' : '待首次成功'
   $('cloud-title').textContent = waiting ? '同步暂停，进度已保存' : cloud.lastSyncedDate ? '你的每日歌单已启用' : '等待首次同步确认'
   $('cloud-summary').textContent = waiting ? `本次已处理 ${cloud.completedSongs || 0} 首。尚未发布本次歌单，续跑会利用已保存进度。` : cloud.lastSyncedDate ? `上次成功：${cloud.lastSyncedDate} · ${cloud.matchedCount}/${cloud.sourceCount} 首。` : cloud.run?.conclusion === 'failure' ? '首次同步尚未成功。请查看运行记录；若有未完成进度，后续运行会按规则续跑。' : `任务已配置，尚无成功同步记录。已处理 ${cloud.completedSongs || 0} 首。`
-  const pauseLabel = cloud.retryAfterUntil > Date.now() ? 'Spotify 要求冷却' : cloud.pauseReason === 'request-budget' ? '程序请求预算已用完（不是 Spotify 的 429 冷却），暂停' : '程序因网络／服务异常退避，暂停'
+  const pauseLabel = cloud.retryAfterUntil > Date.now() ? 'Spotify 要求冷却' : ['request-budget', 'run-budget'].includes(cloud.pauseReason) ? '程序请求预算已用完（不是 Spotify 的 429 冷却），暂停' : '程序因网络／服务异常退避，暂停'
   $('cloud-pause').textContent = waiting ? `${pauseLabel}至 ${dateText(until)}。下一次符合条件的定时运行会续跑，请勿反复点击。` : '通常每天北京时间早上开始；GitHub 可能延迟调度。完成安装后无需保持电脑开机。'
   $('sync-now').disabled = waiting || active || current.paused || current.maintenance || current.busy
   $('playlist').hidden = !cloud.playlistUrl

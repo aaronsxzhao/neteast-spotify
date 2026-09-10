@@ -111,7 +111,7 @@ export class CloudStore {
     const { spotify, sync } = this.state
     return { seed: this.seed, spotify: { refreshToken: spotify.refreshToken, scope: spotify.scope, retryAfterUntil: spotify.retryAfterUntil,
       requestTimes: spotify.requestTimes, retryNotBefore: spotify.retryNotBefore, pauseReason: spotify.pauseReason,
-      transientFailures: spotify.transientFailures },
+      transientFailures: spotify.transientFailures, budgetPolicyVersion: spotify.budgetPolicyVersion },
       sync: { playlistId: sync.playlistId, playlistUrl: sync.playlistUrl, lastSyncedDate: sync.lastSyncedDate,
         // Successful app-generated metadata only, never provider error bodies.
         lastSuccessfulRun: sync.lastSuccessfulRun, checkpoint: sync.checkpoint, searchCache: sync.searchCache } }

@@ -9,6 +9,7 @@ import { createQrLogin, checkQrLogin } from './netease.js'
 import { GitHubInstaller, InstallerError, installerMessage } from './installer-github.js'
 import { SPOTIFY_REDIRECT_URI, APP_ORIGIN } from './config.js'
 import { localSyncAllowed, runManualSync } from './installer-manual.js'
+import { migrateRequestBudget } from './request-safety.js'
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const equal = (a, b) => typeof a === 'string' && Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b))
@@ -24,6 +25,7 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
   netease = { createQrLogin, checkQrLogin }, spotifyFetch, spotifyClient, getRecommendations, onExit = () => {}, store: providedStore } = {}) {
   const store = providedStore || new Store({ directory })
   await store.load()
+  await migrateRequestBudget(store)
   // This process is only a setup/control panel. It NEVER runs a local scheduler.
   const spotify = spotifyClient || new SpotifyClient(store, spotifyFetch)
   const github = new GitHubInstaller(store, ROOT, githubOptions)

@@ -84,6 +84,18 @@ function policyFixture(lastSyncedDate = '2026-09-09', timezone = 'Asia/Shanghai'
   return { calls, state, sync: { store: { state }, async run(options) { calls.push(options); return { matchedCount: 1 } } } }
 }
 
+test('expected safety pause has an explicit pending result, not success or generic failure', async () => {
+  const f = policyFixture()
+  f.state.sync.checkpoint = { completed: 12 }
+  f.sync.run = async () => { throw Object.assign(new Error('run-budget'), { pauseReason: 'run-budget', retryAt: Date.now() + 900000 }) }
+  const run = await runCloudSync(f.sync)
+  assert.equal(run.paused, true)
+  assert.equal(run.completedSongs, 12)
+  assert.equal(run.matchedCount, undefined)
+  assert.match(cloudRunSummary(run), /not a completed sync/)
+  assert.equal(f.state.sync.lastSyncedDate, '2026-09-09')
+})
+
 test('hourly catch-up runs at 08:00 and later if morning schedules were missed', async () => {
   for (const time of ['2026-09-10T00:00:00Z', '2026-09-10T03:35:00Z', '2026-09-10T15:35:00Z']) {
     const f = policyFixture()

@@ -1,5 +1,18 @@
 const HOUR = 60 * 60_000
 
+// Retire only the old application's 60/hour pause. Provider and network
+// deadlines, reservations and query checkpoints must survive the upgrade.
+export async function migrateRequestBudget(store) {
+  if (store.state.spotify.budgetPolicyVersion === 2) return
+  await store.update(state => {
+    if (state.spotify.pauseReason === 'request-budget') {
+      delete state.spotify.retryNotBefore
+      delete state.spotify.pauseReason
+    }
+    state.spotify.budgetPolicyVersion = 2
+  })
+}
+
 export function pauseError(reason, until, status) {
   return Object.assign(new Error(reason), { name: 'SyncPaused', pauseReason: reason, retryAt: until, status })
 }
@@ -13,13 +26,16 @@ export function retryDeadline(value, now, fallbackSeconds = 60) {
 // These are our conservative limits, NOT a claim about Spotify's quota.
 // Persist reservations BEFORE requests so fresh runners cannot reset budgets.
 export class RequestSafety {
-  constructor(store, { sleep, now = Date.now, minIntervalMs = 2000, maxPerRun = 60, maxPerHour = 60 } = {}) {
+  constructor(store, { sleep, now = Date.now, minIntervalMs = 6000, maxPerRun = 300, maxPerHour = Infinity,
+    maxPerWindow = 5, windowMs = 30_000 } = {}) {
     this.store = store
     this.sleep = sleep || (ms => new Promise(resolve => setTimeout(resolve, ms)))
     this.now = now
     this.minIntervalMs = minIntervalMs
     this.maxPerRun = maxPerRun
     this.maxPerHour = maxPerHour
+    this.maxPerWindow = maxPerWindow
+    this.windowMs = windowMs
     this.beginRun()
     this.queue = Promise.resolve()
   }
@@ -56,13 +72,25 @@ export class RequestSafety {
   fetch(fetchImpl, url, options) {
     const operation = this.queue.then(async () => {
       this.check()
-      const previous = this.store.state.spotify.requestTimes || []
+      let previous = this.store.state.spotify.requestTimes || []
       const wait = Math.max(0, (previous.at(-1) || 0) + this.minIntervalMs - this.now())
       if (wait) await this.sleep(wait)
       this.check()
+      // A short rolling-window wait stays inside this run instead of turning a
+      // normal full scan into an hour-long failure. Recheck after every wait.
+      for (;;) {
+        previous = this.store.state.spotify.requestTimes || []
+        const window = previous.filter(time => time > this.now() - this.windowMs).sort((a, b) => a - b)
+        if (window.length < this.maxPerWindow) break
+        await this.sleep(Math.max(1, window[window.length - this.maxPerWindow] + this.windowMs - this.now()))
+        this.check()
+      }
       const now = this.now()
       const recent = previous.filter(time => time > now - HOUR)
-      if (this.stats.requests >= this.maxPerRun || recent.length >= this.maxPerHour) {
+      if (this.stats.requests >= this.maxPerRun) {
+        throw await this.backoff('run-budget', now + 15 * 60_000)
+      }
+      if (recent.length >= this.maxPerHour) {
         throw await this.backoff('request-budget', Math.max(now + 15 * 60_000, (recent[0] || now) + HOUR))
       }
       await this.store.update(state => { state.spotify.requestTimes = [...recent, now] })

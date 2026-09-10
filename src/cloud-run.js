@@ -4,6 +4,7 @@ import { SpotifyClient } from './spotify.js'
 import { SyncService } from './sync.js'
 import { getDailyRecommendations } from './netease.js'
 import { runCloudSync, cloudRunSummary } from './cloud-policy.js'
+import { migrateRequestBudget } from './request-safety.js'
 
 function mask(value) {
   if (typeof value !== 'string' || !value) return
@@ -24,6 +25,7 @@ async function main() {
   const remote = new GitHubState({ repository: process.env.GITHUB_REPOSITORY, token: process.env.GITHUB_TOKEN, commit: process.env.GITHUB_SHA })
   const store = new CloudStore(config, process.env.DAILY_RELAY_STATE_KEY, remote)
   await store.load()
+  await migrateRequestBudget(store)
   mask(store.state.spotify.refreshToken)
   const spotify = new SpotifyClient(store, async (url, options) => {
     const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30_000) })

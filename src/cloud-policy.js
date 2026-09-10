@@ -24,6 +24,10 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
   try {
     return await sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true, retrySourceIds } : {}) })
   } catch (error) {
+    if (error.pauseReason && Number.isFinite(error.retryAt)) {
+      return { paused: true, reason: error.pauseReason, retryAt: new Date(error.retryAt).toISOString(),
+        completedSongs: status.checkpoint?.completed || 0 }
+    }
     // Spotify safety already persisted its pause. Also back off other transient
     // failures (e.g. NetEase), without logging potentially private error bodies.
     if (!error.pauseReason && sync.store.update) {
@@ -40,6 +44,7 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
 }
 
 export function cloudRunSummary(run) {
+  if (run.paused) return `Sync paused (${run.reason}) until ${run.retryAt}; ${run.completedSongs} songs processed, saved progress retained. This is not a completed sync. Hourly recovery will resume after expiry.`
   if (!run.skipped) return `Synced ${run.matchedCount} of ${run.sourceCount} tracks for ${run.date}.${run.alternateVersionCount ? ` Includes ${run.alternateVersionCount} alternate versions by the same artists.` : ''}`
   if (run.reason === 'provider-cooldown') return `Waiting for provider cooldown until ${run.retryAt}; no music-provider requests made. Hourly recovery will retry after expiry.`
   if (run.reason === 'before-daily-window') return 'Before 08:00 local time; no pending cooldown recovery. Daily catch-up will be checked after 08:00; no music-provider requests made.'
