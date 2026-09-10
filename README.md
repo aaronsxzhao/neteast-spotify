@@ -2,6 +2,10 @@
 
 Daily Relay mirrors the current day's NetEase Cloud Music recommendations into a single Spotify playlist. Each sync replaces the playlist contents, preserves the NetEase order, and records tracks that could not be matched confidently.
 
+## Friends' macOS installer
+
+For non-technical users, the macOS beta provides a double-click launcher and a Chinese setup wizard: NetEase QR login → guided creation of the user's own Spotify app → GitHub device authorization → automatic personal repository / Secrets / daily workflow setup. No shared maintainer credentials, Node installation or terminal is required in the bundled app. See [the installer guide](docs/friend-installer.md) for privacy, build steps and first-launch approval requirements. The beta is not Apple-notarized; a real account setup still needs user acceptance testing.
+
 ## What it does
 
 - Fetches the logged-in user's NetEase daily recommendations.

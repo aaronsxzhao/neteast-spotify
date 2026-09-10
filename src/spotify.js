@@ -74,12 +74,14 @@ export class SpotifyClient {
 
     await this.store.update((data) => {
       data.spotify = {
+        ...data.spotify,
         accessToken: result.access_token,
         refreshToken: result.refresh_token,
         expiresAt: Date.now() + result.expires_in * 1000 - 30_000,
         scope: result.scope || SPOTIFY_SCOPES.join(' '),
         connectedAt: new Date().toISOString(),
       }
+      delete data.spotify.oauth
     })
     const profile = await this.request('/me')
     await this.store.update((data) => {

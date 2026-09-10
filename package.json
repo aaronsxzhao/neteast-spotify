@@ -8,10 +8,12 @@
     "node": ">=22"
   },
   "scripts": {
+    "setup": "node scripts/installer-launcher.js",
+    "build:mac": "node scripts/build-macos.js",
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "sync:cloud": "node src/cloud-run.js",
-    "test": "node --test"
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "@neteasecloudmusicapienhanced/api": "4.40.1",

@@ -1,0 +1,9 @@
+Daily Relay personal installer
+
+Contains Node.js and the official GitHub CLI. Their complete licenses are included next to this notice. Third-party JavaScript dependencies retain their licenses inside node_modules.
+
+This package must never include the maintainer's local data, OAuth tokens, GitHub configuration, encrypted state branch or encryption key.
+
+The macOS beta bundle is ad-hoc signed, not Apple Developer ID signed or notarized. macOS may require the recipient to approve it in System Settings > Privacy & Security after the first launch attempt. Do not disable Gatekeeper globally.
+
+GitHub authorization uses the official GitHub CLI OAuth application. It requests repo and workflow permissions. This application uses an isolated GH_CONFIG_DIR and never reads existing global gh credentials. Its token is stored in an owner-readable local file, not in the system keychain. Only run this installer on a trusted personal computer.

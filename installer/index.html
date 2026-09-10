@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Daily Relay · 安装助手</title><link rel="stylesheet" href="/setup.css"></head>
+<body>
+<main>
+  <header><a class="brand" href="/">◒ DAILY RELAY</a><span class="private">个人账号 · 独立运行</span></header>
+  <section class="hero"><p class="eyebrow">YOUR MUSIC. YOUR ACCOUNTS.</p><h1>每天的好歌，<br><em>自动送到 Spotify。</em></h1><p>连接你自己的账号。剩下的仓库、密钥和定时任务，交给安装助手。</p><div class="hero-note">安装完成后可以关机。无需终端，无需自己操作 GitHub 仓库。</div></section>
+  <nav aria-label="安装进度"><span id="step-n">01 网易云</span><span id="step-s">02 Spotify</span><span id="step-g">03 云端授权</span><span id="step-d">04 自动运行</span></nav>
+  <div id="notice" role="status" aria-live="polite" hidden></div>
+  <section class="card" id="netease-card"><div class="section-label">01 / MUSIC SOURCE <span id="netease-status">未连接</span></div><h2>连接你的网易云</h2><p>用网易云音乐手机 App 扫码，并在手机上确认。密码不会交给安装助手。</p><button id="netease-connect">扫码连接网易云</button><div id="qr-panel" hidden><img id="qr" alt="网易云登录二维码"><p id="qr-message">请打开网易云手机 App 扫码</p></div><p class="subtle">二维码失效后重新生成即可。登录可能受到网易云的网络／地区限制。</p></section>
+  <section class="card" id="spotify-card"><div class="section-label">02 / MUSIC DESTINATION <span id="spotify-status">未连接</span></div><h2>连接你自己的 Spotify</h2><p>每个人使用自己的开发者应用，不共享别人的配额。这一步只需配置一次。</p>
+    <details id="spotify-guide" open><summary>跟着完成一次应用设置</summary><ol>
+      <li><strong>打开你的开发者后台。</strong><p>用自己的 Spotify 账号登录。开发模式要求应用所有者拥有有效 Premium。</p><a class="link-button" href="https://developer.spotify.com/dashboard" target="_blank" rel="noreferrer">打开 Spotify 开发者后台 ↗</a></li>
+      <li><strong>选择 Create app（创建应用）。</strong><p>App name 填 <code>My Daily Relay</code>；描述填 <code>Sync my own daily music recommendations</code>。Website 如为选填可留空。</p></li>
+      <li><strong>填写 Redirect URI（回调地址）。</strong><p>完整复制下面地址，添加并保存，不要改成 localhost，也不要多加斜杠。</p><div class="copy-row"><code id="redirect">http://127.0.0.1:18787/auth/spotify/callback</code><button class="secondary" id="copy-redirect">复制</button></div></li>
+      <li><strong>API / SDK 只勾选 Web API。</strong><p>阅读并同意 Spotify 条款，保存应用。若出现 Users and Access，确认你自己的 Spotify 登录邮箱在允许用户列表中。</p></li>
+      <li><strong>打开 Settings，复制 Client ID。</strong><p>Client ID 是应用标识，不是密码。不要复制 Client Secret。</p></li>
+    </ol></details>
+    <label for="client-id">你的 Spotify Client ID</label><input id="client-id" autocomplete="off" spellcheck="false" placeholder="从你自己的应用设置中复制 32 位 Client ID"><button id="spotify-connect">保存并连接 Spotify</button>
+    <details><summary>授权页面报错怎么办？</summary><p>Redirect URI 错误：回到应用设置，逐字检查上面的地址。403：检查 Premium、允许用户和 Client ID 是否属于你。拒绝授权：重新点连接。冷却：等待指定时间，不要反复重试。</p></details>
+  </section>
+  <section class="card"><div class="section-label">03 / YOUR CLOUD <span id="github-status">未授权</span></div><h2>确认一次 GitHub 授权</h2><p>使用你自己的 GitHub 账号。不需要创建仓库、填写 Secrets 或编辑工作流。</p>
+    <div class="disclosure"><strong>这次授权允许什么？</strong><p>安装助手使用 GitHub 官方 CLI，申请仓库和工作流权限，以创建你的专属仓库、上传程序和加密凭证、启动定时任务。授权范围可能覆盖你有权限的其他仓库，但本助手只操作它创建并校验归属的 Daily Relay 仓库。</p><p>GitHub 登录令牌保存在此电脑的独立配置目录（仅当前用户可读，未使用系统钥匙串）；音乐凭证和加密密钥写入你自己的 GitHub Secrets。项目作者不会收到它们。请只在自己的可信电脑上使用。</p></div>
+    <label class="check"><input type="checkbox" id="github-consent">我理解授权范围，允许助手配置我自己的 GitHub 云端同步。</label><button id="github-connect">连接我的 GitHub</button>
+    <div id="github-code-panel" hidden><p>打开 GitHub 验证页，输入此一次性验证码并确认授权：</p><div class="copy-row"><code id="github-code"></code><button class="secondary" id="copy-code">复制</button></div><a class="link-button" href="https://github.com/login/device" target="_blank" rel="noreferrer">打开 GitHub 授权页 ↗</a><p class="subtle">请确认浏览器中登录的是你自己的账号。完成后回到此页面，会自动检测。</p></div>
+  </section>
+  <section class="card accent"><div class="section-label">04 / SET IT IN MOTION</div><h2>开启每天自动同步</h2><p>在你的账号下创建专属仓库和私密 Spotify 歌单，自动配置每天的同步及失败续跑。</p>
+    <label for="visibility">云端仓库</label><select id="visibility"><option value="private">私有：仅你可见（使用账号自带 Actions 免费额度）</option><option value="public">公开：程序和加密状态可见（标准 Actions 运行免费）</option></select><p class="subtle">私有仓库的额度与账号其他项目共享；超额可能暂停或计费，取决于你的 GitHub 账单设置。助手不会启用付费额度。公开仓库也绝不会包含明文凭证。</p>
+    <label class="check"><input type="checkbox" id="deploy-consent">允许创建所选仓库、保存凭证、创建私密歌单并发起首次同步。我知道定时可能延迟，登录失效时需要重新连接。</label><button id="deploy" disabled>完成连接后，开启自动同步</button><p id="deploy-status" aria-live="polite"></p>
+  </section>
+  <section class="card" id="cloud-panel" hidden><div class="section-label">YOUR DAILY RELAY <span id="cloud-badge">正在确认</span></div><h2 id="cloud-title">云端已配置</h2><p id="cloud-summary">正在核验首次同步结果……</p><p id="cloud-pause"></p><div class="actions"><button id="sync-now">立即同步</button><button class="secondary" id="refresh">刷新状态</button><a id="playlist" class="link-button" target="_blank" rel="noreferrer" hidden>打开歌单 ↗</a></div><div class="actions"><button class="secondary" id="reconnect">重新连接账号</button><button class="secondary" id="pause-cloud">暂停自动同步</button><button class="secondary" id="enable-cloud">恢复自动同步</button></div><details><summary>高级信息与恢复</summary><p id="repo-name"></p><a id="run-link" target="_blank" rel="noreferrer" hidden>查看本次运行记录 ↗</a><p>本机配置保存在用户目录下的 Library/Application Support/Daily Relay。不要删除或分享这个目录，其中包含登录凭证和加密密钥。换电脑前需要安全备份。删除安装助手不会停止云端任务；请先点击“暂停自动同步”。</p></details></section>
+  <footer><span>不下载音频，只同步歌单。独立于网易云与 Spotify。</span><button id="exit" class="secondary">退出安装助手</button></footer>
+</main><script type="module" src="/setup.js"></script></body></html>

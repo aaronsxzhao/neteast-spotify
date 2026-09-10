@@ -2,10 +2,6 @@ import { chmod, mkdir, readFile, rename, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { DEFAULT_SETTINGS } from './config.js'
 
-const DATA_DIR = path.resolve('.data')
-const STATE_PATH = path.join(DATA_DIR, 'state.json')
-const TEMP_PATH = path.join(DATA_DIR, 'state.tmp.json')
-
 const EMPTY_STATE = {
   settings: DEFAULT_SETTINGS,
   spotify: {},
@@ -15,10 +11,16 @@ const EMPTY_STATE = {
 export class Store {
   #state = structuredClone(EMPTY_STATE)
 
+  constructor({ directory = process.env.DAILY_RELAY_DATA_DIR || path.resolve('.data') } = {}) {
+    this.directory = path.resolve(directory)
+    this.statePath = path.join(this.directory, 'state.json')
+    this.tempPath = path.join(this.directory, 'state.tmp.json')
+  }
+
   async load() {
-    await mkdir(DATA_DIR, { recursive: true, mode: 0o700 })
+    await mkdir(this.directory, { recursive: true, mode: 0o700 })
     try {
-      const saved = JSON.parse(await readFile(STATE_PATH, 'utf8'))
+      const saved = JSON.parse(await readFile(this.statePath, 'utf8'))
       this.#state = {
         ...structuredClone(EMPTY_STATE),
         ...saved,
@@ -45,8 +47,8 @@ export class Store {
 
   async save() {
     const body = `${JSON.stringify(this.#state, null, 2)}\n`
-    await writeFile(TEMP_PATH, body, { mode: 0o600 })
-    await rename(TEMP_PATH, STATE_PATH)
-    await chmod(STATE_PATH, 0o600)
+    await writeFile(this.tempPath, body, { mode: 0o600 })
+    await rename(this.tempPath, this.statePath)
+    await chmod(this.statePath, 0o600)
   }
 }
