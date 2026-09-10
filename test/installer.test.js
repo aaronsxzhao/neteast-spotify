@@ -95,7 +95,14 @@ test('cloud payload allowlist contains no installer, personal state, source cred
 
 test('automatic deployment uses the friend account, encrypts state, and enables Actions only after secrets and state', async t => {
   const store = await fixture(t)
-  await store.update(state => { state.settings.spotifyClientId = 'a'.repeat(32); state.settings.neteaseCookie = 'MUSIC_U=friend'; state.spotify.refreshToken = 'friend-refresh' })
+  await store.update(state => {
+    state.settings.spotifyClientId = 'a'.repeat(32); state.settings.neteaseCookie = 'MUSIC_U=friend'; state.spotify.refreshToken = 'friend-refresh'
+    state.sync.lastSyncedDate = '2026-09-10'
+    state.sync.lastSuccessfulRun = { date: '2026-09-10', matchedCount: 12, sourceCount: 12 }
+    state.sync.checkpoint = { completed: 3, signature: 'handoff-test', matches: [], unmatched: [] }
+    state.sync.searchCache = { 'private-query': [] }
+    state.spotify.requestTimes = [123, 456]
+  })
   const operations = []; const secrets = {}; let stateContent; let created
   const gh = new GitHubInstaller(store, root, { run: async (args, input) => {
     operations.push({ args, input })
@@ -117,6 +124,11 @@ test('automatic deployment uses the friend account, encrypts state, and enables 
   assert.equal(config.spotifyRefreshToken, 'friend-refresh')
   assert.ok(!stateContent.includes('friend-refresh'))
   assert.equal(decryptState(stateContent, secrets.DAILY_RELAY_STATE_KEY).spotify.refreshToken, 'friend-refresh')
+  const transferred = decryptState(stateContent, secrets.DAILY_RELAY_STATE_KEY)
+  assert.equal(transferred.sync.lastSyncedDate, '2026-09-10')
+  assert.equal(transferred.sync.checkpoint.completed, 3)
+  assert.deepEqual(transferred.sync.searchCache, { 'private-query': [] })
+  assert.deepEqual(transferred.spotify.requestTimes, [123, 456])
   const disable = operations.findIndex(o => o.args.includes('PUT') && o.input.includes('"enabled":false'))
   const secret = operations.findIndex(o => o.args[0] === 'secret')
   const state = operations.findIndex(o => o.input.includes('refs/heads/daily-relay-state'))

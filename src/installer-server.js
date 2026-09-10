@@ -8,6 +8,7 @@ import { SpotifyClient } from './spotify.js'
 import { createQrLogin, checkQrLogin } from './netease.js'
 import { GitHubInstaller, InstallerError, installerMessage } from './installer-github.js'
 import { SPOTIFY_REDIRECT_URI, APP_ORIGIN } from './config.js'
+import { localSyncAllowed, runManualSync } from './installer-manual.js'
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const equal = (a, b) => typeof a === 'string' && Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b))
@@ -20,11 +21,11 @@ export function authorizedRequest(request, origin, session) {
 }
 
 export async function createInstallerServer({ directory, origin = APP_ORIGIN, session = randomBytes(32).toString('hex'), githubOptions,
-  netease = { createQrLogin, checkQrLogin }, spotifyFetch, onExit = () => {}, store: providedStore } = {}) {
+  netease = { createQrLogin, checkQrLogin }, spotifyFetch, spotifyClient, getRecommendations, onExit = () => {}, store: providedStore } = {}) {
   const store = providedStore || new Store({ directory })
   await store.load()
   // This process is only a setup/control panel. It NEVER runs a local scheduler.
-  const spotify = new SpotifyClient(store, spotifyFetch)
+  const spotify = spotifyClient || new SpotifyClient(store, spotifyFetch)
   const github = new GitHubInstaller(store, ROOT, githubOptions)
   // Reuse only this installer's own CLI login after a normal app restart.
   github.profile().catch(() => {})
@@ -32,10 +33,20 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
   let job = null
   let cloud = null
   let cloudReadAt = 0
+  let manualProgress = { status: 'idle', message: '' }
+  const manualStatus = () => {
+    const { sync, spotify } = store.state
+    const run = sync.lastSuccessfulRun
+    return { ...manualProgress, available: localSyncAllowed(store.state), playlistUrl: sync.playlistUrl,
+      lastSyncedDate: sync.lastSyncedDate, matchedCount: run?.matchedCount, sourceCount: run?.sourceCount,
+      unmatchedCount: run?.unmatchedCount, alternateVersionCount: run?.alternateVersionCount,
+      completedSongs: sync.checkpoint?.completed || 0, pending: Boolean(sync.checkpoint),
+      retryAfterUntil: spotify.retryAfterUntil, retryNotBefore: spotify.retryNotBefore }
+  }
   const respond = (res, code, data) => { res.writeHead(code, { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff' }); res.end(JSON.stringify(data)) }
   const status = () => ({ netease: Boolean(store.state.settings.neteaseCookie), spotify: Boolean(store.state.spotify.refreshToken),
     spotifyName: store.state.spotify.profile?.displayName, clientId: store.state.settings.spotifyClientId,
-    redirectUri: SPOTIFY_REDIRECT_URI, github: github.login, deployment: github.progress, cloud,
+    redirectUri: SPOTIFY_REDIRECT_URI, github: github.login, deployment: github.progress, cloud, manual: manualStatus(),
     deployed: Boolean(store.state.installer?.deployed), repository: store.state.installer?.repository, visibility: store.state.installer?.visibility,
     busy: Boolean(job), playlistName: store.state.settings.playlistName, maintenance: Boolean(store.state.installer?.maintenance), paused: Boolean(store.state.installer?.paused) })
   const readBody = async req => {
@@ -44,9 +55,9 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
     return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}')
   }
   const editable = () => { if (job || (store.state.installer?.deployed && !store.state.installer?.maintenance)) throw new InstallerError('云端已接管账号，请先点击“重新连接账号”，避免本机与云端令牌冲突。') }
-  const startJob = work => {
+  const startJob = (work, onError = error => { github.progress = { status: 'error', message: installerMessage(error) } }) => {
     if (job) throw new InstallerError('已有操作正在执行，请稍候。')
-    job = work().catch(error => { github.progress = { status: 'error', message: installerMessage(error) } }).finally(() => { job = null })
+    job = Promise.resolve().then(work).catch(onError).finally(() => { job = null })
   }
   const server = createServer(async (req, res) => {
     res.setHeader('referrer-policy', 'no-referrer')
@@ -59,6 +70,29 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
       }
       if (!authorizedRequest(req, origin, session)) return respond(res, 403, { error: '请双击 Daily Relay 重新打开安全安装页面。' })
       if (req.method === 'GET' && url.pathname === '/api/status') return respond(res, 200, status())
+      if (req.method === 'POST' && url.pathname === '/api/sync') {
+        const input = await readBody(req)
+        if (!input.consent) throw new InstallerError('请确认手动同步会创建或更新你的专用 Spotify 歌单。')
+        if (job) return respond(res, 200, { running: true })
+        if (store.state.installer?.deployed) {
+          job = Promise.resolve().then(() => github.dispatch())
+          try {
+            const result = await job
+            cloudReadAt = 0
+            return respond(res, 200, { ...result, mode: 'cloud' })
+          } finally { job = null }
+        }
+        if (!localSyncAllowed(store.state)) throw new InstallerError('请先完成已经开始的云端配置，避免本机与云端同时修改歌单。')
+        if (!store.state.settings.neteaseCookie || !store.state.spotify.refreshToken || !store.state.settings.spotifyClientId) throw new InstallerError('请先连接网易云和 Spotify。')
+        const until = Math.max(store.state.spotify.retryAfterUntil || 0, store.state.spotify.retryNotBefore || 0)
+        if (until > Date.now()) return respond(res, 200, { paused: true, until, mode: 'local' })
+        manualProgress = { status: 'running', message: '正在本机同步，请保持 App 运行；此操作不需要 GitHub。' }
+        startJob(async () => {
+          const run = await runManualSync(store, spotify, getRecommendations)
+          manualProgress = { status: 'done', message: `同步成功：${run.matchedCount}/${run.sourceCount} 首，${run.unmatchedCount} 首未匹配。` }
+        }, error => { manualProgress = { status: 'error', message: installerMessage(error) } })
+        return respond(res, 202, { started: true, mode: 'local' })
+      }
       if (req.method === 'POST' && url.pathname === '/api/github/connect') { if (job) throw new InstallerError('操作进行中，暂时不能切换 GitHub 账号。'); const input = await readBody(req); if (!input.consent) throw new InstallerError('请确认 GitHub 授权范围。'); return respond(res, 200, await github.startLogin()) }
       if (req.method === 'POST' && url.pathname === '/api/netease/start') {
         editable()
@@ -92,11 +126,12 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
         return respond(res, 200, { url: await spotify.beginAuthorization() })
       }
       if (req.method === 'GET' && url.pathname === '/auth/spotify/callback') {
+        editable()
         if (url.searchParams.get('error')) { res.writeHead(302, { location: '/?spotify=denied' }); return res.end() }
         try {
-          const oldOwner = store.state.installer?.spotifyUserId
+          const oldOwner = store.state.setupSpotifyUserId || store.state.installer?.spotifyUserId
           const { profile } = await spotify.completeAuthorization(url.searchParams.get('code'), url.searchParams.get('state'))
-          if (oldOwner && oldOwner !== profile.id) await store.update(state => { delete state.sync.playlistId; delete state.sync.playlistUrl })
+          if (oldOwner && oldOwner !== profile.id) await store.update(state => { state.sync = { history: [] } })
           await store.update(state => { state.setupSpotifyUserId = profile.id })
           res.writeHead(302, { location: '/?spotify=connected' }); return res.end()
         } catch { res.writeHead(302, { location: '/?spotify=error' }); return res.end() }

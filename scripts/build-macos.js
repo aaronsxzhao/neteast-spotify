@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, writeFile, chmod, readdir, stat } from 'node:fs/pr
 import { execFileSync } from 'node:child_process'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { copyPortableDependencies } from './portable-dependencies.js'
 
 if (process.platform !== 'darwin') throw new Error('Build this bundle on macOS for the target architecture.')
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
@@ -17,7 +18,7 @@ await mkdir(path.join(resources, 'runtime'), { recursive: true })
 for (const entry of ['src', 'test', 'installer', 'scripts', '.github', 'package.json', 'pnpm-lock.yaml', 'docs', 'README.md']) {
   await cp(path.join(root, entry), path.join(resources, entry), { recursive: true, filter: source => !source.includes('citypop-cover-prompt') })
 }
-await cp(path.join(root, 'node_modules'), path.join(resources, 'node_modules'), { recursive: true, dereference: true })
+await copyPortableDependencies(path.join(root, 'node_modules'), path.join(resources, 'node_modules'))
 // Share the existing UI, copying only the served frontend assets (no design sources).
 await mkdir(path.join(resources, 'public', 'assets'), { recursive: true })
 for (const entry of ['index.html', 'app.js', 'styles.css', 'assets/daily-relay-cover-citypop-no-text.jpg']) {
@@ -25,6 +26,17 @@ for (const entry of ['index.html', 'app.js', 'styles.css', 'assets/daily-relay-c
 }
 await cp(process.execPath, path.join(resources, 'runtime', 'node'))
 await chmod(path.join(resources, 'runtime', 'node'), 0o755)
+// Run from inside the bundle: a homepage-only smoke test misses lazy imports.
+// A fake QR key exercises rendering without contacting any music service.
+execFileSync(path.join(resources, 'runtime', 'node'), ['--input-type=module', '-e', `
+  import { createRequire } from 'node:module';
+  import path from 'node:path';
+  const require = createRequire(path.join(process.cwd(), 'package.json'));
+  const api = require('@neteasecloudmusicapienhanced/api');
+  require(path.join(path.dirname(require.resolve('@neteasecloudmusicapienhanced/api')), 'util/request.js'));
+  const result = await api.login_qr_create({ key: 'offline-packaging-check', qrimg: true, platform: 'web' });
+  if (!result.body?.data?.qrimg?.startsWith('data:image/png;base64,')) throw new Error('Packaged QR rendering failed');
+`], { cwd: resources, timeout: 30000, stdio: 'pipe', env: { ...process.env, NODE_PATH: '', NODE_OPTIONS: '' } })
 const gh = process.env.DAILY_RELAY_BUILD_GH || tools.gh
 if (!gh) throw new Error('Set DAILY_RELAY_BUILD_GH to the verified official gh binary for this architecture.')
 await mkdir(path.join(resources, 'vendor'))
@@ -40,7 +52,7 @@ for (const [name, filename] of [['GitHub-CLI-LICENSE.txt', process.env.DAILY_REL
 const launcher = '#!/bin/sh\nAPP_ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/../Resources" && pwd)"\nexec "$APP_ROOT/runtime/node" "$APP_ROOT/scripts/installer-launcher.js"\n'
 await writeFile(path.join(app, 'Contents', 'MacOS', 'DailyRelay'), launcher, { mode: 0o755 })
 await chmod(path.join(app, 'Contents', 'MacOS', 'DailyRelay'), 0o755)
-await writeFile(path.join(app, 'Contents', 'Info.plist'), `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>CFBundleName</key><string>Daily Relay</string><key>CFBundleDisplayName</key><string>Daily Relay</string><key>CFBundleIdentifier</key><string>local.dailyrelay.installer</string><key>CFBundleExecutable</key><string>DailyRelay</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>1.1.0</string><key>CFBundleVersion</key><string>1</string><key>LSUIElement</key><true/><key>LSMinimumSystemVersion</key><string>13.0</string></dict></plist>`)
+await writeFile(path.join(app, 'Contents', 'Info.plist'), `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>CFBundleName</key><string>Daily Relay</string><key>CFBundleDisplayName</key><string>Daily Relay</string><key>CFBundleIdentifier</key><string>local.dailyrelay.installer</string><key>CFBundleExecutable</key><string>DailyRelay</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>1.1.0</string><key>CFBundleVersion</key><string>2</string><key>LSUIElement</key><true/><key>LSMinimumSystemVersion</key><string>13.0</string></dict></plist>`)
 const forbidden = new Set(['.data', '.git', 'state.json', 'state.enc', 'hosts.yml', 'launcher.json', 'DAILY_RELAY_CONFIG.txt', 'DAILY_RELAY_STATE_KEY.txt'])
 async function audit(dir) {
   for (const item of await readdir(dir, { withFileTypes: true })) {

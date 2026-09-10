@@ -3,6 +3,14 @@
   <nav class="install-progress" aria-label="安装进度"><span id="step-n">01 网易云</span><span id="step-s">02 Spotify</span><span id="step-g">03 云端授权</span><span id="step-d">04 自动运行</span></nav>
   <p id="notice" role="status" aria-live="polite" hidden></p>
 </template>
+<template id="install-manual-sync">
+  <article class="setup-card install-manual-card">
+    <div><h3>连接完成，先同步一次</h3><p id="manual-help">连接网易云与 Spotify 后，即可手动同步，不需要先连接 GitHub。本机同步期间请保持 App 运行。</p></div>
+    <button class="button button-primary" id="manual-sync" disabled>立即同步一次</button>
+    <p id="manual-status" role="status" aria-live="polite"></p>
+    <a id="manual-playlist" class="text-link" target="_blank" rel="noreferrer" hidden>打开 Spotify 歌单 ↗</a>
+  </article>
+</template>
 <template id="install-spotify-guide">
   <details class="install-guide" id="spotify-guide"><summary>首次连接？展开完整 Spotify 设置指引</summary><ol>
     <li><strong>打开自己的开发者后台。</strong><p>开发模式要求应用所有者拥有有效 Premium。</p><a href="https://developer.spotify.com/dashboard" target="_blank" rel="noreferrer">打开 Spotify 开发者后台 ↗</a></li>

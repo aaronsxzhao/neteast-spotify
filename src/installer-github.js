@@ -7,6 +7,7 @@ import { CloudStore, encryptState, decryptState, parseConfig } from './cloud-sta
 export class InstallerError extends Error {}
 export function installerMessage(error) {
   if (error instanceof InstallerError) return error.message
+  if (['MODULE_NOT_FOUND', 'ERR_MODULE_NOT_FOUND'].includes(error?.code)) return '安装包缺少运行依赖，请使用修复后的安装包；这不是账号或网络问题。'
   if (error?.status === 429 || error?.pauseReason) return '当前存在冷却或请求预算暂停，请等待后重试。已保存的进度不会丢失。'
   return `操作未完成${Number.isInteger(error?.status) ? `（HTTP ${error.status}）` : ''}，请检查网络或重新授权。`
 }
@@ -155,7 +156,11 @@ export class GitHubInstaller {
     await this.api(`repos/${repo}`, 'PATCH', { default_branch: 'main' })
     const cloud = new CloudStore(config, installation.stateKey, {})
     Object.assign(cloud.state.spotify, { requestTimes: this.store.state.spotify.requestTimes, retryAfterUntil: this.store.state.spotify.retryAfterUntil,
-      retryNotBefore: this.store.state.spotify.retryNotBefore, pauseReason: this.store.state.spotify.pauseReason })
+      retryNotBefore: this.store.state.spotify.retryNotBefore, pauseReason: this.store.state.spotify.pauseReason,
+      transientFailures: this.store.state.spotify.transientFailures })
+    // Hand off the local run, including unfinished query checkpoints and today's
+    // successful date. Deployment must not repeat a completed manual sync.
+    Object.assign(cloud.state.sync, this.store.state.sync)
     const stateTree = await this.api(`repos/${repo}/git/trees`, 'POST', { tree: [{ path: 'state.enc', mode: '100644', type: 'blob', content: encryptState(cloud.snapshot(), installation.stateKey) }] })
     const stateCommit = await this.api(`repos/${repo}/git/commits`, 'POST', { message: 'Initialize encrypted personal state', tree: stateTree.sha, parents: [commit.sha] })
     await this.setInitialRef(repo, 'daily-relay-state', stateCommit.sha)

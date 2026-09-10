@@ -26,6 +26,7 @@ document.getElementById('qr-title').textContent = '请扫码登录'
 document.getElementById('copy-redirect').textContent = '复制回调地址'
 connection.querySelector('.manual-login').remove()
 connection.querySelector('.save-bar').remove()
+connection.append(fragment('install-manual-sync'))
 const cover = document.querySelector('.cover-card')
 cover.querySelector('#cover-button').remove()
 cover.querySelector('#cover-state').textContent = 'Daily Relay · 每天的音乐，流转到新的地方。'
@@ -59,10 +60,11 @@ function render(data) {
   $('spotify-status').textContent = data.spotify ? `已连接 ${data.spotifyName || ''}` : '未连接'
   $('netease-status').classList.toggle('connected', data.netease)
   $('spotify-status').classList.toggle('connected', data.spotify)
-  $('connection-pill').textContent = data.deployed ? '个人云端已配置' : '完成账号连接'
-  $('last-run').textContent = data.cloud?.lastSyncedDate || '尚无成功记录'
-  $('match-count').textContent = data.cloud?.lastSyncedDate ? `${data.cloud.matchedCount}/${data.cloud.sourceCount}` : '—'
-  $('next-sync').textContent = data.paused ? '已暂停' : data.deployed ? '北京时间 08:00 起' : '等待配置'
+  $('connection-pill').textContent = data.deployed ? '个人云端已配置' : data.netease && data.spotify ? '可手动同步' : '完成账号连接'
+  const report = data.deployed ? data.cloud : data.manual
+  $('last-run').textContent = report?.lastSyncedDate || '尚无成功记录'
+  $('match-count').textContent = report?.lastSyncedDate ? `${report.matchedCount}/${report.sourceCount}` : '—'
+  $('next-sync').textContent = data.paused ? '已暂停' : data.deployed ? '北京时间 08:00 起' : '未开启 · 可手动同步'
   $('redirect').textContent = data.redirectUri
   if (!$('client-id').value && data.clientId) $('client-id').value = data.clientId
   $('github-status').textContent = data.github.status === 'connected' ? `已授权 ${data.github.login}` : data.github.status === 'waiting' ? '等待确认' : '未授权'
@@ -82,7 +84,7 @@ function render(data) {
   if (data.deployment.status === 'error') notice(data.deployment.message, true)
   $('cloud-panel').hidden = !data.deployed
   $('cloud-empty').hidden = data.deployed
-  $('sync-now').disabled = !data.deployed || !data.cloud || data.busy
+  renderManual(data)
   $('repo-name').textContent = data.repository ? `你的仓库：${data.repository}` : ''
   if (data.repository && data.visibility) $('visibility').value = data.visibility
   $('visibility').disabled = Boolean(data.repository) || data.busy
@@ -96,19 +98,41 @@ function render(data) {
   if (data.deployed && firstCloud && !data.busy) { firstCloud = false; updateCloud() }
   if (data.cloud) renderCloud(data.cloud)
 }
+function renderManual(data) {
+  const local = data.manual || {}
+  const report = data.deployed ? data.cloud : local
+  const until = Math.max(report?.retryAfterUntil || 0, report?.retryNotBefore || 0)
+  const waiting = until > Date.now()
+  const active = report?.run && ['queued', 'in_progress', 'waiting', 'requested', 'pending'].includes(report.run.status)
+  const disabled = data.busy || waiting || data.maintenance || (data.deployed
+    ? !data.cloud || data.paused || active : !local.available || !data.netease || !data.spotify)
+  for (const id of ['sync-now', 'manual-sync']) {
+    $(id).disabled = Boolean(disabled)
+    $(id).textContent = data.busy ? '正在处理…' : waiting ? '等待冷却结束' : data.deployed ? '发起云端同步' : local.pending ? '继续上次同步' : '立即同步一次'
+  }
+  $('manual-help').textContent = data.deployed ? '已由云端接管：手动按钮会提交 GitHub 任务，不在本机使用旧令牌。' : '只需连接网易云与 Spotify，即可同步。此操作会创建或替换专用歌单，本机同步期间请保持 App 运行；每日自动运行需另行配置下方 GitHub。'
+  $('manual-status').textContent = waiting ? `需等待至 ${dateText(until)}。${data.deployed ? '定时任务会按规则续跑。' : '进度已保存，到时点击继续同步；本机不会自动重试。'}` : data.deployed ? (active ? '云端任务正在运行，请勿重复提交。' : data.cloud?.lastSyncedDate ? `上次成功：${data.cloud.lastSyncedDate} · ${data.cloud.matchedCount}/${data.cloud.sourceCount} 首。` : '可提交云端同步，完成后查看下方结果。') : local.status === 'running' ? `正在本机同步，已处理 ${local.completedSongs || 0} 首，请勿退出 App。` : local.message || (local.lastSyncedDate ? `上次成功：${local.lastSyncedDate} · ${local.matchedCount}/${local.sourceCount} 首。` : local.pending ? `有未完成的同步进度，已处理 ${local.completedSongs || 0} 首。` : '等待首次手动同步。')
+  const url = report?.playlistUrl
+  for (const id of ['playlist', 'manual-playlist']) {
+    $(id).hidden = !url?.startsWith('https://open.spotify.com/playlist/')
+    if (!$(id).hidden) $(id).href = url
+  }
+}
 function renderCloud(cloud) {
   const active = cloud.run && ['queued', 'in_progress', 'waiting', 'requested', 'pending'].includes(cloud.run.status)
   const until = Math.max(cloud.retryAfterUntil || 0, cloud.retryNotBefore || 0)
   const waiting = until > Date.now()
   $('cloud-badge').textContent = current.paused ? '已暂停' : waiting ? '等待恢复' : active ? '同步进行中' : cloud.lastSyncedDate ? '已有成功记录' : '待首次成功'
-  $('cloud-title').textContent = cloud.lastSyncedDate ? '你的每日歌单已启用' : '等待首次同步确认'
-  $('cloud-summary').textContent = cloud.lastSyncedDate ? `上次成功：${cloud.lastSyncedDate} · ${cloud.matchedCount}/${cloud.sourceCount} 首。` : cloud.run?.conclusion === 'failure' ? '首次同步尚未成功。系统保留进度并按规则重试；如授权失效，请重新连接账号。' : `任务已配置，尚无成功同步记录。已处理 ${cloud.completedSongs || 0} 首。`
-  $('cloud-pause').textContent = waiting ? `${cloud.retryAfterUntil > Date.now() ? 'Spotify 要求等待' : '本地安全预算／退避暂停'}至 ${dateText(until)}。下一次符合条件的定时运行会续跑，请勿反复点击。` : '通常每天北京时间早上开始；GitHub 可能延迟调度。完成安装后无需保持电脑开机。'
+  $('cloud-title').textContent = waiting ? '同步暂停，进度已保存' : cloud.lastSyncedDate ? '你的每日歌单已启用' : '等待首次同步确认'
+  $('cloud-summary').textContent = waiting ? `本次已处理 ${cloud.completedSongs || 0} 首。尚未发布本次歌单，续跑会利用已保存进度。` : cloud.lastSyncedDate ? `上次成功：${cloud.lastSyncedDate} · ${cloud.matchedCount}/${cloud.sourceCount} 首。` : cloud.run?.conclusion === 'failure' ? '首次同步尚未成功。请查看运行记录；若有未完成进度，后续运行会按规则续跑。' : `任务已配置，尚无成功同步记录。已处理 ${cloud.completedSongs || 0} 首。`
+  const pauseLabel = cloud.retryAfterUntil > Date.now() ? 'Spotify 要求冷却' : cloud.pauseReason === 'request-budget' ? '程序请求预算已用完（不是 Spotify 的 429 冷却），暂停' : '程序因网络／服务异常退避，暂停'
+  $('cloud-pause').textContent = waiting ? `${pauseLabel}至 ${dateText(until)}。下一次符合条件的定时运行会续跑，请勿反复点击。` : '通常每天北京时间早上开始；GitHub 可能延迟调度。完成安装后无需保持电脑开机。'
   $('sync-now').disabled = waiting || active || current.paused || current.maintenance || current.busy
   $('playlist').hidden = !cloud.playlistUrl
   if (cloud.playlistUrl?.startsWith('https://open.spotify.com/playlist/')) $('playlist').href = cloud.playlistUrl
   $('run-link').hidden = !cloud.run?.url
   if (cloud.run?.url?.startsWith('https://github.com/')) $('run-link').href = cloud.run.url
+  renderManual(current)
 }
 async function refresh() { if (closed || pollBusy) return; pollBusy = true; try { const data = await api('/api/status'); if (!closed) render(data) } catch (e) { if (!closed) notice(e.message, true) } finally { pollBusy = false } }
 async function updateCloud() { if (closed || cloudBusy || !current?.deployed) return; cloudBusy = true; try { const cloud = await api('/api/cloud/status', {}); if (cloud && !closed) { current.cloud = cloud; renderCloud(cloud) } } catch (e) { if (!closed) notice(e.message, true) } finally { cloudBusy = false } }
@@ -134,7 +158,14 @@ bind('deploy', async () => { await api('/api/deploy', { consent: $('deploy-conse
 $('deploy-consent').addEventListener('change', () => current && render(current))
 $('github-consent').addEventListener('change', () => current && render(current))
 bind('refresh', updateCloud)
-bind('sync-now', async () => { const result = await api('/api/cloud/run', {}); notice(result.paused ? `仍需等待至 ${dateText(result.until)}` : result.running ? '已有任务运行中，无需重复提交。' : '已提交同步，稍后刷新查看结果。'); await updateCloud() })
+async function triggerSync() {
+  if (!current?.deployed && !confirm('现在同步网易云每日推荐到 Spotify？这会创建或替换专用歌单的内容。同步期间请保持 App 运行。')) return
+  const result = await api('/api/sync', { consent: true })
+  notice(result.paused ? `仍需等待至 ${dateText(result.until)}` : result.running ? '已有任务运行中，无需重复提交。' : result.mode === 'local' ? '已开始本机同步，无需 GitHub。下方会显示进度与结果。' : '已提交云端同步，稍后刷新查看结果。')
+  if (current?.deployed) await updateCloud()
+}
+bind('sync-now', triggerSync)
+bind('manual-sync', triggerSync)
 bind('reconnect', async () => { if (confirm('这会先暂停云端定时，避免令牌冲突。重新登录后需要点击“保存新授权并恢复自动同步”。继续吗？')) await api('/api/cloud/reconnect', {}) })
 bind('pause-cloud', async () => { if (confirm('停止后续每日自动同步？正在运行的任务不会被强行取消。')) { await api('/api/cloud/pause', { consent: true }); notice('已暂停后续自动同步。') } })
 bind('enable-cloud', async () => { await api('/api/cloud/enable', {}); notice('已恢复每日自动同步。') })

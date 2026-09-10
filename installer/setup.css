@@ -22,5 +22,7 @@
 .installer-mode #notice { border-left: 3px solid var(--ink); background: var(--cream); padding: 16px; line-height: 1.6; }
 .installer-mode #notice.error { border-color: var(--red); color: var(--red); }
 .installer-mode #deploy { width: 100%; }
+.installer-mode .install-manual-card { margin-top: 22px; }
+.installer-mode #manual-status { margin: 16px 0 0; }
 .installer-mode footer { align-items: center; gap: 20px; }
 @media (max-width: 850px) { .installer-mode .hero { min-height: 490px; } .installer-mode .vinyl { opacity: .22; } }
