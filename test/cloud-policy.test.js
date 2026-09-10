@@ -33,7 +33,9 @@ test('morning, hourly and forced runs make no provider calls during saved cooldo
 
 test('hourly check with no pending cooldown does not sync early, even on a new day', async () => {
   const f = fixture()
-  assert.equal((await runCloudSync(f.sync, { recoveryOnly: true })).reason, 'no-pending-recovery')
+  const run = await runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-09T23:59:59Z'))
+  assert.equal(run.reason, 'before-daily-window')
+  assert.match(cloudRunSummary(run), /Before 08:00/)
   assert.deepEqual(f.calls, [])
 })
 
@@ -49,7 +51,7 @@ test('expired cooldown recovers once and persists clearance across fresh runners
   assert.equal(next.state.spotify.retryAfterUntil, undefined)
   f.sync.store = next
   f.calls.length = 0
-  assert.equal((await runCloudSync(f.sync, { recoveryOnly: true })).reason, 'no-pending-recovery')
+  assert.equal((await runCloudSync(f.sync, { recoveryOnly: true })).reason, 'already-synced')
   assert.equal((await runCloudSync(f.sync)).reason, 'already-synced')
   assert.deepEqual(f.calls, [])
 })
@@ -74,4 +76,52 @@ test('failed recovery retains pending state for the next check', async () => {
   await next.load()
   assert.equal(next.state.spotify.retryAfterUntil, deadline)
   assert.equal(next.state.sync.lastSyncedDate, undefined)
+})
+
+function policyFixture(lastSyncedDate = '2026-09-09', timezone = 'Asia/Shanghai') {
+  const calls = []
+  const state = { settings: { timezone }, spotify: {}, sync: { lastSyncedDate } }
+  return { calls, state, sync: { store: { state }, async run(options) { calls.push(options); return { matchedCount: 1 } } } }
+}
+
+test('hourly catch-up runs at 08:00 and later if morning schedules were missed', async () => {
+  for (const time of ['2026-09-10T00:00:00Z', '2026-09-10T03:35:00Z', '2026-09-10T15:35:00Z']) {
+    const f = policyFixture()
+    assert.equal((await runCloudSync(f.sync, { recoveryOnly: true }, new Date(time))).matchedCount, 1)
+    assert.deepEqual(f.calls, [{ scheduled: true, requireExistingPlaylist: true, rejectEmptyMatches: true }])
+  }
+})
+
+test('hourly catch-up skips a successful day without provider calls', async () => {
+  const f = policyFixture('2026-09-10')
+  assert.equal((await runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-10T03:35:00Z'))).reason, 'already-synced')
+  assert.deepEqual(f.calls, [])
+})
+
+test('ordinary failed catch-up without cooldown remains eligible for next hourly check', async () => {
+  const f = policyFixture()
+  f.sync.run = async () => { throw new Error('temporary failure') }
+  await assert.rejects(runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-10T03:35:00Z')), /temporary/)
+  f.sync.run = async () => { f.calls.push('retry'); return { matchedCount: 1 } }
+  await runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-10T04:35:00Z'))
+  assert.deepEqual(f.calls, ['retry'])
+})
+
+test('catch-up uses configured timezone and does not sync at local midnight', async () => {
+  const f = policyFixture('2026-09-09', 'UTC')
+  assert.equal((await runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-10T00:35:00Z'))).reason, 'before-daily-window')
+  assert.deepEqual(f.calls, [])
+  await runCloudSync(f.sync, { recoveryOnly: true }, new Date('2026-09-10T08:00:00Z'))
+  assert.equal(f.calls.length, 1)
+})
+
+test('expired cooldown may still recover before morning, while manual sync remains available', async () => {
+  const now = new Date('2026-09-10T00:35:00+08:00')
+  const f = policyFixture()
+  f.state.spotify.retryAfterUntil = now.getTime()
+  await runCloudSync(f.sync, { recoveryOnly: true }, now)
+  assert.equal(f.calls[0].scheduled, false)
+  const manual = policyFixture()
+  await runCloudSync(manual.sync, {}, now)
+  assert.equal(manual.calls.length, 1)
 })
