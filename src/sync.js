@@ -1,5 +1,6 @@
 import { getDailyRecommendations } from './netease.js'
 import { findTrackMatch, sourceSongView } from './matcher.js'
+import { createHash } from 'node:crypto'
 
 export function dateInTimezone(timezone, date = new Date()) {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -44,6 +45,8 @@ export class SyncService {
     const { settings, sync } = this.store.state
     const date = dateInTimezone(settings.timezone)
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
+    this.spotify.safety?.check()
+    this.spotify.safety?.beginRun()
     if (!settings.neteaseCookie) throw new Error('Save a NetEase cookie first')
     if (!this.store.state.spotify.refreshToken) throw new Error('Connect Spotify first')
     if (requireExistingPlaylist && !sync.playlistId) throw new Error('Configure the existing Spotify playlist ID')
@@ -54,14 +57,30 @@ export class SyncService {
     }
     try {
       const songs = await this.getRecommendations(settings.neteaseCookie)
-      const matches = []
-      const unmatched = []
+      const signature = createHash('sha256').update(JSON.stringify({ version: 1, date,
+        playlistId: sync.playlistId, songs: songs.map(sourceSongView), retryUnmatched, retrySourceIds })).digest('hex')
+      if (sync.checkpoint?.signature !== signature) {
+        await this.store.update(state => {
+          state.sync.checkpoint = { signature, date, completed: 0, matches: [], unmatched: [] }
+          state.sync.searchCache = {}
+        })
+      }
+      const checkpoint = this.store.state.sync.checkpoint
+      const matches = [...checkpoint.matches]
+      const unmatched = [...checkpoint.unmatched]
+      const saveProgress = async completed => {
+        await this.store.update(state => {
+          state.sync.checkpoint = { signature, date, completed, matches: [...matches], unmatched: [...unmatched] }
+          state.sync.searchCache = {}
+        })
+      }
       const previous = sync.lastSuccessfulRun
       const sameDayRepair = retryUnmatched && previous?.date === date && previous.playlistId === sync.playlistId
       const reusable = sameDayRepair ? previous.matches || [] : []
       const selected = new Set(retrySourceIds.map(String))
 
-      for (const song of songs) {
+      for (let index = checkpoint.completed; index < songs.length; index++) {
+        const song = songs[index]
         const source = sourceSongView(song)
         // Explicit repair mode only: keep today's already confirmed entries,
         // but re-search if any identity field changed. Never reuse misses.
@@ -69,12 +88,14 @@ export class SyncService {
           match.spotify?.uri?.startsWith('spotify:track:'))
         if (cached) {
           matches.push({ ...cached, source, searchStage: 'same-day-confirmed' })
+          await saveProgress(index + 1)
           continue
         }
         const deferred = sameDayRepair && selected.size && !selected.has(String(song.id)) &&
           previous.unmatched?.find(miss => sameSource(miss, source))
         if (deferred) {
           unmatched.push({ ...deferred, ...source })
+          await saveProgress(index + 1)
           continue
         }
         const diagnostics = {}
@@ -101,6 +122,7 @@ export class SyncService {
         } else {
           unmatched.push({ ...sourceSongView(song), diagnostics })
         }
+        await saveProgress(index + 1)
       }
 
       if (rejectEmptyMatches && matches.length === 0) throw new Error('No confident matches; keeping the existing playlist')
@@ -151,6 +173,11 @@ export class SyncService {
         data.sync.lastRun = run
         data.sync.lastSuccessfulRun = run
         delete data.spotify.retryAfterUntil
+        delete data.spotify.retryNotBefore
+        delete data.spotify.pauseReason
+        delete data.spotify.transientFailures
+        delete data.sync.checkpoint
+        delete data.sync.searchCache
         data.sync.history = [run, ...(data.sync.history || [])].slice(0, 14)
       })
       return run
