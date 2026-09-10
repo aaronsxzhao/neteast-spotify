@@ -142,10 +142,13 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
         return respond(res, 200, { enabled: true })
       }
       if (req.method === 'POST' && url.pathname === '/api/exit') { if (job) throw new InstallerError('请等部署结束再退出。'); respond(res, 200, { closed: true }); server.close(); onExit(); return }
-      const files = { '/': ['index.html', 'text/html'], '/setup.js': ['setup.js', 'text/javascript'], '/setup.css': ['setup.css', 'text/css'] }
+      const files = { '/': ['public/index.html', 'text/html'], '/styles.css': ['public/styles.css', 'text/css'], '/app.js': ['public/app.js', 'text/javascript'],
+        '/setup.js': ['installer/setup.js', 'text/javascript'], '/setup.css': ['installer/setup.css', 'text/css'], '/setup-panels.html': ['installer/panels.html', 'text/html'],
+        '/assets/daily-relay-cover-citypop-no-text.jpg': ['public/assets/daily-relay-cover-citypop-no-text.jpg', 'image/jpeg'] }
       if (req.method === 'GET' && files[url.pathname]) {
         const [file, type] = files[url.pathname]
-        const data = await readFile(path.join(ROOT, 'installer', file))
+        let data = await readFile(path.join(ROOT, file))
+        if (url.pathname === '/') data = data.toString('utf8').replace('</head>', '<meta name="daily-relay-mode" content="installer"><link rel="stylesheet" href="/setup.css"></head>')
         res.writeHead(200, { 'content-type': `${type}; charset=utf-8`, 'cache-control': 'no-store', 'content-security-policy': "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'" })
         return res.end(data)
       }

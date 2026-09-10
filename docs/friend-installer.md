@@ -4,6 +4,10 @@
 
 ## 使用人流程
 
+安装版复用项目现有的 `public/index.html`、样式和组件，只加入安装引导与云端管理。原本的本地同步模式保持可用，两个模式不会同时启动同步逻辑。
+
+`localhost` / `127.0.0.1` 指访问者自己的电脑，不是作者的电脑。不要把作者浏览器的地址发给朋友；应分享 ZIP 安装包。朋友双击 App 后，内置服务在他的 Mac 上启动，浏览器自动打开带本机会话授权的页面。配置完成后每日任务在朋友的 GitHub 上运行，不依赖本机持续开机。以后再次双击 App 即可管理或手动补跑。
+
 1. 下载适合自己 Mac 架构的 ZIP，解压并双击 `Daily Relay.app`。内置 Node.js 与 GitHub CLI，无需终端。
 2. 网易云扫码登录。二维码过期可重新生成。
 3. 按页面逐步创建自己的 Spotify 应用，添加 `http://127.0.0.1:18787/auth/spotify/callback`，只选择 Web API，粘贴自己的 Client ID 并授权。开发模式要求应用所有者拥有有效 Premium。这一步需要本人操作 Spotify 后台，助手不能代替接受条款。
@@ -32,7 +36,7 @@
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
-node --test
+node --test test/*.test.js
 node scripts/prepare-macos-tools.js
 node scripts/build-macos.js
 ```

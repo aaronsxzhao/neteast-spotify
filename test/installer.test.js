@@ -73,10 +73,14 @@ test('guided server exposes only safe status and requires consent for deployment
   assert.equal((await localRequest(`${address}/api/status`, { headers: { host: '127.0.0.1:18787' } })).status, 403)
   assert.equal((await localRequest(`${address}/api/deploy`, { method: 'POST', headers, body: JSON.stringify({ consent: false }) })).status, 400)
   const html = await localRequest(address, { headers }).then(r => r.text())
-  for (const copy of ['自己的 Spotify', 'GitHub', 'Client ID', '私有', '未经过']) {
-    if (copy === '未经过') continue
-    assert.ok(html.includes(copy), copy)
+  const shared = await readFile(path.join(root, 'public/index.html'), 'utf8')
+  assert.equal(html.replace('<meta name="daily-relay-mode" content="installer"><link rel="stylesheet" href="/setup.css">', ''), shared)
+  for (const route of ['/app.js', '/styles.css', '/setup.js', '/setup.css', '/setup-panels.html', '/assets/daily-relay-cover-citypop-no-text.jpg']) {
+    assert.equal((await localRequest(`${address}${route}`, { headers })).status, 200, route)
   }
+  const guide = await localRequest(`${address}/setup-panels.html`, { headers }).then(r => r.text())
+  for (const copy of ['GitHub', 'Client ID', '私有']) assert.ok(guide.includes(copy), copy)
+  assert.equal((await localRequest(`${address}/../.data/state.json`, { headers })).status, 404)
 })
 
 test('cloud payload allowlist contains no installer, personal state, source credentials or maintainer account IDs', async t => {

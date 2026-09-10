@@ -51,6 +51,7 @@ export class GitHubInstaller {
         if (code === 0) resolve(stdout)
         else {
           const status = Number(stderr.match(/HTTP (\d{3})/)?.[1]) || undefined
+          if (status === 401) this.login = { status: 'error', message: 'GitHub 授权已失效，请重新连接。' }
           reject(Object.assign(new InstallerError(status === 401 ? 'GitHub 授权已失效，请重新连接。' : status === 403 ? 'GitHub 权限不足或额度受限，请重新授权并检查账号状态。' : `GitHub 操作未完成${status ? `（HTTP ${status}）` : ''}，可以稍后重试。`), { status }))
         }
       })

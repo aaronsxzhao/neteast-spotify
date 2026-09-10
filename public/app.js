@@ -1,3 +1,12 @@
+// Both launch modes share the original interface. Only the server selects the
+// controller; the installer never starts the legacy local-sync handlers.
+if (document.querySelector('meta[name="daily-relay-mode"]')?.content === 'installer') {
+  try { await import('/setup.js') } catch {
+    const toast = document.getElementById('toast')
+    toast.textContent = '安装引导未能加载，请退出并重新打开 Daily Relay App。'
+    toast.classList.add('show', 'error')
+  }
+} else {
 const $ = (selector) => document.querySelector(selector)
 
 const elements = {
@@ -319,4 +328,5 @@ try {
   if (query.has('spotify')) history.replaceState({}, '', '/')
 } catch (error) {
   showToast(error.message, true)
+}
 }

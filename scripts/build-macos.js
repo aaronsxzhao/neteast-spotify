@@ -18,6 +18,11 @@ for (const entry of ['src', 'test', 'installer', 'scripts', '.github', 'package.
   await cp(path.join(root, entry), path.join(resources, entry), { recursive: true, filter: source => !source.includes('citypop-cover-prompt') })
 }
 await cp(path.join(root, 'node_modules'), path.join(resources, 'node_modules'), { recursive: true, dereference: true })
+// Share the existing UI, copying only the served frontend assets (no design sources).
+await mkdir(path.join(resources, 'public', 'assets'), { recursive: true })
+for (const entry of ['index.html', 'app.js', 'styles.css', 'assets/daily-relay-cover-citypop-no-text.jpg']) {
+  await cp(path.join(root, 'public', entry), path.join(resources, 'public', entry))
+}
 await cp(process.execPath, path.join(resources, 'runtime', 'node'))
 await chmod(path.join(resources, 'runtime', 'node'), 0o755)
 const gh = process.env.DAILY_RELAY_BUILD_GH || tools.gh

@@ -11,7 +11,7 @@ import { checkQrLogin, createQrLogin } from './netease.js'
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const PUBLIC_DIR = path.join(ROOT, 'public')
-const COVER_PATH = path.join(PUBLIC_DIR, 'assets', 'daily-relay-cover.jpg')
+const COVER_PATH = path.join(PUBLIC_DIR, 'assets', 'daily-relay-cover-citypop-no-text.jpg')
 const store = new Store()
 await store.load()
 const spotify = new SpotifyClient(store)
@@ -92,7 +92,7 @@ function publicStatus() {
     },
     sync: {
       playlistUrl: sync.playlistUrl,
-      coverUrl: '/assets/daily-relay-cover.jpg',
+      coverUrl: '/assets/daily-relay-cover-citypop-no-text.jpg',
       coverApplied: Boolean(sync.coverUploadedAt && sync.coverUploadedForPlaylistId === sync.playlistId),
       coverUploadedAt: sync.coverUploadedAt,
       lastSyncedDate: sync.lastSyncedDate,
