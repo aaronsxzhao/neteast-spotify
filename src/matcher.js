@@ -24,6 +24,13 @@ const VERIFIED_TITLES = new Map([
   ['1857311472', ['Rain Song (Feat. Colde)']],
   ['28593407', ['Your scent']],
   ['441489617', ['Find out～One Thing～']],
+  ['1996902507', ['モーニング・サブウェイ']],
+])
+
+// A performance credit is not a universal artist alias. This reviewed band-set
+// relationship applies only to the named source recording, never all re:plus.
+const VERIFIED_CREDITS = new Map([
+  ['1358089285', { name: 'Solitude -band ver-', artist: 're:plus', aliases: ['re:plus band set'] }],
 ])
 
 // Reviewed re-recordings whose Spotify titles omit their edition label.
@@ -55,6 +62,8 @@ const ARTIST_ALIASES = new Map([
   ['角松敏生', ['Toshiki Kadomatsu']],
   ['黒川沙良', ['Sala Kurokawa']],
   ['莫文蔚', ['Karen Mok']],
+  ['久保田利伸', ['Toshinobu Kubota']],
+  ['山根麻以', ['Mai Yamane']],
 ])
 
 export function normalize(value = '') {
@@ -163,7 +172,16 @@ export function songTitles(song, { manual = true } = {}) {
 
 export function searchableArtists(song, { manual = true } = {}) {
   const names = (song.ar || song.artists || []).flatMap(metadataNames).flatMap(artistNameVariants)
-  return unique(names.flatMap((artist) => [artist, ...(manual ? catalogAliases(ARTIST_ALIASES, artist) : [])]))
+  const verified = manual && VERIFIED_CREDITS.get(String(song.id))
+  const scoped = verified && normalize(song.name) === normalize(verified.name) &&
+    names.some(name => normalize(name) === normalize(verified.artist)) ? verified.aliases : []
+  return unique([...names.flatMap((artist) => [artist, ...(manual ? catalogAliases(ARTIST_ALIASES, artist) : [])]), ...scoped])
+}
+
+function primaryArtistNames(song, options) {
+  const primary = (song.ar || song.artists || [])[0]
+  return searchableArtists({ ...song, ar: primary ? [primary] : [] }, options)
+    .flatMap(artistNameVariants).map(normalize)
 }
 
 // Preserve the full credit (including band names with &) and add only bounded
@@ -177,7 +195,7 @@ function artistNameVariants(value) {
 function recordingTitle(value) {
   // Strip a clearly delimited edition suffix, not ordinary song subtitles.
   // Version compatibility is checked separately using title AND album context.
-  return String(value).normalize('NFKC').replace(/\s*(?:[-–—]|\()\s*(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+  return String(value).normalize('NFKC').replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
 }
 
 function quoted(value) {
@@ -373,7 +391,10 @@ function compositionTitle(value) {
   return searchTitle(value)
     .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu,
       (full, a, b, c) => VERSION_LABEL.test(a || b || c) ? ' ' : full)
-    .replace(/\s+[-–—]\s+(.+)$/u, (full, suffix) => VERSION_LABEL.test(suffix) ? '' : full)
+    // Accept compact edition delimiters such as " -band ver-" or "—Live".
+    // Do not strip ordinary hyphenated titles or subtitles containing "live".
+    .replace(/\s*[-–—]\s*((?:(?:19|20)\d{2}\s+)?(?:band\s+ver(?:sion)?\.?|live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b.*)$/iu, '')
+    .replace(/\s*[-–—]\s*(?:现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|リミックス|アコースティック).*$/u, '')
     .trim()
 }
 
@@ -383,7 +404,7 @@ function compositionTitle(value) {
 export function pickAlternateVersion(song, candidates) {
   const primary = (song.ar || song.artists || [])[0]
   if (!primary) return null
-  const primaryNames = searchableArtists({ ar: [primary] }).flatMap(artistNameVariants).map(normalize)
+  const primaryNames = primaryArtistNames(song)
   const titles = songTitles(song).map(compositionTitle).map(normalize).filter(Boolean)
   const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
     .filter(candidate => artistNameVariants(candidate.artists?.[0]?.name).some(name => primaryNames.includes(normalize(name))))
@@ -409,6 +430,12 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     if (stage.manual) {
       const existing = pickBestMatch(song, [...candidates.values()], 0.68, { manual: true })
       if (existing) return { ...existing, searchStage: stage.name }
+      // All metadata stages already failed. Reuse the retrieved pool with the
+      // reviewed identities before issuing any more alias/version searches.
+      if (allowAlternateVersions) {
+        const alternate = pickAlternateVersion(song, [...candidates.values()])
+        if (alternate) return alternate
+      }
     }
     for (const query of stage.queries) {
       searched.add(query)
@@ -421,9 +448,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
       // agree. Borderline, cross-language and ambiguous results still use the
       // full stage and the existing recall/alternate-version fallbacks.
       const definite = pickBestMatch(song, [...candidates.values()], 0.68, { manual: stage.manual })
-      const primary = (song.ar || song.artists || [])[0]
-      const primaryNames = searchableArtists({ ar: primary ? [primary] : [] }, { manual: stage.manual })
-        .flatMap(artistNameVariants).map(normalize)
+      const primaryNames = primaryArtistNames(song, { manual: stage.manual })
       const samePrimary = artistNameVariants(definite?.candidate.artists?.[0]?.name)
         .some(name => primaryNames.includes(normalize(name)))
       if (definite && samePrimary && !definite.crossLanguage && definite.title >= 0.98 &&
@@ -445,7 +470,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     if (existing) return existing
     const titles = unique(songTitles(song).map(compositionTitle)).slice(0, 3)
     const primary = (song.ar || song.artists || [])[0]
-    const artists = searchableArtists({ ar: primary ? [primary] : [] }).slice(0, 2)
+    const artists = searchableArtists({ ...song, ar: primary ? [primary] : [] }).slice(0, 2)
     const queries = [...new Set(titles.flatMap(title => [
       ...artists.map(artist => `${quoted(title)} ${quoted(artist)}`),
       `track:"${quoted(title)}"`,
