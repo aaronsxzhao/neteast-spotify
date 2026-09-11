@@ -16,9 +16,9 @@ on:
         type: string
         default: ''
   schedule:
-    # UTC 00:00/01:00/02:00 = Beijing 08:00/09:00/10:00.
-    - cron: '0 0,1,2 * * *'
-    # Check every 15 minutes, off the busy hour, after 08:00 Beijing.
+    # UTC 23:00 (previous date), 00:00/01:00/02:00 = Beijing 07:00/08:00/09:00/10:00.
+    - cron: '0 0,1,2,23 * * *'
+    # Check every 15 minutes, off the busy hour, after 07:00 Beijing.
     # Also recover expired cooldowns; never bypass an active provider cooldown.
     - cron: '5,20,35,50 * * * *'
 
