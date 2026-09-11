@@ -29,10 +29,15 @@ function sameSource(left, right) {
 export class SyncService {
   #running = null
 
-  constructor(store, spotify, getRecommendations = getDailyRecommendations) {
+  constructor(store, spotify, getRecommendations = getDailyRecommendations, onProgress = () => {}) {
     this.store = store
     this.spotify = spotify
     this.getRecommendations = getRecommendations
+    this.onProgress = onProgress
+  }
+
+  progress(phase, fields = {}) {
+    try { this.onProgress({ phase, ...fields }) } catch { /* Logging is best effort. */ }
   }
 
   run(options = {}) {
@@ -44,6 +49,7 @@ export class SyncService {
   async #run({ scheduled = false, requireExistingPlaylist = false, rejectEmptyMatches = false, retryUnmatched = false, retrySourceIds = [] } = {}) {
     const { settings, sync } = this.store.state
     const date = dateInTimezone(settings.timezone)
+    this.progress('sync-preflight')
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
     this.spotify.safety?.check()
     this.spotify.safety?.beginRun()
@@ -53,10 +59,13 @@ export class SyncService {
 
     const startedAt = new Date().toISOString()
     if (scheduled) {
+      this.progress('save-attempt')
       await this.store.update((data) => { data.sync.lastScheduledAttemptAt = Date.now() })
     }
     try {
+      this.progress('netease-fetch')
       const songs = await this.getRecommendations(settings.neteaseCookie)
+      this.progress('checkpoint-load', { sourceCount: songs.length })
       const signature = createHash('sha256').update(JSON.stringify({ version: 1, date,
         playlistId: sync.playlistId, songs: songs.map(sourceSongView), retryUnmatched, retrySourceIds })).digest('hex')
       if (sync.checkpoint?.signature !== signature) {
@@ -69,6 +78,7 @@ export class SyncService {
       const matches = [...checkpoint.matches]
       const unmatched = [...checkpoint.unmatched]
       const saveProgress = async completed => {
+        this.progress('checkpoint-save', { completedSongs: completed, matchedCount: matches.length, unmatchedCount: unmatched.length })
         await this.store.update(state => {
           state.sync.checkpoint = { signature, date, completed, matches: [...matches], unmatched: [...unmatched] }
           state.sync.searchCache = {}
@@ -80,6 +90,7 @@ export class SyncService {
       const selected = new Set(retrySourceIds.map(String))
 
       for (let index = checkpoint.completed; index < songs.length; index++) {
+        this.progress('matching', { completedSongs: index, sourceCount: songs.length })
         const song = songs[index]
         const source = sourceSongView(song)
         // Explicit repair mode only: keep today's already confirmed entries,
@@ -128,6 +139,7 @@ export class SyncService {
       if (rejectEmptyMatches && matches.length === 0) throw new Error('No confident matches; keeping the existing playlist')
 
       let playlistId = sync.playlistId
+      this.progress('playlist-write', { matchedCount: matches.length, unmatchedCount: unmatched.length })
       let playlistUrl = sync.playlistUrl
       if (!playlistId) {
         const playlist = await this.spotify.createPlaylist(settings.playlistName, settings.playlistPublic)
@@ -146,6 +158,7 @@ export class SyncService {
       }
 
       const alternateVersionCount = matches.filter(match => match.alternateVersion).length
+      this.progress('playlist-metadata')
       await this.spotify.updatePlaylist(playlistId, {
         name: settings.playlistName,
         public: settings.playlistPublic,
@@ -166,6 +179,7 @@ export class SyncService {
         playlistId,
         playlistUrl,
       }
+      this.progress('save-success')
       await this.store.update((data) => {
         data.sync.playlistId = playlistId
         data.sync.playlistUrl = playlistUrl

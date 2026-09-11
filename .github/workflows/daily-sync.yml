@@ -35,19 +35,40 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
+      # Inline so checkout/dependency failures cannot hide the runner's startup.
+      - name: Record workflow start
+        id: audit_start
+        env:
+          TRIGGER_SCHEDULE: ${{ github.event.schedule || '' }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const record = { event: 'workflow-start', at: new Date().toISOString(),
+            beijing: new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Shanghai' }),
+            trigger: process.env.GITHUB_EVENT_NAME, cron: process.env.TRIGGER_SCHEDULE || null,
+            runId: process.env.GITHUB_RUN_ID, attempt: process.env.GITHUB_RUN_ATTEMPT,
+            ref: process.env.GITHUB_REF, sha: process.env.GITHUB_SHA };
+          console.log('DAILY_RELAY_AUDIT ' + JSON.stringify(record));
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### Workflow diagnostics\n\n```json\n' + JSON.stringify(record, null, 2) + '\n```\n');
+          NODE
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        id: checkout
         with:
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        id: setup_node
         with:
           node-version: '22'
       - name: Install dependencies
+        id: install
         run: |
           npm install --global pnpm@9.15.9
           pnpm install --frozen-lockfile --ignore-scripts
       - name: Test
+        id: tests
         run: node --test
       - name: Sync existing playlist
+        id: sync_app
         env:
           DAILY_RELAY_CONFIG: ${{ secrets.DAILY_RELAY_CONFIG }}
           DAILY_RELAY_STATE_KEY: ${{ secrets.DAILY_RELAY_STATE_KEY }}
@@ -57,3 +78,24 @@ jobs:
           RETRY_SOURCE_IDS: ${{ inputs.retry_source_ids || '' }}
           RECOVERY_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '5,20,35,50 * * * *' }}
         run: node src/cloud-run.js
+      - name: Record workflow outcome
+        if: ${{ always() }}
+        env:
+          JOB_STATUS: ${{ job.status }}
+          START_OUTCOME: ${{ steps.audit_start.outcome }}
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          SETUP_OUTCOME: ${{ steps.setup_node.outcome }}
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+          SYNC_OUTCOME: ${{ steps.sync_app.outcome }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const record = { event: 'workflow-end', at: new Date().toISOString(),
+            jobStatus: process.env.JOB_STATUS, steps: {} };
+          for (const name of ['START', 'CHECKOUT', 'SETUP', 'INSTALL', 'TEST', 'SYNC']) {
+            record.steps[name.toLowerCase()] = process.env[name + '_OUTCOME'] || 'unknown';
+          }
+          console.log('DAILY_RELAY_AUDIT ' + JSON.stringify(record));
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '\n```json\n' + JSON.stringify(record, null, 2) + '\n```\n');
+          NODE

@@ -47,3 +47,19 @@ If an account authorization expires, reconnect in the local app, rerun the expor
 - To pause cloud syncing, disable this workflow on the Actions page. To change the times, edit its UTC cron expression.
 
 References: [GitHub schedules](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule), [workflow token permissions](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token), [Spotify refresh tokens](https://developer.spotify.com/documentation/web-api/tutorials/refreshing-tokens).
+
+## 排查“没有按时同步”
+
+现有工作流输出 `DAILY_RELAY_AUDIT` 结构化日志，不引入外部调度器，也不新增音乐接口请求。每条带 UTC 时间，任务入口另带北京时间、实际触发方式、命中的完整 cron、运行 ID 和代码版本。
+
+| 证据 | 含义 |
+| --- | --- |
+| 对应时段没有 Actions run | 当前没有可见的运行记录；应用日志无法证明 GitHub 内部是否丢弃或延迟了触发 |
+| 有 run，但 queued / pending 或 job skipped | 已创建运行，但尚未启动执行，或 job 条件不满足；查 Actions 状态和时间 |
+| `workflow-start`，没有 `app-start` | runner 已启动，但同步程序没进入；`workflow-end.steps` 标明 checkout、安装、测试是否失败或跳过 |
+| `app-start`、`policy-decision` 为 skipped | 已启动并明确跳过：`already-synced`（当天完成）、`before-daily-window`（未到窗口）、`provider-cooldown`（Spotify 冷却）或本地安全暂停 |
+| `app-stage` 后 `app-end` 为 failed | 程序已启动并失败；phase 标出状态读取、网易云获取、匹配、进度保存、歌单写入等阶段；status 仅输出数值状态码 |
+| `app-result` / `app-end` 为 paused | 本次未完成，保存进度等待后续检查；不是同步成功 |
+| `app-result` / `app-end` 为 success | 已完成歌单写入并保存成功状态，附歌曲数量 |
+
+`request-metrics` 显示请求、缓存和重试计数。日志不输出 Cookie、令牌、完整状态或供应商错误正文。绿色 Actions 只表示步骤正常退出，**不等于已同步**，须看 app-result。取消、超时或 runner 被强制终止可能来不及写结束日志；这时结合 Actions conclusion 和最后一个阶段判断，不能把缺少结束日志当成“从未启动”。完整 cron 只能说明触发规则，不代表 GitHub 提供了该事件原本计划执行的精确时刻。历史运行不能补写这些新日志。

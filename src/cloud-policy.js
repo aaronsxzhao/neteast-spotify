@@ -2,26 +2,29 @@ import { dateInTimezone, hourInTimezone } from './sync.js'
 
 // Frequent recovery checks also catch a missed daily schedule after 07:00 local time.
 // They must not move the normal morning sync to midnight or repeat a success.
-export async function runCloudSync(sync, { force = false, recoveryOnly = false, retryUnmatched = false, retrySourceIds = [] } = {}, now = new Date()) {
+export async function runCloudSync(sync, { force = false, recoveryOnly = false, retryUnmatched = false, retrySourceIds = [], onDecision = () => {} } = {}, now = new Date()) {
+  const decision = details => { try { onDecision(details) } catch { /* Logging cannot affect policy. */ } }
+  const skip = details => { decision({ result: 'skipped', ...details }); return { skipped: true, ...details } }
   const { spotify, settings, sync: status } = sync.store.state
   const retryAt = Number(spotify.retryAfterUntil || 0)
   if (retryAt > now.getTime()) {
-    return { skipped: true, reason: 'provider-cooldown', retryAt: new Date(retryAt).toISOString() }
+    return skip({ reason: 'provider-cooldown', retryAt: new Date(retryAt).toISOString() })
   }
   const localRetryAt = Number(spotify.retryNotBefore || 0)
   if (localRetryAt > now.getTime()) {
-    return { skipped: true, reason: spotify.pauseReason || 'local-backoff', retryAt: new Date(localRetryAt).toISOString() }
+    return skip({ reason: spotify.pauseReason || 'local-backoff', retryAt: new Date(localRetryAt).toISOString() })
   }
   const recoveryPending = (Number.isFinite(retryAt) && retryAt > 0) || (Number.isFinite(localRetryAt) && localRetryAt > 0)
   if (!force && !recoveryPending && status.lastSyncedDate === dateInTimezone(settings.timezone, now)) {
-    return { skipped: true, reason: 'already-synced' }
+    return skip({ reason: 'already-synced' })
   }
   if (recoveryOnly && !recoveryPending && hourInTimezone(settings.timezone, now) < 7) {
-    return { skipped: true, reason: 'before-daily-window' }
+    return skip({ reason: 'before-daily-window' })
   }
   // A failed forced update may follow a successful sync on the same day.
   // Its pending cooldown still needs one recovery, cleared only on success.
   try {
+    decision({ result: 'sync-starting', force, recoveryOnly, recoveryPending, retryUnmatched })
     return await sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true, retrySourceIds } : {}) })
   } catch (error) {
     if (error.pauseReason && Number.isFinite(error.retryAt)) {
