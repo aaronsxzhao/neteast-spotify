@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { SPOTIFY_REDIRECT_URI, SPOTIFY_SCOPES } from './config.js'
 import { RequestSafety } from './request-safety.js'
-import { albumSearchQueries, selectSourceAlbums } from './matcher.js'
+import { albumSearchQueries, selectSourceAlbums, knownTrackIds } from './matcher.js'
 
 const API_BASE = 'https://api.spotify.com/v1'
 const ACCOUNTS_BASE = 'https://accounts.spotify.com'
@@ -213,6 +213,31 @@ export class SpotifyClient {
     })
     this.albumCache.set(key, value)
     return value
+  }
+
+  async findKnownTracks(song, { takeQuery = () => true } = {}) {
+    const tracks = []
+    for (const id of knownTrackIds(song).slice(0, 1)) {
+      if (!takeQuery()) break
+      try {
+        const track = await this.cachedAlbumRequest(`/tracks/${id}`, track => ({
+          id: track.id, uri: track.uri, name: track.name, duration_ms: track.duration_ms,
+          // Unknown availability is not proof a public catalog pointer plays
+          // in this account. Search/reissue fallback may still find a match.
+          is_playable: track.is_playable === true && !track.restrictions?.reason,
+          catalogAvailability: track.restrictions?.reason || track.is_playable === false ? 'restricted' :
+            track.is_playable === true ? 'playable' : 'unknown',
+          artists: track.artists?.map(a => ({ id: a.id, name: a.name })),
+          album: { id: track.album?.id, name: track.album?.name,
+            images: track.album?.images?.slice(-1).map(image => ({ url: image.url })) },
+          external_urls: { spotify: track.external_urls?.spotify },
+        }))
+        tracks.push(track)
+      } catch (error) {
+        if (error.status !== 404) throw error
+      }
+    }
+    return tracks
   }
 
   async findAlbumTracks(song, { takeQuery = () => true } = {}) {

@@ -114,11 +114,13 @@ export class SyncService {
         const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics, {
           allowAlternateVersions: true,
           findAlbumTracks: this.spotify.findAlbumTracks ? (source, budget) => this.spotify.findAlbumTracks(source, budget) : undefined,
+          findKnownTracks: this.spotify.findKnownTracks ? (source, budget) => this.spotify.findKnownTracks(source, budget) : undefined,
         })
         this.progress('match-result', {
           completedSongs: index + 1, result: match ? 'matched' : 'unmatched',
           queryCount: diagnostics.queryCount, catalogQueryCount: diagnostics.catalogQueryCount,
           albumQueryCount: diagnostics.albumQueryCount, queryBudget: diagnostics.queryBudget,
+          knownTrackQueryCount: diagnostics.knownTrackQueryCount,
           queryLimitsApplied: diagnostics.queryLimitsApplied,
         })
 

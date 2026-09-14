@@ -29,10 +29,11 @@ test('verified original artist defeats same-title cover ambiguity', () => {
   assert.equal(pickBestMatch(song, [cover, original], 0.68, { manual: false }), null)
 })
 
-test('source-scoped Korean translation and compound target credits retain checks', () => {
+test('source-scoped translation cannot infer an unknown lead from a shared compound guest', () => {
   const song = source('사람냄새', '郑仁', 208000, { id: 28593407, ar: [{ name: '郑仁' }, { name: 'Gary' }] })
   const hit = target('Your scent', 'Jung In&Gary', 208000)
-  assert.ok(pickBestMatch(song, [hit]))
+  assert.equal(pickBestMatch(song, [hit]), null, 'Gary alone cannot verify the unknown lead credit')
+  assert.ok(pickBestMatch({ ...song, ar: [{ name: 'Jung In' }, { name: 'Gary' }] }, [hit]))
   assert.equal(pickBestMatch({ ...song, id: 'another' }, [hit]), null)
   assert.equal(pickBestMatch(song, [{ ...hit, artists: [{ name: 'Unrelated Singer' }] }]), null)
   const rain = source('비 오는 날 듣기 좋은 노래 (Feat. Colde)', 'EPIK HIGH', 243785, { id: 1857311472 })
