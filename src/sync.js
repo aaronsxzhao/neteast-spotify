@@ -52,7 +52,8 @@ export class SyncService {
     this.progress('sync-preflight')
     if (scheduled && sync.lastSyncedDate === date) return { skipped: true, reason: 'already-synced' }
     this.spotify.safety?.check()
-    this.spotify.safety?.beginRun()
+    if (this.spotify.beginRun) this.spotify.beginRun()
+    else this.spotify.safety?.beginRun()
     if (!settings.neteaseCookie) throw new Error('Save a NetEase cookie first')
     if (!this.store.state.spotify.refreshToken) throw new Error('Connect Spotify first')
     if (requireExistingPlaylist && !sync.playlistId) throw new Error('Configure the existing Spotify playlist ID')
@@ -110,7 +111,10 @@ export class SyncService {
           continue
         }
         const diagnostics = {}
-        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics, { allowAlternateVersions: true })
+        const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics, {
+          allowAlternateVersions: true,
+          findAlbumTracks: this.spotify.findAlbumTracks ? source => this.spotify.findAlbumTracks(source) : undefined,
+        })
 
         if (match) {
           matches.push({

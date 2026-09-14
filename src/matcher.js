@@ -25,6 +25,8 @@ const VERIFIED_TITLES = new Map([
   ['28593407', ['Your scent']],
   ['441489617', ['Find out～One Thing～']],
   ['1996902507', ['モーニング・サブウェイ']],
+  ['1950516532', ['レイニー ブルー']],
+  ['468490434', ['LOVE SQUALL']],
 ])
 
 // A performance credit is not a universal artist alias. This reviewed band-set
@@ -64,6 +66,12 @@ const ARTIST_ALIASES = new Map([
   ['莫文蔚', ['Karen Mok']],
   ['久保田利伸', ['Toshinobu Kubota']],
   ['山根麻以', ['Mai Yamane']],
+  ['スピッツ', ['SPITZ']],
+  ['寺尾聰', ['Akira Terao']],
+  ['德永英明', ['Hideaki Tokunaga', '徳永英明']],
+  ['菊池桃子', ['Momoko Kikuchi']],
+  ['池田聡', ['Satoshi Ikeda']],
+  ['大野雄二', ['Yuji Ohno']],
 ])
 
 export function normalize(value = '') {
@@ -140,6 +148,13 @@ function metadataNames(entity = {}) {
     ...strings(entity.alia), ...strings(entity.alias)].filter((value) => typeof value === 'string')
 }
 
+// Alias fields also contain distribution notes and TV/film usage, not titles.
+// Preserve the actual name even if it happens to contain one of these phrases.
+function titleMetadata(song) {
+  return metadataNames(song).filter(value => value === song.name ||
+    !/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release)/iu.test(value))
+}
+
 function scripts(value) {
   return ['Latin', 'Han', 'Hiragana', 'Katakana', 'Hangul', 'Cyrillic', 'Arabic']
     .filter((script) => new RegExp(`\\p{Script=${script}}`, 'u').test(value))
@@ -164,7 +179,7 @@ export function titleVariants(value) {
 
 export function songTitles(song, { manual = true } = {}) {
   return unique([
-    ...metadataNames(song).flatMap(titleVariants),
+    ...titleMetadata(song).flatMap(titleVariants),
     ...(manual ? catalogAliases(TITLE_ALIASES, song.name).flatMap(titleVariants) : []),
     ...(manual ? VERIFIED_TITLES.get(String(song.id)) || [] : []),
   ])
@@ -188,8 +203,45 @@ function primaryArtistNames(song, options) {
 // components. Never accept arbitrary substrings such as Some / Someone.
 function artistNameVariants(value) {
   const full = String(value || '').normalize('NFKC')
+    .replace(/(?<=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/gu, '')
+  // A bilingual display credit, e.g. 简约情人（Simple Lover), is one artist
+  // with two names. Do not split same-script band qualifiers or edition text.
+  const bilingual = titleVariants(full)
   const parts = full.split(/(?<=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Latin}])|(?<=[\p{Script=Latin}])\s+(?=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/u)
-  return unique([full, ...parts, ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
+  return unique([full, ...bilingual, ...parts, ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
+}
+
+function albumIdentity(value) {
+  return normalize(String(value).replace(/\bVol\.?\s*(I{1,3}|IV|V)\b/gi,
+    (_, roman) => `Vol ${['I', 'II', 'III', 'IV', 'V'].indexOf(roman.toUpperCase()) + 1}`))
+    .replace(/\bvol\s*(\d+)/g, 'vol $1')
+}
+
+// Album traversal is bounded and only a retrieval hint. Every returned track
+// still goes through the ordinary title/artist/version checks.
+export function albumSearchQueries(song) {
+  return [...new Set(metadataNames(song.al || song.album).slice(0, 2)
+    .flatMap(name => [name, String(name).replace(/Vol\.?\s*1\b/gi, 'Vol.I')])
+    .map(name => `album:"${quoted(name)}"`))].slice(0, 2)
+}
+
+export function selectSourceAlbums(song, albums) {
+  const names = metadataNames(song.al || song.album).map(albumIdentity)
+  const artists = searchableArtists(song).flatMap(artistNameVariants).map(normalize)
+  const volumes = names.map(name => name.match(/\bvol (\d+)/)?.[1]).filter(Boolean)
+  const seen = new Set()
+  return albums.filter(album => /^[a-zA-Z0-9]{22}$/.test(album?.id || ''))
+    .filter(album => {
+      if (seen.has(album.id)) return false
+      seen.add(album.id)
+      const volume = albumIdentity(album.name).match(/\bvol (\d+)/)?.[1]
+      return !volume || !volumes.length || volumes.includes(volume)
+    })
+    .map(album => ({ album, score: Math.max(0, ...names.map(name => similarity(name, albumIdentity(album.name)))),
+      artist: (album.artists || []).some(a => artistNameVariants(a.name).some(n => artists.includes(normalize(n)))) }))
+    .filter(item => item.score >= 0.9 && (item.artist || (item.score >= 0.98 && normalize(item.album.name).length >= 8)))
+    .sort((a, b) => Number(b.artist) - Number(a.artist) || b.score - a.score)
+    .slice(0, 2).map(item => item.album)
 }
 
 function recordingTitle(value) {
@@ -220,6 +272,14 @@ function queryVariants(values) {
   }).filter(Boolean))]
 }
 
+function interleave(groups) {
+  const result = []
+  for (let i = 0; i < Math.max(0, ...groups.map(group => group.length)); i++) {
+    for (const group of groups) if (group[i]) result.push(group[i])
+  }
+  return result
+}
+
 export function songSearchStages(song) {
   // Bound fan-out on unusually verbose catalog metadata.
   const titles = queryVariants(songTitles(song, { manual: false })).slice(0, 12)
@@ -245,12 +305,20 @@ export function songSearchStages(song) {
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
     { name: 'free-text', manual: false, queries: plain(titles, artists) },
     { name: 'album', manual: false, queries: albumQueries(artists) },
-    { name: 'manual-alias', manual: true, queries: [...combined(fallbackTitles, fallbackArtists), ...titleOnly(fallbackTitles), ...plain(fallbackTitles, fallbackArtists), ...albumQueries(fallbackArtists)] },
-  ].map((stage) => ({ ...stage, queries: stage.queries.filter((query) => {
-    if (seen.has(query)) return false
-    seen.add(query)
-    return true
-  }) }))
+    { name: 'manual-alias', manual: true, queries: interleave([
+      combined(fallbackTitles, fallbackArtists), titleOnly(fallbackTitles), plain(fallbackTitles, fallbackArtists), albumQueries(fallbackArtists),
+    ]) },
+  ].map(stage => {
+    const queries = stage.queries.filter(query => {
+      if (seen.has(query)) return false
+      seen.add(query)
+      return true
+    })
+    // Bound curated-name fan-out, with mixed query types rather than spending
+    // the whole allowance on the Cartesian product of title/artist spellings.
+    return { ...stage, queries: stage.manual ? queries.slice(0, 12) : queries,
+      limited: stage.manual && queries.length > 12 }
+  })
 }
 
 export function songSearchQueries(song) {
@@ -289,7 +357,11 @@ function evidence(song, candidate, options) {
     const length = normalize(name).replace(/\s/g, '').length
     return /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u.test(name) ? length >= 5 : length >= 8
   })
-  const crossLanguage = crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
+  // Once a curated primary identity exists, a differently spelled artist is
+  // not rescued merely by script/duration coincidence (e.g. SPITZ covers).
+  const primaryHasAlias = options?.manual !== false && metadataNames((song.ar || song.artists || [])[0])
+    .some(name => catalogAliases(ARTIST_ALIASES, name).length > 0)
+  const crossLanguage = !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
     Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []
@@ -420,11 +492,22 @@ export function pickAlternateVersion(song, candidates) {
   } : null
 }
 
-export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false } = {}) {
+export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false, findAlbumTracks } = {}) {
   const candidates = new Map()
   const searched = new Set()
   let queryCount = 0
-  for (const stage of songSearchStages(song)) {
+  let albumTraversalChecked = false
+  const stages = songSearchStages(song)
+  for (const stage of stages) {
+    // A track may be beyond the first ten album-filtered search results. Read
+    // a bounded album listing before more query permutations, without treating
+    // album membership or similar duration as proof of an unrelated title.
+    if (stage.name === 'album' && findAlbumTracks) {
+      albumTraversalChecked = true
+      for (const candidate of await findAlbumTracks(song)) candidates.set(candidate.id || candidate.uri, candidate)
+      const found = pickBestMatch(song, [...candidates.values()], 0.68, { manual: false })
+      if (found) return { ...found, searchStage: 'album-traversal' }
+    }
     // Re-score retrieved candidates with curated names before spending more
     // requests. Aliases remain a last resort, after every metadata stage.
     if (stage.manual) {
@@ -489,6 +572,8 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
   }
   if (diagnostics) Object.assign(diagnostics, {
     alternateVersionChecked: allowAlternateVersions,
+    albumTraversalChecked,
+    queryLimitsApplied: stages.some(stage => stage.limited),
     reason: [...candidates.values()].some(candidate => candidate.is_playable !== false && evidence(song, candidate, { manual: true }).eligible) ? 'ambiguous-recordings' : candidates.size ? 'no-eligible-candidate' : 'no-results',
     queryCount, candidateCount: candidates.size,
     candidates: [...candidates.values()].map((candidate) => ({

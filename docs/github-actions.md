@@ -6,6 +6,19 @@ Additional checks run at minutes 05, 20, 35 and 50 of every hour. After 07:00 in
 
 ## Request safety and resumable sync
 
+### Matching and limited retrieval
+
+- Artist display names with cross-script parentheses (such as `歌手 (Artist Name)`) are compared as explicit bilingual names; CJK spacing is normalized. Reviewed artist identities remain last-resort aliases, not permission to accept another singer's cover.
+- Translation fields are still used, but TV/movie theme-song notes and distribution notes such as `iTunes Store限定パッケージ` are excluded from title searches. The original title is never removed by this filter.
+- If ordinary track searches fail, the matcher can search up to two album-name variants, select at most two strongly matching albums, and read at most two pages of 50 tracks per album. This avoids relying exclusively on the first ten search results. `Vol.1`/`Vol.I` are comparable, but conflicting volume numbers are not. Album membership and similar duration alone never prove a track's title or artist.
+- Album lookup uses the same Spotify authorization, serialized pacing, request budget and persisted 429 deadline. Successful pages are cached in the encrypted current-song checkpoint, including when the next page fails; a run-local cache avoids duplicate album reads and is cleared at the next sync. This path adds at most six catalog requests per unresolved song (not counting token refreshes or existing bounded transient retries).
+- Manual-alias search mixes query types and is capped at 12 distinct additional queries; limited coverage is recorded as `queryLimitsApplied`. `albumTraversalChecked` records whether the album path was attempted. Neither `no-results` nor a limited search means the song is proven unavailable. Same-song/same-artist alternate versions remain eligible; a singer and their band are not treated as universal aliases.
+- Regression fixtures distinguish offline candidate-selection tests from live account-region validation. Finding a public Spotify page does not establish availability for the connected account. No periodic unlimited re-search of misses is enabled by these changes.
+
+API limits: [Spotify search](https://developer.spotify.com/documentation/web-api/reference/search), [album tracks and account-market behavior](https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks).
+
+### Pacing and recovery
+
 - Spotify requests are serialized, at least 6 seconds apart, with at most 5 requests per rolling 30 seconds. A short pacing wait continues inside the run; the old 60/hour hard pause is retired. A 300-request per-run safety ceiling saves progress and pauses for 15 minutes. Authorization, search, and playlist writes all count. Reservations are encrypted before sending and survive runner restarts. These application limits are not Spotify's published quota or a guarantee against 429; see [Spotify rate limits](https://developer.spotify.com/documentation/web-api/concepts/rate-limits).
 - On upgrade, only the legacy `request-budget` local deadline is retired. Real Spotify cooldowns, network backoff, request reservations and matching checkpoints remain intact. An expected safety pause exits cleanly with an explicit pending summary, not a misleading generic error; only a completed playlist update records a successful sync date. Recovery checks every 15 minutes resume eligible pending work.
 - Every 429 (including short waits and token-endpoint responses) persists `Retry-After` and stops immediately. No in-process 429 retry. Seconds and HTTP-date headers are supported; an absent/invalid header defaults to 60 seconds. The next scheduled check still observes the full saved deadline.

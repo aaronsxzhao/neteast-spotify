@@ -1,6 +1,7 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { SPOTIFY_REDIRECT_URI, SPOTIFY_SCOPES } from './config.js'
 import { RequestSafety } from './request-safety.js'
+import { albumSearchQueries, selectSourceAlbums } from './matcher.js'
 
 const API_BASE = 'https://api.spotify.com/v1'
 const ACCOUNTS_BASE = 'https://accounts.spotify.com'
@@ -21,10 +22,18 @@ async function readResponse(response) {
 }
 
 export class SpotifyClient {
+  // Only used by one client/run. Encrypted checkpoint cache below survives a
+  // pause mid-song; memory avoids re-reading a shared album for later songs.
+  albumCache = new Map()
   constructor(store, fetchImpl = fetch, safetyOptions = {}) {
     this.store = store
     this.safety = new RequestSafety(store, safetyOptions)
     this.fetch = (url, options) => this.safety.fetch(fetchImpl, url, options)
+  }
+
+  beginRun() {
+    this.albumCache.clear()
+    this.safety.beginRun()
   }
 
   async beginAuthorization(action = null) {
@@ -185,6 +194,53 @@ export class SpotifyClient {
         state.sync.searchCache ||= {}
         state.sync.searchCache[key] = tracks
       })
+    }
+    return tracks
+  }
+
+  async cachedAlbumRequest(path, project) {
+    const key = createHash('sha256').update(`album-v1:${path}`).digest('hex')
+    const cached = this.store.state.sync?.searchCache
+    if (this.albumCache.has(key) || (cached && Object.hasOwn(cached, key))) {
+      this.safety.check()
+      this.safety.stats.cacheHits++
+      return this.albumCache.get(key) ?? cached[key]
+    }
+    const value = project(await this.request(path))
+    if (this.store.state.sync?.checkpoint) await this.store.update(state => {
+      state.sync.searchCache ||= {}
+      state.sync.searchCache[key] = value
+    })
+    this.albumCache.set(key, value)
+    return value
+  }
+
+  async findAlbumTracks(song) {
+    let albums = []
+    for (const query of albumSearchQueries(song)) {
+      const params = new URLSearchParams({ q: query, type: 'album', limit: '10' })
+      const found = await this.cachedAlbumRequest(`/search?${params}`, result => (result?.albums?.items || []).map(album => ({
+        id: album.id, name: album.name, artists: album.artists?.map(a => ({ id: a.id, name: a.name })),
+        images: album.images?.slice(-1).map(image => ({ url: image.url })),
+      })))
+      albums = selectSourceAlbums(song, found)
+      if (albums.length) break
+    }
+    const tracks = []
+    for (const album of albums) {
+      // Do not follow a remote next URL; construct bounded same-origin paths.
+      for (let offset = 0; offset < 100; offset += 50) {
+        const page = await this.cachedAlbumRequest(`/albums/${album.id}/tracks?limit=50&offset=${offset}`, result => ({
+          more: Boolean(result?.next), items: (result?.items || []).map(track => ({
+            id: track.id, uri: track.uri, name: track.name, duration_ms: track.duration_ms,
+            is_playable: track.restrictions?.reason ? false : track.is_playable,
+            artists: track.artists?.map(a => ({ id: a.id, name: a.name })),
+            external_urls: { spotify: track.external_urls?.spotify },
+          })),
+        }))
+        tracks.push(...page.items.map(track => ({ ...track, album })))
+        if (!page.more) break
+      }
     }
     return tracks
   }
