@@ -71,14 +71,15 @@ test('bootleg and mashup cannot be replaced by the unmodified recording', () => 
   assert.equal(pickBestMatch(karen, [target('The Way You Make Me Feel', 'Karen Mok', 208544, { id: '3PxBghSD7mhVd4ozof4XSd', album: { name: 'The Voyage' } })]), null)
 })
 
-test('last-resort aliases re-score existing pool without more search calls', async () => {
+test('known artist identity resolves an existing candidate without alias searches', async () => {
   const song = source('TSUNAMI', '有里知花', 365458)
   const queries = []
   const match = await findTrackMatch(song, async query => {
     queries.push(query)
     return [target('TSUNAMI', 'Chika Yuri', 365400)]
   })
-  assert.equal(match.searchStage, 'manual-alias')
+  assert.equal(match.searchStage, 'metadata')
+  assert.equal(queries.length, 1)
   assert.ok(!queries.some(q => q.includes('Chika Yuri')))
 })
 

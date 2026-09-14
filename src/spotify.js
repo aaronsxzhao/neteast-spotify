@@ -215,9 +215,10 @@ export class SpotifyClient {
     return value
   }
 
-  async findAlbumTracks(song) {
+  async findAlbumTracks(song, { takeQuery = () => true } = {}) {
     let albums = []
     for (const query of albumSearchQueries(song)) {
+      if (!takeQuery()) return []
       const params = new URLSearchParams({ q: query, type: 'album', limit: '10' })
       const found = await this.cachedAlbumRequest(`/search?${params}`, result => (result?.albums?.items || []).map(album => ({
         id: album.id, name: album.name, artists: album.artists?.map(a => ({ id: a.id, name: a.name })),
@@ -230,6 +231,7 @@ export class SpotifyClient {
     for (const album of albums) {
       // Do not follow a remote next URL; construct bounded same-origin paths.
       for (let offset = 0; offset < 100; offset += 50) {
+        if (!takeQuery()) return tracks
         const page = await this.cachedAlbumRequest(`/albums/${album.id}/tracks?limit=50&offset=${offset}`, result => ({
           more: Boolean(result?.next), items: (result?.items || []).map(track => ({
             id: track.id, uri: track.uri, name: track.name, duration_ms: track.duration_ms,

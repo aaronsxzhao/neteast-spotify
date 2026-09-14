@@ -113,7 +113,13 @@ export class SyncService {
         const diagnostics = {}
         const match = await findTrackMatch(song, (query, limit) => this.spotify.searchTracks(query, limit), diagnostics, {
           allowAlternateVersions: true,
-          findAlbumTracks: this.spotify.findAlbumTracks ? source => this.spotify.findAlbumTracks(source) : undefined,
+          findAlbumTracks: this.spotify.findAlbumTracks ? (source, budget) => this.spotify.findAlbumTracks(source, budget) : undefined,
+        })
+        this.progress('match-result', {
+          completedSongs: index + 1, result: match ? 'matched' : 'unmatched',
+          queryCount: diagnostics.queryCount, catalogQueryCount: diagnostics.catalogQueryCount,
+          albumQueryCount: diagnostics.albumQueryCount, queryBudget: diagnostics.queryBudget,
+          queryLimitsApplied: diagnostics.queryLimitsApplied,
         })
 
         if (match) {
@@ -131,6 +137,7 @@ export class SyncService {
             },
             score: match.score,
             searchStage: match.searchStage,
+            searchDiagnostics: match.searchDiagnostics,
             alternateVersion: Boolean(match.alternateVersion),
             substitutionReasons: match.substitutionReasons || [],
           })

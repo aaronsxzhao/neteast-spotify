@@ -282,13 +282,23 @@ function interleave(groups) {
 
 export function songSearchStages(song) {
   // Bound fan-out on unusually verbose catalog metadata.
-  const titles = queryVariants(songTitles(song, { manual: false })).slice(0, 12)
-  const artists = queryVariants(searchableArtists(song, { manual: false })).slice(0, 4)
-  const combined = (names, credits) => names.flatMap((title) => credits.map((artist) =>
-    `track:"${quoted(title)}" artist:"${quoted(artist)}"`))
+  const prioritizeNames = names => [...new Set([...names.map(searchTitle), ...queryVariants(names)])].filter(Boolean)
+  const metadataTitles = songTitles(song, { manual: false })
+  const coreTitles = metadataTitles.flatMap(value => {
+    const bilingual = titleVariants(value)
+    if (bilingual.length > 1) return bilingual.slice(1)
+    const base = searchTitle(value).split(/[~〜～]/u)[0].trim()
+    return base.length >= 4 && base !== searchTitle(value) ? [value, base] : [value]
+  })
+  const titles = prioritizeNames([...coreTitles, ...metadataTitles]).slice(0, 12)
+  const artists = prioritizeNames(searchableArtists(song, { manual: false })).slice(0, 4)
+  // Try genuine translated titles with the primary credit before exhausting
+  // glyph/artist permutations of only the first title.
+  const combined = (names, credits) => interleave(names.map((title) => credits.map((artist) =>
+    `track:"${quoted(title)}" artist:"${quoted(artist)}"`)))
   const titleOnly = (names) => names.map((title) => `track:"${quoted(title)}"`)
-  const plain = (names, credits) => [...names, ...names.slice(0, 4).flatMap((title) =>
-    credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`))]
+  const plain = (names, credits) => interleave([names.slice(0, 4).flatMap((title) =>
+    credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`)), names])
   const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
   const albums = queryVariants(metadataNames(song.al || song.album)).slice(0, 2)
@@ -336,7 +346,8 @@ export function songDuration(song) {
 function evidence(song, candidate, options) {
   const targetTitles = titleVariants(candidate.name).map(recordingTitle)
   const title = Math.max(0, ...songTitles(song, options).flatMap((value) => targetTitles.map((target) => similarity(recordingTitle(value), target))))
-  const neteaseArtists = searchableArtists(song, options)
+  const artistOptions = options?.artistManual ? { ...options, manual: true } : options
+  const neteaseArtists = searchableArtists(song, artistOptions)
   const spotifyArtists = (candidate.artists || []).map((artist) => artist.name)
   let artist = 0
   for (const left of neteaseArtists) {
@@ -359,7 +370,7 @@ function evidence(song, candidate, options) {
   })
   // Once a curated primary identity exists, a differently spelled artist is
   // not rescued merely by script/duration coincidence (e.g. SPITZ covers).
-  const primaryHasAlias = options?.manual !== false && metadataNames((song.ar || song.artists || [])[0])
+  const primaryHasAlias = artistOptions?.manual !== false && metadataNames((song.ar || song.artists || [])[0])
     .some(name => catalogAliases(ARTIST_ALIASES, name).length > 0)
   const crossLanguage = !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
@@ -473,15 +484,15 @@ function compositionTitle(value) {
 // Recall-first second pass: explicit same primary artist + exact composition
 // title. Duration and edition become ranking hints, not rejection gates.
 // A shared guest credit or unknown cross-script identity is NOT sufficient.
-export function pickAlternateVersion(song, candidates) {
+export function pickAlternateVersion(song, candidates, { manual = true } = {}) {
   const primary = (song.ar || song.artists || [])[0]
   if (!primary) return null
-  const primaryNames = primaryArtistNames(song)
-  const titles = songTitles(song).map(compositionTitle).map(normalize).filter(Boolean)
+  const primaryNames = primaryArtistNames(song, { manual })
+  const titles = songTitles(song, { manual }).map(compositionTitle).map(normalize).filter(Boolean)
   const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
     .filter(candidate => artistNameVariants(candidate.artists?.[0]?.name).some(name => primaryNames.includes(normalize(name))))
     .filter(candidate => titleVariants(candidate.name).map(compositionTitle).map(normalize).some(title => title && titles.includes(title)))
-    .map(candidate => ({ candidate, ...evidence(song, candidate, { manual: true }) }))
+    .map(candidate => ({ candidate, ...evidence(song, candidate, { manual }) }))
     .sort((a, b) => Number(a.versionMismatch) - Number(b.versionMismatch) ||
       a.difference - b.difference || b.albumSimilarity - a.albumSimilarity ||
       String(a.candidate.id).localeCompare(String(b.candidate.id)))
@@ -492,11 +503,58 @@ export function pickAlternateVersion(song, candidates) {
   } : null
 }
 
-export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false, findAlbumTracks } = {}) {
+export const MAX_SONG_CATALOG_QUERIES = 18
+const STAGE_QUERY_LIMITS = { metadata: 3, 'title-only': 2, 'free-text': 2, album: 1, 'album-traversal': 3, 'manual-alias': 4, 'second-pass': 3 }
+
+export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false, findAlbumTracks, maxQueries = MAX_SONG_CATALOG_QUERIES } = {}) {
   const candidates = new Map()
   const searched = new Set()
   let queryCount = 0
+  let catalogQueryCount = 0
   let albumTraversalChecked = false
+  let queryLimitsApplied = false
+  const stageCounts = {}
+  const stoppedStages = []
+  const limit = Number.isFinite(maxQueries) ? Math.max(0, Math.min(MAX_SONG_CATALOG_QUERIES, Math.floor(maxQueries))) : MAX_SONG_CATALOG_QUERIES
+  const takeQuery = stage => {
+    if (catalogQueryCount >= limit || (stageCounts[stage] || 0) >= STAGE_QUERY_LIMITS[stage]) {
+      queryLimitsApplied = true
+      return false
+    }
+    catalogQueryCount++
+    stageCounts[stage] = (stageCounts[stage] || 0) + 1
+    return true
+  }
+  const addCandidates = items => {
+    let changed = false
+    for (const candidate of items) {
+      if (!candidate) continue
+      const key = candidate.id || candidate.uri || JSON.stringify(candidate)
+      // An existing ID with better metadata is also new evidence.
+      if (JSON.stringify(candidates.get(key)) !== JSON.stringify(candidate)) changed = true
+      candidates.set(key, candidate)
+    }
+    return changed
+  }
+  const finish = match => {
+    const usage = { queryCount, catalogQueryCount, albumQueryCount: stageCounts['album-traversal'] || 0,
+      queryBudget: limit, queryLimitsApplied, stageQueryCounts: { ...stageCounts }, stoppedStages: [...stoppedStages] }
+    if (diagnostics) Object.assign(diagnostics, usage)
+    return { ...match, searchDiagnostics: usage }
+  }
+  const confident = (stage, earlyExit = false) => {
+    // Known artist identities can resolve an already-retrieved candidate now;
+    // translated/manual TITLE searches still remain a last resort.
+    const match = pickBestMatch(song, [...candidates.values()], 0.68, { manual: stage.manual, artistManual: true })
+    const samePrimary = artistNameVariants(match?.candidate.artists?.[0]?.name)
+      .some(name => primaryArtistNames(song, { manual: true }).includes(normalize(name)))
+    // Album names may differ on a compilation. A unique strict same-primary
+    // match with exact title and near-exact duration does not need more queries.
+    if (match && samePrimary && !match.crossLanguage && match.title >= 0.98 && match.difference <= 2500) {
+      return finish({ ...match, searchStage: stage.name, earlyExit })
+    }
+    return null
+  }
   const stages = songSearchStages(song)
   for (const stage of stages) {
     // A track may be beyond the first ten album-filtered search results. Read
@@ -504,53 +562,61 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     // album membership or similar duration as proof of an unrelated title.
     if (stage.name === 'album' && findAlbumTracks) {
       albumTraversalChecked = true
-      for (const candidate of await findAlbumTracks(song)) candidates.set(candidate.id || candidate.uri, candidate)
-      const found = pickBestMatch(song, [...candidates.values()], 0.68, { manual: false })
-      if (found) return { ...found, searchStage: 'album-traversal' }
+      addCandidates(await findAlbumTracks(song, { takeQuery: () => takeQuery('album-traversal') }))
+      const found = pickBestMatch(song, [...candidates.values()], 0.68, { manual: false, artistManual: true })
+      if (found) return finish({ ...found, searchStage: 'album-traversal' })
     }
     // Re-score retrieved candidates with curated names before spending more
     // requests. Aliases remain a last resort, after every metadata stage.
     if (stage.manual) {
       const existing = pickBestMatch(song, [...candidates.values()], 0.68, { manual: true })
-      if (existing) return { ...existing, searchStage: stage.name }
+      if (existing) return finish({ ...existing, searchStage: stage.name })
       // All metadata stages already failed. Reuse the retrieved pool with the
       // reviewed identities before issuing any more alias/version searches.
       if (allowAlternateVersions) {
         const alternate = pickAlternateVersion(song, [...candidates.values()])
-        if (alternate) return alternate
+        if (alternate) return finish(alternate)
       }
     }
+    let stagnant = 0
     for (const query of stage.queries) {
+      if (searched.has(query)) continue
+      if (!takeQuery(stage.name)) { stoppedStages.push({ stage: stage.name, reason: 'query-budget' }); break }
       searched.add(query)
       queryCount++
-      for (const candidate of await searchTracks(query, 10)) {
-        const key = candidate.id || candidate.uri || JSON.stringify(candidate)
-        candidates.set(key, candidate)
-      }
-      // Stop generating script/alias combinations once all identity fields
-      // agree. Borderline, cross-language and ambiguous results still use the
-      // full stage and the existing recall/alternate-version fallbacks.
-      const definite = pickBestMatch(song, [...candidates.values()], 0.68, { manual: stage.manual })
-      const primaryNames = primaryArtistNames(song, { manual: stage.manual })
-      const samePrimary = artistNameVariants(definite?.candidate.artists?.[0]?.name)
-        .some(name => primaryNames.includes(normalize(name)))
-      if (definite && samePrimary && !definite.crossLanguage && definite.title >= 0.98 &&
-        definite.artist >= 0.98 && definite.albumSimilarity >= 0.98 && definite.difference <= 1000) {
-        return { ...definite, searchStage: stage.name, earlyExit: true }
+      stagnant = addCandidates(await searchTracks(query, 10)) ? 0 : stagnant + 1
+      const definite = confident(stage, true)
+      if (definite) return definite
+      if (stagnant >= 2) {
+        stoppedStages.push({ stage: stage.name, reason: 'no-new-candidates' })
+        queryLimitsApplied ||= stage.queries.some(q => !searched.has(q))
+        break
       }
     }
     // Assess the whole stage, not the first vaguely plausible search result.
     const pool = [...candidates.values()]
-    const match = pickBestMatch(song, pool, 0.68, { manual: stage.manual })
+    const match = pickBestMatch(song, pool, 0.68, { manual: stage.manual, artistManual: true })
     // An artist-filtered query may still return unrelated credits. Broaden the
     // search before choosing a cross-language match so rivals can be compared.
     if (match?.crossLanguage && stage.name === 'metadata') continue
-    if (match) return { ...match, searchStage: stage.name }
+    if (match) return finish({ ...match, searchStage: stage.name })
+    // After both artist-filtered and title-only retrieval have had a chance,
+    // the user's same-song/same-primary-artist alternative is sufficient.
+    if (allowAlternateVersions && stage.name !== 'metadata') {
+      const alternate = pickAlternateVersion(song, pool, { manual: stage.manual })
+      if (alternate) {
+        // Before settling for a different edition, re-score the SAME pool with
+        // verified credits. No extra search: a closer known recording may
+        // already be present under a localized or source-scoped band credit.
+        const reviewed = pickBestMatch(song, pool, 0.68, { manual: true }) || pickAlternateVersion(song, pool)
+        return finish(reviewed ? { ...reviewed, searchStage: reviewed.searchStage || 'verified-pool' } : alternate)
+      }
+    }
   }
   if (allowAlternateVersions) {
     // Reuse ALL retrieved candidates, not only the five diagnostic previews.
     const existing = pickAlternateVersion(song, [...candidates.values()])
-    if (existing) return existing
+    if (existing) return finish(existing)
     const titles = unique(songTitles(song).map(compositionTitle)).slice(0, 3)
     const primary = (song.ar || song.artists || [])[0]
     const artists = searchableArtists({ ...song, ar: primary ? [primary] : [] }).slice(0, 2)
@@ -559,21 +625,26 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
       `track:"${quoted(title)}"`,
     ]))].filter(query => !searched.has(query)).slice(0, 6)
     for (const query of queries) {
+      if (!takeQuery('second-pass')) { stoppedStages.push({ stage: 'second-pass', reason: 'query-budget' }); break }
+      searched.add(query)
       queryCount++
-      for (const candidate of await searchTracks(query, 10)) {
-        candidates.set(candidate.id || candidate.uri || JSON.stringify(candidate), candidate)
-      }
+      addCandidates(await searchTracks(query, 10))
+      const definite = confident({ name: 'second-pass-strict', manual: true }, true)
+      if (definite) return definite
     }
     // New retrieval might find an exact edition after all: still prefer it.
     const strict = pickBestMatch(song, [...candidates.values()])
-    if (strict) return { ...strict, searchStage: 'second-pass-strict' }
+    if (strict) return finish({ ...strict, searchStage: 'second-pass-strict' })
     const alternate = pickAlternateVersion(song, [...candidates.values()])
-    if (alternate) return alternate
+    if (alternate) return finish(alternate)
   }
+  queryLimitsApplied ||= stages.some(stage => stage.limited)
+  finish({})
   if (diagnostics) Object.assign(diagnostics, {
     alternateVersionChecked: allowAlternateVersions,
     albumTraversalChecked,
-    queryLimitsApplied: stages.some(stage => stage.limited),
+    queryLimitsApplied,
+    reviewRequired: queryLimitsApplied,
     reason: [...candidates.values()].some(candidate => candidate.is_playable !== false && evidence(song, candidate, { manual: true }).eligible) ? 'ambiguous-recordings' : candidates.size ? 'no-eligible-candidate' : 'no-results',
     queryCount, candidateCount: candidates.size,
     candidates: [...candidates.values()].map((candidate) => ({

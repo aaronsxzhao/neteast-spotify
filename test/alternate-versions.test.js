@@ -48,7 +48,7 @@ test('second pass reuses the full pool with no duplicate Spotify calls', async (
     return [track('Sunset', 'Blu-Swing', 210546)]
   }, {}, recall)
   assert.ok(match.alternateVersion)
-  assert.equal(queries.length, songSearchQueries(source).length)
+  assert.ok(queries.length < songSearchQueries(source).length, 'do not exhaust queries once the permitted alternate is confirmed')
   assert.equal(new Set(queries).size, queries.length)
 })
 

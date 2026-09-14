@@ -22,7 +22,11 @@ for (const failure of ['503', 'budget']) test(`fresh cloud runner resumes songs 
       const q = new URL(url).searchParams.get('q')
       queries.push(q)
       if (q.includes('Beta') && ++betaCount >= 2 && fail && failure === '503') return new Response('', { status: 503 })
-      return Response.json({ tracks: { items: sources.filter(s => q.includes(s.name)).map(candidate) } })
+      // The first Beta response is plausible but not near-exact. Keep this a
+      // mid-search pause test now that exact candidates can finish in one call.
+      return Response.json({ tracks: { items: sources.filter(s => q.includes(s.name)).map(s => ({
+        ...candidate(s), ...(s.id === 2 && fail ? { duration_ms: s.dt + 10000 } : {}),
+      })) } })
     }
     writes.push({ url, body: JSON.parse(options.body) })
     return new Response(null, { status: 204 })

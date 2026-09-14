@@ -70,6 +70,14 @@ test('sync stage observer identifies write failure and successful checkpoint res
   await assert.rejects(sync.run(), /PRIVATE_ERROR/)
   assert.equal(r.records().at(-1).phase, 'playlist-write')
   assert.ok(r.records().some(d => d.phase === 'checkpoint-save' && d.completedSongs === 1))
+  const usage = r.records().find(d => d.phase === 'match-result')
+  assert.equal(usage.result, 'matched')
+  assert.equal(usage.catalogQueryCount, 1)
+  assert.equal(usage.queryCount, 1)
+  assert.equal(usage.albumQueryCount, 0)
+  assert.equal(usage.queryBudget, 18)
+  assert.equal(usage.queryLimitsApplied, false)
+  assert.equal(state.sync.checkpoint.matches[0].searchDiagnostics.catalogQueryCount, 1)
   const previous = searches
   fail = false
   assert.equal((await sync.run()).matchedCount, 1)
