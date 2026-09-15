@@ -1,5 +1,6 @@
 import { getDailyRecommendations } from './netease.js'
-import { findTrackMatch, sourceSongView } from './matcher.js'
+import { findTrackMatch, sourceSongView, knownTrackIds } from './matcher.js'
+import { cachedTrackIds, saveTrackHints } from './match-cache.js'
 import { createHash } from 'node:crypto'
 
 export function dateInTimezone(timezone, date = new Date()) {
@@ -67,7 +68,7 @@ export class SyncService {
       this.progress('netease-fetch')
       const songs = await this.getRecommendations(settings.neteaseCookie)
       this.progress('checkpoint-load', { sourceCount: songs.length })
-      const signature = createHash('sha256').update(JSON.stringify({ version: 1, date,
+      const signature = createHash('sha256').update(JSON.stringify({ version: 2, date,
         playlistId: sync.playlistId, songs: songs.map(sourceSongView), retryUnmatched, retrySourceIds })).digest('hex')
       if (sync.checkpoint?.signature !== signature) {
         await this.store.update(state => {
@@ -115,6 +116,7 @@ export class SyncService {
           allowAlternateVersions: true,
           findAlbumTracks: this.spotify.findAlbumTracks ? (source, budget) => this.spotify.findAlbumTracks(source, budget) : undefined,
           findKnownTracks: this.spotify.findKnownTracks ? (source, budget) => this.spotify.findKnownTracks(source, budget) : undefined,
+          knownIds: [...knownTrackIds(song), ...cachedTrackIds(this.store.state, source)].slice(0, 1),
         })
         this.progress('match-result', {
           completedSongs: index + 1, result: match ? 'matched' : 'unmatched',
@@ -199,6 +201,7 @@ export class SyncService {
         data.sync.lastSyncedDate = date
         data.sync.lastRun = run
         data.sync.lastSuccessfulRun = run
+        saveTrackHints(data, matches, unmatched)
         delete data.spotify.retryAfterUntil
         delete data.spotify.retryNotBefore
         delete data.spotify.pauseReason

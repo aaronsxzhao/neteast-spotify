@@ -114,7 +114,8 @@ export class CloudStore {
       transientFailures: spotify.transientFailures, budgetPolicyVersion: spotify.budgetPolicyVersion },
       sync: { playlistId: sync.playlistId, playlistUrl: sync.playlistUrl, lastSyncedDate: sync.lastSyncedDate,
         // Successful app-generated metadata only, never provider error bodies.
-        lastSuccessfulRun: sync.lastSuccessfulRun, checkpoint: sync.checkpoint, searchCache: sync.searchCache } }
+        lastSuccessfulRun: sync.lastSuccessfulRun, checkpoint: sync.checkpoint, searchCache: sync.searchCache,
+        confirmedTrackHints: sync.confirmedTrackHints } }
   }
 
   async load() {

@@ -45,7 +45,7 @@ test('two consecutive repeated candidate responses move to another strategy, wit
     return q === `track:"${source.name}"` ? [track()] : [track('unrelated', { name: 'Unrelated', artists: [{ name: 'Other' }] })]
   }, diagnostics)
   assert.equal(match.candidate.id, 'hit')
-  assert.equal(queries.filter(q => q.includes('artist:')).length, 3)
+  assert.equal(queries.filter(q => q.includes('artist:')).length, 2, 'unrelated first result is not useful evidence')
   assert.ok(diagnostics.stoppedStages.some(s => s.reason === 'no-new-candidates'))
 })
 

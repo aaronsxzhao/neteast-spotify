@@ -215,9 +215,9 @@ export class SpotifyClient {
     return value
   }
 
-  async findKnownTracks(song, { takeQuery = () => true } = {}) {
+  async findKnownTracks(song, { takeQuery = () => true, ids = knownTrackIds(song) } = {}) {
     const tracks = []
-    for (const id of knownTrackIds(song).slice(0, 1)) {
+    for (const id of ids.filter(id => /^[a-zA-Z0-9]{22}$/.test(id)).slice(0, 1)) {
       if (!takeQuery()) break
       try {
         const track = await this.cachedAlbumRequest(`/tracks/${id}`, track => ({
