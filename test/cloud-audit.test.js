@@ -22,9 +22,10 @@ test('audit excludes raw state/errors/credentials and tolerates broken output', 
   assert.deepEqual(r.records()[0], { event: 'app-end', at: '2026-09-11T00:00:00.000Z',
     phase: 'matching', result: 'failed', status: 503, reason: 'other-pause' })
   assert.doesNotMatch(r.lines.join(''), /PRIVATE/)
-  r.audit('app-stage', { phase: 'match-result', knownTrackQueryCount: 1,
+  r.audit('app-stage', { phase: 'match-result', knownTrackQueryCount: 1, identityReviewRequired: true,
     queryTrace: [{ stage: 'metadata', query: 'PRIVATE_SONG_NAME' }] })
   assert.equal(r.records()[1].knownTrackQueryCount, 1)
+  assert.equal(r.records()[1].identityReviewRequired, true)
   assert.doesNotMatch(r.lines.join(''), /PRIVATE/)
   assert.doesNotThrow(() => createCloudAudit(() => { throw Error('broken stdout') })('app-start'))
 })

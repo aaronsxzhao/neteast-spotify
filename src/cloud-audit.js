@@ -2,7 +2,7 @@
 // Never pass provider errors, account state, request URLs, or song metadata here.
 const textFields = new Set(['phase', 'result', 'reason', 'retryAt', 'date', 'lastSyncedDate', 'timezone'])
 const numberFields = new Set(['sourceCount', 'matchedCount', 'unmatchedCount', 'completedSongs', 'localHour', 'status', 'requests', 'cacheHits', 'retries', 'queryCount', 'catalogQueryCount', 'albumQueryCount', 'knownTrackQueryCount', 'queryBudget'])
-const booleanFields = new Set(['force', 'recoveryOnly', 'recoveryPending', 'retryUnmatched', 'queryLimitsApplied'])
+const booleanFields = new Set(['force', 'recoveryOnly', 'recoveryPending', 'retryUnmatched', 'queryLimitsApplied', 'identityReviewRequired'])
 const reasons = new Set(['provider-cooldown', 'local-backoff', 'already-synced', 'before-daily-window', 'run-budget', 'request-budget', 'transient-backoff', 'transient-retry'])
 
 export function createCloudAudit(write = console.log, clock = () => new Date()) {

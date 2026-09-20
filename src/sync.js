@@ -124,6 +124,7 @@ export class SyncService {
           albumQueryCount: diagnostics.albumQueryCount, queryBudget: diagnostics.queryBudget,
           knownTrackQueryCount: diagnostics.knownTrackQueryCount,
           queryLimitsApplied: diagnostics.queryLimitsApplied,
+          identityReviewRequired: diagnostics.identityReviewRequired,
         })
 
         if (match) {

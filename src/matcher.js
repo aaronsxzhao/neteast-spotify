@@ -40,6 +40,10 @@ const VERIFIED_CREDITS = new Map([
 const SCOPED_TITLES = new Map([
   ['22842411', { name: '회상', artist: 'Leessang', titles: ['remembrance'] }],
   ['285546', { name: '讨厌', artist: '芮恩', titles: ["討厭 (Can't Stand It)"] }],
+  // Provenance and limits: docs/catalog-identities.md.
+  ['2099327170', { name: '여름에 두었다', artist: 'SHAUN', titles: ['That Summer'] }],
+  ['3313987952', { name: 'ハローミューズ', artist: '佐藤日向', titles: ['Hello Muse'] }],
+  ['36307466', { name: '달과 6펜스', artist: '沈圭善', titles: ['The Moon and Sixpence'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -98,7 +102,14 @@ const ARTIST_ALIASES = new Map([
   ['相川七瀬', ['Nanase Aikawa']],
   ['芮恩', ['Rui En']],
   ['白智英', ['Baek Z Young']],
+  ['柴田淳', ['Jun Shibata']],
+  ['青山テルマ', ['Thelma Aoyama']],
+  ['岩崎太整', ['Taisei Iwasaki']],
+  ['八神純子', ['Junko Yagami']],
+  ['邓丽君', ['Teresa Teng', 'テレサ・テン']],
+  ['沈圭善', ['심규선', 'Lucia']],
 ])
+const artistAliasCache = new Map()
 
 export function normalize(value = '') {
   return toSimplified(String(value))
@@ -145,6 +156,28 @@ export function songArtists(song) {
 }
 
 function catalogAliases(map, value) {
+  if (map === ARTIST_ALIASES) {
+    const key = normalize(value)
+    if (artistAliasCache.has(key)) return artistAliasCache.get(key)
+    // Resolve the complete reviewed identity group, including a shared alias
+    // (e.g. 孝琳 -> HYOLYN <- 효린), rather than whichever row appears first.
+    const names = [value], seen = new Set([key])
+    let changed
+    do {
+      changed = false
+      for (const [primary, aliases] of map) {
+        const group = [primary, ...aliases]
+        if (!group.some(name => seen.has(normalize(name)))) continue
+        for (const name of group) {
+          const normalized = normalize(name)
+          if (!seen.has(normalized)) { seen.add(normalized); names.push(name); changed = true }
+        }
+      }
+    } while (changed)
+    const aliases = names.slice(1)
+    artistAliasCache.set(key, aliases)
+    return aliases
+  }
   const exact = map.get(value)
   if (exact) return exact
   const normalized = normalize(value)
@@ -247,6 +280,41 @@ function artistNameVariants(value, { identity = false } = {}) {
   return unique([full, ...bilingual, ...parts, ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
 }
 
+// These are recording-level corroboration, NOT global aliases. A voice actor
+// is not interchangeable with every role they perform, nor is one member of a
+// combined credit proof of its entire roster.
+function voiceCast(credits) {
+  const parts = credits.flatMap(name => String(name).normalize('NFKC').split(/\s*、\s*/u))
+  const cast = parts.map(name => name.match(/^[^()]+\(\s*CV\s*:\s*([^()]+)\)\s*$/iu)?.[1]?.trim())
+  return cast.length && cast.every(Boolean) ? cast : []
+}
+
+function corroboratedCredit(song, candidate, { title, album, difference, manual }) {
+  if (title < 0.98 || album < 0.98 || difference > 2500) return null
+  const source = (song.ar || song.artists || []).map(artist => metadataNames(artist)
+    .flatMap(name => [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])]).flatMap(artistIdentityNames).map(normalize))
+  const targets = (candidate.artists || []).map(artist => artist.name)
+  const cast = voiceCast(targets)
+  if (!voiceCast(songArtists(song)).length && cast.length === source.length && source.length) {
+    const used = new Set()
+    if (cast.every(name => {
+      const names = [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])].map(normalize)
+      const index = source.findIndex((aliases, i) => !used.has(i) && names.some(n => aliases.includes(n)))
+      if (index < 0) return false
+      used.add(index); return true
+    })) return 'complete-voice-cast'
+  }
+  // Only a single bilingual display credit, with exact source-name agreement
+  // and tight recording evidence. Do not split AC/DC or multi-artist rosters.
+  if (source.length === 1 && targets.length === 1) {
+    const parts = String(targets[0]).normalize('NFKC').split('/').map(s => s.trim())
+    if (parts.length === 2 && differentScripts(parts[0], parts[1]) &&
+      parts.every(part => !/[,、&()]/u.test(part)) &&
+      parts.some(part => artistIdentityNames(part).some(name => source[0].includes(normalize(name))))) return 'bilingual-display-credit'
+  }
+  return null
+}
+
 function albumIdentity(value) {
   return normalize(String(value).replace(/\bVol\.?\s*(I{1,3}|IV|V)\b/gi,
     (_, roman) => `Vol ${['I', 'II', 'III', 'IV', 'V'].indexOf(roman.toUpperCase()) + 1}`))
@@ -294,7 +362,7 @@ function withoutCollaborator(value, artists = []) {
 function recordingTitle(value) {
   // Strip a clearly delimited edition suffix, not ordinary song subtitles.
   // Version compatibility is checked separately using title AND album context.
-  return String(value).normalize('NFKC').replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+  return stripBracketedEditions(value).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
 }
 
 function quoted(value) {
@@ -439,19 +507,21 @@ function evidence(song, candidate, options) {
   }
   if (sameCompleteRoster(songArtists(song), spotifyArtists, artistOptions?.manual !== false)) artist = 1
   const primary = primaryArtistNames(song, artistOptions)
-  const primaryMatch = artistIdentityNames(spotifyArtists[0]).some(name => primary.includes(normalize(name)))
+  let primaryMatch = artistIdentityNames(spotifyArtists[0]).some(name => primary.includes(normalize(name)))
   const primarySimilarity = Math.max(0, ...primary.flatMap(name =>
     artistIdentityNames(spotifyArtists[0]).map(other => similarity(name, other))))
   const completeRoster = sameCompleteRoster(songArtists(song), spotifyArtists, artistOptions?.manual !== false)
   // A shared guest is not proof that this is the source artist's recording.
   // Reordered complete collaboration rosters are still allowed.
-  const guestOnly = primarySimilarity < 0.85 && !completeRoster && artist >= 0.85
+  let guestOnly = primarySimilarity < 0.85 && !completeRoster && artist >= 0.85
 
   const sourceDuration = songDuration(song)
   const targetDuration = Number(candidate.duration_ms || 0)
   const difference = sourceDuration && targetDuration ? Math.abs(sourceDuration - targetDuration) : Infinity
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
   const album = Math.max(0, ...metadataNames(song.al || song.album).map((name) => similarity(name, candidate.album?.name || '')))
+  const identityEvidence = corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
+  if (identityEvidence) { artist = 1; primaryMatch = true; guestOnly = false }
   const crossScript = neteaseArtists.length > 0 && spotifyArtists.length > 0 &&
     neteaseArtists.every((left) => spotifyArtists.every((right) => differentScripts(left, right)))
   // An exact short/common title alone is not sufficient across unrelated credits.
@@ -489,7 +559,7 @@ function evidence(song, candidate, options) {
     ...(title < 0.78 ? ['title'] : []),
     ...(artist < 0.85 && !crossLanguage ? ['artist-identity'] : []),
   ]
-  return { title, artist, primaryMatch, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, eligible, score, rejectionReasons }
+  return { title, artist, primaryMatch, identityEvidence, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, eligible, score, rejectionReasons }
 }
 
 function recordingKinds(name = '', album = '') {
@@ -567,10 +637,14 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
 
 const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|リミックス|アコースティック/i
 
+function stripBracketedEditions(value) {
+  return String(value).normalize('NFKC')
+    .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】|<([^<>]*)>|〈([^〈〉]*)〉|《([^《》]*)》/gu,
+      (full, ...parts) => parts.slice(0, 6).some(part => part && VERSION_LABEL.test(part)) ? ' ' : full)
+}
+
 function compositionTitle(value) {
-  return searchTitle(value)
-    .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu,
-      (full, a, b, c) => VERSION_LABEL.test(a || b || c) ? ' ' : full)
+  return stripBracketedEditions(searchTitle(value))
     // Accept compact edition delimiters such as " -band ver-" or "—Live".
     // Do not strip ordinary hyphenated titles or subtitles containing "live".
     .replace(/\s*[-–—]\s*((?:(?:19|20)\d{2}\s+)?(?:band\s+ver(?:sion)?\.?|live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b.*)$/iu, '')
@@ -581,15 +655,15 @@ function compositionTitle(value) {
 // Recall-first second pass: explicit same primary artist + exact composition
 // title. Duration and edition become ranking hints, not rejection gates.
 // A shared guest credit or unknown cross-script identity is NOT sufficient.
-export function pickAlternateVersion(song, candidates, { manual = true } = {}) {
+export function pickAlternateVersion(song, candidates, { manual = true, artistManual = manual } = {}) {
   const primary = (song.ar || song.artists || [])[0]
   if (!primary) return null
-  const primaryNames = primaryArtistNames(song, { manual })
+  const primaryNames = primaryArtistNames(song, { manual: artistManual })
   const titles = songTitles(song, { manual }).map(value => withoutCollaborator(value, song.ar || song.artists)).map(compositionTitle).map(normalize).filter(Boolean)
   const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
     .filter(candidate => artistIdentityNames(candidate.artists?.[0]?.name).some(name => primaryNames.includes(normalize(name))))
     .filter(candidate => titleVariants(withoutCollaborator(candidate.name, candidate.artists)).map(compositionTitle).map(normalize).some(title => title && titles.includes(title)))
-    .map(candidate => ({ candidate, ...evidence(song, candidate, { manual }) }))
+    .map(candidate => ({ candidate, ...evidence(song, candidate, { manual, artistManual }) }))
     .sort((a, b) => Number(a.versionMismatch) - Number(b.versionMismatch) ||
       a.difference - b.difference || b.albumSimilarity - a.albumSimilarity ||
       String(a.candidate.id).localeCompare(String(b.candidate.id)))
@@ -606,6 +680,7 @@ const STAGE_QUERY_LIMITS = { 'known-track': 1, metadata: 3, 'title-only': 2, 'fr
 export async function findTrackMatch(song, searchTracks, diagnostics = null, { allowAlternateVersions = false, findAlbumTracks, findKnownTracks, knownIds = knownTrackIds(song), maxQueries = MAX_SONG_CATALOG_QUERIES } = {}) {
   const candidates = new Map()
   const searched = new Set()
+  const evidenceSeen = new Set()
   let queryCount = 0
   let catalogQueryCount = 0
   let albumTraversalChecked = false
@@ -614,6 +689,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
   const stoppedStages = []
   const queryTrace = []
   let knownTrackStatus = 'not-checked'
+  let identityReviewRequired = false
   const limit = Number.isFinite(maxQueries) ? Math.max(0, Math.min(MAX_SONG_CATALOG_QUERIES, Math.floor(maxQueries))) : MAX_SONG_CATALOG_QUERIES
   const takeQuery = stage => {
     if (catalogQueryCount >= limit || (stageCounts[stage] || 0) >= STAGE_QUERY_LIMITS[stage]) {
@@ -640,9 +716,16 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
       const before = previous && evidence(song, previous, { manual: true })
       const after = evidence(song, merged, { manual: true })
       const plausible = after.title >= 0.78 || after.artist >= 0.85 || after.albumSimilarity >= 0.9
-      if (plausible && (!before || after.title > before.title || after.artist > before.artist ||
+      // A new ID for another equally weak cover is not improved identity
+      // evidence. Keep it for ambiguity checks, but do not reset stagnation.
+      const band = (value, levels) => levels.filter(level => value >= level).length
+      const signature = JSON.stringify([band(after.title, [0.78, 0.98]), band(after.artist, [0.85, 0.98]),
+        band(after.albumSimilarity, [0.75, 0.98]), band(after.difference, [251, 2501, 8001, 18001]),
+        after.primaryMatch, after.eligible, after.versionMismatch, merged.is_playable !== false])
+      if (plausible && ((!before && !evidenceSeen.has(signature)) || (before && (after.title > before.title || after.artist > before.artist ||
         after.albumSimilarity > before.albumSimilarity || after.difference < before.difference ||
-        (!before.eligible && after.eligible) || (previous.is_playable !== true && merged.is_playable === true))) changed = true
+        (!before.eligible && after.eligible) || (previous.is_playable !== true && merged.is_playable === true))))) changed = true
+      if (plausible) evidenceSeen.add(signature)
       candidates.set(key, merged)
     }
     return changed
@@ -650,7 +733,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
   const finish = match => {
     const usage = { queryCount, catalogQueryCount, albumQueryCount: stageCounts['album-traversal'] || 0,
       knownTrackQueryCount: stageCounts['known-track'] || 0, knownTrackStatus,
-      queryBudget: limit, queryLimitsApplied, stageQueryCounts: { ...stageCounts }, stoppedStages: [...stoppedStages], queryTrace: [...queryTrace] }
+      queryBudget: limit, queryLimitsApplied, identityReviewRequired, stageQueryCounts: { ...stageCounts }, stoppedStages: [...stoppedStages], queryTrace: [...queryTrace] }
     if (diagnostics) Object.assign(diagnostics, usage)
     return { ...match, searchDiagnostics: usage }
   }
@@ -658,8 +741,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     // Known artist identities can resolve an already-retrieved candidate now;
     // translated/manual TITLE searches still remain a last resort.
     const match = pickBestMatch(song, [...candidates.values()], 0.68, { manual: stage.manual, artistManual: true })
-    const samePrimary = artistIdentityNames(match?.candidate.artists?.[0]?.name)
-      .some(name => primaryArtistNames(song, { manual: true }).includes(normalize(name)))
+    const samePrimary = match?.primaryMatch
     // Album names may differ on a compilation. A unique strict same-primary
     // match with exact title and near-exact duration does not need more queries.
     if (match && samePrimary && !match.crossLanguage && match.title >= 0.98 && match.difference <= 2500) {
@@ -728,7 +810,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     // After both artist-filtered and title-only retrieval have had a chance,
     // the user's same-song/same-primary-artist alternative is sufficient.
     if (allowAlternateVersions && stage.name !== 'metadata') {
-      const alternate = pickAlternateVersion(song, pool, { manual: stage.manual })
+      const alternate = pickAlternateVersion(song, pool, { manual: stage.manual, artistManual: true })
       if (alternate) {
         // Before settling for a different edition, re-score the SAME pool with
         // verified credits. No extra search: a closer known recording may
@@ -767,7 +849,20 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
   // First give every strategy its reserved opportunity. Then reuse unused
   // slots for actually-unexecuted queries, prioritizing identity/album-guided
   // retrieval. This shares the SAME 18-query ceiling, never an extra budget.
-  const recoveryStages = ['manual-alias', 'album', 'free-text', 'metadata', 'title-only']
+  // Once all dedicated strategies (including aliases and alternate versions)
+  // have run, rephrasing queries cannot prove an unknown artist identity.
+  // Leave these strong-but-blocked candidates for review, not a forced match
+  // or a claim of catalog absence. Pure retrieval misses retain recovery.
+  identityReviewRequired = [...candidates.values()].some(candidate => {
+    const item = evidence(song, candidate, { manual: true })
+    return candidate.is_playable !== false && item.title >= 0.98 && item.difference <= 2500 &&
+      item.rejectionReasons.some(reason => ['artist-identity', 'guest-only-identity'].includes(reason))
+  })
+  if (identityReviewRequired) {
+    queryLimitsApplied = true
+    stoppedStages.push({ stage: 'budget-recovery', reason: 'identity-review-required' })
+  }
+  const recoveryStages = (identityReviewRequired ? [] : ['manual-alias', 'album', 'free-text', 'metadata', 'title-only'])
     .map(name => stages.find(stage => stage.name === name))
   for (const stage of recoveryStages) {
     let stagnant = 0
@@ -796,6 +891,7 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     queryLimitsApplied,
     reviewRequired: queryLimitsApplied,
     reviewReasons: [
+      ...(identityReviewRequired ? ['identity-review-required'] : []),
       ...(queryLimitsApplied ? ['limited-retrieval'] : []),
       ...(knownTrackStatus === 'unplayable' ? ['known-recording-unplayable'] : []),
       ...(knownTrackStatus === 'availability-unknown' ? ['known-availability-unconfirmed'] : []),
