@@ -2,6 +2,7 @@ import { getDailyRecommendations } from './netease.js'
 import { findTrackMatch, sourceSongView, knownTrackIds } from './matcher.js'
 import { cachedTrackIds, saveTrackHints } from './match-cache.js'
 import { createHash } from 'node:crypto'
+import { resolvePlaylistName } from './config.js'
 
 export function dateInTimezone(timezone, date = new Date()) {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -158,7 +159,7 @@ export class SyncService {
       this.progress('playlist-write', { matchedCount: matches.length, unmatchedCount: unmatched.length })
       let playlistUrl = sync.playlistUrl
       if (!playlistId) {
-        const playlist = await this.spotify.createPlaylist(settings.playlistName, settings.playlistPublic)
+        const playlist = await this.spotify.createPlaylist(resolvePlaylistName(settings.playlistName), settings.playlistPublic)
         playlistId = playlist.id
         playlistUrl = playlist.external_urls?.spotify
       }
@@ -167,7 +168,7 @@ export class SyncService {
         await this.spotify.replacePlaylist(playlistId, matches.map((match) => match.spotify.uri))
       } catch (error) {
         if (error.status !== 404 || requireExistingPlaylist) throw error
-        const playlist = await this.spotify.createPlaylist(settings.playlistName, settings.playlistPublic)
+        const playlist = await this.spotify.createPlaylist(resolvePlaylistName(settings.playlistName), settings.playlistPublic)
         playlistId = playlist.id
         playlistUrl = playlist.external_urls?.spotify
         await this.spotify.replacePlaylist(playlistId, matches.map((match) => match.spotify.uri))
@@ -176,7 +177,7 @@ export class SyncService {
       const alternateVersionCount = matches.filter(match => match.alternateVersion).length
       this.progress('playlist-metadata')
       await this.spotify.updatePlaylist(playlistId, {
-        name: settings.playlistName,
+        name: resolvePlaylistName(settings.playlistName),
         public: settings.playlistPublic,
         description: `NetEase daily recommendations for ${date}. Matched ${matches.length} of ${songs.length} tracks.${alternateVersionCount ? ` Includes ${alternateVersionCount} alternate versions by the same artists.` : ''}`,
       })

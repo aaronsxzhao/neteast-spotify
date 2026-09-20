@@ -3,6 +3,26 @@ import assert from 'node:assert/strict'
 import { dateInTimezone, hourInTimezone, SyncService } from '../src/sync.js'
 import { sourceSongView } from '../src/matcher.js'
 
+test('sync keeps one NetEase Daily playlist and never reads or overwrites its custom cover', async () => {
+  const state = { settings: { neteaseCookie: 'MUSIC_U=test', timezone: 'Asia/Shanghai', playlistName: 'NetEase Daily Recommendations', playlistPublic: false },
+    spotify: { refreshToken: 'test' }, sync: { playlistId: 'existing-playlist', history: [] } }
+  const source = { id: 1, name: 'Song', ar: [{ name: 'Singer' }], dt: 200000 }
+  const operations = []
+  const spotify = {
+    async searchTracks() { return [{ id: 'track', uri: 'spotify:track:track', name: source.name, artists: source.ar, duration_ms: source.dt }] },
+    async replacePlaylist(id, uris) { operations.push({ kind: 'tracks', id, uris }) },
+    async updatePlaylist(id, details) { operations.push({ kind: 'metadata', id, details }) },
+    async createPlaylist() { assert.fail('must keep the existing playlist') },
+    async uploadPlaylistCover() { assert.fail('sync must not replace a manually uploaded cover') },
+  }
+  const store = { state, async update(fn) { fn(state) } }
+  await new SyncService(store, spotify, async () => [source]).run({ requireExistingPlaylist: true })
+  assert.deepEqual(operations.map(o => o.kind), ['tracks', 'metadata'])
+  assert.ok(operations.every(o => o.id === 'existing-playlist'))
+  assert.equal(operations[1].details.name, 'NetEase Daily')
+  assert.deepEqual(Object.keys(operations[1].details).sort(), ['description', 'name', 'public'])
+})
+
 test('explicit unmatched repair reuses only unchanged same-day matches in source order', async () => {
   const a = { id: 1, name: 'Alpha', ar: [{ name: 'Singer' }], dt: 200000 }
   const b = { id: 2, name: 'Beta', ar: [{ name: 'Singer' }], dt: 210000 }

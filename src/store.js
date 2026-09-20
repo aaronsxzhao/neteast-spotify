@@ -1,6 +1,6 @@
 import { chmod, mkdir, readFile, rename, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { DEFAULT_SETTINGS } from './config.js'
+import { DEFAULT_SETTINGS, resolvePlaylistName } from './config.js'
 
 const EMPTY_STATE = {
   settings: DEFAULT_SETTINGS,
@@ -24,7 +24,7 @@ export class Store {
       this.#state = {
         ...structuredClone(EMPTY_STATE),
         ...saved,
-        settings: { ...DEFAULT_SETTINGS, ...(saved.settings || {}) },
+        settings: { ...DEFAULT_SETTINGS, ...(saved.settings || {}), playlistName: resolvePlaylistName(saved.settings?.playlistName) },
         spotify: { ...(saved.spotify || {}) },
         sync: { history: [], ...(saved.sync || {}) },
       }

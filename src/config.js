@@ -6,11 +6,17 @@ export const SPOTIFY_REDIRECT_URI = `${APP_ORIGIN}/auth/spotify/callback`
 export const DEFAULT_SETTINGS = {
   spotifyClientId: '',
   neteaseCookie: '',
-  playlistName: 'NetEase Daily Recommendations',
+  playlistName: 'NetEase Daily',
   playlistPublic: false,
   scheduleEnabled: true,
   scheduleHour: 8,
   timezone: 'Asia/Shanghai',
+}
+
+// Migrate the original default without overwriting other users' custom names.
+export function resolvePlaylistName(value) {
+  const name = typeof value === 'string' ? value.trim() : ''
+  return !name || name === 'NetEase Daily Recommendations' ? DEFAULT_SETTINGS.playlistName : name
 }
 
 export const SPOTIFY_SCOPES = [

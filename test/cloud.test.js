@@ -18,6 +18,21 @@ test('cloud config requires credentials and a fixed destination playlist', () =>
   assert.throws(() => parseConfig(JSON.stringify({ ...config, playlistPublic: 'false' })), /boolean/)
 })
 
+test('legacy default name migrates without changing the credential seed, rotated token or playlist', async () => {
+  const original = { ...config, playlistName: 'NetEase Daily Recommendations' }
+  const remote = remoteMemory()
+  const store = new CloudStore(original, key, remote)
+  await store.load()
+  await store.update(state => { state.spotify.refreshToken = 'rotated-token'; state.spotify.retryAfterUntil = 1800000000000 })
+  const next = new CloudStore(original, key, remote)
+  await next.load()
+  assert.equal(next.state.settings.playlistName, 'NetEase Daily')
+  assert.equal(next.state.sync.playlistId, original.playlistId)
+  assert.equal(next.state.spotify.refreshToken, 'rotated-token')
+  assert.equal(next.state.spotify.retryAfterUntil, 1800000000000)
+  assert.equal(new CloudStore({ ...config, playlistName: 'My Custom Playlist' }, key, remote).state.settings.playlistName, 'My Custom Playlist')
+})
+
 test('state encryption hides secrets, uses random nonces, and rejects tampering/wrong keys', () => {
   const value = { token: 'test-private-token', playlistId: 'private-playlist' }
   const encrypted = encryptState(value, key)

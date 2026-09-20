@@ -1,5 +1,5 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from 'node:crypto'
-import { DEFAULT_SETTINGS } from './config.js'
+import { DEFAULT_SETTINGS, resolvePlaylistName } from './config.js'
 
 const BRANCH = 'daily-relay-state'
 const FILE = 'state.enc'
@@ -99,7 +99,7 @@ export class CloudStore {
     this.seed = createHash('sha256').update(JSON.stringify(config)).digest('hex')
     this.state = {
       settings: { ...DEFAULT_SETTINGS, spotifyClientId: config.spotifyClientId, neteaseCookie: config.neteaseCookie,
-        playlistName: config.playlistName || DEFAULT_SETTINGS.playlistName, playlistPublic: config.playlistPublic ?? false,
+        playlistName: resolvePlaylistName(config.playlistName), playlistPublic: config.playlistPublic ?? false,
         timezone: config.timezone || DEFAULT_SETTINGS.timezone },
       spotify: { refreshToken: config.spotifyRefreshToken, scope: config.spotifyScope || '' },
       sync: { playlistId: config.playlistId, playlistUrl: `https://open.spotify.com/playlist/${config.playlistId}`, history: [] },

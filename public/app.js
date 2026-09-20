@@ -182,7 +182,7 @@ function settingsBody() {
   return {
     spotifyClientId: elements.spotifyClientId.value.trim(),
     neteaseCookie: elements.neteaseCookie.value.trim(),
-    playlistName: elements.playlistName.value.trim() || 'NetEase Daily Recommendations',
+    playlistName: elements.playlistName.value.trim() || 'NetEase Daily',
     playlistPublic: elements.playlistPublic.checked,
     scheduleEnabled: elements.scheduleEnabled.checked,
     scheduleHour: Number(elements.scheduleHour.value),
