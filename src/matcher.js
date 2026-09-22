@@ -48,6 +48,9 @@ const SCOPED_TITLES = new Map([
   ['36307466', { name: '달과 6펜스', artist: '沈圭善', titles: ['The Moon and Sixpence'] }],
   ['3313987317', { name: '昔語りふたりぼっち', artist: '生田輝', titles: ['Our Old Tale'] }],
   ['759622', { name: 'よる☆かぜ', artist: 'ケツメイシ', titles: ['yorukaze'] }],
+  ['1442021148', { name: '東京フラッシュ', artist: 'Vaundy', titles: ['Tokyo Flash'] }],
+  ['1416378346', { name: '아무노래', artist: 'Zico', titles: ['Any song'] }],
+  ['22842404', { name: 'TV를 껐네...', artist: 'Leessang', titles: ['I turned off the TV...'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -116,6 +119,9 @@ const ARTIST_ALIASES = new Map([
   ['邓丽君', ['Teresa Teng', 'テレサ・テン']],
   ['沈圭善', ['심규선', 'Lucia']],
   ['今井美樹', ['Miki Imai', 'mikiimai']],
+  ['平井堅', ['Ken Hirai']],
+  ['孝敏', ['Hyomin', '효민']],
+  ['로꼬', ['Loco']],
 ])
 const artistAliasCache = new Map()
 
@@ -370,14 +376,37 @@ export function selectSourceAlbums(song, albums) {
     .slice(0, 2).map(item => item.album)
 }
 
-// Only remove a delimited "with" credit if the named collaborator is actually
-// present in the structured artist list. Ordinary subtitles remain identity.
+function withCredit(value) {
+  const match = String(value).normalize('NFKC').match(/^(.*?)\s*\(with\s+([^()]+)\)\s*$/iu)
+  return match ? { base: match[1].trim(), names: match[2].split(/\s*(?:,|&|\band\b)\s*/iu).filter(Boolean) } : null
+}
+
+function creditNames(value) {
+  return [value, ...catalogAliases(ARTIST_ALIASES, value)].flatMap(artistIdentityNames).map(normalize)
+}
+
+// Only remove a delimited "with" credit if the named collaborator is present
+// in that catalog's structured list, or both titles explicitly agree below.
 function withoutCollaborator(value, artists = []) {
-  return String(value).normalize('NFKC').replace(/\s*\(with\s+([^()]+)\)\s*$/iu, (full, credit) => {
-    const names = credit.split(/\s*(?:,|&|\band\b)\s*/iu).filter(Boolean)
-    return names.length && names.every(name => artists.some(artist =>
-      artistIdentityNames(artist.name).some(alias => normalize(alias) === normalize(name)))) ? '' : full
-  })
+  const credit = withCredit(value)
+  return credit?.names.length && credit.names.every(name => artists.some(artist =>
+    creditNames(artist.name).some(alias => creditNames(name).includes(alias)))) ? credit.base : value
+}
+
+function titlePairs(song, candidate, options, transform) {
+  return songTitles(song, options).flatMap(left => titleVariants(candidate.name).map(right => {
+    const a = withCredit(left), b = withCredit(right)
+    const remaining = b?.names.map(creditNames) || []
+    // Exact complete suffix roster, not a shared guest or an arbitrary subtitle.
+    const shared = a?.names.length && a.names.length === remaining.length && a.names.every(name => {
+      const aliases = creditNames(name)
+      const i = remaining.findIndex(names => names.some(alias => aliases.includes(alias)))
+      if (i < 0) return false
+      remaining.splice(i, 1); return true
+    })
+    return [transform(shared ? a.base : withoutCollaborator(left, song.ar || song.artists)),
+      transform(shared ? b.base : withoutCollaborator(right, candidate.artists))]
+  }))
 }
 
 function recordingTitle(value) {
@@ -515,8 +544,7 @@ function sameCompleteRoster(sourceArtists, targetArtists, manual) {
 
 function evidence(song, candidate, options) {
   const targetTitles = titleVariants(withoutCollaborator(candidate.name, candidate.artists)).map(recordingTitle)
-  const title = Math.max(0, ...songTitles(song, options).flatMap((value) => targetTitles.map((target) =>
-    similarity(recordingTitle(withoutCollaborator(value, song.ar || song.artists)), target))))
+  const title = Math.max(0, ...titlePairs(song, candidate, options, recordingTitle).map(([left, right]) => similarity(left, right)))
   const artistOptions = options?.artistManual ? { ...options, manual: true } : options
   const neteaseArtists = searchableArtists(song, { ...artistOptions, identity: true })
   const spotifyArtists = (candidate.artists || []).map((artist) => artist.name)
@@ -591,7 +619,7 @@ function recordingKinds(name = '', album = '') {
     /\blive\b|\bunplugged\b|现场|現場|ライブ/i.test(context),
     /\bacoustic\b|\bunplugged\b|不插电|不插電|アコースティック/i.test(context),
     ...[
-    /\binstrumental\b|\bkaraoke\b|伴奏|カラオケ/i,
+    BACKING_TRACK,
     /\bremix\b|\bre-mix\b|リミックス/i,
     /\bsped\s*up\b|\bslowed\b/i,
     /\boriginal\s+ver(?:sion)?\b/i,
@@ -647,7 +675,8 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   const ranked = candidates.filter((candidate) => candidate && candidate.is_playable !== false)
     .map((candidate) => ({ candidate, ...evidence(song, candidate, options) }))
     .filter((match) => match.eligible && match.score >= threshold)
-    .sort((left, right) => right.score - left.score)
+    .sort((left, right) => right.score - left.score || left.difference - right.difference ||
+      String(left.candidate.id).localeCompare(String(right.candidate.id)))
   const best = ranked[0]
   if (!best) return null
   // Duplicated releases are fine; competing recordings need a clear winner.
@@ -657,10 +686,14 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   return best
 }
 
-const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|リミックス|アコースティック/i
+const BACKING_TRACK = /\binstrumental\b|\bkaraoke\b|\b(?:less|off)[ -]?vocals?\b|伴奏|カラオケ|ボーカルレス/i
+const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|(?:less|off)[ -]?vocals?|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|ボーカルレス|リミックス|アコースティック/i
 
 function stripBracketedEditions(value) {
   return String(value).normalize('NFKC')
+    // Limit typo tolerance to a complete, clearly delimited edition label.
+    // Never truncate ordinary ~subtitles~ or arbitrary words ending in ver.
+    .replace(/\s*[~〜]\s*(?:album|single|original|studio)\s+(?:version|verion|ver\.?)\s*[~〜]\s*$/iu, '')
     .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】|<([^<>]*)>|〈([^〈〉]*)〉|《([^《》]*)》/gu,
       (full, ...parts) => parts.slice(0, 6).some(part => part && VERSION_LABEL.test(part)) ? ' ' : full)
 }
@@ -681,10 +714,13 @@ export function pickAlternateVersion(song, candidates, { manual = true, artistMa
   const primary = (song.ar || song.artists || [])[0]
   if (!primary) return null
   const primaryNames = primaryArtistNames(song, { manual: artistManual })
-  const titles = songTitles(song, { manual }).map(value => withoutCollaborator(value, song.ar || song.artists)).map(compositionTitle).map(normalize).filter(Boolean)
   const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
+    // A different vocal performance is allowed; a backing track is not a
+    // substitute for a sung recording, even with identical artist and duration.
+    .filter(candidate => BACKING_TRACK.test(String(song.name).normalize('NFKC')) === BACKING_TRACK.test(String(candidate.name).normalize('NFKC')))
     .filter(candidate => artistIdentityNames(candidate.artists?.[0]?.name).some(name => primaryNames.includes(normalize(name))))
-    .filter(candidate => titleVariants(withoutCollaborator(candidate.name, candidate.artists)).map(compositionTitle).map(normalize).some(title => title && titles.includes(title)))
+    .filter(candidate => titlePairs(song, candidate, { manual }, compositionTitle)
+      .some(([left, right]) => normalize(left) && normalize(left) === normalize(right)))
     .map(candidate => ({ candidate, ...evidence(song, candidate, { manual, artistManual }) }))
     .sort((a, b) => Number(a.versionMismatch) - Number(b.versionMismatch) ||
       a.difference - b.difference || b.albumSimilarity - a.albumSimilarity ||

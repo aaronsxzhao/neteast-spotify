@@ -50,3 +50,26 @@
 | `26123720` 無人の島：TRUE → Miho Karasawa / 唐沢美帆 | [艺人官方身份说明](https://true-singer.com/contents/417470)、[Spotify 曲目页](https://open.spotify.com/track/02OjX2aaE5EAyveeluFR2B)；TRUE 是易重名的显示名，因此只增加该源歌曲的受限署名和目录指针，不建立所有 TRUE 的全局别名 |
 
 新增 `test/daily-september21.test.js` 覆盖以上正常及拒绝路径。公开指针和离线回放不代表真实同步已成功，结果以云端补跑为准。
+
+## 2026-09-22：合作署名、版本标签与原唱选择
+
+当天 33 首全部处理完，匹配 19 首，Spotify 请求 238 次，无冷却；14 首未匹配共用了 193 次逻辑目录查询。更新不增加请求预算、不改调度或自动重跑策略。
+
+通用规则调整：
+
+- `With ...` 后缀：两边标题明确写出相同的完整合作名单（包括核验过的跨语言名字）时，两边统一移除后缀参与标题比较。若只有一边写出后缀，仍要求该平台的结构化艺人名单能证明合作署名。不会无条件删除 `with` 子标题，也不会用共同嘉宾代替主艺人身份。
+- 识别 `～Album Version～`、`~Single Ver.~` 等完整版本标签，以及限定范围内的 `Album Verion` 拼写错误。普通波浪线副标题不删除；WANDS 第 5 期版本进入同主艺人的替代版本流程，不冒充原录音，也不接受仅有 WANDS 嘉宾署名的另一首发行。
+- `less vocal`、`off vocal`、`ボーカルレス` 纳入伴奏识别。即使同艺人、同长度，也不能通过替代版本模式把伴奏替换有演唱的歌曲；本身就是伴奏的源曲仍可匹配对应伴奏。
+- 同分的合格候选按时长接近程度选择，保留原有歧义检查；不因时长接近就接受另一位艺人的翻唱。
+
+核验过的对应（仍不是自动翻译任意歌曲）：
+
+| 对应 | 依据及范围 |
+|---|---|
+| 平井堅 → Ken Hirai | [Sony Music 官方艺人页](https://www.sonymusic.co.jp/artist/KenHirai/)；艺人对应可跨歌曲复用，阻止 BENI 翻唱参与原唱选择 |
+| 孝敏／효민 → Hyomin；로꼬 → Loco | [Spotify 合作发行](https://open.spotify.com/track/4gcmhFCfvulg76xrz7Uqnr)、[Spotify 双语署名](https://open.spotify.com/embed?uri=spotify%3Atrack%3A2FXKtreeU7nH5zeN94pk4O&view=coverart)、网易源元数据；艺人对应可复用 |
+| `1442021148` 東京フラッシュ → Tokyo Flash | [Vaundy 官网](https://vaundy.jp/feature/biography)、[Spotify 单曲](https://open.spotify.com/intl-ja/track/6Dwv4HI2oLXiyqDDiV8MKT)；限定源 ID、歌名、主艺人 |
+| `1416378346` 아무노래 → Any song | [ZICO 官方双语音源](https://www.youtube.com/watch?v=GOtF5_Ow0_Y)、[Spotify 专辑](https://open.spotify.com/embed/album/7LYZM7I172wUjIKjCnxuAQ)；限定源 ID、歌名、主艺人 |
+| `22842404` TV를 껐네... → I turned off the TV... | [Spotify 正式发行](https://open.spotify.com/track/38srLCqsLKdlpEaCrEibvm)、当天同专辑同时长的保存候选；限定源 ID、歌名、主艺人 |
+
+`test/daily-september22.test.js` 覆盖正常召回、未证实署名、嘉宾误匹配、伴奏误匹配、普通副标题、预算和去重。更新后离线回放保存候选可恢复 4 首（平井堅、WANDS、Leessang、Hyomin），原有 19 首仍通过；Vaundy 与 ZICO 只有模拟检索测试，尚未实测召回。此更新没有发起同步，不能把离线结果计入 Spotify 歌单数量。
