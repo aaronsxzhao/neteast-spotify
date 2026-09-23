@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, writeFile, chmod, readdir, stat } from 'node:fs/promises'
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { copyPortableDependencies } from './portable-dependencies.js'
@@ -7,6 +8,13 @@ import { copyPortableDependencies } from './portable-dependencies.js'
 if (process.platform !== 'darwin') throw new Error('Build this bundle on macOS for the target architecture.')
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const arch = process.arch
+if (arch !== 'arm64') throw new Error('The verified release target is macOS arm64.')
+const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
+const version = process.env.DAILY_RELAY_BUILD_VERSION || pkg.version
+if (!/^\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?$/.test(version)) throw new Error('Invalid build version')
+const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim()
+if (execFileSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' }).trim()) throw new Error('Commit all source changes before building a traceable release')
+const build = { version, sourceCommit, architecture: arch, builtAt: new Date().toISOString(), notarized: false }
 const stamp = new Date().toISOString().replace(/[:.]/g, '-')
 const output = path.join(root, 'dist', `Daily-Relay-macOS-${arch}-${stamp}`)
 const app = path.join(output, 'Daily Relay.app')
@@ -25,6 +33,7 @@ for (const entry of ['index.html', 'app.js', 'styles.css', 'assets/daily-relay-c
   await cp(path.join(root, 'public', entry), path.join(resources, 'public', entry))
 }
 await cp(process.execPath, path.join(resources, 'runtime', 'node'))
+await writeFile(path.join(resources, 'build-info.json'), JSON.stringify(build, null, 2) + '\n')
 await chmod(path.join(resources, 'runtime', 'node'), 0o755)
 // Run from inside the bundle: a homepage-only smoke test misses lazy imports.
 // A fake QR key exercises rendering without contacting any music service.
@@ -52,7 +61,7 @@ for (const [name, filename] of [['GitHub-CLI-LICENSE.txt', process.env.DAILY_REL
 const launcher = '#!/bin/sh\nAPP_ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/../Resources" && pwd)"\nexec "$APP_ROOT/runtime/node" "$APP_ROOT/scripts/installer-launcher.js"\n'
 await writeFile(path.join(app, 'Contents', 'MacOS', 'DailyRelay'), launcher, { mode: 0o755 })
 await chmod(path.join(app, 'Contents', 'MacOS', 'DailyRelay'), 0o755)
-await writeFile(path.join(app, 'Contents', 'Info.plist'), `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>CFBundleName</key><string>Daily Relay</string><key>CFBundleDisplayName</key><string>Daily Relay</string><key>CFBundleIdentifier</key><string>local.dailyrelay.installer</string><key>CFBundleExecutable</key><string>DailyRelay</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>1.1.0</string><key>CFBundleVersion</key><string>2</string><key>LSUIElement</key><true/><key>LSMinimumSystemVersion</key><string>13.0</string></dict></plist>`)
+await writeFile(path.join(app, 'Contents', 'Info.plist'), `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>CFBundleName</key><string>Daily Relay</string><key>CFBundleDisplayName</key><string>Daily Relay</string><key>CFBundleIdentifier</key><string>local.dailyrelay.installer</string><key>CFBundleExecutable</key><string>DailyRelay</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>${pkg.version.split('-')[0]}</string><key>CFBundleVersion</key><string>${Number(process.env.GITHUB_RUN_NUMBER) || 3}</string><key>LSUIElement</key><true/><key>LSMinimumSystemVersion</key><string>13.0</string></dict></plist>`)
 const forbidden = new Set(['.data', '.git', 'state.json', 'state.enc', 'hosts.yml', 'launcher.json', 'DAILY_RELAY_CONFIG.txt', 'DAILY_RELAY_STATE_KEY.txt'])
 async function audit(dir) {
   for (const item of await readdir(dir, { withFileTypes: true })) {
@@ -61,8 +70,18 @@ async function audit(dir) {
   }
 }
 await audit(app)
+// Exercise the actual shipped code, not just the developer checkout.
+for (const [script, args] of [['verify-cloud-payload.js', []], ['verify-bundle.js', [resources]]]) {
+  execFileSync(path.join(resources, 'runtime', 'node'), [path.join(resources, 'scripts', script), ...args],
+    { cwd: resources, timeout: 120000, stdio: 'inherit', env: { PATH: process.env.PATH, NODE_OPTIONS: '', NODE_PATH: '' } })
+}
 // Ad-hoc signing ensures bundle integrity locally; this is NOT Apple notarization.
 execFileSync('/usr/bin/codesign', ['--force', '--deep', '--sign', '-', app], { stdio: 'pipe' })
-const zip = `${output}.zip`
+const zip = path.join(root, 'dist', `Daily-Relay-${version}-macOS-${arch}.zip`)
+try { await stat(zip); throw new Error('Refusing to overwrite an existing versioned installer') } catch (error) { if (error.code !== 'ENOENT') throw error }
 execFileSync('/usr/bin/ditto', ['-c', '-k', '--sequesterRsrc', '--keepParent', output, zip])
-console.log(JSON.stringify({ app, zip, bytes: (await stat(zip)).size, architecture: arch, notarized: false }))
+const sha256 = createHash('sha256').update(await readFile(zip)).digest('hex')
+await writeFile(zip + '.sha256', `${sha256}  ${path.basename(zip)}\n`)
+const release = { ...build, zip, checksum: zip + '.sha256', sha256, bytes: (await stat(zip)).size }
+await writeFile(path.join(root, 'dist', 'release.json'), JSON.stringify(release, null, 2) + '\n')
+console.log(JSON.stringify(release))

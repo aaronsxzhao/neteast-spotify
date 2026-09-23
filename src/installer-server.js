@@ -10,6 +10,7 @@ import { GitHubInstaller, InstallerError, installerMessage } from './installer-g
 import { SPOTIFY_REDIRECT_URI, APP_ORIGIN } from './config.js'
 import { localSyncAllowed, runManualSync } from './installer-manual.js'
 import { migrateRequestBudget } from './request-safety.js'
+import { buildInfo } from './installer-payload.js'
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const equal = (a, b) => typeof a === 'string' && Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b))
@@ -29,6 +30,7 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
   // This process is only a setup/control panel. It NEVER runs a local scheduler.
   const spotify = spotifyClient || new SpotifyClient(store, spotifyFetch)
   const github = new GitHubInstaller(store, ROOT, githubOptions)
+  const build = await buildInfo(ROOT)
   // Reuse only this installer's own CLI login after a normal app restart.
   github.profile().catch(() => {})
   const qrFlows = new Map()
@@ -48,7 +50,8 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
   const respond = (res, code, data) => { res.writeHead(code, { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff' }); res.end(JSON.stringify(data)) }
   const status = () => ({ netease: Boolean(store.state.settings.neteaseCookie), spotify: Boolean(store.state.spotify.refreshToken),
     spotifyName: store.state.spotify.profile?.displayName, clientId: store.state.settings.spotifyClientId,
-    redirectUri: SPOTIFY_REDIRECT_URI, github: github.login, deployment: github.progress, cloud, manual: manualStatus(),
+    redirectUri: SPOTIFY_REDIRECT_URI, github: github.login, deployment: github.progress, cloud, manual: manualStatus(), build,
+    cloudCodeVersion: store.state.installer?.codeVersion || null,
     deployed: Boolean(store.state.installer?.deployed), repository: store.state.installer?.repository, visibility: store.state.installer?.visibility,
     busy: Boolean(job), playlistName: store.state.settings.playlistName, maintenance: Boolean(store.state.installer?.maintenance), paused: Boolean(store.state.installer?.paused) })
   const readBody = async req => {
@@ -154,6 +157,13 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
         if (Date.now() - cloudReadAt > 15000) { cloud = await github.cloudStatus(); cloudReadAt = Date.now() }
         return respond(res, 200, cloud)
       }
+      if (req.method === 'POST' && url.pathname === '/api/cloud/upgrade') {
+        const input = await readBody(req)
+        if (!input.consent) throw new InstallerError('请确认更新云端程序。')
+        if (job) throw new InstallerError('请等待当前操作结束。')
+        startJob(async () => { await github.upgrade(input); cloudReadAt = 0 })
+        return respond(res, 202, { started: true })
+      }
       if (req.method === 'POST' && url.pathname === '/api/cloud/run') {
         if (job) throw new InstallerError('请等待当前操作结束。')
         return respond(res, 200, await github.dispatch())
@@ -164,6 +174,7 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
         return respond(res, 202, { started: true })
       }
       if (req.method === 'POST' && url.pathname === '/api/cloud/pause') {
+        if (job) throw new InstallerError('请等待当前操作结束。')
         const input = await readBody(req)
         await github.profile()
         if (!store.state.installer?.deployed || !input.consent) throw new InstallerError('需要确认停用自动同步。')
@@ -172,6 +183,7 @@ export async function createInstallerServer({ directory, origin = APP_ORIGIN, se
         return respond(res, 200, { paused: true })
       }
       if (req.method === 'POST' && url.pathname === '/api/cloud/enable') {
+        if (job) throw new InstallerError('请等待当前操作结束。')
         await github.profile()
         if (!store.state.installer?.deployed || store.state.installer.maintenance) throw new InstallerError('请先完成配置。')
         await github.api(`repos/${store.state.installer.repository}/actions/workflows/daily-sync.yml/enable`, 'PUT')

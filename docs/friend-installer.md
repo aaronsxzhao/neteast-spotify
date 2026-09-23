@@ -20,6 +20,10 @@
 
 ## 账号与安全
 
+### 已安装用户更新
+
+先在旧助手点击「退出安装助手」，从 Releases 下载新包并打开；新界面显示包版本和源码提交。点击「用此安装包更新云端程序」并确认，即可更新自己已有的云端代码，不必重新连接音乐账号。只换 App 不会自动修改云端。保留本机配置目录，不要删除其中的密钥。更新保留歌单、封面、账号、加密状态与冷却，不自动提交同步；有任务在运行或中途失败时先保持暂停，按提示稍后重试及恢复。详见 [发布与升级流程](releases.md)。
+
 - 配置存放在 `~/Library/Application Support/Daily Relay`，与开发项目 `.data` 完全隔离；目录权限 0700、状态文件 0600。
 - GitHub CLI 使用独立 `GH_CONFIG_DIR`，清除继承的 GH_TOKEN/GITHUB_TOKEN，不借用电脑上已有的 GitHub CLI 登录。官方 CLI 授权请求 repo/workflow，权限范围比单一仓库更广；页面明确说明。令牌保存在专属目录内的本地文件，不使用系统钥匙串。只在可信个人电脑使用。
 - 程序只向当前授权用户本人创建的 `daily-relay-<随机标识>` 仓库部署；记录安装标识并校验仓库所有者及标记。遇到无关同名仓库会停止，绝不覆盖。
@@ -38,11 +42,12 @@
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
 node --test test/*.test.js
+node scripts/verify-cloud-payload.js
 node scripts/prepare-macos-tools.js
 node scripts/build-macos.js
 ```
 
-准备脚本从官方 GitHub CLI v2.100.0 发布下载对应架构并校验官方 SHA-256，同时下载完整 Node.js 与 GitHub CLI 许可证。构建使用当前 Node 可执行文件，产物落在 dist 中的新目录，不覆盖旧包。
+准备脚本从官方 GitHub CLI v2.100.0 发布下载对应架构并校验官方 SHA-256，同时下载完整 Node.js 与 GitHub CLI 许可证。构建要求工作区已提交且干净，使用当前 Node 可执行文件，产物落在 dist 中的新目录；版本化 ZIP 不覆盖旧包。主仓库 main 推送后自动构建发布，流程会额外验证包内实际部署文件与空白账号首次启动。
 
 beta.2 修复 beta.1 丢失 pnpm 传递依赖解析路径的问题：保留相对符号链接并检查依赖不逃出安装包，同时用包内 Node 加载网易云及请求模块、离线生成二维码。真实扫码接口仍需联网验证。
 

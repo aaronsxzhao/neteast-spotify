@@ -48,6 +48,7 @@
     <div class="card-topline"><span class="status-kicker">YOUR DAILY RELAY</span><span class="step-state" id="cloud-badge">正在确认</span></div>
     <h3 id="cloud-title">云端已配置</h3><p id="cloud-summary">正在核验首次同步结果……</p><p id="cloud-pause"></p>
     <div class="install-actions"><button class="button button-outline" id="refresh">刷新状态</button><button class="button button-outline" id="reconnect">重新连接账号</button><button class="button button-outline" id="pause-cloud">暂停自动同步</button><button class="button button-outline" id="enable-cloud">恢复自动同步</button></div>
+    <div class="install-guide"><h4>更新程序，不用重新连接账号</h4><p id="build-version"></p><p>先退出旧助手，从 Releases 下载并打开新版，再点击下方按钮更新你自己的云端代码。保留账号、歌单、封面、冷却和进度，不自动发起同步。</p><a class="text-link" href="https://github.com/aaronsxzhao/neteast-spotify/releases" target="_blank" rel="noreferrer">下载新版安装包 ↗</a><button class="button button-outline" id="upgrade-cloud">用此安装包更新云端程序</button></div>
     <details class="install-guide"><summary>高级信息与恢复</summary><p id="repo-name"></p><a id="run-link" target="_blank" rel="noreferrer" hidden>查看本次运行记录 ↗</a><p>本机配置保存在用户目录的 Library/Application Support/Daily Relay，其中包含登录凭证和加密密钥，不要分享。换电脑前请安全备份。仅删除 App 不会停止云端任务，请先暂停自动同步。</p></details>
   </article>
 </template>

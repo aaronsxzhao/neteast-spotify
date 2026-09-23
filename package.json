@@ -1,6 +1,6 @@
 {
   "name": "netease-daily-to-spotify",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "description": "Mirror NetEase Cloud Music daily recommendations to a Spotify playlist.",
@@ -10,6 +10,7 @@
   "scripts": {
     "setup": "node scripts/installer-launcher.js",
     "build:mac": "node scripts/build-macos.js",
+    "verify:cloud": "node scripts/verify-cloud-payload.js",
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "sync:cloud": "node src/cloud-run.js",

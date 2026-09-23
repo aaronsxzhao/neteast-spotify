@@ -64,7 +64,7 @@ function render(data) {
   const report = data.deployed ? data.cloud : data.manual
   $('last-run').textContent = report?.lastSyncedDate || '尚无成功记录'
   $('match-count').textContent = report?.lastSyncedDate ? `${report.matchedCount}/${report.sourceCount}` : '—'
-  $('next-sync').textContent = data.paused ? '已暂停' : data.deployed ? '北京时间 08:00 起' : '未开启 · 可手动同步'
+  $('next-sync').textContent = data.paused ? '已暂停' : data.deployed ? '北京时间 07:00 起' : '未开启 · 可手动同步'
   $('redirect').textContent = data.redirectUri
   if (!$('client-id').value && data.clientId) $('client-id').value = data.clientId
   $('github-status').textContent = data.github.status === 'connected' ? `已授权 ${data.github.login}` : data.github.status === 'waiting' ? '等待确认' : '未授权'
@@ -95,6 +95,8 @@ function render(data) {
   $('pause-cloud').disabled = data.paused || data.busy
   $('enable-cloud').disabled = !data.paused || data.maintenance || data.busy
   $('reconnect').disabled = data.busy || data.maintenance
+  $('upgrade-cloud').disabled = !data.deployed || data.busy || data.maintenance || data.github.status !== 'connected'
+  $('build-version').textContent = `当前安装包：${data.build.version}${data.build.sourceCommit ? ` · ${data.build.sourceCommit.slice(0, 8)}` : ' · 开发版'}。云端上次更新：${data.cloudCodeVersion || '尚未记录'}。`
   if (data.deployed && firstCloud && !data.busy) { firstCloud = false; updateCloud() }
   if (data.cloud) renderCloud(data.cloud)
 }
@@ -169,6 +171,7 @@ bind('manual-sync', triggerSync)
 bind('reconnect', async () => { if (confirm('这会先暂停云端定时，避免令牌冲突。重新登录后需要点击“保存新授权并恢复自动同步”。继续吗？')) await api('/api/cloud/reconnect', {}) })
 bind('pause-cloud', async () => { if (confirm('停止后续每日自动同步？正在运行的任务不会被强行取消。')) { await api('/api/cloud/pause', { consent: true }); notice('已暂停后续自动同步。') } })
 bind('enable-cloud', async () => { await api('/api/cloud/enable', {}); notice('已恢复每日自动同步。') })
+bind('upgrade-cloud', async () => { if (confirm(`用当前安装包 ${current.build.version} 更新你自己的云端程序？这会替换程序管理的代码文件，保留 Git 历史、账号、歌单和冷却状态。有同步在运行时会暂停更新，需稍后重试。`)) await api('/api/cloud/upgrade', { consent: true }) })
 $('exit').addEventListener('click', async () => { try { await api('/api/exit', {}); closed = true; clearInterval(qrTimer); timers.forEach(clearInterval); document.body.textContent = '安装助手已退出。你可以关闭这个窗口；已启用的云端同步会继续运行。' } catch (e) { notice(e.message, true) } })
 const result = new URLSearchParams(location.search).get('spotify')
 if (result) { notice(result === 'connected' ? 'Spotify 已连接。' : 'Spotify 授权未完成，请检查回调地址、Premium 和应用允许用户后重试。', result !== 'connected'); history.replaceState(null, '', '/') }

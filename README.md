@@ -121,7 +121,18 @@ GitHub 官方 CLI 需要仓库和工作流权限，授权范围可能覆盖你�
 - 网易云每日推荐使用社区维护的 `@neteasecloudmusicapienhanced/api`，不是网易云官方开放 API，接口变化、地区或 IP 限制可能导致失败。
 - 音乐授权会失效。安装版请使用“重新连接账号”，由助手先暂停云端再更新凭证，避免本机与云端令牌冲突。
 - 当前验证包含自动化回归测试、空白账号隔离、安装包启动、重复打开、包内网易云模块加载与二维码生成检查。**这不等同于每个朋友的真实账号已通过完整云端同步验收。**
-- 当前安装包为内测版本，没有自动升级机制；后续程序变更不会自动更新已部署到朋友账号下的仓库。
+- 当前安装包为内测版本。主分支每次推送都会自动验证、打包并发布对应提交的新包；失败不会发布。不会静默更新朋友的电脑或仓库，老用户升级步骤见下节。
+
+## 更新安装包和已有云端程序
+
+1. 从 [Releases](https://github.com/aaronsxzhao/neteast-spotify/releases) 下载最新发布条目的 ZIP；核对条目的源码提交号，不选 `Source code`。自动包标为内测版，版本格式为 `1.2.0-build.<运行号>.<尝试号>`。
+2. 在旧页面点击 **“退出安装助手”**，然后打开新版 App。仅关浏览器不会退出旧服务；不要删除 `Library/Application Support/Daily Relay`，账号配置会复用。
+3. 已部署的用户点击 **“用此安装包更新云端程序”** 并确认。不需要重连音乐账号或手工进入 GitHub。
+4. 更新只替换程序管理的文件，保留 Git 历史、其他用户文件、Secrets、加密状态、歌单与封面。不清除 Spotify 冷却、不自动发起音乐同步。若同步正在运行，更新会停止并保持定时暂停，等任务结束再更新，之后按提示恢复。
+
+新安装直接部署当前安装包内的代码。已部署用户只换 App **不会自动更新云端代码**，必须确认第 3 步；旧包需要先下载含该按钮的新包。没有静默下载或执行远程代码的后台更新器。
+
+维护者发布流程与失败处理见 [发布流程](docs/releases.md)。
 
 ## 给开发者：运行现有本地界面
 
@@ -156,11 +167,12 @@ http://127.0.0.1:8787/auth/spotify/callback
 ```bash
 pnpm install --frozen-lockfile --ignore-scripts
 pnpm test
+pnpm verify:cloud
 node scripts/prepare-macos-tools.js
 pnpm build:mac
 ```
 
-准备脚本下载官方 GitHub CLI、校验 SHA-256 并准备完整依赖许可证。构建内置当前 Node.js 可执行文件及所需依赖，输出 `.app` 和 ZIP 到 `dist/`，仅作 ad-hoc 签名，不进行 Apple 公证。
+准备脚本下载官方 GitHub CLI、校验 SHA-256 并准备完整依赖许可证。构建要求工作区已提交且干净，内置当前 Node.js 可执行文件及所需依赖，输出 `.app`、版本化 ZIP 和 SHA-256 到 `dist/`。包内记录源码提交，验证包内云端文件和空白账号启动；仅作 ad-hoc 签名，不进行 Apple 公证。
 
 源码运行安装助手前，先运行准备脚本，并将其输出的 CLI 路径配置为 `DAILY_RELAY_GH_PATH`，然后 `pnpm setup`。测试时用 `DAILY_RELAY_DATA_DIR` 指向独立临时目录，不要指向真实 `.data`。详见 [安装版开发说明](docs/friend-installer.md)。
 

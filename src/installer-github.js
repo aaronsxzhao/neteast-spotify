@@ -1,8 +1,9 @@
 import { spawn } from 'node:child_process'
-import { mkdir, chmod, readFile, readdir } from 'node:fs/promises'
+import { mkdir, chmod, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { randomBytes } from 'node:crypto'
 import { CloudStore, encryptState, decryptState, parseConfig } from './cloud-state.js'
+import { cloudEntries } from './installer-payload.js'
 
 export class InstallerError extends Error {}
 export function installerMessage(error) {
@@ -109,15 +110,58 @@ export class GitHubInstaller {
   }
 
   async sourceEntries() {
-    const sources = ['cloud-state.js', 'cloud-policy.js', 'cloud-run.js', 'config.js', 'matcher.js', 'netease.js', 'request-safety.js', 'spotify.js', 'sync.js']
-    const tests = (await readdir(path.join(this.root, 'test'))).filter(name => name.endsWith('.test.js') && !name.startsWith('installer'))
-    const files = ['package.json', 'pnpm-lock.yaml', '.github/workflows/daily-sync.yml', ...sources.map(name => `src/${name}`), ...tests.map(name => `test/${name}`)]
-    return Promise.all(files.map(async name => ({ path: name, mode: '100644', type: 'blob', content: await readFile(path.join(this.root, name), 'utf8') })))
+    return cloudEntries(this.root)
+  }
+
+  async upgrade({ consent } = {}) {
+    if (!consent) throw new InstallerError('请确认用当前安装包更新你的云端程序。')
+    const owner = await this.profile()
+    const installation = this.store.state.installer
+    if (!installation?.deployed || installation.maintenance) throw new InstallerError('请先完成部署或账号重新授权。')
+    const repo = installation.repository
+    if (installation.owner !== owner || !repo.startsWith(`${owner}/daily-relay-`)) throw new InstallerError('仓库归属验证失败。')
+    const repository = await this.api(`repos/${repo}`)
+    if (repository.owner?.login !== owner || repository.description !== `Daily Relay installation ${installation.installationId}` || repository.default_branch !== 'main') {
+      throw new InstallerError('仓库归属或默认分支已改变，停止更新。')
+    }
+    // Validate all files before pausing or touching the repository.
+    const entries = await this.sourceEntries()
+    const metadata = JSON.parse(entries.find(e => e.path === 'daily-relay-build.json').content)
+    const workflow = `repos/${repo}/actions/workflows/daily-sync.yml`
+    const info = await this.api(workflow)
+    const wasPaused = Boolean(installation.paused) || info.state !== 'active'
+    this.progress = { status: 'running', message: '暂停新任务并检查现有同步；账号和歌单不会改动。' }
+    await this.api(`${workflow}/disable`, 'PUT')
+    await this.store.update(state => { state.installer.paused = true })
+    // Query every active status, rather than only the most recent run. Keep the
+    // schedule paused on failure; never cancel work or overwrite a moving ref.
+    for (const status of ['queued', 'in_progress', 'waiting', 'requested', 'pending']) {
+      const runs = await this.api(`${workflow}/runs?status=${status}&per_page=1`)
+      if (runs.workflow_runs?.length) throw new InstallerError('定时已暂停，但仍有云端任务。请等任务结束后再次更新，完成后按需恢复自动同步。')
+    }
+    const ref = await this.api(`repos/${repo}/git/ref/heads/main`)
+    const parent = ref.object.sha
+    const old = await this.api(`repos/${repo}/git/commits/${parent}`)
+    // Only replace managed code paths; preserve unrelated user files/history.
+    const tree = await this.api(`repos/${repo}/git/trees`, 'POST', { base_tree: old.tree.sha, tree: entries })
+    const commit = await this.api(`repos/${repo}/git/commits`, 'POST', {
+      message: `Update Daily Relay to ${metadata.version}`, tree: tree.sha, parents: [parent],
+    })
+    await this.api(`repos/${repo}/git/refs/heads/main`, 'PATCH', { sha: commit.sha, force: false })
+    await this.store.update(state => { state.installer.codeVersion = metadata.version; state.installer.sourceCommit = metadata.sourceCommit })
+    if (!wasPaused) {
+      await this.api(`${workflow}/enable`, 'PUT')
+      await this.store.update(state => { state.installer.paused = false })
+    }
+    this.progress = { status: 'done', message: `云端程序已更新至 ${metadata.version}；账号、歌单、封面及冷却进度保留。${wasPaused ? '定时仍保持暂停，可按需恢复。' : '每日定时已恢复。'}本次未发起音乐同步。` }
+    return { version: metadata.version, commit: commit.sha }
   }
 
   async deployment({ consent, visibility = 'private' }, spotify) {
     if (!consent) throw new InstallerError('请先确认云端部署授权。')
     if (!['private', 'public'].includes(visibility)) throw new InstallerError('仓库可见性无效。')
+    const entries = await this.sourceEntries()
+    const metadata = JSON.parse(entries.find(e => e.path === 'daily-relay-build.json').content)
     const owner = await this.profile()
     const { settings } = this.store.state
     if (!settings.neteaseCookie || !this.store.state.spotify.refreshToken || !settings.spotifyClientId) throw new InstallerError('请先连接两个音乐账号。')
@@ -150,7 +194,7 @@ export class GitHubInstaller {
     await this.execute(['secret', 'set', 'DAILY_RELAY_CONFIG', '--repo', repo], JSON.stringify(config))
     await this.execute(['secret', 'set', 'DAILY_RELAY_STATE_KEY', '--repo', repo], installation.stateKey)
     step('安装每日定时任务和冷却后续跑逻辑')
-    const tree = await this.api(`repos/${repo}/git/trees`, 'POST', { tree: await this.sourceEntries() })
+    const tree = await this.api(`repos/${repo}/git/trees`, 'POST', { tree: entries })
     const commit = await this.api(`repos/${repo}/git/commits`, 'POST', { message: 'Install personal Daily Relay', tree: tree.sha, parents: [] })
     await this.setInitialRef(repo, 'main', commit.sha)
     await this.api(`repos/${repo}`, 'PATCH', { default_branch: 'main' })
@@ -165,7 +209,8 @@ export class GitHubInstaller {
     const stateCommit = await this.api(`repos/${repo}/git/commits`, 'POST', { message: 'Initialize encrypted personal state', tree: stateTree.sha, parents: [commit.sha] })
     await this.setInitialRef(repo, 'daily-relay-state', stateCommit.sha)
     await this.api(`repos/${repo}/actions/permissions`, 'PUT', { enabled: true })
-    await this.store.update(state => { state.installer.deployed = true; state.settings.scheduleEnabled = false })
+    await this.store.update(state => { state.installer.deployed = true; state.installer.codeVersion = metadata.version;
+      state.installer.sourceCommit = metadata.sourceCommit; state.settings.scheduleEnabled = false })
     step('部署完成，正在提交首次同步')
     for (let attempt = 0; ; attempt++) {
       try { await this.dispatch(); break } catch (error) {
