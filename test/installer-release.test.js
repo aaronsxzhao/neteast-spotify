@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readFile, mkdtemp, rm } from 'node:fs/promises'
+import { readFile, mkdtemp, rm, cp, writeFile, symlink } from 'node:fs/promises'
+import { execFileSync } from 'node:child_process'
 import os from 'node:os'
 import path from 'node:path'
 import { cloudEntries, validatePayload } from '../src/installer-payload.js'
@@ -18,6 +19,17 @@ test('friend deployment contains complete cloud dependencies and a reproducible 
   for (const forbidden of ['release-macos.yml', 'installer-github.js', 'store.js', 'state.enc']) {
     assert.ok(!entries.some(e => e.path.endsWith(forbidden)))
   }
+})
+
+test('packaged first-run smoke check passes guarded HTTP requests on an ephemeral port', async t => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'relay-smoke-test-'))
+  t.after(() => rm(directory, { recursive: true, force: true }))
+  for (const name of ['src', 'public', 'installer', 'package.json']) await cp(name, path.join(directory, name), { recursive: true })
+  await symlink(path.resolve('node_modules'), path.join(directory, 'node_modules'))
+  await writeFile(path.join(directory, 'build-info.json'), JSON.stringify({ version: '1.2.0-build.1.1', sourceCommit: 'a'.repeat(40) }))
+  const output = execFileSync(process.execPath, ['scripts/verify-bundle.js', directory], { encoding: 'utf8', timeout: 15000,
+    env: { PATH: process.env.PATH, NODE_OPTIONS: '', NODE_PATH: '' } })
+  assert.match(output, /Packaged first-run smoke check passed/)
 })
 
 async function fixture(t, { paused = false, active = false, foreign = false, refFailure = false } = {}) {
