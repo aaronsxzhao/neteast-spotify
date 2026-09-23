@@ -73,3 +73,20 @@
 | `22842404` TV를 껐네... → I turned off the TV... | [Spotify 正式发行](https://open.spotify.com/track/38srLCqsLKdlpEaCrEibvm)、当天同专辑同时长的保存候选；限定源 ID、歌名、主艺人 |
 
 `test/daily-september22.test.js` 覆盖正常召回、未证实署名、嘉宾误匹配、伴奏误匹配、普通副标题、预算和去重。更新后离线回放保存候选可恢复 4 首（平井堅、WANDS、Leessang、Hyomin），原有 19 首仍通过；Vaundy 与 ZICO 只有模拟检索测试，尚未实测召回。此更新没有发起同步，不能把离线结果计入 Spotify 歌单数量。
+
+## 2026-09-23：闭合双语标题、原专辑优先与混音边界
+
+当天首次同步 23/33，Spotify 请求 183 次，无 429。本次调整不增加请求预算、不降低请求间隔，不改变调度、歌单名称及用户封面。
+
+- 识别 `Kissしたい -WANNA KISS- (2021 Remaster)` 一类闭合破折号双语标题：原名保留，同时将本地文字标题及英文标题提前用于查询和校验。本地标题可以包含拉丁字母，但另一侧必须是非版本说明的拉丁文字；不拆普通英文副标题、未闭合标签、现场/混音说明，也不把这种规则扩散为艺人别名。
+- 同一完整艺人名单、相同录音标题/类型的再版竞争时，原专辑完全一致且时长差不超过 250 毫秒的候选，可以优于专辑不完全一致、时长差不超过 2.5 秒的候选。相同专辑证据的歧义仍保留，不把不同嘉宾、现场版本或未知艺人视为同一录音。
+- 完整的 `after hours mix`、`club mix` 等有限混音标签进入同曲同主艺人的替代版本复核，并标记替代版本。`instrument mix` 归为伴奏，不能替代原演唱；不会删除任意包含 mix 的普通副标题。
+
+| 已核验对应 | 依据及范围 |
+|---|---|
+| 中森明菜 → Akina Nakamori | [Warner 官方专题](https://sp.wmg.jp/akinanakamori/)；可跨歌曲复用 |
+| 当山ひとみ → Hitomi Tohyama | [Columbia 官方发行](https://columbia.jp/artist-info/tohyamahitomi/discography/COCP-42211-2.html)、[SEXY ROBOT 曲目表](https://columbia.jp/artist-info/tohyamahitomi/discography/COKM-43424.html)；可跨歌曲复用，Wanna Kiss 从双语原名拆分，不新增人工歌名翻译 |
+| 中原めいこ → Meiko Nakahara | [Universal 官方发行](https://www.universal-music.co.jp/p/TOCT-10977/)；可跨歌曲复用，仍拒绝纯伴奏 |
+| `22655497` CAGNET《Deeper and Deeper》目录指针 | [Spotify 正式曲目](https://open.spotify.com/track/5ElzKkLs6ZQ1Sp2YEkzHm9)；限定源 ID、原名及主艺人，实际运行仍重新获取并检查账号地区可播放性和匹配证据 |
+
+`test/daily-september23.test.js` 覆盖正确召回及误匹配拒绝。离线回放今天保存的候选预览可恢复中森明菜、当山ひとみ和中原めいこ（after hours mix）3 首；原有 23 首仍通过。CAGNET 指针只有模拟测试，真实补跑结果另行确认；离线回放不等于线上已成功。

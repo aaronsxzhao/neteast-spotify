@@ -62,6 +62,7 @@ const CATALOG_HINTS = new Map([
   ['759622', { name: 'よる☆かぜ', artist: 'ケツメイシ', trackId: '2b3bDmj7kUKXtkYSaJdPmZ' }],
   ['26123720', { name: '無人の島', artist: 'TRUE', trackId: '02OjX2aaE5EAyveeluFR2B' }],
   ['3313987317', { name: '昔語りふたりぼっち', artist: '生田輝', trackId: '7H4ybl0Xjn5EMHDZdoUG7M' }],
+  ['22655497', { name: 'Deeper and Deeper', artist: 'CAGNET', trackId: '5ElzKkLs6ZQ1Sp2YEkzHm9' }],
 ])
 
 export function knownTrackIds(song) {
@@ -122,6 +123,9 @@ const ARTIST_ALIASES = new Map([
   ['平井堅', ['Ken Hirai']],
   ['孝敏', ['Hyomin', '효민']],
   ['로꼬', ['Loco']],
+  ['中森明菜', ['Akina Nakamori']],
+  ['当山ひとみ', ['Hitomi Tohyama']],
+  ['中原めいこ', ['Meiko Nakahara']],
 ])
 const artistAliasCache = new Map()
 
@@ -240,15 +244,25 @@ function differentScripts(left, right) {
   return a.length > 0 && b.length > 0 && !a.some((script) => b.includes(script))
 }
 
-// Only split cross-script parenthetical titles, not ordinary subtitles or editions.
-export function titleVariants(value) {
+// Split explicit cross-script title wrappers, not ordinary subtitles or editions.
+export function titleVariants(value, { dashTranslations = true } = {}) {
   if (typeof value !== 'string') return []
   const full = value.normalize('NFKC').trim()
   const brackets = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu)]
   const base = full.replace(/\([^()]*\)|\[[^\[\]]*\]|【[^【】]*】/gu, ' ').trim()
   const translations = brackets.map((part) => (part[1] || part[2] || part[3]).trim())
     .filter((part) => differentScripts(base, part) && !/\b(feat|ft|featuring|live|remaster\w*|version|edit|mix|acoustic|instrumental|karaoke)\b|现场|現場|伴奏|ライブ/i.test(part))
-  return unique([full, ...(translations.length ? [base, ...translations] : [])])
+  // Closed dash wrappers also denote translations: Kissしたい -WANNA KISS-.
+  // The native title may itself contain Latin words. Require native script on
+  // one side and a Latin-only label on the other, not an ordinary subtitle or
+  // an edition. Keep the original full name for recording-kind checks.
+  const dash = dashTranslations && stripBracketedEditions(full).trim()
+    .match(/^(.+?)\s*([-–—])\s*([^–—-]+?)\s*\2$/u)
+  const native = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u
+  const dashTitles = dash && native.test(dash[1]) && /\p{Script=Latin}/u.test(dash[3]) &&
+    /^[\p{Script=Latin}\p{N}\p{P}\p{Zs}]+$/u.test(dash[3]) && !VERSION_LABEL.test(dash[3]) && !/\b(?:mix|feat|ft|featuring)\b/i.test(dash[3])
+    ? [dash[1].trim(), dash[3].trim()] : []
+  return unique([full, ...(translations.length ? [base, ...translations] : []), ...dashTitles])
 }
 
 export function songTitles(song, { manual = true } = {}) {
@@ -298,7 +312,7 @@ function artistNameVariants(value, { identity = false } = {}) {
     .replace(/(?<=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/gu, '')
   // A bilingual display credit, e.g. 简约情人（Simple Lover), is one artist
   // with two names. Do not split same-script band qualifiers or edition text.
-  const bilingual = titleVariants(full)
+  const bilingual = titleVariants(full, { dashTranslations: false })
   const parts = full.split(/(?<=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Latin}])|(?<=[\p{Script=Latin}])\s+(?=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/u)
   if (identity) return unique([full, ...bilingual, ...parts])
   return unique([full, ...bilingual, ...parts, ...joinedBilingualParts(full), ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
@@ -626,6 +640,7 @@ function recordingKinds(name = '', album = '') {
     /\bbootleg\b/i,
     /\bmashup\b/i,
   ].map(pattern => pattern.test(value)),
+    hasMixEdition(value),
   ].map(Number).join('')
 }
 
@@ -655,6 +670,16 @@ function compatibleRelease(left, right, source) {
 }
 
 function strongerSourceEvidence(best, rival) {
+  const a = best.candidate, b = rival.candidate
+  const names = candidate => (candidate.artists || []).map(artist => normalize(artist.name)).sort().join('|')
+  // A source-aligned release can outrank a remaster/compilation with the same
+  // complete credits and recording title. This is a preference, not a claim
+  // that all reissues share an ISRC; ties and conflicting recordings stay open.
+  if (best.primaryMatch && rival.primaryMatch && best.title >= 0.98 && rival.title >= 0.98 &&
+    names(a) && names(a) === names(b) && recordingKinds(a.name, a.album?.name) === recordingKinds(b.name, b.album?.name) &&
+    normalize(recordingTitle(a.name)) === normalize(recordingTitle(b.name)) &&
+    best.albumSimilarity >= 0.98 && rival.albumSimilarity < 0.98 &&
+    best.difference <= 250 && best.difference <= rival.difference && rival.difference <= 2500) return true
   if (best.primaryMatch && rival.primaryMatch && best.title >= 0.98 && rival.title >= 0.98 &&
     best.difference <= 2500 && rival.difference <= 2500 && best.difference <= rival.difference + 1000 &&
     best.albumSimilarity >= 0.98 && rival.albumSimilarity < 0.75 &&
@@ -686,8 +711,15 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   return best
 }
 
-const BACKING_TRACK = /\binstrumental\b|\bkaraoke\b|\b(?:less|off)[ -]?vocals?\b|伴奏|カラオケ|ボーカルレス/i
+const BACKING_TRACK = /\binstrumental\b|\binstrument\s+mix\b|\bkaraoke\b|\b(?:less|off)[ -]?vocals?\b|伴奏|カラオケ|ボーカルレス/i
 const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|(?:less|off)[ -]?vocals?|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|ボーカルレス|リミックス|アコースティック/i
+// Bounded, complete labels only: never erase a subtitle merely containing mix.
+const MIX_EDITION = /^(?:instrument(?:al)?|after[ -]hours|club|dance|extended|dub|vocal|radio|original|single|album)\s+mix$/i
+
+function hasMixEdition(value) {
+  return [...String(value).matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】|<([^<>]*)>|〈([^〈〉]*)〉|《([^《》]*)》|\s[-–—]\s*([^()\[\]]+)$/gu)]
+    .some(parts => parts.slice(1).some(part => part && MIX_EDITION.test(part.trim())))
+}
 
 function stripBracketedEditions(value) {
   return String(value).normalize('NFKC')
@@ -695,11 +727,12 @@ function stripBracketedEditions(value) {
     // Never truncate ordinary ~subtitles~ or arbitrary words ending in ver.
     .replace(/\s*[~〜]\s*(?:album|single|original|studio)\s+(?:version|verion|ver\.?)\s*[~〜]\s*$/iu, '')
     .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】|<([^<>]*)>|〈([^〈〉]*)〉|《([^《》]*)》/gu,
-      (full, ...parts) => parts.slice(0, 6).some(part => part && VERSION_LABEL.test(part)) ? ' ' : full)
+      (full, ...parts) => parts.slice(0, 6).some(part => part && (VERSION_LABEL.test(part) || MIX_EDITION.test(part.trim()))) ? ' ' : full)
 }
 
 function compositionTitle(value) {
   return stripBracketedEditions(searchTitle(value))
+    .replace(/\s+[-–—]\s*([^()\[\]]+)$/u, (full, label) => MIX_EDITION.test(label.trim()) ? '' : full)
     // Accept compact edition delimiters such as " -band ver-" or "—Live".
     // Do not strip ordinary hyphenated titles or subtitles containing "live".
     .replace(/\s*[-–—]\s*((?:(?:19|20)\d{2}\s+)?(?:band\s+ver(?:sion)?\.?|live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b.*)$/iu, '')
