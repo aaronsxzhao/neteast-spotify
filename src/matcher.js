@@ -51,6 +51,7 @@ const SCOPED_TITLES = new Map([
   ['1442021148', { name: '東京フラッシュ', artist: 'Vaundy', titles: ['Tokyo Flash'] }],
   ['1416378346', { name: '아무노래', artist: 'Zico', titles: ['Any song'] }],
   ['22842404', { name: 'TV를 껐네...', artist: 'Leessang', titles: ['I turned off the TV...'] }],
+  ['3327545535', { name: '言伝', artist: 'Bialystocks', titles: ['Kotozute'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -126,6 +127,15 @@ const ARTIST_ALIASES = new Map([
   ['中森明菜', ['Akina Nakamori']],
   ['当山ひとみ', ['Hitomi Tohyama']],
   ['中原めいこ', ['Meiko Nakahara']],
+  // Reviewed October failures; evidence is recorded in docs/catalog-identities.md.
+  ['クラムボン', ['clammbon']],
+  ['ラムジ', ['Lambsey']],
+  ['陈奕迅', ['Eason Chan']],
+  ['椎名林檎', ['Sheena Ringo']],
+  ['温岚', ['Landy Wen']],
+  ['小田和正', ['Kazumasa Oda']],
+  ['竹内まりや', ['Mariya Takeuchi']],
+  ['松原みき', ['Miki Matsubara']],
 ])
 const artistAliasCache = new Map()
 
@@ -365,9 +375,12 @@ function albumIdentity(value) {
 // Album traversal is bounded and only a retrieval hint. Every returned track
 // still goes through the ordinary title/artist/version checks.
 export function albumSearchQueries(song) {
-  return [...new Set(metadataNames(song.al || song.album).slice(0, 2)
+  const names = metadataNames(song.al || song.album).slice(0, 2)
+  // Explicit translations must get a slot before spelling/shortening variants
+  // of the first name consume the entire two-query allowance.
+  return [...new Set([...names, ...names
     .flatMap(name => [name, String(name).replace(/Vol\.?\s*1\b/gi, 'Vol.I')])
-    .flatMap(name => [name, String(name).split(/[~〜～―]/u)[0].trim()])
+    .flatMap(name => [name, String(name).split(/[~〜～―]/u)[0].trim()])]
     .map(name => `album:"${quoted(name)}"`))].slice(0, 2)
 }
 
@@ -494,26 +507,31 @@ export function songSearchStages(song) {
     credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`)), names])
   const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
-  const albums = queryVariants(metadataNames(song.al || song.album)).slice(0, 2)
+  const albums = prioritizeNames(metadataNames(song.al || song.album)).slice(0, 2)
   // Album filters can surface an original recording buried under many live
   // releases. These are retrieval hints, never exemptions from scoring.
-  const albumQueries = (credits) => albums.flatMap(album => [
+  const albumQueries = (credits) => interleave(albums.map(album => [
     ...credits.map(artist => `album:"${quoted(album)}" artist:"${quoted(artist)}"`),
     ...titles.slice(0, 4).map(title => `track:"${quoted(title)}" album:"${quoted(album)}"`),
     ...titles.slice(0, 2).map(title => `${quoted(title)} ${quoted(album)}`),
-  ])
+  ]))
   const newArtists = fallbackArtists.filter(artist => !artists.includes(artist))
   const newTitles = songTitles(song).filter(title => !metadataTitles.includes(title))
+  const primaryAliases = searchableArtists({ ...song, ar: (song.ar || song.artists || []).slice(0, 1) })
+    .filter(artist => newArtists.includes(artist))
   return [
     { name: 'metadata', manual: false, queries: combined(titles, artists) },
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
     { name: 'free-text', manual: false, queries: plain(titles, artists) },
     { name: 'album', manual: false, queries: albumQueries(artists) },
-    { name: 'manual-alias', manual: true, queries: interleave([
+    { name: 'manual-alias', manual: true, queries: [...interleave([
+      combined(newTitles.slice(0, 2), fallbackArtists.slice(0, 1)),
+      combined(titles.slice(0, 2), primaryAliases.slice(0, 2)),
+    ]).slice(0, 2), ...interleave([
       combined(newTitles, fallbackArtists),
       combined(titles, newArtists), plain(titles, newArtists), albumQueries(newArtists),
       combined(fallbackTitles, fallbackArtists), titleOnly(fallbackTitles), plain(fallbackTitles, fallbackArtists),
-    ]) },
+    ])] },
   ].map(stage => {
     // A planned query is not an executed query. Cross-stage deduplication must
     // happen in findTrackMatch, after earlier budget/stagnation stops.
@@ -997,6 +1015,10 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
       ...(queryLimitsApplied ? ['limited-retrieval'] : []),
       ...(knownTrackStatus === 'unplayable' ? ['known-recording-unplayable'] : []),
       ...(knownTrackStatus === 'availability-unknown' ? ['known-availability-unconfirmed'] : []),
+      ...([...candidates.values()].some(c => {
+        const item = evidence(song, c, { manual: true })
+        return c.is_playable !== false && item.primaryMatch && item.title < 0.78 && item.difference <= 2500
+      }) ? ['title-translation-unconfirmed'] : []),
       ...([...candidates.values()].some(c => evidence(song, c, { manual: true }).rejectionReasons.includes('artist-identity')) ? ['artist-identity-unconfirmed'] : []),
     ],
     reason: [...candidates.values()].some(candidate => candidate.is_playable !== false && evidence(song, candidate, { manual: true }).eligible) ? 'ambiguous-recordings' : candidates.size ? 'no-eligible-candidate' : 'no-results',

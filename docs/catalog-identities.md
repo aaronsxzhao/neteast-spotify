@@ -90,3 +90,36 @@
 | `22655497` CAGNET《Deeper and Deeper》目录指针 | [Spotify 正式曲目](https://open.spotify.com/track/5ElzKkLs6ZQ1Sp2YEkzHm9)；限定源 ID、原名及主艺人，实际运行仍重新获取并检查账号地区可播放性和匹配证据 |
 
 `test/daily-september23.test.js` 覆盖正确召回及误匹配拒绝。离线回放今天保存的候选预览可恢复中森明菜、当山ひとみ和中原めいこ（after hours mix）3 首；原有 23 首仍通过。CAGNET 指针只有模拟测试，真实补跑结果另行确认；离线回放不等于线上已成功。
+
+## 2026-10-10：最近三天回放、检索机会与身份补全
+
+云端最终快照：10 月 8 日 21/32、9 日 26/32、10 日 25/32，共 24 个未匹配案例。10 月 8 日早间一次任务在匹配阶段记录 HTTP 500，后续恢复并成功写入；这与最终未匹配的身份/检索问题分开处理。10 月 10 日后续任务是 `already-synced` 跳过，不是同步再次失败。
+
+### 通用调整
+
+- 专辑的显式 `tns/alia` 名称先于首名称的繁简、短标题和卷号变体分配查询机会；专辑查询仍最多两种，不额外增加遍历预算。
+- 人工别名阶段的前两个查询机会优先分配给新的已核验标题和主艺人别名，避免重复的原名语法抢占位置。仍先走原始元数据、标题、自由文本、专辑策略；不会提前使用任意人工标题翻译。
+- 同艺人、近似时长但标题不同的候选增加 `title-translation-unconfirmed` 诊断，提示需要核验译名，不把同时长当成标题相同的证明。
+- 每首总上限仍为 18 次逻辑目录查询，查询去重、停滞停止、HTTP 请求间隔、全局预算、429 冷却、每日调度均未改变。不修改歌单标题或封面。
+
+### 已核验对应
+
+| 对应 | 依据及范围 |
+|---|---|
+| クラムボン → clammbon | [Columbia 官方艺人页](https://columbia.jp/artist-info/clammbon/live/)、[官方发行音源](https://www.youtube.com/watch?v=kfvZZKm3gA0)；艺人对应可跨歌复用 |
+| ラムジ → Lambsey | [双语发行信息 AVCD-30954](https://www.cdjapan.co.jp/product/AVCD-30954)、[流媒体曲目与作者署名](https://www.shazam.com/song/157176659/planet)；艺人对应，不代表账号地区可播放 |
+| 陈奕迅 → Eason Chan | [Universal 官方艺人名单](https://www.universalmusic.com/universal-music-group-announces-strategic-expansion-and-frontline-label-launches-within-china/)；主艺人对应，不凭相同嘉宾匹配 |
+| 椎名林檎 → Sheena Ringo | [Universal 双语发行页](https://www.universal-music.co.jp/sheena-ringo/products/tyct-30027/) |
+| 温岚 → Landy Wen | [演出主办方公开文件](https://www.unusual.com.sg/assets/4127969e94/UnUsUaL_Offer_Document_3_April_2017_Final.pdf)、同曲保存候选 |
+| 小田和正 → Kazumasa Oda | [艺人官方介绍](https://kazumasaoda.site/kazumasaoda/profile/)；拒绝 Night Tempo / ELAIZA 翻唱参与原唱选择 |
+| 竹内まりや → Mariya Takeuchi | [Warner 官方艺人及发行页](https://wmg.jp/mariya/)；《駅》不再与 Akina Nakamori 同时长版本混淆 |
+| 松原みき → Miki Matsubara | [Pony Canyon 双语官方公告](https://news.ponycanyon.co.jp/2024/12/106435)；不能把 EIKO / Ms.OOJA 翻唱当成原唱 |
+| `3327545535` 言伝 → Kotozute | [官方原名与发行日期](https://bialystocks.com/discography/)、[Spotify 曲目](https://open.spotify.com/track/0xMkAsZxwq6TRmZWFORNVz)、已保存 Bialystocks 同艺人且时长 275925 ms 候选；限定源 ID、原名、主艺人 |
+
+### 验证结果与局限
+
+`test/daily-october10.test.js` 覆盖身份对应、嘉宾误匹配、相似时长翻唱、不可播放、源 ID 限定、替代版本、译名查询机会及预算。
+
+仅回放各未匹配记录保存的前五个候选，可修正 7 个案例：10 月 8 日《可一可再》《意識》《蓝色雨》《ラブ・ストーリーは突然に》；9 日《駅》；10 日《言伝》《波よせて》。三天原有 72 个成功结果重新评分均仍通过。此处不是线上成功率，也没有写入 Spotify。
+
+《PLANET》新增艺人检索路径只有模拟召回测试，保存候选中没有 Lambsey，不能计入恢复数量。其余未确认身份、未找到合格候选的歌仍待核验；CAGNET 已知录音被标记不可播放，不绕过可播放性检查。公开曲目链接和离线回放都不保证当前账号地区可听。
