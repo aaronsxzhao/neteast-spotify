@@ -123,3 +123,32 @@
 仅回放各未匹配记录保存的前五个候选，可修正 7 个案例：10 月 8 日《可一可再》《意識》《蓝色雨》《ラブ・ストーリーは突然に》；9 日《駅》；10 日《言伝》《波よせて》。三天原有 72 个成功结果重新评分均仍通过。此处不是线上成功率，也没有写入 Spotify。
 
 《PLANET》新增艺人检索路径只有模拟召回测试，保存候选中没有 Lambsey，不能计入恢复数量。其余未确认身份、未找到合格候选的歌仍待核验；CAGNET 已知录音被标记不可播放，不绕过可播放性检查。公开曲目链接和离线回放都不保证当前账号地区可听。
+
+## 2026-10-10：剩余案例的第二轮修复
+
+本轮针对上一轮剩下的 17 个案例中的 7 个有证据目标，不把未找到公开发行的其余歌曲视为“不存在”。没有放宽全局标题、艺人、时长阈值。
+
+### 通用修复
+
+- 查询清理支持 `feat.윤미래`、`feat.Gary`、`ft.Gary` 等句点后无空格的合作署名；只处理独立、带分隔符的署名，不截断 `Defeat` / `Features` 等普通标题。
+- 当标题和主艺人都有已核验的新名称时，人工别名阶段的第一个机会组合两边的新名称，避免分别搭配旧名称一直查不到。仍在现有阶段和 18 次逻辑目录查询上限内。
+- `(inst)`、`(Inst.)`、`[INST]`、全角括号和破折号后缀纳入伴奏检测；严格匹配和替代版本都不能用伴奏替代演唱。源歌曲本来是伴奏时仍可匹配伴奏。
+- 已核验的源歌曲目录 ID 复用现有单次获取路径：仍重新获取、检查可播放性并评分。该 ID 意外返回其他署名时，不允许仅凭跨文字、同标题和近似时长接受；不可播放或缺失时继续有限的正常检索，不绕过 429。
+
+### 受限目录指针与名称证据
+
+| 源歌曲 ID | 对应及证据 |
+|---|---|
+| `29709498` 고장난 선풍기 / MC 몽 | [Broken fan / MC MONG](https://open.spotify.com/track/6kwsi5SsN9zjeSDQvNTrnj)，保存候选专辑相同、时长均为 257488 ms；主艺人别名可复用，译名仅限该源 ID、原名和主艺人 |
+| `28590221` 이젠 너 없이도 / EUNA KIM | [Without you now](https://open.spotify.com/track/3qR4sYUDzIfYXwVkUusi8H)、[1theK 官方双语 MV](https://www.youtube.com/watch?v=VTXbTKnuUn4)，保存候选专辑相同、时长均为 217120 ms；译名受源身份限制，明确排除同专辑伴奏 |
+| `3399839173` 甲乙丙丁 (你我怎么两清) / 李佳薇 | [甲乙丙丁Strangers / Jess Lee](https://open.spotify.com/track/629FqLOdjtsXh5b45FTk43)；艺人别名可复用，连写标题限定源歌曲，不全局拆除中文副标题或粤语版说明 |
+| `812400` PLANET / ラムジ | [Spotify 3ラムジ 专辑](https://open.spotify.com/album/1eesvAth8KUYdHRPDJRHSN)、[演唱曲目](https://open.spotify.com/track/5Zy4OB1HiZA1FSpoOKKfPo)；Spotify 艺人显示为 **Labmsey**，补充到已有 Lambsey 对应中，不指向同专辑 Instrumental |
+| `2012146052` 真夜中のドア/Stay With Me / 松原みき | [Miki Matsubara 原唱发行](https://open.spotify.com/track/5DCLkzuWICNar6qn3B393f)，使用已有艺人别名；不接受 EIKO 等翻唱 |
+| `85571` 我们俩 / 郭顶 | [微微专辑曲目](https://open.spotify.com/track/3adCRGhoyecriPYS7mAwIz)，不新增歌名或艺人翻译 |
+| `22722696` 空を見上げて / 河合その子 | [sonnet 收录版本](https://open.spotify.com/track/1U8vzpsCm1ImJogHMheScv)，使用现有同歌同艺人、允许不同收录专辑的规则 |
+
+### 离线验证，不是线上同步结果
+
+`test/daily-october10-remaining.test.js` 覆盖七个目标的模拟直接获取、正常搜索回退、源身份约束、不可播放、错误艺人、粤语副标题、伴奏及预算。公开页面的分钟秒数只用于近似时长测试，不冒充 API 精确值。
+
+三天原先 24 个未匹配案例的保存候选回放，累计可恢复 9 个（上一轮 7 个 + 本轮两首韩文译名曲目）；原有 72 个成功结果仍全部通过。另五个公开目录目标只有模拟召回验证，实际可播放性和导入结果需后续云端同步确认。本轮不修改调度、HTTP 节流、全局预算、歌单名称或封面。

@@ -52,6 +52,9 @@ const SCOPED_TITLES = new Map([
   ['1416378346', { name: '아무노래', artist: 'Zico', titles: ['Any song'] }],
   ['22842404', { name: 'TV를 껐네...', artist: 'Leessang', titles: ['I turned off the TV...'] }],
   ['3327545535', { name: '言伝', artist: 'Bialystocks', titles: ['Kotozute'] }],
+  ['29709498', { name: '고장난 선풍기', artist: 'MC 몽', titles: ['Broken fan'] }],
+  ['28590221', { name: '이젠 너 없이도 (feat.윤미래, 타이거 JK, Bizzy)', artist: 'EUNA KIM', titles: ['Without you now'] }],
+  ['3399839173', { name: '甲乙丙丁 (你我怎么两清)', artist: '李佳薇', titles: ['甲乙丙丁Strangers'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -64,6 +67,13 @@ const CATALOG_HINTS = new Map([
   ['26123720', { name: '無人の島', artist: 'TRUE', trackId: '02OjX2aaE5EAyveeluFR2B' }],
   ['3313987317', { name: '昔語りふたりぼっち', artist: '生田輝', trackId: '7H4ybl0Xjn5EMHDZdoUG7M' }],
   ['22655497', { name: 'Deeper and Deeper', artist: 'CAGNET', trackId: '5ElzKkLs6ZQ1Sp2YEkzHm9' }],
+  ['29709498', { name: '고장난 선풍기', artist: 'MC 몽', trackId: '6kwsi5SsN9zjeSDQvNTrnj' }],
+  ['28590221', { name: '이젠 너 없이도 (feat.윤미래, 타이거 JK, Bizzy)', artist: 'EUNA KIM', trackId: '3qR4sYUDzIfYXwVkUusi8H' }],
+  ['3399839173', { name: '甲乙丙丁 (你我怎么两清)', artist: '李佳薇', trackId: '629FqLOdjtsXh5b45FTk43' }],
+  ['812400', { name: 'PLANET', artist: 'ラムジ', trackId: '5Zy4OB1HiZA1FSpoOKKfPo' }],
+  ['2012146052', { name: '真夜中のドア/Stay With Me', artist: '松原みき', trackId: '5DCLkzuWICNar6qn3B393f' }],
+  ['85571', { name: '我们俩', artist: '郭顶', trackId: '3adCRGhoyecriPYS7mAwIz' }],
+  ['22722696', { name: '空を見上げて', artist: '河合その子', trackId: '1U8vzpsCm1ImJogHMheScv' }],
 ])
 
 export function knownTrackIds(song) {
@@ -129,7 +139,9 @@ const ARTIST_ALIASES = new Map([
   ['中原めいこ', ['Meiko Nakahara']],
   // Reviewed October failures; evidence is recorded in docs/catalog-identities.md.
   ['クラムボン', ['clammbon']],
-  ['ラムジ', ['Lambsey']],
+  ['ラムジ', ['Lambsey', 'Labmsey']],
+  ['MC 몽', ['MC MONG']],
+  ['李佳薇', ['Jess Lee']],
   ['陈奕迅', ['Eason Chan']],
   ['椎名林檎', ['Sheena Ringo']],
   ['温岚', ['Landy Wen']],
@@ -240,7 +252,7 @@ function metadataNames(entity = {}) {
 function titleMetadata(song) {
   return metadataNames(song).filter(value => value === song.name ||
     (!/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release)/iu.test(value) &&
-      !/^(?:[男女](?:声|聲|生)版|伴奏(?:版)?|现场版|現場版|原唱版|翻唱版|instrumental|karaoke|live(?:\s+version)?|remaster(?:ed)?(?:\s+\d{4})?)$/iu.test(value.trim())))
+      !/^(?:[男女](?:声|聲|生)版|伴奏(?:版)?|现场版|現場版|原唱版|翻唱版|inst\.?|instrumental|karaoke|live(?:\s+version)?|remaster(?:ed)?(?:\s+\d{4})?)$/iu.test(value.trim())))
 }
 
 function scripts(value) {
@@ -261,7 +273,7 @@ export function titleVariants(value, { dashTranslations = true } = {}) {
   const brackets = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu)]
   const base = full.replace(/\([^()]*\)|\[[^\[\]]*\]|【[^【】]*】/gu, ' ').trim()
   const translations = brackets.map((part) => (part[1] || part[2] || part[3]).trim())
-    .filter((part) => differentScripts(base, part) && !/\b(feat|ft|featuring|live|remaster\w*|version|edit|mix|acoustic|instrumental|karaoke)\b|现场|現場|伴奏|ライブ/i.test(part))
+    .filter((part) => differentScripts(base, part) && !/\b(feat|ft|featuring|live|remaster\w*|version|edit|mix|acoustic|inst|instrumental|karaoke)\b|现场|現場|伴奏|ライブ/i.test(part))
   // Closed dash wrappers also denote translations: Kissしたい -WANNA KISS-.
   // The native title may itself contain Latin words. Require native script on
   // one side and a Latin-only label on the other, not an ordinary subtitle or
@@ -449,7 +461,7 @@ function quoted(value) {
 function searchTitle(value) {
   // Spotify free-text search understands aliases better than exact filters.
   // Remove feature credits from queries, but retain recording-version labels.
-  return String(value).normalize('NFKC').replace(/\s*\(?\b(?:feat|featuring|ft)\b\.?\s+.*$/i, '').trim()
+  return String(value).normalize('NFKC').replace(/(?:\s+|\s*[\[(])(?:feat(?:uring)?|ft)(?:\.\s*|\s+).+$/iu, '').trim()
 }
 
 // Query-only shortening: a game/movie theme annotation is not part of the
@@ -525,6 +537,9 @@ export function songSearchStages(song) {
     { name: 'free-text', manual: false, queries: plain(titles, artists) },
     { name: 'album', manual: false, queries: albumQueries(artists) },
     { name: 'manual-alias', manual: true, queries: [...interleave([
+      // When BOTH fields differ, querying each translation against the old
+      // other field can miss forever. Give the verified pair one early slot.
+      combined(newTitles.slice(0, 1), primaryAliases.slice(0, 1)),
       combined(newTitles.slice(0, 2), fallbackArtists.slice(0, 1)),
       combined(titles.slice(0, 2), primaryAliases.slice(0, 2)),
     ]).slice(0, 2), ...interleave([
@@ -615,7 +630,10 @@ function evidence(song, candidate, options) {
   // not rescued merely by script/duration coincidence (e.g. SPITZ covers).
   const primaryHasAlias = artistOptions?.manual !== false && metadataNames((song.ar || song.artists || [])[0])
     .some(name => catalogAliases(ARTIST_ALIASES, name).length > 0)
-  const crossLanguage = !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
+  // A reviewed pointer must still prove its credit, not use a cross-script
+  // coincidence if the fetched metadata unexpectedly names another artist.
+  const reviewedPointer = knownTrackIds(song).includes(candidate.id)
+  const crossLanguage = !reviewedPointer && !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
     Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []
@@ -729,8 +747,8 @@ export function pickBestMatch(song, candidates, threshold = 0.68, options = {}) 
   return best
 }
 
-const BACKING_TRACK = /\binstrumental\b|\binstrument\s+mix\b|\bkaraoke\b|\b(?:less|off)[ -]?vocals?\b|伴奏|カラオケ|ボーカルレス/i
-const VERSION_LABEL = /\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|(?:less|off)[ -]?vocals?|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|ボーカルレス|リミックス|アコースティック/i
+const BACKING_TRACK = /\binstrumental\b|\binstrument\s+mix\b|\bkaraoke\b|\b(?:less|off)[ -]?vocals?\b|(?:^|[(\[【<〈《–—-])\s*inst\.?\s*(?:[)\]】>〉》]|$)|伴奏|カラオケ|ボーカルレス/i
+const VERSION_LABEL = /^inst\.?$|\b(?:live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|(?:less|off)[ -]?vocals?|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b|现场|現場|ライブ|不插电|不插電|伴奏|カラオケ|ボーカルレス|リミックス|アコースティック/i
 // Bounded, complete labels only: never erase a subtitle merely containing mix.
 const MIX_EDITION = /^(?:instrument(?:al)?|after[ -]hours|club|dance|extended|dub|vocal|radio|original|single|album)\s+mix$/i
 
@@ -745,12 +763,12 @@ function stripBracketedEditions(value) {
     // Never truncate ordinary ~subtitles~ or arbitrary words ending in ver.
     .replace(/\s*[~〜]\s*(?:album|single|original|studio)\s+(?:version|verion|ver\.?)\s*[~〜]\s*$/iu, '')
     .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】|<([^<>]*)>|〈([^〈〉]*)〉|《([^《》]*)》/gu,
-      (full, ...parts) => parts.slice(0, 6).some(part => part && (VERSION_LABEL.test(part) || MIX_EDITION.test(part.trim()))) ? ' ' : full)
+      (full, ...parts) => parts.slice(0, 6).some(part => part && (VERSION_LABEL.test(part.trim()) || MIX_EDITION.test(part.trim()))) ? ' ' : full)
 }
 
 function compositionTitle(value) {
   return stripBracketedEditions(searchTitle(value))
-    .replace(/\s+[-–—]\s*([^()\[\]]+)$/u, (full, label) => MIX_EDITION.test(label.trim()) ? '' : full)
+    .replace(/\s+[-–—]\s*([^()\[\]]+)$/u, (full, label) => MIX_EDITION.test(label.trim()) || /^inst\.?$/i.test(label.trim()) ? '' : full)
     // Accept compact edition delimiters such as " -band ver-" or "—Live".
     // Do not strip ordinary hyphenated titles or subtitles containing "live".
     .replace(/\s*[-–—]\s*((?:(?:19|20)\d{2}\s+)?(?:band\s+ver(?:sion)?\.?|live|acoustic|unplugged|remaster\w*|remix|re-mix|bootleg|mashup|instrumental|karaoke|extended|radio\s+edit|edit|version|ver\.?|sped\s*up|slowed)\b.*)$/iu, '')
