@@ -35,6 +35,14 @@ const VERIFIED_CREDITS = new Map([
   ['1358089285', { name: 'Solitude -band ver-', artist: 're:plus', aliases: ['re:plus band set'] }],
   // TRUE is an ambiguous display name; do not alias every artist named TRUE.
   ['26123720', { name: '無人の島', artist: 'TRUE', aliases: ['Miho Karasawa', '唐沢美帆'] }],
+  ['22736703', { name: 'ミュゲー', artist: 'THE MUSMUS', aliases: ['UPLIFT SPICE'] }],
+])
+
+// A solo source credit may denote a reviewed collaboration, not every release
+// by either member. Require the complete roster AND tight recording evidence.
+const VERIFIED_ROSTERS = new Map([
+  ['526439257', { name: 'Goodbye to Your Love', artist: '二宮愛',
+    rosters: [['re:plus', 'Ai Ninomiya'], ['R.A.']] }],
 ])
 
 // Reviewed translations are recording-scoped; never translate a common title
@@ -55,6 +63,9 @@ const SCOPED_TITLES = new Map([
   ['29709498', { name: '고장난 선풍기', artist: 'MC 몽', titles: ['Broken fan'] }],
   ['28590221', { name: '이젠 너 없이도 (feat.윤미래, 타이거 JK, Bizzy)', artist: 'EUNA KIM', titles: ['Without you now'] }],
   ['3399839173', { name: '甲乙丙丁 (你我怎么两清)', artist: '李佳薇', titles: ['甲乙丙丁Strangers'] }],
+  ['22704309', { name: '空に星が綺麗~悲しい吉祥寺~', artist: '斉藤和義', titles: ['空に星が綺麗'] }],
+  ['2669078243', { name: 'エルフ', artist: 'Ado', titles: ['Elf'] }],
+  ['2690545311', { name: '恋に恋せよ', artist: 'ヒグチアイ', titles: ['Fall in love with love'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -74,6 +85,12 @@ const CATALOG_HINTS = new Map([
   ['2012146052', { name: '真夜中のドア/Stay With Me', artist: '松原みき', trackId: '5DCLkzuWICNar6qn3B393f' }],
   ['85571', { name: '我们俩', artist: '郭顶', trackId: '3adCRGhoyecriPYS7mAwIz' }],
   ['22722696', { name: '空を見上げて', artist: '河合その子', trackId: '1U8vzpsCm1ImJogHMheScv' }],
+  ['526439257', { name: 'Goodbye to Your Love', artist: '二宮愛', trackId: '1cWKLaJKsSjekK8DV9gFCC' }],
+  ['28613731', { name: '好きだよ。~100回の後悔~ (English Ver.)', artist: "Che'Nelle", trackId: '1acs8AqvnIrc9bewIiUoi1' }],
+  ['2669078243', { name: 'エルフ', artist: 'Ado', trackId: '3kNjQCPlaZeQJV1u3HlmWC' }],
+  ['2690545311', { name: '恋に恋せよ', artist: 'ヒグチアイ', trackId: '7LwHwVjEPBSxZoXtY52jcS' }],
+  ['1391839711', { name: 'Follow', artist: 'Vantage', trackId: '1G9NeheOamTjkYtTv3VtMN' }],
+  ['22736703', { name: 'ミュゲー', artist: 'THE MUSMUS', trackId: '0vUqrJJrAl5Xa8cAVgPqhi' }],
 ])
 
 export function knownTrackIds(song) {
@@ -148,6 +165,8 @@ const ARTIST_ALIASES = new Map([
   ['小田和正', ['Kazumasa Oda']],
   ['竹内まりや', ['Mariya Takeuchi']],
   ['松原みき', ['Miki Matsubara']],
+  ['二宮愛', ['Ai Ninomiya']],
+  ['ヒグチアイ', ['Ai Higuchi']],
 ])
 const artistAliasCache = new Map()
 
@@ -251,7 +270,8 @@ function metadataNames(entity = {}) {
 // Preserve the actual name even if it happens to contain one of these phrases.
 function titleMetadata(song) {
   return metadataNames(song).filter(value => value === song.name ||
-    (!/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release)/iu.test(value) &&
+    (!LANGUAGE_LABEL.test(value.normalize('NFKC').trim()) &&
+      !/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release)/iu.test(value) &&
       !/^(?:[男女](?:声|聲|生)版|伴奏(?:版)?|现场版|現場版|原唱版|翻唱版|inst\.?|instrumental|karaoke|live(?:\s+version)?|remaster(?:ed)?(?:\s+\d{4})?)$/iu.test(value.trim())))
 }
 
@@ -273,7 +293,7 @@ export function titleVariants(value, { dashTranslations = true } = {}) {
   const brackets = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu)]
   const base = full.replace(/\([^()]*\)|\[[^\[\]]*\]|【[^【】]*】/gu, ' ').trim()
   const translations = brackets.map((part) => (part[1] || part[2] || part[3]).trim())
-    .filter((part) => differentScripts(base, part) && !/\b(feat|ft|featuring|live|remaster\w*|version|edit|mix|acoustic|inst|instrumental|karaoke)\b|现场|現場|伴奏|ライブ/i.test(part))
+    .filter((part) => differentScripts(base, part) && !VERSION_LABEL.test(part) && !/\b(feat|ft|featuring)\b/i.test(part))
   // Closed dash wrappers also denote translations: Kissしたい -WANNA KISS-.
   // The native title may itself contain Latin words. Require native script on
   // one side and a Latin-only label on the other, not an ordinary subtitle or
@@ -351,6 +371,14 @@ function voiceCast(credits) {
 
 function corroboratedCredit(song, candidate, { title, album, difference, manual }) {
   if (title < 0.98 || album < 0.98 || difference > 2500) return null
+  const reviewed = manual && VERIFIED_ROSTERS.get(String(song.id))
+  const sourceCredits = songArtists(song)
+  const targetRoster = (candidate.artists || []).map(a => normalize(a.name)).sort()
+  if (reviewed && normalize(song.name) === normalize(reviewed.name) && sourceCredits.length === 1 &&
+    normalize(sourceCredits[0]) === normalize(reviewed.artist) &&
+    reviewed.rosters.some(names => JSON.stringify(names.map(normalize).sort()) === JSON.stringify(targetRoster))) {
+    return 'reviewed-complete-roster'
+  }
   const source = (song.ar || song.artists || []).map(artist => metadataNames(artist)
     .flatMap(name => [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])]).flatMap(artistIdentityNames).map(normalize))
   const targets = (candidate.artists || []).map(artist => artist.name)
@@ -451,7 +479,25 @@ function titlePairs(song, candidate, options, transform) {
 function recordingTitle(value) {
   // Strip a clearly delimited edition suffix, not ordinary song subtitles.
   // Version compatibility is checked separately using title AND album context.
-  return stripBracketedEditions(value).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+  return stripBracketedEditions(canonicalLanguageTitle(value)).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+}
+
+const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version)$/i
+
+function languageEdition(value) {
+  const full = String(value).normalize('NFKC')
+  const labels = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|\s[-–—]\s*([^()]+)$/gu)]
+  return labels.map(parts => LANGUAGE_LABEL.exec((parts[1] || parts[2] || parts[3]).trim())?.[1]?.toLowerCase()).filter(Boolean).sort().join('|')
+}
+
+function canonicalLanguageTitle(value) {
+  // Language compatibility is checked separately in both matching modes.
+  // Do not let a shared long word like "Japanese" inflate song similarity.
+  return String(value).normalize('NFKC')
+    .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|\s[-–—]\s*([^()]+)$/gu, (full, a, b, c) => {
+      const label = LANGUAGE_LABEL.exec((a || b || c).trim())
+      return label ? ' ' : full
+    })
 }
 
 function quoted(value) {
@@ -635,6 +681,7 @@ function evidence(song, candidate, options) {
   const reviewedPointer = knownTrackIds(song).includes(candidate.id)
   const crossLanguage = !reviewedPointer && !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
+    languageEdition(song.name) !== languageEdition(candidate.name) ||
     Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []
   const guestNames = sourceCredits.slice(1).flatMap(metadataNames)
@@ -694,6 +741,10 @@ function sameRecording(left, right) {
 
 function compatibleRelease(left, right, source) {
   if (sameRecording(left.candidate, right.candidate)) return true
+  if (left.identityEvidence === 'reviewed-complete-roster' && right.identityEvidence === 'reviewed-complete-roster' &&
+    normalize(recordingTitle(left.candidate.name)) === normalize(recordingTitle(right.candidate.name)) &&
+    recordingKinds(left.candidate.name, left.candidate.album?.name) === recordingKinds(right.candidate.name, right.candidate.album?.name) &&
+    Math.abs(left.candidate.duration_ms - right.candidate.duration_ms) <= 2500) return true
   // Distributors may use separate localized guest-artist IDs on a compilation.
   // Only collapse these when the primary artist ID, title and duration agree,
   // and both candidates independently match the source's artist and title.
@@ -767,7 +818,7 @@ function stripBracketedEditions(value) {
 }
 
 function compositionTitle(value) {
-  return stripBracketedEditions(searchTitle(value))
+  return stripBracketedEditions(canonicalLanguageTitle(searchTitle(value)))
     .replace(/\s+[-–—]\s*([^()\[\]]+)$/u, (full, label) => MIX_EDITION.test(label.trim()) || /^inst\.?$/i.test(label.trim()) ? '' : full)
     // Accept compact edition delimiters such as " -band ver-" or "—Live".
     // Do not strip ordinary hyphenated titles or subtitles containing "live".
@@ -784,6 +835,7 @@ export function pickAlternateVersion(song, candidates, { manual = true, artistMa
   if (!primary) return null
   const primaryNames = primaryArtistNames(song, { manual: artistManual })
   const ranked = candidates.filter(candidate => candidate && candidate.is_playable !== false)
+    .filter(candidate => languageEdition(song.name) === languageEdition(candidate.name))
     // A different vocal performance is allowed; a backing track is not a
     // substitute for a sung recording, even with identical artist and duration.
     .filter(candidate => BACKING_TRACK.test(String(song.name).normalize('NFKC')) === BACKING_TRACK.test(String(candidate.name).normalize('NFKC')))

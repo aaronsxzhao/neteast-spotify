@@ -152,3 +152,23 @@
 `test/daily-october10-remaining.test.js` 覆盖七个目标的模拟直接获取、正常搜索回退、源身份约束、不可播放、错误艺人、粤语副标题、伴奏及预算。公开页面的分钟秒数只用于近似时长测试，不冒充 API 精确值。
 
 三天原先 24 个未匹配案例的保存候选回放，累计可恢复 9 个（上一轮 7 个 + 本轮两首韩文译名曲目）；原有 72 个成功结果仍全部通过。另五个公开目录目标只有模拟召回验证，实际可播放性和导入结果需后续云端同步确认。本轮不修改调度、HTTP 节流、全局预算、歌单名称或封面。
+
+## 2026-10-12：版本说明、组合署名与剩余目录检索
+
+本轮针对当天 24/32 的八个未匹配案例。通用修复不再把 `(English Ver.)` 等版本说明拆成译名，避免不同歌曲仅因共享版本后缀而取得高标题分。括号和破折号形式统一比较；明确标注的演唱语言必须一致，严格和替代版本匹配均适用。语言词本身不参与标题相似度。真实双语译名仍保留。
+
+### 有限范围的已核验证据
+
+| 源 ID | 对应与依据 |
+|---|---|
+| `526439257` | Goodbye to Your Love：二宮愛 / Ai Ninomiya 的[官方身份](https://aininomiya.net/profiles)及 [GOON TRAX 发行目录](https://www.goontrax.jp/catalog/)中的 R.A.（re:plus × Ai Ninomiya）。只在此源 ID、标题、专辑及近似时长一致时接受完整二人组合或 R.A. 署名，不把任一成员全局视为另一个成员。[Spotify 录音](https://open.spotify.com/track/1cWKLaJKsSjekK8DV9gFCC) |
+| `22704309` | 空に星が綺麗～悲しい吉祥寺～：仅为此源歌曲接受短标题空に星が綺麗；[官方发行目录](https://www.kazuyoshi-saito.com/disco/album)同时列有长标题和短标题现场录音。仍须同主艺人，不全局删除副标题 |
+| `28613731` | Che'Nelle 英文版：[Spotify 正确曲目](https://open.spotify.com/track/1acs8AqvnIrc9bewIiUoi1)。保存候选标题、专辑、时长吻合；明确拒绝同专辑的《逢いたくていま - English Ver．》 |
+| `2669078243` | エルフ / Elf / Ado：[Universal 官方发行](https://www.universal-music.co.jp/ado/products/uv1as-01760/)、[Spotify 曲目](https://open.spotify.com/track/3kNjQCPlaZeQJV1u3HlmWC)。译名限定此源身份 |
+| `2690545311` | 恋に恋せよ / Fall in love with love：ヒグチアイ / Ai Higuchi 的[官方双语 MV](https://www.youtube.com/watch?v=-o5vAwpkxi0)、[Spotify 曲目](https://open.spotify.com/track/7LwHwVjEPBSxZoXtY52jcS)。艺人别名可复用，标题限定此源身份 |
+| `1391839711` | Follow / Vantage：[Spotify 正式发行](https://open.spotify.com/track/1G9NeheOamTjkYtTv3VtMN)，不新增标题或艺人别名 |
+| `22736703` | ミュゲー / THE MUSMUS → UPLIFT SPICE：[乐队访谈](https://en.gekirock.com/interview/2016/07/the_musmus.php)、[Spotify 录音](https://open.spotify.com/track/0vUqrJJrAl5Xa8cAVgPqhi)。历史署名仅限此歌曲，不全局合并乐队不同时期全部作品 |
+
+除斉藤和義的现场版本外，六个目录指针使用既有的单次、计入预算的获取路径，仍检查身份及账号可播放性，不直接写入已知 ID。Nepenthe 的 phifi 与 sudicideexpert 关系尚未核实，即使标题、专辑和时长一致也不放行。
+
+`test/daily-october12.test.js` 覆盖版本误匹配、不同语言、完整组合范围、嘉宾/伴奏拒绝、源身份范围、预算、不可播放及 429。保存候选的离线回放恢复四首（Goodbye、空に星が綺麗、Che'Nelle、ミュゲー），原有 24 首仍通过；其余三个公开目录目标必须等待云端实测，不能把公开链接当成账号可播放的保证。完整测试 240/240、云端测试 216/216 通过。不修改调度、限流策略、歌单标题或封面。
