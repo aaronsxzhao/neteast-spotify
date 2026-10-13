@@ -27,6 +27,9 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
     decision({ result: 'sync-starting', force, recoveryOnly, recoveryPending, retryUnmatched })
     return await sync.run({ scheduled: !force && !recoveryPending, requireExistingPlaylist: true, rejectEmptyMatches: true, ...(retryUnmatched ? { retryUnmatched: true, retrySourceIds } : {}) })
   } catch (error) {
+    // GitHub persistence failures are not music-provider failures. Do not write
+    // again to uncertain state or impose exponential Spotify backoff for a 409.
+    if (error.source === 'github-state') throw error
     if (error.pauseReason && Number.isFinite(error.retryAt)) {
       return { paused: true, reason: error.pauseReason, retryAt: new Date(error.retryAt).toISOString(),
         completedSongs: status.checkpoint?.completed || 0 }

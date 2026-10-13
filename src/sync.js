@@ -214,6 +214,7 @@ export class SyncService {
       })
       return run
     } catch (error) {
+      if (error.source === 'github-state') throw error
       const run = {
         ok: false,
         date,

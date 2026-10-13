@@ -10,6 +10,10 @@ export function createCloudAudit(write = console.log, clock = () => new Date()) 
     try {
       const record = { event, at: clock().toISOString() }
       for (const [key, value] of Object.entries(fields)) {
+        if (key === 'source' && value === 'github-state') record.source = value
+        if (key === 'operation' && ['read', 'write', 'create'].includes(value)) record.operation = value
+        if (key === 'attempt' && Number.isInteger(value) && value >= 1 && value <= 3) record.attempt = value
+        if (key === 'code' && ['storage-unavailable', 'network-error', 'invalid-response', 'state-changed'].includes(value)) record.code = value
         if (key === 'reason' && value !== undefined && !reasons.has(value)) { record.reason = 'other-pause'; continue }
         if (textFields.has(key) && typeof value === 'string' && /^[\w\s/:.+*-]{1,80}$/.test(value)) record[key] = value
         if (numberFields.has(key) && Number.isFinite(value)) record[key] = value

@@ -31,7 +31,8 @@ async function main() {
     // Non-secret flags like 0 and / would corrupt every date and URL in logs.
     if (value.length >= 8) mask(value)
   }
-  const remote = new GitHubState({ repository: process.env.GITHUB_REPOSITORY, token: process.env.GITHUB_TOKEN, commit: process.env.GITHUB_SHA })
+  const remote = new GitHubState({ repository: process.env.GITHUB_REPOSITORY, token: process.env.GITHUB_TOKEN, commit: process.env.GITHUB_SHA,
+    onDiagnostic: fields => audit('state-storage', fields) })
   const store = new CloudStore(config, process.env.DAILY_RELAY_STATE_KEY, remote)
   progress({ phase: 'state-load' })
   await store.load()
@@ -82,9 +83,11 @@ async function main() {
 }
 
 main().catch((error) => {
-  audit('app-end', { phase, result: 'failed', status: error.status })
+  audit('app-end', { phase, result: 'failed', status: error.status, source: error.source, operation: error.operation, code: error.code })
   // Provider errors may embed private request data. Public logs only get a code.
-  console.error(`Daily Relay failed (${Number.isFinite(error.status) ? error.status : 'Error'}). Check GitHub Secrets, account authorization, provider availability, and state-branch write permission.`)
+  if (error.source === 'github-state') {
+    console.error(`Daily Relay stopped: GitHub state storage ${error.operation} failed (${error.status || 'network'}; ${error.code}). Saved checkpoint retained; this is not a Spotify cooldown. A fresh run must reload cloud state.`)
+  } else console.error(`Daily Relay failed (${Number.isFinite(error.status) ? error.status : 'Error'}). Check GitHub Secrets, account authorization, provider availability, and state-branch write permission.`)
   if (Number.isFinite(error.retryAfterSeconds)) console.error(`Provider cooldown: retry after ${error.retryAfterSeconds} seconds.`)
   if (Number.isFinite(error.retryAt)) audit('retry-state', { reason: error.pauseReason, retryAt: new Date(error.retryAt).toISOString() })
   process.exitCode = 1
