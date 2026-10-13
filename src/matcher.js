@@ -48,6 +48,7 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['28151022', { name: '鳥の詩', artist: 'Lia', titles: ['Tori no Uta'] }],
   ['22842411', { name: '회상', artist: 'Leessang', titles: ['remembrance'] }],
   ['285546', { name: '讨厌', artist: '芮恩', titles: ["討厭 (Can't Stand It)"] }],
   // Provenance and limits: docs/catalog-identities.md.
@@ -71,6 +72,12 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['3421391237', { name: '桜海岸（樱花海岸）', artist: '小林未郁', trackId: '4YoGxyrCTHz3eczJ6mg3Ll' }],
+  ['28151022', { name: '鳥の詩', artist: 'Lia', trackId: '2JacUWw1kxN2lunFlCLrPe' }],
+  ['497399', { name: 'ここにいるよ', artist: 'SoulJa', trackId: '253IuSdk8aMyQR2j8ncGsY' }],
+  ['28302837', { name: 'minamo', artist: 'ゆかな', trackId: '2ZnJ2Pbw1abURygSrp3dak' }],
+  ['1355979244', { name: 'ハーフムーン・セレナーデ', artist: '河合奈保子', trackId: '3eeXfKpoIJBKJTwGb33Mt3' }],
+  ['287241', { name: '没关系', artist: '容祖儿', trackId: '1oxLzmA6AxqYeY1fPOBKbo' }],
   ['601640', { name: '恋人たちの地平線', artist: '菊池桃子', trackId: '5qhVC29ZJ5uiAyKp6bYDJM' }],
   ['638081', { name: '風の大陸', artist: '西脇唯', trackId: '3moDJDcuCTlCVpxWmu2aWR' }],
   ['41632971', { name: 'Dear', artist: 'lecca', trackId: '6UdNAO674yXHaZroB8PkS7' }],
@@ -107,6 +114,9 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['小林未郁', ['Mika Kobayashi']],
+  ['容祖儿', ['Joey Yung']],
+  ['河合奈保子', ['Naoko Kawai']],
   ['大橋純子', ['Junko Ohashi']],
   ['林哲司', ['Tetsuji Hayashi']],
   ['昭宥', ['SOYOU']],
@@ -169,6 +179,17 @@ const ARTIST_ALIASES = new Map([
   ['ヒグチアイ', ['Ai Higuchi']],
 ])
 const artistAliasCache = new Map()
+
+// Reviewed album translations, not a general transliteration heuristic. They
+// corroborate recording identity but never replace full artist/CV validation.
+const ALBUM_ALIASES = new Map([
+  ['TVアニメ「アマガミSS」ENDING THEME COLLECTION', ['TV Anime "Amagami SS" (Ending Theme Collection)']],
+])
+
+export function songAlbumNames(song) {
+  return unique(metadataNames(song.al || song.album).flatMap(name =>
+    [name, ...catalogAliases(ALBUM_ALIASES, name)]))
+}
 
 export function normalize(value = '') {
   return toSimplified(String(value))
@@ -415,7 +436,7 @@ function albumIdentity(value) {
 // Album traversal is bounded and only a retrieval hint. Every returned track
 // still goes through the ordinary title/artist/version checks.
 export function albumSearchQueries(song) {
-  const names = metadataNames(song.al || song.album).slice(0, 2)
+  const names = songAlbumNames(song).slice(0, 2)
   // Explicit translations must get a slot before spelling/shortening variants
   // of the first name consume the entire two-query allowance.
   return [...new Set([...names, ...names
@@ -425,7 +446,7 @@ export function albumSearchQueries(song) {
 }
 
 export function selectSourceAlbums(song, albums) {
-  const names = metadataNames(song.al || song.album).map(albumIdentity)
+  const names = songAlbumNames(song).map(albumIdentity)
   const artists = searchableArtists(song, { identity: true }).flatMap(artistIdentityNames).map(normalize)
   const volumes = names.map(name => name.match(/\bvol (\d+)/)?.[1]).filter(Boolean)
   const seen = new Set()
@@ -565,7 +586,7 @@ export function songSearchStages(song) {
     credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`)), names])
   const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
-  const albums = prioritizeNames(metadataNames(song.al || song.album)).slice(0, 2)
+  const albums = prioritizeNames(songAlbumNames(song)).slice(0, 2)
   // Album filters can surface an original recording buried under many live
   // releases. These are retrieval hints, never exemptions from scoring.
   const albumQueries = (credits) => interleave(albums.map(album => [
@@ -578,7 +599,12 @@ export function songSearchStages(song) {
   const primaryAliases = searchableArtists({ ...song, ar: (song.ar || song.artists || []).slice(0, 1) })
     .filter(artist => newArtists.includes(artist))
   return [
-    { name: 'metadata', manual: false, queries: combined(titles, artists) },
+    // Spend an early slot on a verified primary identity, ahead of repeated
+    // glyph permutations. This shares the existing three-query stage budget;
+    // title translations still require their explicit review stage.
+    { name: 'metadata', manual: false, queries: interleave([
+      combined(titles, artists), combined(titles.slice(0, 1), primaryAliases.slice(0, 1)),
+    ]) },
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
     { name: 'free-text', manual: false, queries: plain(titles, artists) },
     { name: 'album', manual: false, queries: albumQueries(artists) },
@@ -661,7 +687,7 @@ function evidence(song, candidate, options) {
   const targetDuration = Number(candidate.duration_ms || 0)
   const difference = sourceDuration && targetDuration ? Math.abs(sourceDuration - targetDuration) : Infinity
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
-  const album = Math.max(0, ...metadataNames(song.al || song.album).flatMap(titleVariants)
+  const album = Math.max(0, ...songAlbumNames(song).flatMap(titleVariants)
     .flatMap(name => titleVariants(candidate.album?.name || '').map(target => similarity(name, target))))
   const identityEvidence = corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
   if (identityEvidence) { artist = 1; primaryMatch = true; guestOnly = false }
@@ -923,7 +949,12 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     const samePrimary = match?.primaryMatch
     // Album names may differ on a compilation. A unique strict same-primary
     // match with exact title and near-exact duration does not need more queries.
-    if (match && samePrimary && !match.crossLanguage && match.title >= 0.98 && match.difference <= 2500) {
+    // A freshly verified, playable catalog pointer is not an exploratory search
+    // hit. A strict full-title/artist match may use the existing <=8s recording
+    // tolerance; never re-search merely because a reissue differs by ~3s.
+    const verifiedReissue = stage.name === 'known-track' && match?.candidate.is_playable === true &&
+      match.artist >= 0.98 && match.difference <= 8000
+    if (match && samePrimary && !match.crossLanguage && match.title >= 0.98 && (match.difference <= 2500 || verifiedReissue)) {
       return finish({ ...match, searchStage: stage.name, earlyExit })
     }
     return null

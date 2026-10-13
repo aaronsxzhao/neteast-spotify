@@ -161,7 +161,7 @@ test('does not turn edition labels or ordinary subtitles into search titles', ()
   }
 })
 
-test('title-only search recovers unlisted cross-language credits before manual fallback', async () => {
+test('title-only search remains available after the early verified-artist query', async () => {
   const source = { name: 'うたかたの恋', ar: [{ name: '原田知世' }], dt: 238_000 }
   const candidate = { id: 'correct', name: source.name, artists: [{ name: 'Tomoyo Harada' }], duration_ms: 238_100 }
   const calls = []
@@ -171,7 +171,9 @@ test('title-only search recovers unlisted cross-language credits before manual f
   })
   assert.equal(match.candidate.id, 'correct')
   assert.equal(match.searchStage, 'title-only')
-  assert.equal(calls.some((query) => query.includes('Tomoyo Harada')), false)
+  assert.equal(calls.filter((query) => query.includes('Tomoyo Harada')).length, 1)
+  assert.equal(calls[0], `track:"${source.name}" artist:"原田知世"`)
+  assert.equal(calls.at(-1), `track:"${source.name}"`)
 })
 
 test('manual aliases are only searched and scored after metadata and title-only fail', async () => {

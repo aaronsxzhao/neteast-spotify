@@ -2,6 +2,25 @@
 
 这里只记录公开曲目元数据与身份依据，不包含账号、Cookie、令牌或密钥。公开页面存在不代表当前账号所在地区可播放；每次真实同步仍经过 Spotify 可播放性与匹配检查。
 
+## 2026-10-13：别名优先检索与跨语言专辑佐证
+
+补跑前 24/32，8 首未匹配。以下修改不增加目录查询预算、不降低 HTTP 请求间隔、不绕过冷却；只针对选中的 6 首补查，复用当天已确认结果。
+
+- 已核验的主艺人别名进入 metadata 阶段的早期槽位，共享原有 3 次上限，避免同一中文/日文艺人名搭配简繁体标题反复搜索。人工标题翻译仍有限定源 ID、原名和主艺人的检查。
+- 经核验的专辑译名同时参与检索、专辑选择与身份佐证。CV 仍要求完整演员名单、相同标题、对应专辑、2.5 秒内时长；不把声优与其所有角色全局合并，也不直接放宽专辑相似度门槛。
+- 新鲜目录指针明确可播放，且通过原有严格匹配时，标题/艺人均至少 0.98、有主艺人身份、时长差不超过 8 秒可直接结束检索。不把其他搜索结果的提前退出门槛从 2.5 秒放宽；不同录音、未知身份、伴奏、不可播放仍拒绝。
+
+| 已核验信息 | 依据 |
+|---|---|
+| 小林未郁 / Mika Kobayashi | [Universal 官方身份](https://www.universal-music.co.jp/kobayashi-mika/biography/)；[桜海岸目录指针](https://open.spotify.com/track/4YoGxyrCTHz3eczJ6mg3Ll)，源 `3421391237` |
+| 容祖儿 / Joey Yung | [艺人官网](https://joeyyung.hk/)；[没关系目录指针](https://open.spotify.com/track/1oxLzmA6AxqYeY1fPOBKbo)，源 `287241`，保存候选时长差 1460ms |
+| 河合奈保子 / Naoko Kawai | [Spotify 发行署名](https://open.spotify.com/track/0Fy5EcQ7PBjNtY1MS1WIxt)；[ハーフムーン・セレナーデ目录指针](https://open.spotify.com/track/3eeXfKpoIJBKJTwGb33Mt3)，源 `1355979244` |
+| minamo：ゆかな / 七咲逢(CV:ゆかな) | [TBS 官方曲序与演唱署名](https://www.tbs.co.jp/anime/amagami/1st/goods/cd_1.html)；[Spotify 目录](https://open.spotify.com/track/2ZnJ2Pbw1abURygSrp3dak)，源 `28302837`。保存的源专辑 `TVアニメ「アマガミSS」ENDING THEME COLLECTION` 对应目标 `TV Anime "Amagami SS" (Ending Theme Collection)`，标题与时长完全一致 |
+| 鳥の詩 / Tori no Uta | [Lia、VISUAL ARTS / Key 目录](https://open.spotify.com/track/2JacUWw1kxN2lunFlCLrPe)，限定源 `28151022`、标题及 Lia 主艺人 |
+| ここにいるよ | [SoulJa、Thelma Aoyama 目录](https://open.spotify.com/track/253IuSdk8aMyQR2j8ncGsY)，限定源 `497399`；已有青山テルマ对应关系复用 |
+
+`test/daily-october13.test.js` 包含保存候选回放、模拟新鲜 ID 查询、别名检索顺序、CV/伴奏/翻唱拒绝、不可播放与预算、429 立即中止。公开页面及模拟测试不证明账号地区可播放；补回数量以真实补跑为准。波波沙 / NOXTRAY 无身份依据，Craig Ruhnke 原唱目录未确认，均不强行建立映射。
+
 ## 可跨歌曲复用的艺人对应
 
 | 网易显示名 | 其他显示名 | 依据 |

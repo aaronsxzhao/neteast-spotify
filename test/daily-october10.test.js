@@ -73,7 +73,7 @@ test('new primary aliases get reserved early fallback slots before repeated quer
   const s = song(812400, 'PLANET', 'ラムジ', '3ラムジ', 243400)
   s.al.tns = ['3 Lambsey']
   const stages = songSearchStages(s)
-  assert.ok(!stages.filter(stage => !stage.manual).flatMap(stage => stage.queries).some(q => q.includes('artist:"Lambsey"')))
+  assert.ok(stages[0].queries.slice(0, 3).some(q => q.includes('artist:"Lambsey"')))
   assert.ok(stages.find(stage => stage.manual).queries.slice(0, 2).includes('track:"PLANET" artist:"Lambsey"'))
   const seen = [], d = {}
   const c = track('PLANET', 'Lambsey', '3 Lambsey', 243400)
