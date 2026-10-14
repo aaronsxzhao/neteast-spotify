@@ -2,6 +2,28 @@
 
 这里只记录公开曲目元数据与身份依据，不包含账号、Cookie、令牌或密钥。公开页面存在不代表当前账号所在地区可播放；每次真实同步仍经过 Spotify 可播放性与匹配检查。
 
+## 2026-10-14：双语单曲专辑、罗马字标题与正式发行检索
+
+当天云端正常完成 24/32，136 次 Spotify 请求、0 重试、无冷却。8 首未匹配共消耗 89 次逻辑目录查询。算法更新保持每首 18 次上限、6 秒 HTTP 间隔、429 立即停止；调度与用户封面不变。
+
+- 双语单曲名已显式提供括号内译名时，专辑完整名称若只是去掉括号，复用这组明确译名进行专辑比较。必须完整标签规范化相等；不把任意同前缀专辑视为同专辑。该证据可以帮助现有单个连写双语艺人署名识别，仍需标题、专辑和 2.5 秒内时长；合唱团、乐队等集体署名不能拆成单人身份。
+- free-text 阶段先尝试不同已提供标题与艺人的组合，共享原有两次预算，减少重发上一阶段的纯标题查询。
+- 完整 ` - 第6波` 一类宣发波次后缀可从标题中清理。包含其他字词、现场或版本说明的后缀不享受此规则，作品副标题与伴奏检查保留。
+- 三组新标题翻译限定源 ID、原名及主艺人；艺人中英文对应可跨歌曲复用。七个目录指针只用于获取新鲜元数据，仍检查账号地区可播放性和正常身份/版本证据。
+
+| 源歌曲 | 依据与问题 |
+|---|---|
+| `3365539045` 狗与沙发的正确用法 — WuLinG捕鱼人 | [Spotify 保存候选](https://open.spotify.com/track/2dgCWtli5s6dQcnOGiQLxS)标题与时长 153238ms 完全一致；`WuLinG捕鱼人` / `WuLinG` 仅在本录音证据下识别，不建全局艺人别名。单曲专辑去括号导致原相似度只有 0.47 |
+| `22778715` Pureyes — 伊藤由奈 | [Sony 官方身份与发行](https://www.sonymusic.co.jp/Music/Arch/SR/YunaIto/download/d2.html)、[Spotify 候选](https://open.spotify.com/track/0kAuRxam7qX4vvD5358BcS)；Yuna Ito 对应缺失，时长差仅 945ms |
+| `233888` 爱情讯息 — 郭静 | [福茂官方 MV 双语署名](https://www.youtube.com/watch?v=t7Q-MkGfdHg)、[Spotify 原唱](https://open.spotify.com/track/5IR57dAo4LK6X2pzCQ2IKY)，公开嵌入页时长 280680ms 与源完全一致；另一个正式发行附[第6波标签](https://open.spotify.com/track/1dtJoUt5MrocAeZNodChwJ)。保存候选中的同艺人 LIVE 可按既有替代版本规则接受，优先指向原唱发行 |
+| `2063473897` 真夜中のドア～stay with me — 松原みき | [Spotify 保存候选](https://open.spotify.com/track/4J2oDU9oacz7lJ7H8A8P8v)为 Mayonaka no Door~stay with me，时长差 360ms；[Spotify 同发行的日英标题](https://open.spotify.com/track/5DCLkzuWICNar6qn3B393f)佐证。新增限定源的标题译名 |
+| `3428143496` ありふれた世界の果てに — YAO 等 | [发行商日文标题与完整名单](https://linkco.re/G8cz8Vee?lang=ja)的 Spotify 链接指向[FOR OKINAWA 专辑](https://open.spotify.com/album/4EcdHV5JYKnpOfuOZXso4j)，内含[录音](https://open.spotify.com/track/03PGemRNLrjn9Efmy2y6OY)；公开嵌入元数据完整五人署名、234782ms 均一致 |
+| `2606129099` 花束のような人生を君に — Penthouse | [官方发行链接](https://penthouse.lnk.to/bouquet)、[Spotify 录音](https://open.spotify.com/track/2VHWC08169u82JJdPfeJgU)，公开时长 295120ms，与源差 75ms；属于检索遗漏，无需编造标题别名 |
+| `3394764994` さよならペンギン — 青葉市子 | [艺人官网](https://ichikoaoba.com/ja/music/さよならペンギン/)指向[官方英文发行链接](https://ichiko.lnk.to/SayoPen)，再指向[SAYONARA PENGUIN](https://open.spotify.com/track/2xJ66XR7lbKqL55J70cXqJ)；Ichiko Aoba 署名、时长 111096ms，与源完全一致 |
+| `3366003199` いつか分かる — namaniental、音街ウナ | 暂未核实 Spotify 正式发行及曲目 ID，保留未匹配；不以其他艺人的相似歌名代替，也不宣称 Spotify 一定没有 |
+
+`test/daily-october14.test.js` 使用保存候选及公开嵌入页元数据，覆盖七首严格匹配、翻译作用域、双语专辑证据与集体署名边界、宣发标签、检索顺序、不可播放及限流停止。保存候选离线回放恢复 3 首严格录音及 1 首同艺人 LIVE，原有 24 首均保留；七首完整录音的模拟 ID 流程各用一次查询。以上不代表真实账号已补回，需另行补跑核实。
+
 ## 2026-10-13：别名优先检索与跨语言专辑佐证
 
 补跑前 24/32，8 首未匹配。以下修改不增加目录查询预算、不降低 HTTP 请求间隔、不绕过冷却；只针对选中的 6 首补查，复用当天已确认结果。

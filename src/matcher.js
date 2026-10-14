@@ -48,6 +48,10 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['2063473897', { name: '真夜中のドア～stay with me', artist: '松原みき', titles: ['Mayonaka no Door~stay with me'] }],
+  ['3428143496', { name: 'ありふれた世界の果てに (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)', artist: 'YAO',
+    titles: ['FOR OKINAWA (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)'] }],
+  ['3394764994', { name: 'さよならペンギン', artist: '青葉市子', titles: ['SAYONARA PENGUIN'] }],
   ['28151022', { name: '鳥の詩', artist: 'Lia', titles: ['Tori no Uta'] }],
   ['22842411', { name: '회상', artist: 'Leessang', titles: ['remembrance'] }],
   ['285546', { name: '讨厌', artist: '芮恩', titles: ["討厭 (Can't Stand It)"] }],
@@ -72,6 +76,13 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['3365539045', { name: '狗与沙发的正确用法 (Lay On My Bed With My Dog)', artist: 'WuLinG捕鱼人', trackId: '2dgCWtli5s6dQcnOGiQLxS' }],
+  ['22778715', { name: 'Pureyes', artist: '伊藤由奈', trackId: '0kAuRxam7qX4vvD5358BcS' }],
+  ['233888', { name: '爱情讯息', artist: '郭静', trackId: '5IR57dAo4LK6X2pzCQ2IKY' }],
+  ['2063473897', { name: '真夜中のドア～stay with me', artist: '松原みき', trackId: '4J2oDU9oacz7lJ7H8A8P8v' }],
+  ['3428143496', { name: 'ありふれた世界の果てに (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)', artist: 'YAO', trackId: '03PGemRNLrjn9Efmy2y6OY' }],
+  ['2606129099', { name: '花束のような人生を君に', artist: 'Penthouse', trackId: '2VHWC08169u82JJdPfeJgU' }],
+  ['3394764994', { name: 'さよならペンギン', artist: '青葉市子', trackId: '2xJ66XR7lbKqL55J70cXqJ' }],
   ['3421391237', { name: '桜海岸（樱花海岸）', artist: '小林未郁', trackId: '4YoGxyrCTHz3eczJ6mg3Ll' }],
   ['28151022', { name: '鳥の詩', artist: 'Lia', trackId: '2JacUWw1kxN2lunFlCLrPe' }],
   ['497399', { name: 'ここにいるよ', artist: 'SoulJa', trackId: '253IuSdk8aMyQR2j8ncGsY' }],
@@ -114,6 +125,9 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['伊藤由奈', ['Yuna Ito']],
+  ['郭静', ['Claire Kuo']],
+  ['青葉市子', ['Ichiko Aoba']],
   ['小林未郁', ['Mika Kobayashi']],
   ['容祖儿', ['Joey Yung']],
   ['河合奈保子', ['Naoko Kawai']],
@@ -189,6 +203,19 @@ const ALBUM_ALIASES = new Map([
 export function songAlbumNames(song) {
   return unique(metadataNames(song.al || song.album).flatMap(name =>
     [name, ...catalogAliases(ALBUM_ALIASES, name)]))
+}
+
+function albumTitleVariants(song, value) {
+  const variants = titleVariants(value)
+  // Single releases sometimes repeat an explicitly bilingual song title but
+  // drop its parentheses. Reuse only the translations supplied in that title,
+  // and only when the COMPLETE album label equals it after normalization.
+  // No arbitrary prefix/substring or cross-language album guessing.
+  for (const title of titleMetadata(song)) {
+    const parts = titleVariants(title)
+    if (parts.length > 1 && normalize(value) === normalize(parts[0])) variants.push(...parts.slice(1))
+  }
+  return unique(variants)
 }
 
 export function normalize(value = '') {
@@ -417,8 +444,9 @@ function corroboratedCredit(song, candidate, { title, album, difference, manual 
   // and tight recording evidence. Do not split AC/DC or multi-artist rosters.
   if (source.length === 1 && targets.length === 1) {
     const sourceNames = metadataNames((song.ar || song.artists)[0])
-    if (sourceNames.some(name => joinedBilingualParts(name).some(part => normalize(part) === normalize(targets[0]))) ||
-      joinedBilingualParts(targets[0]).some(part => source[0].includes(normalize(part)))) return 'joined-bilingual-credit'
+    const soloParts = name => /(?:合唱[团團]|[乐樂]队|楽団|バンド|ユニット|\b(?:band|choir|orchestra)\b)/iu.test(name) ? [] : joinedBilingualParts(name)
+    if (sourceNames.some(name => soloParts(name).some(part => normalize(part) === normalize(targets[0]))) ||
+      soloParts(targets[0]).some(part => source[0].includes(normalize(part)))) return 'joined-bilingual-credit'
     const parts = String(targets[0]).normalize('NFKC').split('/').map(s => s.trim())
     if (parts.length === 2 && differentScripts(parts[0], parts[1]) &&
       parts.every(part => !/[,、&()]/u.test(part)) &&
@@ -500,7 +528,13 @@ function titlePairs(song, candidate, options, transform) {
 function recordingTitle(value) {
   // Strip a clearly delimited edition suffix, not ordinary song subtitles.
   // Version compatibility is checked separately using title AND album context.
-  return stripBracketedEditions(canonicalLanguageTitle(value)).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+  return stripBracketedEditions(canonicalLanguageTitle(stripPromotionLabel(value))).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+}
+
+function stripPromotionLabel(value) {
+  // Taiwan release metadata may append a promotional single's campaign wave.
+  // Match the entire delimited label; preserve real subtitles and editions.
+  return String(value).normalize('NFKC').replace(/\s+[-–—]\s*第[0-9一二三四五六七八九十]+波\s*$/u, '')
 }
 
 const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version)$/i
@@ -528,7 +562,7 @@ function quoted(value) {
 function searchTitle(value) {
   // Spotify free-text search understands aliases better than exact filters.
   // Remove feature credits from queries, but retain recording-version labels.
-  return String(value).normalize('NFKC').replace(/(?:\s+|\s*[\[(])(?:feat(?:uring)?|ft)(?:\.\s*|\s+).+$/iu, '').trim()
+  return stripPromotionLabel(value).replace(/(?:\s+|\s*[\[(])(?:feat(?:uring)?|ft)(?:\.\s*|\s+).+$/iu, '').trim()
 }
 
 // Query-only shortening: a game/movie theme annotation is not part of the
@@ -582,8 +616,10 @@ export function songSearchStages(song) {
   const combined = (names, credits) => interleave(names.map((title) => credits.map((artist) =>
     `track:"${quoted(title)}" artist:"${quoted(artist)}"`)))
   const titleOnly = (names) => names.map((title) => `track:"${quoted(title)}"`)
-  const plain = (names, credits) => interleave([names.slice(0, 4).flatMap((title) =>
-    credits.slice(0, 2).map((artist) => `${quoted(title)} ${quoted(artist)}`)), names])
+  // Artist-qualified alternatives for distinct supplied titles get the two
+  // free-text slots before repeating title-only queries from the prior stage.
+  const plain = (names, credits) => [...interleave(names.slice(0, 4).map(title =>
+    credits.slice(0, 2).map(artist => `${quoted(title)} ${quoted(artist)}`))), ...names]
   const fallbackTitles = queryVariants(songTitles(song)).slice(0, 16)
   const fallbackArtists = searchableArtists(song).slice(0, 8)
   const albums = prioritizeNames(songAlbumNames(song)).slice(0, 2)
@@ -614,7 +650,11 @@ export function songSearchStages(song) {
       combined(newTitles.slice(0, 1), primaryAliases.slice(0, 1)),
       combined(newTitles.slice(0, 2), fallbackArtists.slice(0, 1)),
       combined(titles.slice(0, 2), primaryAliases.slice(0, 2)),
-    ]).slice(0, 2), ...interleave([
+    ]).slice(0, 2),
+    // A metadata stage may stop after two empty responses. Keep its next
+    // primary/title combination reachable despite the bounded fallback list.
+    // Executed queries are deduplicated by the runner before spending budget.
+    ...combined(titles.slice(0, 3), artists.slice(0, 1)), ...interleave([
       combined(newTitles, fallbackArtists),
       combined(titles, newArtists), plain(titles, newArtists), albumQueries(newArtists),
       combined(fallbackTitles, fallbackArtists), titleOnly(fallbackTitles), plain(fallbackTitles, fallbackArtists),
@@ -687,8 +727,8 @@ function evidence(song, candidate, options) {
   const targetDuration = Number(candidate.duration_ms || 0)
   const difference = sourceDuration && targetDuration ? Math.abs(sourceDuration - targetDuration) : Infinity
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
-  const album = Math.max(0, ...songAlbumNames(song).flatMap(titleVariants)
-    .flatMap(name => titleVariants(candidate.album?.name || '').map(target => similarity(name, target))))
+  const album = Math.max(0, ...songAlbumNames(song).flatMap(name => albumTitleVariants(song, name))
+    .flatMap(name => albumTitleVariants(song, candidate.album?.name || '').map(target => similarity(name, target))))
   const identityEvidence = corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
   if (identityEvidence) { artist = 1; primaryMatch = true; guestOnly = false }
   const crossScript = neteaseArtists.length > 0 && spotifyArtists.length > 0 &&
