@@ -76,6 +76,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['658418', { name: '最高の片想い', artist: 'タイナカ彩智', trackId: '37Ow6jc1jv7D2Pyf9AhQWJ' }],
+  ['22773568', { name: 'ひとり上手', artist: '中島みゆき', trackId: '7oSAzD9RTyiPHOM16noKMl' }],
+  ['2725982315', { name: '斑彩', artist: 'kobasolo', trackId: '37hzEkgqQyxykySKnCi7FM' }],
   ['3365539045', { name: '狗与沙发的正确用法 (Lay On My Bed With My Dog)', artist: 'WuLinG捕鱼人', trackId: '2dgCWtli5s6dQcnOGiQLxS' }],
   ['22778715', { name: 'Pureyes', artist: '伊藤由奈', trackId: '0kAuRxam7qX4vvD5358BcS' }],
   ['233888', { name: '爱情讯息', artist: '郭静', trackId: '5IR57dAo4LK6X2pzCQ2IKY' }],
@@ -125,6 +128,8 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['タイナカ彩智', ['タイナカ サチ', 'タイナカサチ', 'Sachi Tainaka']],
+  ['中島みゆき', ['Miyuki Nakajima']],
   ['伊藤由奈', ['Yuna Ito']],
   ['郭静', ['Claire Kuo']],
   ['青葉市子', ['Ichiko Aoba']],

@@ -2,6 +2,20 @@
 
 这里只记录公开曲目元数据与身份依据，不包含账号、Cookie、令牌或密钥。公开页面存在不代表当前账号所在地区可播放；每次真实同步仍经过 Spotify 可播放性与匹配检查。
 
+## 2026-10-15：历史艺名与三首目录遗漏
+
+当天 07:17 北京时间正常完成 25/30，101 次 Spotify 请求、0 重试、无冷却。后续检查因 already-synced 跳过，均无音乐平台请求。五首未匹配共用了 67 次逻辑目录查询。
+
+| 修复 | 核验依据与边界 |
+|---|---|
+| タイナカ彩智 / タイナカ サチ / タイナカサチ / Sachi Tainaka | [艺人官网](https://tainakasachi.site/)与[旧艺名及改名资料](https://artist.cdjournal.com/a/tainaka-sachi/163986)。艺人身份可跨歌曲复用；不降低艺人相似度门槛。源 `658418` 最高の片想い的[保存候选](https://open.spotify.com/track/37Ow6jc1jv7D2Pyf9AhQWJ)，标题、专辑和时长 269560ms 均完全一致，新增受限目录指针 |
+| 中島みゆき / Miyuki Nakajima | [艺人官方单曲页](https://www.miyuki.jp/s/y10/discography/S10A-0194?ima=0000)、[Spotify 原唱](https://open.spotify.com/track/7oSAzD9RTyiPHOM16noKMl)。源 `22773568` ひとり上手，公开时长 254800ms，与源差 2253ms；新增可复用艺人别名及受限指针 |
+| 斑彩 — kobasolo、由 -iu- | [发行商公告](https://www.tunecore.co.jp/the-magazine/newreleases/546028)、[公开专辑](https://open.spotify.com/album/5KL4jsi0vPH1USJMVLxWCJ)及[曲目](https://open.spotify.com/track/37hzEkgqQyxykySKnCi7FM)。源 `2725982315`；公开曲目完整署名、标题和时长 241638ms 均吻合，普通评分已可接受，新增指针解决检索遗漏 |
+
+每个指针仍要求源 ID、标题、主艺人相符，并重新验证账号可播放性和录音/合作名单。查询上限、HTTP 间隔、429 停止逻辑不变。Dream Funk 2 的源与候选艺人身份无证据对应，ari 的雨上がり尚未核实 Spotify 原唱，均不强制匹配。
+
+`test/daily-october15.test.js` 覆盖三首一次查询恢复、艺人别名双向复用、共享嘉宾/不同歌手/伴奏拒绝、受限指针、缺失后的有界补查及 429 立即停止。公开元数据和离线测试不代替真实同步结果；实际补回数量需通过云端定向补跑核实。
+
 ## 2026-10-14：双语单曲专辑、罗马字标题与正式发行检索
 
 当天云端正常完成 24/32，136 次 Spotify 请求、0 重试、无冷却。8 首未匹配共消耗 89 次逻辑目录查询。算法更新保持每首 18 次上限、6 秒 HTTP 间隔、429 立即停止；调度与用户封面不变。
