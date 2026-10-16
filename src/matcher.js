@@ -36,6 +36,7 @@ const VERIFIED_CREDITS = new Map([
   // TRUE is an ambiguous display name; do not alias every artist named TRUE.
   ['26123720', { name: '無人の島', artist: 'TRUE', aliases: ['Miho Karasawa', '唐沢美帆'] }],
   ['22736703', { name: 'ミュゲー', artist: 'THE MUSMUS', aliases: ['UPLIFT SPICE'] }],
+  ['1483488615', { name: 'Komm, süsser Tod ／甘き死よ、来たれ (M-10 Director’s Edit. Version)', artist: 'arianne schreiber', aliases: ['Arianne'] }],
 ])
 
 // A solo source credit may denote a reviewed collaboration, not every release
@@ -71,6 +72,11 @@ const SCOPED_TITLES = new Map([
   ['22704309', { name: '空に星が綺麗~悲しい吉祥寺~', artist: '斉藤和義', titles: ['空に星が綺麗'] }],
   ['2669078243', { name: 'エルフ', artist: 'Ado', titles: ['Elf'] }],
   ['2690545311', { name: '恋に恋せよ', artist: 'ヒグチアイ', titles: ['Fall in love with love'] }],
+  ['26921526', { name: 'It Never Rains In California', artist: 'Albert Hammond', titles: ['It Never Rains in Southern California'] }],
+  ['2737471087', { name: 'ドゥーマー', artist: '東京真中', titles: ['Doomer'] }],
+  ['1483488615', { name: 'Komm, süsser Tod ／甘き死よ、来たれ (M-10 Director’s Edit. Version)', artist: 'arianne schreiber',
+    titles: ["KOMM, SUSSER TOD - M-10 Director's Edit Version"] }],
+  ['2655081593', { name: '夜明けを乞う。 (feat. むト)', artist: '酔シグレ', titles: ['Begging for dawn (feat. Muto)'] }],
 ])
 
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
@@ -112,6 +118,13 @@ const CATALOG_HINTS = new Map([
   ['2690545311', { name: '恋に恋せよ', artist: 'ヒグチアイ', trackId: '7LwHwVjEPBSxZoXtY52jcS' }],
   ['1391839711', { name: 'Follow', artist: 'Vantage', trackId: '1G9NeheOamTjkYtTv3VtMN' }],
   ['22736703', { name: 'ミュゲー', artist: 'THE MUSMUS', trackId: '0vUqrJJrAl5Xa8cAVgPqhi' }],
+  ['2676697681', { name: 'The Rose of Versailles', artist: '澤野弘之', trackId: '6vcio2JFAOv6VVWiuuPyV7', requireCompleteRoster: true }],
+  ['2053710705', { name: '忘れてやらない-Anime Ver.-', artist: '結束バンド', trackId: '5ISHFvPLUqKz2JfDRtwnb2' }],
+  ['26921526', { name: 'It Never Rains In California', artist: 'Albert Hammond', trackId: '1K24PVzIzAKBzRhmVKRleL' }],
+  ['2737471087', { name: 'ドゥーマー', artist: '東京真中', trackId: '3J8h8AUh100VIaFbSjCxB4' }],
+  ['1483488615', { name: 'Komm, süsser Tod ／甘き死よ、来たれ (M-10 Director’s Edit. Version)', artist: 'arianne schreiber', trackId: '0DI3WNmIyfi2GZLQwhYDQC' }],
+  ['2085407634', { name: '素直にI love youを', artist: '坂巻有紗', trackId: '2ZZPDPEpUnOZtZOTqaSSO0' }],
+  ['2655081593', { name: '夜明けを乞う。 (feat. むト)', artist: '酔シグレ', trackId: '00IHLQp6456jp4hzOtGIkR', requireCompleteRoster: true }],
 ])
 
 export function knownTrackIds(song) {
@@ -196,6 +209,9 @@ const ARTIST_ALIASES = new Map([
   ['松原みき', ['Miki Matsubara']],
   ['二宮愛', ['Ai Ninomiya']],
   ['ヒグチアイ', ['Ai Higuchi']],
+  ['澤野弘之', ['Sawano Hiroyuki', 'Hiroyuki Sawano']],
+  ['酔シグレ', ['Yoishigure']],
+  ['むト', ['Muto']],
 ])
 const artistAliasCache = new Map()
 
@@ -340,7 +356,7 @@ function differentScripts(left, right) {
 }
 
 // Split explicit cross-script title wrappers, not ordinary subtitles or editions.
-export function titleVariants(value, { dashTranslations = true } = {}) {
+export function titleVariants(value, { dashTranslations = true, slashTranslations = true } = {}) {
   if (typeof value !== 'string') return []
   const full = value.normalize('NFKC').trim()
   const brackets = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu)]
@@ -359,7 +375,13 @@ export function titleVariants(value, { dashTranslations = true } = {}) {
   const dashTitles = dash && native.test(dash[1]) && /\p{Script=Latin}/u.test(dash[3]) &&
     /^[\p{Script=Latin}\p{N}\p{P}\p{Zs}]+$/u.test(dash[3]) && !VERSION_LABEL.test(dash[3]) && !/\b(?:mix|feat|ft|featuring)\b/i.test(dash[3])
     ? [dash[1].trim(), dash[3].trim()] : []
-  return unique([full, ...(translations.length ? [base, ...translations] : []), ...dashTitles])
+  // Explicit cross-script slash translations only, never AC/DC or an English
+  // subtitle. Strip bounded editions before splitting; identity/version checks
+  // still use the original full title. Artist credits opt out of this rule.
+  const slash = slashTranslations ? stripBracketedEditions(full).split('/').map(s => s.trim()) : []
+  const slashTitles = slash.length === 2 && slash.every(Boolean) && differentScripts(...slash) &&
+    slash.every(part => !VERSION_LABEL.test(part) && !/\b(?:feat|ft|featuring)\b/i.test(part)) ? slash : []
+  return unique([full, ...(translations.length ? [base, ...translations] : []), ...dashTitles, ...slashTitles])
 }
 
 export function songTitles(song, { manual = true } = {}) {
@@ -409,7 +431,7 @@ function artistNameVariants(value, { identity = false } = {}) {
     .replace(/(?<=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/gu, '')
   // A bilingual display credit, e.g. 简约情人（Simple Lover), is one artist
   // with two names. Do not split same-script band qualifiers or edition text.
-  const bilingual = titleVariants(full, { dashTranslations: false })
+  const bilingual = titleVariants(full, { dashTranslations: false, slashTranslations: false })
   const parts = full.split(/(?<=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])\s+(?=[\p{Script=Latin}])|(?<=[\p{Script=Latin}])\s+(?=[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}])/u)
   if (identity) return unique([full, ...bilingual, ...parts])
   return unique([full, ...bilingual, ...parts, ...joinedBilingualParts(full), ...parts.flatMap(part => part.split(/\s*[,&]\s*/))])
@@ -418,10 +440,10 @@ function artistNameVariants(value, { identity = false } = {}) {
 // These are recording-level corroboration, NOT global aliases. A voice actor
 // is not interchangeable with every role they perform, nor is one member of a
 // combined credit proof of its entire roster.
-function voiceCast(credits) {
+function voiceRoster(credits) {
   const parts = credits.flatMap(name => String(name).normalize('NFKC').split(/\s*、\s*/u))
-  const cast = parts.map(name => name.match(/^[^()]+\(\s*CV\s*:\s*([^()]+)\)\s*$/iu)?.[1]?.trim())
-  return cast.length && cast.every(Boolean) ? cast : []
+  const cast = parts.map(name => name.match(/^[^()]+\(\s*CV\s*[:.]\s*([^()]+)\)\s*$/iu)?.[1]?.trim())
+  return { hasCast: cast.some(Boolean), names: parts.map((name, index) => cast[index] || name) }
 }
 
 function corroboratedCredit(song, candidate, { title, album, difference, manual }) {
@@ -437,11 +459,11 @@ function corroboratedCredit(song, candidate, { title, album, difference, manual 
   const source = (song.ar || song.artists || []).map(artist => metadataNames(artist)
     .flatMap(name => [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])]).flatMap(artistIdentityNames).map(normalize))
   const targets = (candidate.artists || []).map(artist => artist.name)
-  const cast = voiceCast(targets)
-  if (!voiceCast(songArtists(song)).length && cast.length === source.length && source.length) {
+  const cast = voiceRoster(targets)
+  if (!voiceRoster(songArtists(song)).hasCast && cast.hasCast && cast.names.length === source.length && source.length) {
     const used = new Set()
-    if (cast.every(name => {
-      const names = [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])].map(normalize)
+    if (cast.names.every(name => {
+      const names = [name, ...(manual ? catalogAliases(ARTIST_ALIASES, name) : [])].flatMap(artistIdentityNames).map(normalize)
       const index = source.findIndex((aliases, i) => !used.has(i) && names.some(n => aliases.includes(n)))
       if (index < 0) return false
       used.add(index); return true
@@ -535,7 +557,17 @@ function titlePairs(song, candidate, options, transform) {
 function recordingTitle(value) {
   // Strip a clearly delimited edition suffix, not ordinary song subtitles.
   // Version compatibility is checked separately using title AND album context.
-  return stripBracketedEditions(canonicalLanguageTitle(stripPromotionLabel(value))).replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+  return stripBracketedEditions(canonicalLanguageTitle(stripPromotionLabel(value)))
+    .replace(/\s+[-–—]\s*M-\d+\s+Director['’]s\s+Edit\.?\s+Version\s*$/iu, '')
+    .replace(/\s*(?:[-–—]|\()\s*(?:(?:19|20)\d{2}\s+)?(?:live|acoustic|unplugged|remaster(?:ed|ing)?)\b.*$/i, '').trim()
+}
+
+function directorEdition(value) {
+  return String(value).normalize('NFKC').match(/(?:\(|\s+[-–—]\s*)M-(\d+)\s+Director['’]s\s+Edit\.?\s+Version\s*(?:\)|$)/iu)?.[1] || ''
+}
+
+function animeEdition(value) {
+  return /(?:\(|[-–—])\s*Anime\s+Ver(?:sion)?\.?\s*(?:\)|[-–—]?\s*$)/iu.test(String(value).normalize('NFKC'))
 }
 
 function stripPromotionLabel(value) {
@@ -755,6 +787,7 @@ function evidence(song, candidate, options) {
   const crossLanguage = !reviewedPointer && !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
     languageEdition(song.name) !== languageEdition(candidate.name) ||
+    directorEdition(song.name) !== directorEdition(candidate.name) || animeEdition(song.name) !== animeEdition(candidate.name) ||
     Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []
   const guestNames = sourceCredits.slice(1).flatMap(metadataNames)
@@ -764,8 +797,15 @@ function evidence(song, candidate, options) {
   // Unknown cross-script guest names remain neutral, not presumed different.
   const primaryNames = metadataNames(sourceCredits[0])
   const primaryAgrees = primaryNames.some(name => similarity(name, spotifyArtists[0]) >= 0.98)
-  const creditConflict = primaryAgrees && guestNames.length > 0 && targetGuests.length > 0 &&
-    guestNames.every(left => targetGuests.every(right => !differentScripts(left, right) && similarity(left, right) < 0.85))
+  // A known composer does not establish the singers/roles on the recording.
+  // Mixed composer + CV rosters must be complete and tightly corroborated.
+  // Never merge two explicitly different roles played by the same actor.
+  const reviewedCast = knownTrackIds(song).length > 0 && CATALOG_HINTS.get(String(song.id))?.requireCompleteRoster
+  const literalRoster = JSON.stringify(songArtists(song).map(normalize).sort()) === JSON.stringify(spotifyArtists.map(normalize).sort())
+  const castConflict = (reviewedCast || voiceRoster(songArtists(song)).hasCast || voiceRoster(spotifyArtists).hasCast) &&
+    !completeRoster && !literalRoster && identityEvidence !== 'complete-voice-cast'
+  const creditConflict = castConflict || (!identityEvidence && primaryAgrees && guestNames.length > 0 && targetGuests.length > 0 &&
+    guestNames.every(left => targetGuests.every(right => !differentScripts(left, right) && similarity(left, right) < 0.85)))
   const durationCompatible = !sourceDuration || !targetDuration || difference <= 18000
   const eligible = !guestOnly && !versionMismatch && !creditConflict && durationCompatible && title >= 0.78 && (artist >= 0.85 || crossLanguage)
   const weighted = title * 0.56 + artist * 0.28 + duration * 0.12 + album * 0.04
@@ -779,7 +819,7 @@ function evidence(song, candidate, options) {
     ...(title < 0.78 ? ['title'] : []),
     ...(artist < 0.85 && !crossLanguage ? ['artist-identity'] : []),
   ]
-  return { title, artist, primaryMatch, identityEvidence, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, eligible, score, rejectionReasons }
+  return { title, artist, primaryMatch, identityEvidence, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, castConflict, eligible, score, rejectionReasons }
 }
 
 function recordingKinds(name = '', album = '') {
@@ -892,6 +932,8 @@ function stripBracketedEditions(value) {
 
 function compositionTitle(value) {
   return stripBracketedEditions(canonicalLanguageTitle(searchTitle(value)))
+    .replace(/\s*[-–—]\s*Anime\s+Ver(?:sion)?\.?\s*[-–—]?\s*$/iu, '')
+    .replace(/\s+[-–—]\s*M-\d+\s+Director['’]s\s+Edit\.?\s+Version\s*$/iu, '')
     .replace(/\s+[-–—]\s*([^()\[\]]+)$/u, (full, label) => MIX_EDITION.test(label.trim()) || /^inst\.?$/i.test(label.trim()) ? '' : full)
     // Accept compact edition delimiters such as " -band ver-" or "—Live".
     // Do not strip ordinary hyphenated titles or subtitles containing "live".
@@ -916,6 +958,7 @@ export function pickAlternateVersion(song, candidates, { manual = true, artistMa
     .filter(candidate => titlePairs(song, candidate, { manual }, compositionTitle)
       .some(([left, right]) => normalize(left) && normalize(left) === normalize(right)))
     .map(candidate => ({ candidate, ...evidence(song, candidate, { manual, artistManual }) }))
+    .filter(match => !match.castConflict)
     .sort((a, b) => Number(a.versionMismatch) - Number(b.versionMismatch) ||
       a.difference - b.difference || b.albumSimilarity - a.albumSimilarity ||
       String(a.candidate.id).localeCompare(String(b.candidate.id)))
@@ -1016,6 +1059,13 @@ export async function findTrackMatch(song, searchTracks, diagnostics = null, { a
     // can validate this returned recording without repeating failed searches.
     const known = confident({ name: 'known-track', manual: true }, true)
     if (known) return known
+    // Only a freshly verified playable pointer can use this shortcut. The
+    // same-song/same-primary alternate checks still apply, including vocal,
+    // language and complete CV roster guards. Unknown availability falls back.
+    if (allowAlternateVersions) {
+      const alternate = pickAlternateVersion(song, items.filter(item => item.is_playable === true))
+      if (alternate) return finish({ ...alternate, earlyExit: true })
+    }
     // Even an unavailable known recording may have a playable reissue. Continue
     // normal bounded retrieval; never let a public pointer bypass validation.
   }

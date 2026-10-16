@@ -2,6 +2,27 @@
 
 这里只记录公开曲目元数据与身份依据，不包含账号、Cookie、令牌或密钥。公开页面存在不代表当前账号所在地区可播放；每次真实同步仍经过 Spotify 可播放性与匹配检查。
 
+## 2026-10-16：混合 CV 名单、版本后缀与七首定向补查
+
+补跑前当天已成功 20/30。此次只选择下表七首，复用当天 20 首已确认 URI；雨声慢、prodjaded 的 type beat、別れ1940 三首缺少可信目录对应，保留原未匹配结果，不重新搜索。不改变调度、歌单名或自定义封面。
+
+- `CV.` / `CV:` / 全角冒号及日文姓名内部空格可以统一；允许普通作曲者署名与角色 CV 混排，但必须完整、一对一对应源名单，且标题、专辑及 2.5 秒内时长同时吻合。共享作曲者不能替代整份演员名单，不合并同一演员的不同明确角色。
+- 明确跨文字的斜杠双语标题可分别查询；不拆 AC/DC、同文字副标题，也不将此规则直接用于艺人身份。
+- 完整的 `-Anime Ver.-` 后缀参与同曲同主艺人的替代版本匹配；完整版明确标记替代版本。Director's Edit 的括号/破折号格式统一，但 M-10 与 M-9 不冒充同一录音。伴奏和语言版本限制保持。
+- 已核验目录指针重新读取账号地区可播放性，再通过普通身份校验。若明确可播放且符合替代版本规则，也可立即复用；不必为已验证的完整版反复搜索。缺失、未知或不可播放则继续有界查找；每首仍共享 18 次逻辑目录查询，HTTP 间隔、总请求预算、429 立即停止与冷却不变。
+
+| 源歌曲 | 核验及范围 |
+|---|---|
+| `2676697681` The Rose of Versailles | [澤野弘之官网](https://www.sawanohiroyuki.com/)与[保存候选](https://open.spotify.com/track/6vcio2JFAOv6VVWiuuPyV7)：完整五人名单、专辑、279424ms 对应。Sawano Hiroyuki / Hiroyuki Sawano 身份可复用；本曲额外要求完整名单，不能仅留下作曲者 |
+| `2053710705` 忘れてやらない-Anime Ver.- | [同主艺人完整版](https://open.spotify.com/track/5ISHFvPLUqKz2JfDRtwnb2)的保存时长 223360ms，源 152026ms。按用户允许的同歌同艺人不同版本处理，不能声称是相同录音 |
+| `26921526` It Never Rains In California | [Albert Hammond 官方履历](https://www.alberthammond.com/biography)及[保存候选](https://open.spotify.com/track/1K24PVzIzAKBzRhmVKRleL)：正式标题含 Southern，229000ms 与源一致；译名/缺字等价仅限源 ID、原名、主艺人 |
+| `2737471087` ドゥーマー | [艺人官网](https://blue066769.studio.site/)与[Spotify 保存候选](https://open.spotify.com/track/3J8h8AUh100VIaFbSjCxB4)确认 Doomer，东京真中署名、148625ms；标题对应仅限本源歌曲 |
+| `1483488615` Komm, süsser Tod ／甘き死よ、来たれ | [发行商 Arianne Schreiber 身份介绍](https://www.jackrussellmusic.net/writers-artists/arianne-schreiber/)与[保存候选](https://open.spotify.com/track/0DI3WNmIyfi2GZLQwhYDQC)确认 Arianne 署名、同专辑、466481ms、M-10 Director's Edit；简称与标题对应限定本源，不把所有 Arianne 当作同一人 |
+| `2085407634` 素直にI love youを | [Spotify 公开曲目](https://open.spotify.com/track/2ZZPDPEpUnOZtZOTqaSSO0)显示坂巻有紗及 5:00；仅为检索指针，公开页面不证明用户地区可播放 |
+| `2655081593` 夜明けを乞う。 (feat. むト) | [发行商双语页](https://linkco.re/BFx90rBp?lang=en)的 Spotify 链接指向[正式单曲](https://open.spotify.com/album/62Lq5eJ8lix8t6PrNTeNC7)，含[曲目](https://open.spotify.com/track/00IHLQp6456jp4hzOtGIkR)：Begging for dawn (feat. Muto)，Yoishigure、Muto，公开时长 4:23。译名限定本源，艺人身份可复用，本曲要求完整合作名单 |
+
+`test/daily-october16-recovery.test.js` 覆盖七首模拟召回、严格/替代版本区分、完整混合 CV 名单正反例、限定翻译与简称、普通副标题/角色/伴奏/语言边界、一次目录查询、不可播放与未知状态回退、预算及 429 停止，并验证定向修复保留 20 首与 3 首未匹配、顺序及封面。模拟结果不计入实际补回数量，真实结果以补跑报告为准。
+
 ## 2026-10-15：历史艺名与三首目录遗漏
 
 当天 07:17 北京时间正常完成 25/30，101 次 Spotify 请求、0 重试、无冷却。后续检查因 already-synced 跳过，均无音乐平台请求。五首未匹配共用了 67 次逻辑目录查询。
