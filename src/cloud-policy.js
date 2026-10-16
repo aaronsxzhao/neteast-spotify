@@ -1,4 +1,5 @@
 import { dateInTimezone, hourInTimezone } from './sync.js'
+import { classifySyncError } from './sync-errors.js'
 
 // Frequent recovery checks also catch a missed daily schedule after 07:00 local time.
 // They must not move the normal morning sync to midnight or repeat a success.
@@ -34,9 +35,10 @@ export async function runCloudSync(sync, { force = false, recoveryOnly = false, 
       return { paused: true, reason: error.pauseReason, retryAt: new Date(error.retryAt).toISOString(),
         completedSongs: status.checkpoint?.completed || 0 }
     }
-    // Spotify safety already persisted its pause. Also back off other transient
-    // failures (e.g. NetEase), without logging potentially private error bodies.
-    if (!error.pauseReason && sync.store.update) {
+    // Spotify safety already persisted its pause. Only an explicitly identified
+    // provider/network failure may create another transient backoff. Program,
+    // authorization and unknown errors must not be disguised as rate limits.
+    if (classifySyncError(error) === 'provider-transient' && sync.store.update) {
       await sync.store.update(state => {
         const failures = (state.spotify.transientFailures || 0) + 1
         state.spotify.transientFailures = failures

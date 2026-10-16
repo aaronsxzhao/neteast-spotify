@@ -1,4 +1,5 @@
 import { createRequire } from 'node:module'
+import { providerFailure } from './sync-errors.js'
 
 const require = createRequire(import.meta.url)
 let api
@@ -18,11 +19,12 @@ export async function getDailyRecommendations(cookie) {
     throw new Error('The installed NetEase API does not expose recommend_songs')
   }
 
-  const response = await netease.recommend_songs({ cookie })
+  let response
+  try { response = await netease.recommend_songs({ cookie }) }
+  catch (error) { throw providerFailure('netease', error) }
   const body = response?.body || response
   if (body?.code !== 200) {
-    const message = body?.message || body?.msg || `NetEase returned code ${body?.code || 'unknown'}`
-    throw new Error(message)
+    throw providerFailure('netease', { status: body?.code })
   }
 
   const songs = body?.data?.dailySongs || body?.recommend || []

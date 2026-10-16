@@ -345,7 +345,9 @@ export function titleVariants(value, { dashTranslations = true } = {}) {
   const full = value.normalize('NFKC').trim()
   const brackets = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】/gu)]
   const base = full.replace(/\([^()]*\)|\[[^\[\]]*\]|【[^【】]*】/gu, ' ').trim()
-  const translations = brackets.map((part) => (part[1] || part[2] || part[3]).trim())
+  // Empty wrappers are valid catalog text, not a translation. Preserve empty
+  // captures instead of falling through to an undefined alternative group.
+  const translations = brackets.map((part) => (part[1] ?? part[2] ?? part[3] ?? '').trim()).filter(Boolean)
     .filter((part) => differentScripts(base, part) && !VERSION_LABEL.test(part) && !/\b(feat|ft|featuring)\b/i.test(part))
   // Closed dash wrappers also denote translations: Kissしたい -WANNA KISS-.
   // The native title may itself contain Latin words. Require native script on
@@ -547,7 +549,7 @@ const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+
 function languageEdition(value) {
   const full = String(value).normalize('NFKC')
   const labels = [...full.matchAll(/\(([^()]*)\)|\[([^\[\]]*)\]|\s[-–—]\s*([^()]+)$/gu)]
-  return labels.map(parts => LANGUAGE_LABEL.exec((parts[1] || parts[2] || parts[3]).trim())?.[1]?.toLowerCase()).filter(Boolean).sort().join('|')
+  return labels.map(parts => LANGUAGE_LABEL.exec((parts[1] ?? parts[2] ?? parts[3] ?? '').trim())?.[1]?.toLowerCase()).filter(Boolean).sort().join('|')
 }
 
 function canonicalLanguageTitle(value) {
@@ -555,7 +557,7 @@ function canonicalLanguageTitle(value) {
   // Do not let a shared long word like "Japanese" inflate song similarity.
   return String(value).normalize('NFKC')
     .replace(/\(([^()]*)\)|\[([^\[\]]*)\]|\s[-–—]\s*([^()]+)$/gu, (full, a, b, c) => {
-      const label = LANGUAGE_LABEL.exec((a || b || c).trim())
+      const label = LANGUAGE_LABEL.exec((a ?? b ?? c ?? '').trim())
       return label ? ' ' : full
     })
 }

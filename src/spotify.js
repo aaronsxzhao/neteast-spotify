@@ -124,9 +124,11 @@ export class SpotifyClient {
     if (!response.ok) {
       if (result?.error === 'invalid_grant') {
         await this.disconnect()
-        throw new Error('Spotify authorization expired; connect Spotify again')
+        throw Object.assign(new Error('Spotify authorization expired; connect Spotify again'),
+          { source: 'spotify', status: response.status, code: 'authorization-required' })
       }
-      throw new Error(result?.error_description || result?.error || 'Could not refresh Spotify login')
+      throw Object.assign(new Error(result?.error_description || result?.error || 'Could not refresh Spotify login'),
+        { source: 'spotify', status: response.status })
     }
     await this.store.update((data) => {
       data.spotify.accessToken = result.access_token
@@ -164,6 +166,7 @@ export class SpotifyClient {
     if (!response.ok) {
       const message = result?.error?.message || result?.error_description || `Spotify returned HTTP ${response.status}`
       const error = new Error(message)
+      error.source = 'spotify'
       error.status = response.status
       throw error
     }

@@ -6,6 +6,7 @@ import { getDailyRecommendations } from './netease.js'
 import { runCloudSync, cloudRunSummary } from './cloud-policy.js'
 import { migrateRequestBudget } from './request-safety.js'
 import { createCloudAudit } from './cloud-audit.js'
+import { safeFailureDetails } from './sync-errors.js'
 
 const audit = createCloudAudit()
 let phase = 'config'
@@ -83,11 +84,16 @@ async function main() {
 }
 
 main().catch((error) => {
-  audit('app-end', { phase, result: 'failed', status: error.status, source: error.source, operation: error.operation, code: error.code })
+  const failure = safeFailureDetails(error)
+  audit('app-end', { phase, result: 'failed', status: error.status, ...failure, operation: error.operation, code: error.code })
   // Provider errors may embed private request data. Public logs only get a code.
   if (error.source === 'github-state') {
     console.error(`Daily Relay stopped: GitHub state storage ${error.operation} failed (${error.status || 'network'}; ${error.code}). Saved checkpoint retained; this is not a Spotify cooldown. A fresh run must reload cloud state.`)
-  } else console.error(`Daily Relay failed (${Number.isFinite(error.status) ? error.status : 'Error'}). Check GitHub Secrets, account authorization, provider availability, and state-branch write permission.`)
+  } else if (failure.failureKind === 'program-error') {
+    console.error(`Daily Relay stopped: internal ${failure.errorType} during ${phase}. Fix the code before retrying; no provider cooldown was created for this error. Saved progress retained.`)
+  } else if (failure.failureKind === 'authorization-required') {
+    console.error(`Daily Relay stopped: ${failure.source} authorization requires attention. Reconnect the account; this is not a transient network failure.`)
+  } else console.error(`Daily Relay failed (${failure.failureKind}; ${Number.isFinite(error.status) ? error.status : 'Error'}) during ${phase}. Saved progress retained; inspect the bounded failure classification before retrying.`)
   if (Number.isFinite(error.retryAfterSeconds)) console.error(`Provider cooldown: retry after ${error.retryAfterSeconds} seconds.`)
   if (Number.isFinite(error.retryAt)) audit('retry-state', { reason: error.pauseReason, retryAt: new Date(error.retryAt).toISOString() })
   process.exitCode = 1

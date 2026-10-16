@@ -5,7 +5,7 @@ import path from 'node:path'
 // Explicit trust boundary: only runtime modules and cloud tests enter a friend's
 // repository. Dependency closure checks fail closed when new modules are added.
 const runtime = ['cloud-state.js', 'cloud-policy.js', 'cloud-run.js', 'cloud-audit.js', 'config.js',
-  'matcher.js', 'match-cache.js', 'netease.js', 'request-safety.js', 'spotify.js', 'sync.js']
+  'matcher.js', 'match-cache.js', 'netease.js', 'request-safety.js', 'spotify.js', 'sync.js', 'sync-errors.js']
 
 export function validatePayload(entries) {
   const names = new Set(entries.map(e => e.path))
