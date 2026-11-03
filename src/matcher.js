@@ -32,6 +32,9 @@ const VERIFIED_TITLES = new Map([
 // A performance credit is not a universal artist alias. This reviewed band-set
 // relationship applies only to the named source recording, never all re:plus.
 const VERIFIED_CREDITS = new Map([
+  ['509106775', { name: '彼女は旅に出る', artist: '鎖那', aliases: ['sana'] }],
+  ['474739593', { name: 'カサネテク', artist: '中村千尋', aliases: ['Chihiro Nakamura'] }],
+  ['601536', { name: 'ねがい', artist: '久保田早紀', aliases: ['Saki Kubota'] }],
   ['1358089285', { name: 'Solitude -band ver-', artist: 're:plus', aliases: ['re:plus band set'] }],
   // TRUE is an ambiguous display name; do not alias every artist named TRUE.
   ['26123720', { name: '無人の島', artist: 'TRUE', aliases: ['Miho Karasawa', '唐沢美帆'] }],
@@ -49,6 +52,8 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['509106775', { name: '彼女は旅に出る', artist: '鎖那', titles: ['kanojo wa tabinideru'] }],
+  ['474739593', { name: 'カサネテク', artist: '中村千尋', titles: ['Kasaneteku'] }],
   ['2063473897', { name: '真夜中のドア～stay with me', artist: '松原みき', titles: ['Mayonaka no Door~stay with me'] }],
   ['3428143496', { name: 'ありふれた世界の果てに (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)', artist: 'YAO',
     titles: ['FOR OKINAWA (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)'] }],
