@@ -52,6 +52,7 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['3339091911', { name: 'うそつきマカロン (feat. 重音テト)', artist: '暴飲暴食P', titles: ['Liar Macaron (feat. KASANE TETO)'] }],
   ['509106775', { name: '彼女は旅に出る', artist: '鎖那', titles: ['kanojo wa tabinideru'] }],
   ['474739593', { name: 'カサネテク', artist: '中村千尋', titles: ['Kasaneteku'] }],
   ['2063473897', { name: '真夜中のドア～stay with me', artist: '松原みき', titles: ['Mayonaka no Door~stay with me'] }],
@@ -87,6 +88,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['3339091911', { name: 'うそつきマカロン (feat. 重音テト)', artist: '暴飲暴食P', trackId: '6MwKUr4sLEUZTcyvBNSTZH', requireCompleteRoster: true }],
+  ['465921195', { name: '还是分开', artist: '张叶蕾', trackId: '22IGcQVGVUac2be2vINVnm' }],
+  ['666443', { name: 'Beautiful World', artist: '宇多田ヒカル', trackId: '2JBcbbaGqUynOh01FvoV5e' }],
   ['658418', { name: '最高の片想い', artist: 'タイナカ彩智', trackId: '37Ow6jc1jv7D2Pyf9AhQWJ' }],
   ['22773568', { name: 'ひとり上手', artist: '中島みゆき', trackId: '7oSAzD9RTyiPHOM16noKMl' }],
   ['2725982315', { name: '斑彩', artist: 'kobasolo', trackId: '37hzEkgqQyxykySKnCi7FM' }],
@@ -146,6 +150,9 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['重音テト', ['Kasane Teto']],
+  ['张叶蕾', ['Leafy Zhang张叶蕾']],
+  ['宇多田ヒカル', ['Hikaru Utada']],
   ['タイナカ彩智', ['タイナカ サチ', 'タイナカサチ', 'Sachi Tainaka']],
   ['中島みゆき', ['Miyuki Nakajima']],
   ['伊藤由奈', ['Yuna Ito']],
