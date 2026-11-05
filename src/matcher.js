@@ -32,6 +32,7 @@ const VERIFIED_TITLES = new Map([
 // A performance credit is not a universal artist alias. This reviewed band-set
 // relationship applies only to the named source recording, never all re:plus.
 const VERIFIED_CREDITS = new Map([
+  ['2614851804', { name: '秋风', artist: '徐化文（四熹丸子）', aliases: ['四熹丸子'] }],
   ['509106775', { name: '彼女は旅に出る', artist: '鎖那', aliases: ['sana'] }],
   ['474739593', { name: 'カサネテク', artist: '中村千尋', aliases: ['Chihiro Nakamura'] }],
   ['601536', { name: 'ねがい', artist: '久保田早紀', aliases: ['Saki Kubota'] }],
@@ -52,6 +53,8 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['28798391', { name: '우리 얘기 좀 해', artist: 'Lillo', titles: ['Can we just talk?'] }],
+  ['427595456', { name: '우주를 줄게', artist: '脸红的思春期', titles: ['Galaxy'] }],
   ['3339091911', { name: 'うそつきマカロン (feat. 重音テト)', artist: '暴飲暴食P', titles: ['Liar Macaron (feat. KASANE TETO)'] }],
   ['509106775', { name: '彼女は旅に出る', artist: '鎖那', titles: ['kanojo wa tabinideru'] }],
   ['474739593', { name: 'カサネテク', artist: '中村千尋', titles: ['Kasaneteku'] }],
@@ -88,6 +91,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['2614851804', { name: '秋风', artist: '徐化文（四熹丸子）', trackId: '7ue8efKMQnnr9f4FeEJnl4' }],
+  ['28798391', { name: '우리 얘기 좀 해', artist: 'Lillo', trackId: '6dYwVgEs2zyCZJgtzBXT91' }],
+  ['427595456', { name: '우주를 줄게', artist: '脸红的思春期', trackId: '15c7KZTrsCUxCQcOdUVELc' }],
   ['3339091911', { name: 'うそつきマカロン (feat. 重音テト)', artist: '暴飲暴食P', trackId: '6MwKUr4sLEUZTcyvBNSTZH', requireCompleteRoster: true }],
   ['465921195', { name: '还是分开', artist: '张叶蕾', trackId: '22IGcQVGVUac2be2vINVnm' }],
   ['666443', { name: 'Beautiful World', artist: '宇多田ヒカル', trackId: '2JBcbbaGqUynOh01FvoV5e' }],
@@ -150,6 +156,7 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['脸红的思春期', ['BOL4', 'Bolbbalgan4', '볼빨간사춘기']],
   ['重音テト', ['Kasane Teto']],
   ['张叶蕾', ['Leafy Zhang张叶蕾']],
   ['宇多田ヒカル', ['Hikaru Utada']],
