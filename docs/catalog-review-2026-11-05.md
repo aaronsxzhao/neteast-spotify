@@ -1,5 +1,27 @@
 # November 5 catalog review
 
+## Completed four-track follow-up
+
+All four remaining tracks received official-release, alternate-credit, public-catalog and bounded authenticated-search review. `/me` confirmed AaronZ before catalog requests; local and cloud refresh credentials agreed, and neither stored state had an active cooldown. This pass used 10 HTTP requests total (token refresh, identity, eight track searches), at least 8 seconds apart, with zero retries and no 429. It did not write the playlist or dispatch a sync.
+
+| Source | Two additional API queries | Unique returned candidates | Conclusion |
+| --- | --- | --- | --- |
+| Sincerely — 浜田朱里 | `Sincerely 浜田 朱里`; `Sincerely Juri Hamada` | 15 | TRUE, Haruomi Hosono, Yuri Kil and other unrelated artists. No correct target verified. |
+| 別れ1940 — 深津絵里 | `別れ1940`; `album:毒苺` | 17 | Other songs containing 別れ/1940 and unrelated Toxic Candy Drop / 陳昱睿 releases. No correct target verified. |
+| 新宿午前3时25分 — 北野武 | `新宿午前3時25分`; `新宿 ビートたけし` | 16 | Goro Noguchi's 新宿午前四時 and other unrelated titles/artists. No correct target verified. |
+| 一枚の写真 — 石田ひかり | `一枚の写真 石田ひかり`; `Ichimai no Shashin Hikari Ishida` | 20 | Unrelated artists and songs; earlier exact-title previews were also other artists. No correct target verified. |
+
+All 68 per-source unique candidates were rejected in both normal and alternate-version offline scoring. Search ranking is bounded, so this is a completed review of the documented evidence, not proof of global catalog absence or regional unavailability. There is no supported additional matching repair for these four in this pass. Existing five recording fixes remain intact. Four regression cases now retain representative false positives so later recall changes cannot silently substitute these unrelated recordings.
+
+Official release evidence checked for all four
+
+- [Sony's 浜田朱里 album listing](https://www.110107.com/s/oto/discography/DYCL-395) identifies Sincerely on 瞳・センチメンタル.
+- [NODA MAP's original release notice](https://www.nodamap.com/site/news/253) identifies ICHIGO ICHIE's 毒苺 and 深津絵里 as the singer; the production discography below lists 別れ1940.
+- [Victor's original compilation listing](https://www.jvcmusic.co.jp/-/Discography/-/VICL-63423.html) lists 新宿午前３時２５分 on disc 2, track 17. This confirms the recording, not Spotify availability.
+- [Teichiku's TWIN VERY BEST COLLECTION](https://www.teichiku.co.jp/chronicle/catalog/TECH-30367.html) lists 一枚の写真 on disc 2. This is a different release from the Spotify GOLDEN BEST already inspected.
+
+The daily review automation now requires all misses to be reviewed before applying and committing the supported fixes. It retains the 18:30 Beijing schedule and explicitly does not dispatch a sync. See [daily review procedure](daily-review.md).
+
 ## Follow-up verification
 
 The initial six unresolved cases were not six proven catalog absences. Further album-level inspection recovered two more public candidates.
