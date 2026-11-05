@@ -4,6 +4,8 @@ import { findTrackMatch, knownTrackIds, pickBestMatch, pickAlternateVersion } fr
 
 // Nov 5 persisted diagnostics, plus the public Galaxy embed metadata.
 const cases = [
+  [417859225, '해볼래', ['Sistar'], 188835, 'Say! Yes', ['SISTAR'], 188835, '5gDxhjgpRoClBFrOcNGiEQ'],
+  [487280, 'ソー・ロング・マイ・ラヴ', ['小田和正'], 352000, 'so long my love', ['Kazumasa Oda'], 349666, '0lM08CHxy1DQ4RdvfGPGGT'],
   [2614851804, '秋风', ['徐化文（四熹丸子）'], 200955, '秋风', ['四熹丸子'], 200955, '7ue8efKMQnnr9f4FeEJnl4'],
   [28798391, '우리 얘기 좀 해', ['Lillo', '제이형', '지현'], 230063, 'Can we just talk?', ['Lillo', 'J-Hyung', '엄지현'], 230001, '6dYwVgEs2zyCZJgtzBXT91'],
   [427595456, '우주를 줄게', ['脸红的思春期'], 215120, 'Galaxy', ['BOL4'], 213853, '15c7KZTrsCUxCQcOdUVELc'],

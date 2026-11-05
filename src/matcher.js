@@ -53,6 +53,8 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['417859225', { name: '해볼래', artist: 'Sistar', titles: ['Say! Yes'] }],
+  ['487280', { name: 'ソー・ロング・マイ・ラヴ', artist: '小田和正', titles: ['so long my love'] }],
   ['28798391', { name: '우리 얘기 좀 해', artist: 'Lillo', titles: ['Can we just talk?'] }],
   ['427595456', { name: '우주를 줄게', artist: '脸红的思春期', titles: ['Galaxy'] }],
   ['3339091911', { name: 'うそつきマカロン (feat. 重音テト)', artist: '暴飲暴食P', titles: ['Liar Macaron (feat. KASANE TETO)'] }],
@@ -91,6 +93,8 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['417859225', { name: '해볼래', artist: 'Sistar', trackId: '5gDxhjgpRoClBFrOcNGiEQ' }],
+  ['487280', { name: 'ソー・ロング・マイ・ラヴ', artist: '小田和正', trackId: '0lM08CHxy1DQ4RdvfGPGGT' }],
   ['2614851804', { name: '秋风', artist: '徐化文（四熹丸子）', trackId: '7ue8efKMQnnr9f4FeEJnl4' }],
   ['28798391', { name: '우리 얘기 좀 해', artist: 'Lillo', trackId: '6dYwVgEs2zyCZJgtzBXT91' }],
   ['427595456', { name: '우주를 줄게', artist: '脸红的思春期', trackId: '15c7KZTrsCUxCQcOdUVELc' }],
