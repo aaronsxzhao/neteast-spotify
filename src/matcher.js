@@ -32,6 +32,7 @@ const VERIFIED_TITLES = new Map([
 // A performance credit is not a universal artist alias. This reviewed band-set
 // relationship applies only to the named source recording, never all re:plus.
 const VERIFIED_CREDITS = new Map([
+  ['491233901', { name: '금요병', artist: 'Dalda', aliases: ['Cream'] }],
   ['2614851804', { name: '秋风', artist: '徐化文（四熹丸子）', aliases: ['四熹丸子'] }],
   ['509106775', { name: '彼女は旅に出る', artist: '鎖那', aliases: ['sana'] }],
   ['474739593', { name: 'カサネテク', artist: '中村千尋', aliases: ['Chihiro Nakamura'] }],
@@ -46,6 +47,8 @@ const VERIFIED_CREDITS = new Map([
 // A solo source credit may denote a reviewed collaboration, not every release
 // by either member. Require the complete roster AND tight recording evidence.
 const VERIFIED_ROSTERS = new Map([
+  ['1854231422', { name: 'モア！ジャンプ！モア！ (feat. 花里みのり&桐谷遥&桃井愛莉&日野森雫&初音ミク)',
+    sourceRoster: ['ナユタン星人', 'MORE MORE JUMP！', '初音ミク'], rosters: [['MORE MORE JUMP!']] }],
   ['526439257', { name: 'Goodbye to Your Love', artist: '二宮愛',
     rosters: [['re:plus', 'Ai Ninomiya'], ['R.A.']] }],
 ])
@@ -53,6 +56,8 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['601458', { name: '真夏のSequence', artist: '菊池桃子', titles: ['Manatsu no Sequence'] }],
+  ['491233901', { name: '금요병', artist: 'Dalda', titles: ['Friday Blues'] }],
   ['417859225', { name: '해볼래', artist: 'Sistar', titles: ['Say! Yes'] }],
   ['487280', { name: 'ソー・ロング・マイ・ラヴ', artist: '小田和正', titles: ['so long my love'] }],
   ['28798391', { name: '우리 얘기 좀 해', artist: 'Lillo', titles: ['Can we just talk?'] }],
@@ -93,6 +98,10 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['28838055', { name: '再见悲哀', artist: '林忆莲', trackId: '4dtGOHiORFemWpob6iNcSu' }],
+  ['601458', { name: '真夏のSequence', artist: '菊池桃子', trackId: '50yyhKQf0FyRw4MwcQ7p0C' }],
+  ['491233901', { name: '금요병', artist: 'Dalda', trackId: '4h7cWN1SvevARfXqznXqT5' }],
+  ['1854231422', { name: 'モア！ジャンプ！モア！ (feat. 花里みのり&桐谷遥&桃井愛莉&日野森雫&初音ミク)', artist: 'ナユタン星人', trackId: '2l44rj2fDZDv6sTgyYMPxL' }],
   ['417859225', { name: '해볼래', artist: 'Sistar', trackId: '5gDxhjgpRoClBFrOcNGiEQ' }],
   ['487280', { name: 'ソー・ロング・マイ・ラヴ', artist: '小田和正', trackId: '0lM08CHxy1DQ4RdvfGPGGT' }],
   ['2614851804', { name: '秋风', artist: '徐化文（四熹丸子）', trackId: '7ue8efKMQnnr9f4FeEJnl4' }],
@@ -160,6 +169,7 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['林忆莲', ['Sandy Lam', '林憶蓮']],
   ['脸红的思春期', ['BOL4', 'Bolbbalgan4', '볼빨간사춘기']],
   ['重音テト', ['Kasane Teto']],
   ['张叶蕾', ['Leafy Zhang张叶蕾']],
@@ -474,8 +484,15 @@ function corroboratedCredit(song, candidate, { title, album, difference, manual 
   const reviewed = manual && VERIFIED_ROSTERS.get(String(song.id))
   const sourceCredits = songArtists(song)
   const targetRoster = (candidate.artists || []).map(a => normalize(a.name)).sort()
-  if (reviewed && normalize(song.name) === normalize(reviewed.name) && sourceCredits.length === 1 &&
-    normalize(sourceCredits[0]) === normalize(reviewed.artist) &&
+  // A reviewed composer-first source can name the performers only on the
+  // target. Require the entire source roster and literal featured cast title;
+  // never alias the composer globally to the group or accept the solo cover.
+  const sourceAgrees = reviewed?.sourceRoster
+    ? JSON.stringify(sourceCredits.map(normalize).sort()) === JSON.stringify(reviewed.sourceRoster.map(normalize).sort()) &&
+      String(song.name).normalize('NFKC') === reviewed.name.normalize('NFKC') &&
+      String(candidate.name).normalize('NFKC') === reviewed.name.normalize('NFKC')
+    : sourceCredits.length === 1 && normalize(sourceCredits[0]) === normalize(reviewed?.artist)
+  if (reviewed && normalize(song.name) === normalize(reviewed.name) && sourceAgrees &&
     reviewed.rosters.some(names => JSON.stringify(names.map(normalize).sort()) === JSON.stringify(targetRoster))) {
     return 'reviewed-complete-roster'
   }
