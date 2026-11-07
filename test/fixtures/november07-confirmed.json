@@ -1,0 +1,940 @@
+[
+  {
+    "source": {
+      "id": 22663877,
+      "name": "OH NO,OH YES!",
+      "ar": [
+        {
+          "name": "中森明菜"
+        }
+      ],
+      "al": {
+        "name": "CRIMSON",
+        "tns": [
+          "CRIMSON"
+        ]
+      },
+      "dt": 287533,
+      "tns": [
+        "OH NO,OH YES!"
+      ]
+    },
+    "candidate": {
+      "id": "3azWTe7wgJhQkC5B11mepk",
+      "name": "OH NO,OH YES!",
+      "artists": [
+        {
+          "name": "Akina Nakamori"
+        }
+      ],
+      "album": {
+        "name": "CRIMSON"
+      },
+      "duration_ms": 287533,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3343686,
+      "name": "special",
+      "ar": [
+        {
+          "name": "Richie Kotzen"
+        }
+      ],
+      "al": {
+        "name": "Get Up",
+        "tns": [
+          "Get Up"
+        ]
+      },
+      "dt": 311773,
+      "tns": [
+        "special"
+      ]
+    },
+    "candidate": {
+      "id": "2HozjNF335hE9HxUn1Rxnn",
+      "name": "special",
+      "artists": [
+        {
+          "name": "Richie Kotzen"
+        }
+      ],
+      "album": {
+        "name": "Get Up"
+      },
+      "duration_ms": 311773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28391219,
+      "name": "봄 사랑 벚꽃 말고",
+      "ar": [
+        {
+          "name": "High4"
+        },
+        {
+          "name": "IU"
+        }
+      ],
+      "al": {
+        "name": "봄 사랑 벚꽃 말고",
+        "tns": [
+          "봄 사랑 벚꽃 말고"
+        ]
+      },
+      "dt": 195180,
+      "tns": [
+        "봄 사랑 벚꽃 말고",
+        "除了春天 爱情和樱花",
+        "Not Spring, Love, or Cherry Blossoms"
+      ]
+    },
+    "candidate": {
+      "id": "1IdM9JrXYuMYiTdM983oH4",
+      "name": "Not Spring, Love, or Cherry Blossoms",
+      "artists": [
+        {
+          "name": "HIGH4"
+        },
+        {
+          "name": "IU"
+        }
+      ],
+      "album": {
+        "name": "Not Spring, Love, or Cherry Blossoms"
+      },
+      "duration_ms": 195265,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28546494,
+      "name": "うたかたの恋",
+      "ar": [
+        {
+          "name": "原田知世"
+        }
+      ],
+      "al": {
+        "name": "noon moon",
+        "tns": [
+          "noon moon"
+        ]
+      },
+      "dt": 267040,
+      "tns": [
+        "うたかたの恋",
+        "如泡沫般的恋爱",
+        "如泡沫般的戀愛"
+      ]
+    },
+    "candidate": {
+      "id": "70c9RR3BlQflNs7VUUtFDX",
+      "name": "うたかたの恋",
+      "artists": [
+        {
+          "name": "Tomoyo Harada"
+        }
+      ],
+      "album": {
+        "name": "音楽と私"
+      },
+      "duration_ms": 272773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2044921850,
+      "name": "Kiss'N'You",
+      "ar": [
+        {
+          "name": "Neighbors Complain"
+        }
+      ],
+      "al": {
+        "name": "NBCP",
+        "tns": [
+          "NBCP"
+        ]
+      },
+      "dt": 217778,
+      "tns": [
+        "Kiss'N'You"
+      ]
+    },
+    "candidate": {
+      "id": "5hYNHdJ2z2XOrgmSYUouFb",
+      "name": "Kiss'N'You",
+      "artists": [
+        {
+          "name": "Neighbors Complain"
+        }
+      ],
+      "album": {
+        "name": "NBCP"
+      },
+      "duration_ms": 217778,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 441489617,
+      "name": "Find Out",
+      "ar": [
+        {
+          "name": "黒川沙良"
+        }
+      ],
+      "al": {
+        "name": "Prelude",
+        "tns": [
+          "Prelude"
+        ]
+      },
+      "dt": 317347,
+      "tns": [
+        "Find Out"
+      ]
+    },
+    "candidate": {
+      "id": "2C01O3dRC5jhQaZY0BaQPx",
+      "name": "Find out〜One Thing〜",
+      "artists": [
+        {
+          "name": "Sala Kurokawa"
+        }
+      ],
+      "album": {
+        "name": "Prelude"
+      },
+      "duration_ms": 317293,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 255515,
+      "name": "真的想见你",
+      "ar": [
+        {
+          "name": "李玟"
+        }
+      ],
+      "al": {
+        "name": "李玟粤语专辑",
+        "tns": [
+          "李玟粤语专辑"
+        ]
+      },
+      "dt": 329533,
+      "tns": [
+        "真的想见你"
+      ]
+    },
+    "candidate": {
+      "id": "7BqZRiX6zkOgLznbCt70Ns",
+      "name": "真的想見你",
+      "artists": [
+        {
+          "name": "CoCo Lee"
+        }
+      ],
+      "album": {
+        "name": "李玟粵語專輯"
+      },
+      "duration_ms": 329533,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 444548490,
+      "name": "글쎄",
+      "ar": [
+        {
+          "name": "SEVENTEEN"
+        }
+      ],
+      "al": {
+        "name": "Going Seventeen",
+        "tns": [
+          "Going Seventeen"
+        ]
+      },
+      "dt": 231899,
+      "tns": [
+        "글쎄",
+        "I Don't Know"
+      ]
+    },
+    "candidate": {
+      "id": "7cwjntgP717i0JZFGoTPMH",
+      "name": "I Don't Know",
+      "artists": [
+        {
+          "name": "SEVENTEEN"
+        }
+      ],
+      "album": {
+        "name": "Going Seventeen"
+      },
+      "duration_ms": 231899,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1472480890,
+      "name": "群青",
+      "ar": [
+        {
+          "name": "YOASOBI"
+        }
+      ],
+      "al": {
+        "name": "群青",
+        "tns": [
+          "群青"
+        ]
+      },
+      "dt": 248444,
+      "tns": [
+        "群青"
+      ]
+    },
+    "candidate": {
+      "id": "0T4AitQuq8IJhWBWuZwkFA",
+      "name": "群青",
+      "artists": [
+        {
+          "name": "YOASOBI"
+        }
+      ],
+      "album": {
+        "name": "群青"
+      },
+      "duration_ms": 248444,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26107935,
+      "name": "Serendipity",
+      "ar": [
+        {
+          "name": "西原健一郎"
+        }
+      ],
+      "al": {
+        "name": "Illuminus",
+        "tns": [
+          "Illuminus"
+        ]
+      },
+      "dt": 245093,
+      "tns": [
+        "Serendipity"
+      ]
+    },
+    "candidate": {
+      "id": "5ryxdobYDJWyQQFamfDOxb",
+      "name": "Serendipity",
+      "artists": [
+        {
+          "name": "Kenichiro Nishihara"
+        },
+        {
+          "name": "Tamala"
+        },
+        {
+          "name": "Takurah"
+        }
+      ],
+      "album": {
+        "name": "Illuminus"
+      },
+      "duration_ms": 245093,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 659350,
+      "name": "駅",
+      "ar": [
+        {
+          "name": "竹内まりや"
+        }
+      ],
+      "al": {
+        "name": "駅 / After Years",
+        "tns": [
+          "駅 / After Years"
+        ]
+      },
+      "dt": 300613,
+      "tns": [
+        "駅",
+        "车站"
+      ]
+    },
+    "candidate": {
+      "id": "57MaGVVg5DXncBKkrsCnEM",
+      "name": "駅",
+      "artists": [
+        {
+          "name": "Mariya Takeuchi"
+        }
+      ],
+      "album": {
+        "name": "REQUEST (30th Anniversary Edition)"
+      },
+      "duration_ms": 300613,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2082871357,
+      "name": "Elevated",
+      "ar": [
+        {
+          "name": "Charles Berthoud"
+        }
+      ],
+      "al": {
+        "name": "Elevated",
+        "tns": [
+          "Elevated"
+        ]
+      },
+      "dt": 120032,
+      "tns": [
+        "Elevated"
+      ]
+    },
+    "candidate": {
+      "id": "7gv8CzdonKjJkQPgGcGQcz",
+      "name": "Elevated",
+      "artists": [
+        {
+          "name": "Charles Berthoud"
+        }
+      ],
+      "album": {
+        "name": "Elevated"
+      },
+      "duration_ms": 120032,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22719725,
+      "name": "Sunrise to Sunset",
+      "ar": [
+        {
+          "name": "浅香唯"
+        }
+      ],
+      "al": {
+        "name": "Candid Girl",
+        "tns": [
+          "Candid Girl"
+        ]
+      },
+      "dt": 303626,
+      "tns": [
+        "Sunrise to Sunset"
+      ]
+    },
+    "candidate": {
+      "id": "6Lgj2pcRGWMQHXjGuH5wH7",
+      "name": "Sunrise to Sunset - 2015 Remaster",
+      "artists": [
+        {
+          "name": "浅香 唯"
+        }
+      ],
+      "album": {
+        "name": "Candid Girl (+3; 2015 Remaster)"
+      },
+      "duration_ms": 303586,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28341184,
+      "name": "MR. CHU (ON Stage)",
+      "ar": [
+        {
+          "name": "Apink"
+        }
+      ],
+      "al": {
+        "name": "Pink Blossom",
+        "tns": [
+          "Pink Blossom"
+        ]
+      },
+      "dt": 204754,
+      "tns": [
+        "MR. CHU (ON Stage)"
+      ]
+    },
+    "candidate": {
+      "id": "4cpVTktQTFEgrjKcLGFDX8",
+      "name": "Mr. Chu (On Stage)",
+      "artists": [
+        {
+          "name": "Apink"
+        }
+      ],
+      "album": {
+        "name": "Pink Blossom"
+      },
+      "duration_ms": 204754,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 209108,
+      "name": "无底洞",
+      "ar": [
+        {
+          "name": "蔡健雅"
+        }
+      ],
+      "al": {
+        "name": "陌生人",
+        "tns": [
+          "陌生人"
+        ]
+      },
+      "dt": 242693,
+      "tns": [
+        "无底洞"
+      ]
+    },
+    "candidate": {
+      "id": "6vJ97QouNlvgs74MMhxdvw",
+      "name": "無底洞",
+      "artists": [
+        {
+          "name": "Tanya Chua"
+        }
+      ],
+      "album": {
+        "name": "陌生人"
+      },
+      "duration_ms": 242693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28151022,
+      "name": "鳥の詩",
+      "ar": [
+        {
+          "name": "Lia"
+        }
+      ],
+      "al": {
+        "name": "AIR ORIGINAL SOUNDTRACK",
+        "tns": [
+          "AIR ORIGINAL SOUNDTRACK"
+        ]
+      },
+      "dt": 368000,
+      "tns": [
+        "鳥の詩",
+        "鸟之诗",
+        "游戏《AIR》主题曲:TV动画《青空》OP1"
+      ]
+    },
+    "candidate": {
+      "id": "2JacUWw1kxN2lunFlCLrPe",
+      "name": "Tori no Uta",
+      "artists": [
+        {
+          "name": "Lia"
+        },
+        {
+          "name": "VISUAL ARTS / Key"
+        }
+      ],
+      "album": {
+        "name": "AIR ORIGINAL SOUNDTRACK"
+      },
+      "duration_ms": 368000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 410654341,
+      "name": "マスカット",
+      "ar": [
+        {
+          "name": "平原綾香"
+        }
+      ],
+      "al": {
+        "name": "LOVE",
+        "tns": [
+          "LOVE"
+        ]
+      },
+      "dt": 360813,
+      "tns": [
+        "マスカット",
+        "麝香葡萄"
+      ]
+    },
+    "candidate": {
+      "id": "5h86u840eqoaKZPgEapLW0",
+      "name": "マスカット",
+      "artists": [
+        {
+          "name": "Ayaka Hirahara"
+        }
+      ],
+      "album": {
+        "name": "LOVE"
+      },
+      "duration_ms": 358320,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 567817,
+      "name": "CHA-CHA-CHA",
+      "ar": [
+        {
+          "name": "石井明美"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション",
+        "tns": [
+          "ゴールデン☆ベスト 石井明美セレクション"
+        ]
+      },
+      "dt": 219000,
+      "tns": [
+        "CHA-CHA-CHA"
+      ]
+    },
+    "candidate": {
+      "id": "4c8iGaGVnW37QrYU2S0VRe",
+      "name": "CHA-CHA-CHA",
+      "artists": [
+        {
+          "name": "Akemi Ishii"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション"
+      },
+      "duration_ms": 217706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 29463115,
+      "name": "여리고 착해서",
+      "ar": [
+        {
+          "name": "영주"
+        }
+      ],
+      "al": {
+        "name": "여리고 착해서",
+        "tns": [
+          "여리고 착해서"
+        ]
+      },
+      "dt": 201717,
+      "tns": [
+        "여리고 착해서",
+        "脆弱的善良"
+      ]
+    },
+    "candidate": {
+      "id": "2JfZ3krstEjQcdbsnFoz5r",
+      "name": "여리고 착해서",
+      "artists": [
+        {
+          "name": "Nam Young Joo"
+        }
+      ],
+      "album": {
+        "name": "여리고 착해서"
+      },
+      "duration_ms": 201717,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 584816,
+      "name": "私らしく",
+      "ar": [
+        {
+          "name": "岩崎宏美"
+        }
+      ],
+      "al": {
+        "name": "Me too",
+        "tns": [
+          "Me too",
+          "Me too"
+        ]
+      },
+      "dt": 270758,
+      "tns": [
+        "私らしく",
+        "如我"
+      ]
+    },
+    "candidate": {
+      "id": "4ftrkCSsRZudXRWDvc0OcD",
+      "name": "私らしく",
+      "artists": [
+        {
+          "name": "Hiromi Iwasaki"
+        }
+      ],
+      "album": {
+        "name": "Me too"
+      },
+      "duration_ms": 270758,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22817987,
+      "name": "SHYNESS BOY",
+      "ar": [
+        {
+          "name": "杏里"
+        }
+      ],
+      "al": {
+        "name": "Timely!!",
+        "tns": [
+          "Timely!!"
+        ]
+      },
+      "dt": 196666,
+      "tns": [
+        "SHYNESS BOY"
+      ]
+    },
+    "candidate": {
+      "id": "7KYzARBusZhyZ6jygZDmVr",
+      "name": "SHYNESS BOY",
+      "artists": [
+        {
+          "name": "Anri"
+        }
+      ],
+      "album": {
+        "name": "Timely!!"
+      },
+      "duration_ms": 196666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 33071068,
+      "name": "Miree BAY ver.",
+      "ar": [
+        {
+          "name": "Suchmos"
+        }
+      ],
+      "al": {
+        "name": "THE BAY",
+        "tns": [
+          "THE BAY"
+        ]
+      },
+      "dt": 258763,
+      "tns": [
+        "Miree BAY ver."
+      ]
+    },
+    "candidate": {
+      "id": "0QYVAUf6ur5khWWuiDwpMz",
+      "name": "Miree BAY ver.",
+      "artists": [
+        {
+          "name": "Suchmos"
+        }
+      ],
+      "album": {
+        "name": "THE BAY"
+      },
+      "duration_ms": 258693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 518088959,
+      "name": "FALLIN′",
+      "ar": [
+        {
+          "name": "Lovelyz"
+        }
+      ],
+      "al": {
+        "name": "Lovelyz 3rd Mini Album [Fall in Lovelyz]",
+        "tns": [
+          "Lovelyz 3rd Mini Album [Fall in Lovelyz]"
+        ]
+      },
+      "dt": 213170,
+      "tns": [
+        "FALLIN′"
+      ]
+    },
+    "candidate": {
+      "id": "2ABKHOINefcTu9m9clsBTG",
+      "name": "FALLIN'",
+      "artists": [
+        {
+          "name": "Lovelyz"
+        }
+      ],
+      "album": {
+        "name": "3rd Mini Album [Fall in Lovelyz]"
+      },
+      "duration_ms": 213170,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 300591,
+      "name": "季候风",
+      "ar": [
+        {
+          "name": "王菲"
+        }
+      ],
+      "al": {
+        "name": "执迷不悔 (Remastered 2019)",
+        "tns": [
+          "执迷不悔 (Remastered 2019)"
+        ]
+      },
+      "dt": 277640,
+      "tns": [
+        "季候风"
+      ]
+    },
+    "candidate": {
+      "id": "4HcsshxVrHmwOphqKct7Gc",
+      "name": "季候風",
+      "artists": [
+        {
+          "name": "Faye Wong"
+        }
+      ],
+      "album": {
+        "name": "執迷不悔 (Remastered 2019)"
+      },
+      "duration_ms": 276360,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2628314121,
+      "name": "愛しき日々",
+      "ar": [
+        {
+          "name": "Elena Kato Band"
+        }
+      ],
+      "al": {
+        "name": "ELENA KATO BAND",
+        "tns": [
+          "ELENA KATO BAND"
+        ]
+      },
+      "dt": 337386,
+      "tns": [
+        "愛しき日々",
+        "珍爱时光"
+      ]
+    },
+    "candidate": {
+      "id": "24boAHWw5z8vtc42hACyL2",
+      "name": "愛しき日々",
+      "artists": [
+        {
+          "name": "加藤エレナバンド"
+        }
+      ],
+      "album": {
+        "name": "Elena Kato Band"
+      },
+      "duration_ms": 337386,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1311427648,
+      "name": "Episode 33",
+      "ar": [
+        {
+          "name": "She Her Her Hers"
+        }
+      ],
+      "al": {
+        "name": "SPIRAL",
+        "tns": [
+          "SPIRAL"
+        ]
+      },
+      "dt": 257808,
+      "tns": [
+        "Episode 33"
+      ]
+    },
+    "candidate": {
+      "id": "3l2saAGxouk80U65Dwt8zp",
+      "name": "Episode 33",
+      "artists": [
+        {
+          "name": "She Her Her Hers"
+        }
+      ],
+      "album": {
+        "name": "SPIRAL"
+      },
+      "duration_ms": 257808,
+      "is_playable": true
+    }
+  }
+]

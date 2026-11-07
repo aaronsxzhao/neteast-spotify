@@ -56,6 +56,7 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['29122850', { name: 'いかないで collaboration', artist: '德永英明', titles: ['いかないで'] }],
   ['601458', { name: '真夏のSequence', artist: '菊池桃子', titles: ['Manatsu no Sequence'] }],
   ['491233901', { name: '금요병', artist: 'Dalda', titles: ['Friday Blues'] }],
   ['417859225', { name: '해볼래', artist: 'Sistar', titles: ['Say! Yes'] }],
@@ -98,6 +99,10 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['3419824228', { name: '花束じゃなくキミといたい feat. 玉置浩二', artist: '絢香', trackId: '4il15pZcNNkbwLMrI7dBaC', requireCompleteRoster: true }],
+  ['29827508', { name: '哪怕', artist: '莫文蔚', trackId: '4HKsAa7XAvZZs1x0Betdkx' }],
+  ['29122850', { name: 'いかないで collaboration', artist: '德永英明', trackId: '43JGCJZuHcqyVA2hyL4cIX', requireCompleteRoster: true }],
+  ['234064', { name: 'Where Did U Go', artist: 'G.E.M.邓紫棋', trackId: '0a8mmtNx7Gwa9Uav1UgAQX' }],
   ['28838055', { name: '再见悲哀', artist: '林忆莲', trackId: '4dtGOHiORFemWpob6iNcSu' }],
   ['601458', { name: '真夏のSequence', artist: '菊池桃子', trackId: '50yyhKQf0FyRw4MwcQ7p0C' }],
   ['491233901', { name: '금요병', artist: 'Dalda', trackId: '4h7cWN1SvevARfXqznXqT5' }],
@@ -169,6 +174,9 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['絢香', ['ayaka']],
+  ['玉置浩二', ['Koji Tamaki']],
+  ['G.E.M.邓紫棋', ['G.E.M.', '鄧紫棋', '邓紫棋']],
   ['林忆莲', ['Sandy Lam', '林憶蓮']],
   ['脸红的思春期', ['BOL4', 'Bolbbalgan4', '볼빨간사춘기']],
   ['重音テト', ['Kasane Teto']],

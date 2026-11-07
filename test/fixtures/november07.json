@@ -1,0 +1,627 @@
+[
+  {
+    "source": {
+      "id": 3419824228,
+      "name": "花束じゃなくキミといたい feat. 玉置浩二",
+      "ar": [
+        {
+          "name": "絢香"
+        },
+        {
+          "name": "玉置浩二"
+        }
+      ],
+      "al": {
+        "name": "20 Lights - The Collection -",
+        "tns": [
+          "20 Lights - The Collection -"
+        ]
+      },
+      "dt": 297840,
+      "tns": [
+        "花束じゃなくキミといたい feat. 玉置浩二",
+        " 不要花束只想与你一起 feat. 玉置浩二"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4F2v3Fr7L6tFDRoRwYMKrW",
+        "name": "花束じゃなくキミといたい",
+        "artists": [
+          {
+            "name": "ayaka"
+          }
+        ],
+        "album": {
+          "name": "20 Lights - The Collection -"
+        },
+        "duration_ms": 297720,
+        "is_playable": true
+      },
+      {
+        "id": "4184HCWLkKZr9AsgBeBAJA",
+        "name": "花束じゃなくキミといたい feat. 玉置浩二",
+        "artists": [
+          {
+            "name": "ayaka"
+          },
+          {
+            "name": "Koji Tamaki"
+          }
+        ],
+        "album": {
+          "name": "花束じゃなくキミといたい feat. 玉置浩二"
+        },
+        "duration_ms": 297840,
+        "is_playable": true
+      },
+      {
+        "id": "4OaLlRZLp11tRDioSRbCJk",
+        "name": "花束じゃなくキミといたい",
+        "artists": [
+          {
+            "name": "ayaka"
+          }
+        ],
+        "album": {
+          "name": "Wonder!"
+        },
+        "duration_ms": 301493,
+        "is_playable": true
+      },
+      {
+        "id": "6PwDqbSNyFdmoMYGESPZtz",
+        "name": "キミへ",
+        "artists": [
+          {
+            "name": "ayaka"
+          }
+        ],
+        "album": {
+          "name": "20 Lights - The Collection -"
+        },
+        "duration_ms": 301733,
+        "is_playable": true
+      },
+      {
+        "id": "4il15pZcNNkbwLMrI7dBaC",
+        "name": "花束じゃなくキミといたい feat. 玉置浩二",
+        "artists": [
+          {
+            "id": "22FsmLO3ZyvgWBy5QbfcQi",
+            "name": "ayaka"
+          },
+          {
+            "id": "5KLvrcsAUwqMOqxErwSJmD",
+            "name": "Koji Tamaki"
+          }
+        ],
+        "album": {
+          "name": "20 Lights - The Collection -"
+        },
+        "duration_ms": 297840,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 29827508,
+      "name": "哪怕",
+      "ar": [
+        {
+          "name": "莫文蔚"
+        }
+      ],
+      "al": {
+        "name": "不散，不见",
+        "tns": [
+          "不散，不见"
+        ]
+      },
+      "dt": 314453,
+      "tns": [
+        "哪怕"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3d2vl6h3HqMWc0cjp0pqE1",
+        "name": "哪怕",
+        "artists": [
+          {
+            "name": "Khalil Fong"
+          }
+        ],
+        "album": {
+          "name": "Soulboy"
+        },
+        "duration_ms": 259573,
+        "is_playable": true
+      },
+      {
+        "id": "5KS7JsIbkKlLlxNGpqERXU",
+        "name": "哪怕 [Live 08]",
+        "artists": [
+          {
+            "name": "方大同"
+          }
+        ],
+        "album": {
+          "name": "Khalil Fong [Wonderland Live 2008]"
+        },
+        "duration_ms": 283066,
+        "is_playable": true
+      },
+      {
+        "id": "6CXgHtjuivPYwMRlevVMfq",
+        "name": "哪怕",
+        "artists": [
+          {
+            "name": "光澤"
+          }
+        ],
+        "album": {
+          "name": "哪怕"
+        },
+        "duration_ms": 276000,
+        "is_playable": true
+      },
+      {
+        "id": "2eIlxMALl65WRStT5sooCc",
+        "name": "哪怕",
+        "artists": [
+          {
+            "name": "侯泽润"
+          }
+        ],
+        "album": {
+          "name": "哪怕"
+        },
+        "duration_ms": 224354,
+        "is_playable": true
+      },
+      {
+        "id": "634BdEXBBi9OJzePKwhNHs",
+        "name": "哪怕",
+        "artists": [
+          {
+            "name": "薇妮"
+          }
+        ],
+        "album": {
+          "name": "哪怕"
+        },
+        "duration_ms": 222208,
+        "is_playable": true
+      },
+      {
+        "id": "4lkCHTwVSfSd02i1IPhOz9",
+        "name": "哪怕",
+        "artists": [
+          {
+            "id": "6jlz5QSUqbKE4vnzo2qfP1",
+            "name": "Karen Mok"
+          }
+        ],
+        "album": {
+          "name": "不散,不见"
+        },
+        "duration_ms": 314000,
+        "is_playable": false
+      },
+      {
+        "id": "4HKsAa7XAvZZs1x0Betdkx",
+        "name": "哪怕",
+        "artists": [
+          {
+            "id": "6jlz5QSUqbKE4vnzo2qfP1",
+            "name": "Karen Mok"
+          }
+        ],
+        "album": {
+          "name": "不散,不見"
+        },
+        "duration_ms": 314435,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 211520,
+      "name": "你不要那样看着我的眼睛",
+      "ar": [
+        {
+          "name": "蔡琴"
+        }
+      ],
+      "al": {
+        "name": "你不要那样看着我的眼睛",
+        "tns": [
+          "你不要那样看着我的眼睛"
+        ]
+      },
+      "dt": 273000,
+      "tns": [
+        "你不要那样看着我的眼睛"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1WIYoQ5crkhLgOtM8kC3BG",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "钟心妍"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 226120,
+        "is_playable": true
+      },
+      {
+        "id": "5Lra6Ot7vu491nG53omUj2",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "吕口口"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 199905,
+        "is_playable": true
+      },
+      {
+        "id": "6OnkhLQAVtw2wTZrYB2Gi0",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "林羲焱"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 235600,
+        "is_playable": true
+      },
+      {
+        "id": "2bVYG421ZMIGHBgfbH2JpN",
+        "name": "你不要那样看着我的眼睛 - 柔情版",
+        "artists": [
+          {
+            "name": "是沛沛呀"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛 (柔情版)"
+        },
+        "duration_ms": 263640,
+        "is_playable": true
+      },
+      {
+        "id": "0jX5FZrpoVAWyUvpa13uU8",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "黄绮珊"
+          }
+        ],
+        "album": {
+          "name": "爱的归途"
+        },
+        "duration_ms": 231191,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 29122850,
+      "name": "いかないで collaboration",
+      "ar": [
+        {
+          "name": "德永英明"
+        },
+        {
+          "name": "玉置浩二"
+        }
+      ],
+      "al": {
+        "name": "Statement Tour Final At Nagoya Century Hall",
+        "tns": [
+          "Statement Tour Final At Nagoya Century Hall"
+        ]
+      },
+      "dt": 293082,
+      "tns": [
+        "いかないで collaboration",
+        "不要离开我",
+        "Live at Nagoya Century Hall / 2014"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2SIMOIJlyqtGDv43JfqJCI",
+        "name": "不要离开我",
+        "artists": [
+          {
+            "name": "真真敬"
+          }
+        ],
+        "album": {
+          "name": "不要离开我"
+        },
+        "duration_ms": 260426,
+        "is_playable": true
+      },
+      {
+        "id": "4FTP2TKzVy39PaFKErD2Uj",
+        "name": "不要离开我",
+        "artists": [
+          {
+            "name": "贾汐薇"
+          }
+        ],
+        "album": {
+          "name": "尊敬"
+        },
+        "duration_ms": 68668,
+        "is_playable": true
+      },
+      {
+        "id": "7y80J1ZfekEDq9gBHa7FuC",
+        "name": "不要离开我",
+        "artists": [
+          {
+            "name": "田园"
+          }
+        ],
+        "album": {
+          "name": "不要离开我"
+        },
+        "duration_ms": 232295,
+        "is_playable": true
+      },
+      {
+        "id": "53uSYZ40nrUi49fEHyOFrf",
+        "name": "请不要离开我",
+        "artists": [
+          {
+            "name": "Glenn Yong"
+          }
+        ],
+        "album": {
+          "name": "请不要离开我"
+        },
+        "duration_ms": 257708,
+        "is_playable": true
+      },
+      {
+        "id": "43JGCJZuHcqyVA2hyL4cIX",
+        "name": "いかないで - Live at Nagoya Century Hall / 2014",
+        "artists": [
+          {
+            "id": "2FTUpyPZ3hqBPLwmaEH14B",
+            "name": "Hideaki Tokunaga"
+          },
+          {
+            "id": "5KLvrcsAUwqMOqxErwSJmD",
+            "name": "Koji Tamaki"
+          }
+        ],
+        "album": {
+          "name": "STATEMENT TOUR FINAL at NAGOYA CENTURY HALL"
+        },
+        "duration_ms": 293013,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2719381953,
+      "name": "异心引力",
+      "ar": [
+        {
+          "name": "银河快递"
+        }
+      ],
+      "al": {
+        "name": "异心引力",
+        "tns": [
+          "异心引力",
+          "Funny"
+        ]
+      },
+      "dt": 234473,
+      "tns": [
+        "异心引力",
+        "Funny"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4FYbo4yQzu3hGkj2Ix4ucW",
+        "name": "Funny",
+        "artists": [
+          {
+            "name": "Zedd"
+          },
+          {
+            "name": "Jasmine Thompson"
+          }
+        ],
+        "album": {
+          "name": "Funny"
+        },
+        "duration_ms": 221465,
+        "is_playable": true
+      },
+      {
+        "id": "1fCIXUcPNsSisUvgq2UDA9",
+        "name": "Funny",
+        "artists": [
+          {
+            "name": "Ingrid Michaelson"
+          }
+        ],
+        "album": {
+          "name": "Funny"
+        },
+        "duration_ms": 118800,
+        "is_playable": true
+      },
+      {
+        "id": "63u02UKn5JBxe9WQ7CUkNn",
+        "name": "心引力",
+        "artists": [
+          {
+            "name": "不是花火呀"
+          },
+          {
+            "name": "桶"
+          }
+        ],
+        "album": {
+          "name": "心引力"
+        },
+        "duration_ms": 242234,
+        "is_playable": true
+      },
+      {
+        "id": "57izWRQXkuKYpQ4RHNYi24",
+        "name": "心引力",
+        "artists": [
+          {
+            "name": "王俊凱"
+          },
+          {
+            "name": "JOLIN"
+          }
+        ],
+        "album": {
+          "name": "心引力"
+        },
+        "duration_ms": 257785,
+        "is_playable": true
+      },
+      {
+        "id": "2LfP0ZgaowOB9LxlhDj7vk",
+        "name": "心引力 - Live",
+        "artists": [
+          {
+            "name": "Bibi Zhou"
+          },
+          {
+            "name": "田嘉瑞"
+          }
+        ],
+        "album": {
+          "name": "天赐的声音第七季 第7期 (Live)"
+        },
+        "duration_ms": 256173,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 234064,
+      "name": "Where Did U Go",
+      "ar": [
+        {
+          "name": "G.E.M.邓紫棋"
+        }
+      ],
+      "al": {
+        "name": "G.E.M.",
+        "tns": [
+          "G.E.M."
+        ]
+      },
+      "dt": 235800,
+      "tns": [
+        "Where Did U Go"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0sCOTZOkDH8WmFB9MEddQ1",
+        "name": "Where Did U Go",
+        "artists": [
+          {
+            "name": "G.E.M."
+          }
+        ],
+        "album": {
+          "name": "The Best of G.E.M. 2008 - 2012"
+        },
+        "duration_ms": 235800,
+        "is_playable": true
+      },
+      {
+        "id": "6IsINBwPvzwDmV6PHFIvk5",
+        "name": "Where Did U Go",
+        "artists": [
+          {
+            "name": "G.E.M."
+          }
+        ],
+        "album": {
+          "name": "The Best of G.E.M. 2008 - 2012 (Deluxe Version)"
+        },
+        "duration_ms": 235800,
+        "is_playable": true
+      },
+      {
+        "id": "3zuHVf4pRdjyI9ajKFf7ib",
+        "name": "Where Did U Go 2.0 - Remix",
+        "artists": [
+          {
+            "name": "G.E.M."
+          }
+        ],
+        "album": {
+          "name": "The Best of G.E.M. 2008 - 2012 (Deluxe Version)"
+        },
+        "duration_ms": 236706,
+        "is_playable": true
+      },
+      {
+        "id": "6mrlZCuuw5hDGGusLOnIn2",
+        "name": "Where Did U Go 2.0 - Remix",
+        "artists": [
+          {
+            "name": "G.E.M."
+          }
+        ],
+        "album": {
+          "name": "The Best of G.E.M. 2008 - 2012"
+        },
+        "duration_ms": 236706,
+        "is_playable": true
+      },
+      {
+        "id": "0a8mmtNx7Gwa9Uav1UgAQX",
+        "name": "Where Did U Go",
+        "artists": [
+          {
+            "id": "7aRC4L63dBn3CiLDuWaLSI",
+            "name": "G.E.M."
+          }
+        ],
+        "album": {
+          "name": "G.E.M."
+        },
+        "duration_ms": 234813,
+        "is_playable": true
+      }
+    ]
+  }
+]
