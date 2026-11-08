@@ -1,0 +1,821 @@
+[
+  {
+    "source": {
+      "id": 22655497,
+      "name": "Deeper and Deeper",
+      "ar": [
+        {
+          "name": "CAGNET"
+        },
+        {
+          "name": "Anna McMurphy"
+        }
+      ],
+      "al": {
+        "name": "Here We Are Again",
+        "tns": [
+          "Here We Are Again"
+        ]
+      },
+      "dt": 288925,
+      "tns": [
+        "Deeper and Deeper",
+        "日剧《Long Vacation》插曲"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4ycvkX3kxm0bDTDAmxzu4P",
+        "name": "Deeper and Deeper - Album Edit",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Deeper and Deeper"
+        },
+        "duration_ms": 295514,
+        "is_playable": true
+      },
+      {
+        "id": "5TCPfd2sUyyTthOhFNRo4Q",
+        "name": "Deeper and Deeper - 7\" Edit",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "GHV2"
+        },
+        "duration_ms": 294626,
+        "is_playable": true
+      },
+      {
+        "id": "5Roo8xy0qjRppfwmSWWXQF",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Erotica"
+        },
+        "duration_ms": 333466,
+        "is_playable": true
+      },
+      {
+        "id": "6KU8g98m1tcrUXRNjPQeOI",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Erotica (PA Version)"
+        },
+        "duration_ms": 333466,
+        "is_playable": true
+      },
+      {
+        "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "id": "29M6fB5DXQGVJYsx66rDPo",
+            "name": "Cagnet"
+          }
+        ],
+        "album": {
+          "name": "Here We Are Again～「ロングバケーション」オリジナルサウンドトラック III"
+        },
+        "duration_ms": 288866,
+        "is_playable": false
+      },
+      {
+        "id": "3e6Z2h3LsACpW7vqKawOVn",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "id": "29M6fB5DXQGVJYsx66rDPo",
+            "name": "Cagnet"
+          },
+          {
+            "id": "2RtvxLwKSKGuAibU0sWMff",
+            "name": "アンナ・マクマーフィ"
+          }
+        ],
+        "album": {
+          "name": "ロングバケーション オリジナル・サウンドトラック"
+        },
+        "duration_ms": 289040,
+        "is_playable": false
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 812400,
+      "name": "PLANET",
+      "ar": [
+        {
+          "name": "ラムジ"
+        }
+      ],
+      "al": {
+        "name": "3ラムジ",
+        "tns": [
+          "3ラムジ",
+          "3 Lambsey"
+        ]
+      },
+      "dt": 243400,
+      "tns": [
+        "PLANET"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3UFePyU0mSJvGONoLWKTeW",
+        "name": "Planet",
+        "artists": [
+          {
+            "name": "The Neighbourhood"
+          }
+        ],
+        "album": {
+          "name": "(((((ultraSOUND)))))"
+        },
+        "duration_ms": 241386,
+        "is_playable": true
+      },
+      {
+        "id": "7EJmiLMTRzBTad6ak393V8",
+        "name": "PLANET",
+        "artists": [
+          {
+            "name": "ロン・モンロウ"
+          }
+        ],
+        "album": {
+          "name": "PLANET"
+        },
+        "duration_ms": 246633,
+        "is_playable": true
+      },
+      {
+        "id": "2KKty9SBCLZR8kwOKrOY85",
+        "name": "PLANET",
+        "artists": [
+          {
+            "name": "Tsukiko Nakamura"
+          }
+        ],
+        "album": {
+          "name": "PLANET"
+        },
+        "duration_ms": 233373,
+        "is_playable": true
+      },
+      {
+        "id": "2gaULwYeXtG7UbRXxu9Hrq",
+        "name": "Planet",
+        "artists": [
+          {
+            "name": "宮川当"
+          }
+        ],
+        "album": {
+          "name": "Planet"
+        },
+        "duration_ms": 172858,
+        "is_playable": true
+      },
+      {
+        "id": "5Zy4OB1HiZA1FSpoOKKfPo",
+        "name": "PLANET",
+        "artists": [
+          {
+            "id": "2rfFjnIdU5NDoQOshNa31z",
+            "name": "Labmsey"
+          }
+        ],
+        "album": {
+          "name": "3ラムジ"
+        },
+        "duration_ms": 243400,
+        "is_playable": false
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 156288,
+      "name": "我会好好的",
+      "ar": [
+        {
+          "name": "伍佰 & China Blue"
+        }
+      ],
+      "al": {
+        "name": "诗情摇滚",
+        "tns": [
+          "诗情摇滚"
+        ]
+      },
+      "dt": 285053,
+      "tns": [
+        "我会好好的"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2VndCgnrYwZQQTZfQ923vx",
+        "name": "我会好好的 - Live",
+        "artists": [
+          {
+            "name": "Aska Yang"
+          },
+          {
+            "name": "姚晓棠"
+          }
+        ],
+        "album": {
+          "name": "天赐的声音第五季 第2期 (Live)"
+        },
+        "duration_ms": 284928,
+        "is_playable": true
+      },
+      {
+        "id": "5Iwck7PgUB9uHZWMbkeI3R",
+        "name": "我會好好的",
+        "artists": [
+          {
+            "name": "Cyndi Wang"
+          }
+        ],
+        "album": {
+          "name": "Cyndi with u"
+        },
+        "duration_ms": 270533,
+        "is_playable": true
+      },
+      {
+        "id": "5oLm3Sf1e7O39gavFOfmTw",
+        "name": "我會好好的",
+        "artists": [
+          {
+            "name": "Cyndi Wang"
+          }
+        ],
+        "album": {
+          "name": "My! Cyndi!"
+        },
+        "duration_ms": 270054,
+        "is_playable": true
+      },
+      {
+        "id": "4NEmjST1Wj8p24w5Z3Issm",
+        "name": "我会好好的",
+        "artists": [
+          {
+            "name": "孙露"
+          }
+        ],
+        "album": {
+          "name": "花火"
+        },
+        "duration_ms": 273197,
+        "is_playable": true
+      },
+      {
+        "id": "7tC6ami9OxhNYP6ykcKAct",
+        "name": "我會好好的 (I’ll Be Fine)",
+        "artists": [
+          {
+            "id": "5H8TJITZE1sPjVR2ACzXNS",
+            "name": "Wu Bai"
+          }
+        ],
+        "album": {
+          "name": "詩情搖滾"
+        },
+        "duration_ms": 285053,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 454828889,
+      "name": "人质",
+      "ar": [
+        {
+          "name": "张惠妹"
+        }
+      ],
+      "al": {
+        "name": "白羽毛之恋 华语典藏情歌 Vol.2",
+        "tns": [
+          "白羽毛之恋 华语典藏情歌 Vol.2"
+        ]
+      },
+      "dt": 229173,
+      "tns": [
+        "人质"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "6OAUhxFZzaRHHC8XiuIkvb",
+        "name": "人質",
+        "artists": [
+          {
+            "name": "A-Mei Chang"
+          }
+        ],
+        "album": {
+          "name": "我要快樂 (Deluxe Version)"
+        },
+        "duration_ms": 232853,
+        "is_playable": true
+      },
+      {
+        "id": "131W6EZ0QJ66rWGkxadhMV",
+        "name": "人質",
+        "artists": [
+          {
+            "name": "A-Mei Chang"
+          }
+        ],
+        "album": {
+          "name": "2 Her"
+        },
+        "duration_ms": 232853,
+        "is_playable": true
+      },
+      {
+        "id": "7dSZHKqnZktjpqmzBzJkfu",
+        "name": "人質",
+        "artists": [
+          {
+            "name": "Isaac Yong"
+          }
+        ],
+        "album": {
+          "name": "人質"
+        },
+        "duration_ms": 222500,
+        "is_playable": true
+      },
+      {
+        "id": "31T3cdTOTGLoJZJuBgqY5q",
+        "name": "人质",
+        "artists": [
+          {
+            "name": "李琦"
+          }
+        ],
+        "album": {
+          "name": "蒙面唱将猜猜猜第一季第十期"
+        },
+        "duration_ms": 217553,
+        "is_playable": true
+      },
+      {
+        "id": "2yGDozozwXW9y6Pmgilkfo",
+        "name": "人質",
+        "artists": [
+          {
+            "id": "6noxsCszBEEK04kCehugOp",
+            "name": "A-Mei Chang"
+          }
+        ],
+        "album": {
+          "name": "張惠妹 愛的力量 10年情歌最精選"
+        },
+        "duration_ms": 232853,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 559961,
+      "name": "雨上がり",
+      "ar": [
+        {
+          "name": "ari"
+        }
+      ],
+      "al": {
+        "name": "雨上がり",
+        "tns": [
+          "雨上がり"
+        ]
+      },
+      "dt": 311000,
+      "tns": [
+        "雨上がり",
+        "雨后"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2fHvk1zW4ZU8nCezkuR9sj",
+        "name": "雨上がり",
+        "artists": [
+          {
+            "name": "Kitri"
+          }
+        ],
+        "album": {
+          "name": "雨上がり"
+        },
+        "duration_ms": 242535,
+        "is_playable": true
+      },
+      {
+        "id": "0HTslntkrmJnoioyln03g0",
+        "name": "雨後",
+        "artists": [
+          {
+            "name": "Jeff Chang"
+          }
+        ],
+        "album": {
+          "name": "直覺"
+        },
+        "duration_ms": 310623,
+        "is_playable": true
+      },
+      {
+        "id": "1fvjxpaSeHgDo4NP52QdWR",
+        "name": "雨上がり",
+        "artists": [
+          {
+            "name": "Kitri"
+          }
+        ],
+        "album": {
+          "name": "Kitrist"
+        },
+        "duration_ms": 241906,
+        "is_playable": true
+      },
+      {
+        "id": "4Gr3TYH05Wd7fgZuHjVrFP",
+        "name": "雨上がり",
+        "artists": [
+          {
+            "name": "Jitterin' Jinn"
+          }
+        ],
+        "album": {
+          "name": "Banzai Attack"
+        },
+        "duration_ms": 285666,
+        "is_playable": true
+      },
+      {
+        "id": "06OblR9x55oMdX9rsPJlgO",
+        "name": "雨上がりの首飾り",
+        "artists": [
+          {
+            "name": "arie"
+          }
+        ],
+        "album": {
+          "name": "90s Magical Girl Waltz Collection"
+        },
+        "duration_ms": 197342,
+        "is_playable": true
+      },
+      {
+        "id": "2BlDX1yfT0ea5wo0vjCKKa",
+        "name": "光るなら",
+        "artists": [
+          {
+            "id": "7BzEKSgHp2yrNC6w5NkFhQ",
+            "name": "Goose house"
+          }
+        ],
+        "album": {
+          "name": "Milk"
+        },
+        "duration_ms": 252133,
+        "is_playable": true
+      },
+      {
+        "id": "5V3orVziFzM4Hy0mXsL3L8",
+        "name": "雨上がり",
+        "artists": [
+          {
+            "id": "3aw7SlpSDZ6UoRxIBPl0je",
+            "name": "Niningashi"
+          }
+        ],
+        "album": {
+          "name": "Heavy Way"
+        },
+        "duration_ms": 368333,
+        "is_playable": true
+      },
+      {
+        "id": "2LZ9iobmtiQa52mZMIebuH",
+        "name": "レイン",
+        "artists": [
+          {
+            "id": "24b231EnCM3BkpiuWs5VBE",
+            "name": "SID"
+          }
+        ],
+        "album": {
+          "name": "dead stock"
+        },
+        "duration_ms": 255533,
+        "is_playable": true
+      },
+      {
+        "id": "78kPbdzorf9Cgy8aQ7Mse5",
+        "name": "雨上がり",
+        "artists": [
+          {
+            "id": "61H9d7hbIfFNxJJQmIL9AJ",
+            "name": "Kinokoteikoku"
+          }
+        ],
+        "album": {
+          "name": "愛のゆくえ"
+        },
+        "duration_ms": 209653,
+        "is_playable": true
+      },
+      {
+        "id": "42zYgxSbU9FtK2OSLHpYw0",
+        "name": "The Marriage of Figaro, K. 492: Sull'aria",
+        "artists": [
+          {
+            "id": "4NJhFmfw43RLBLjQvxDuRS",
+            "name": "Wolfgang Amadeus Mozart"
+          },
+          {
+            "id": "0hpw1fgojt7CYLjSwtQckY",
+            "name": "Maria Pia Ionata"
+          },
+          {
+            "id": "2qPQ5trpbkGeAPx8qgEPSe",
+            "name": "Patrizia Pace"
+          },
+          {
+            "id": "6rLUj0kWUXAEbz26rtS9wO",
+            "name": "Hungarian State Opera Orchestra"
+          },
+          {
+            "id": "5N26LR3F8OW56imuIElk6B",
+            "name": "Pier Giorgio Morandi"
+          }
+        ],
+        "album": {
+          "name": "Mozart: The Marriage of Figaro (Highlights)"
+        },
+        "duration_ms": 159373,
+        "is_playable": true
+      },
+      {
+        "id": "0f0uETv1H0ZyCryKEVXEVR",
+        "name": "Le nozze di Figaro, K. 492, Act I Scene 8: Aria. Non più andrai",
+        "artists": [
+          {
+            "id": "4NJhFmfw43RLBLjQvxDuRS",
+            "name": "Wolfgang Amadeus Mozart"
+          },
+          {
+            "id": "1gOl5ClSw3Ig2C2I1T5Agt",
+            "name": "Natale de Carolis"
+          },
+          {
+            "id": "6rLUj0kWUXAEbz26rtS9wO",
+            "name": "Hungarian State Opera Orchestra"
+          },
+          {
+            "id": "5N26LR3F8OW56imuIElk6B",
+            "name": "Pier Giorgio Morandi"
+          }
+        ],
+        "album": {
+          "name": "Mozart: The Marriage of Figaro (Highlights)"
+        },
+        "duration_ms": 232760,
+        "is_playable": true
+      },
+      {
+        "id": "3I6bm9fAqx596Bg9D0c4mx",
+        "name": "雨乙女",
+        "artists": [
+          {
+            "id": "6grPDYoluzn0yi8qloRKst",
+            "name": "Raon"
+          }
+        ],
+        "album": {
+          "name": "雨乙女"
+        },
+        "duration_ms": 144906,
+        "is_playable": true
+      },
+      {
+        "id": "4t6x0VJp61MogoG8J4VZGC",
+        "name": "Le nozze di Figaro, K. 492, Act IV Scene 10: Aria. Deh vieni non tardar",
+        "artists": [
+          {
+            "id": "4NJhFmfw43RLBLjQvxDuRS",
+            "name": "Wolfgang Amadeus Mozart"
+          },
+          {
+            "id": "2qPQ5trpbkGeAPx8qgEPSe",
+            "name": "Patrizia Pace"
+          },
+          {
+            "id": "6rLUj0kWUXAEbz26rtS9wO",
+            "name": "Hungarian State Opera Orchestra"
+          },
+          {
+            "id": "5N26LR3F8OW56imuIElk6B",
+            "name": "Pier Giorgio Morandi"
+          }
+        ],
+        "album": {
+          "name": "Mozart: The Marriage of Figaro (Highlights)"
+        },
+        "duration_ms": 229626,
+        "is_playable": true
+      },
+      {
+        "id": "5vHgxEPYqisliSHDwZdgJU",
+        "name": "Le nozze di Figaro, K. 492, Act III Scene 8: Aria. Dove sono i bei momenti?",
+        "artists": [
+          {
+            "id": "4NJhFmfw43RLBLjQvxDuRS",
+            "name": "Wolfgang Amadeus Mozart"
+          },
+          {
+            "id": "0hpw1fgojt7CYLjSwtQckY",
+            "name": "Maria Pia Ionata"
+          },
+          {
+            "id": "6rLUj0kWUXAEbz26rtS9wO",
+            "name": "Hungarian State Opera Orchestra"
+          },
+          {
+            "id": "5N26LR3F8OW56imuIElk6B",
+            "name": "Pier Giorgio Morandi"
+          }
+        ],
+        "album": {
+          "name": "Mozart: The Marriage of Figaro (Highlights)"
+        },
+        "duration_ms": 301466,
+        "is_playable": true
+      },
+      {
+        "id": "3htuF7gVYjSCG3qsdvchXa",
+        "name": "雨上がりの空へ",
+        "artists": [
+          {
+            "id": "0C0YnH5S3ymD4GXIe5mJ1j",
+            "name": "ココロカイロ"
+          }
+        ],
+        "album": {
+          "name": "雨上がりの空へ"
+        },
+        "duration_ms": 183160,
+        "is_playable": true
+      },
+      {
+        "id": "13tTSvgg9v8rSUxYieT7IN",
+        "name": "ameagari",
+        "artists": [
+          {
+            "id": "3coUJaSHEnYwQT6NAM9BN4",
+            "name": "MIZUKAMI"
+          }
+        ],
+        "album": {
+          "name": "ameagari"
+        },
+        "duration_ms": 252473,
+        "is_playable": true
+      },
+      {
+        "id": "1wObi8g1yGli1LzawKgHU6",
+        "name": "雨上がりのチャンス",
+        "artists": [
+          {
+            "id": "4WG1sSVWo1Po6R1Jr1pb1X",
+            "name": "有賀陽子"
+          }
+        ],
+        "album": {
+          "name": "永遠のきらめき"
+        },
+        "duration_ms": 127315,
+        "is_playable": true
+      },
+      {
+        "id": "407Ht02hw2gvad4vZym0dc",
+        "name": "雨上がりのセンセーション",
+        "artists": [
+          {
+            "id": "4WG1sSVWo1Po6R1Jr1pb1X",
+            "name": "有賀陽子"
+          }
+        ],
+        "album": {
+          "name": "永遠のきらめき"
+        },
+        "duration_ms": 127315,
+        "is_playable": true
+      },
+      {
+        "id": "3Vz0oJ5J3RQGhhB5Eo33V9",
+        "name": "Ameagari",
+        "artists": [
+          {
+            "id": "6OZJtCCwoj5Ya0NudLT4xG",
+            "name": "Deebu"
+          }
+        ],
+        "album": {
+          "name": "MORI."
+        },
+        "duration_ms": 127754,
+        "is_playable": true
+      },
+      {
+        "id": "4OvA8AJOVbecIWqKsDyW7H",
+        "name": "After The Storm —雨上がりのアスファルト—",
+        "artists": [
+          {
+            "id": "0OduM8kFqFA2Q4YRgMbQVh",
+            "name": "ARISA Music"
+          }
+        ],
+        "album": {
+          "name": "Starting Line —出発の合図—"
+        },
+        "duration_ms": 195700,
+        "is_playable": true
+      },
+      {
+        "id": "3oLTG4oM1q1a2lEcMMN1mW",
+        "name": "雨上がりのインターチェンジ",
+        "artists": [
+          {
+            "id": "5XB8EzxS7uooOM8kZNo3F4",
+            "name": "RURIIRO NO TASOGARE"
+          }
+        ],
+        "album": {
+          "name": "雨上がりの海岸線を走りたいシティポップ"
+        },
+        "duration_ms": 245000,
+        "is_playable": true
+      },
+      {
+        "id": "1kqrfod5ibxHBrBMwhrApD",
+        "name": "Maegamist",
+        "artists": [
+          {
+            "id": "7p1fL0cAuCPDMG6oBswFhM",
+            "name": "Maretu"
+          }
+        ],
+        "album": {
+          "name": "SIU"
+        },
+        "duration_ms": 239371,
+        "is_playable": true
+      },
+      {
+        "id": "70z9gQLHt0QUXaOYvpV3Og",
+        "name": "Armageddon / Seventh heaven",
+        "artists": [
+          {
+            "id": "1pNs3qwMBJ0q4lyASth9Ye",
+            "name": "MGNA Crrrta"
+          }
+        ],
+        "album": {
+          "name": "Beautiful Disaster"
+        },
+        "duration_ms": 155708,
+        "is_playable": true
+      }
+    ]
+  }
+]

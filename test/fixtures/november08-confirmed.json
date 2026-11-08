@@ -1,0 +1,987 @@
+[
+  {
+    "source": {
+      "id": 483880,
+      "name": "恋人も濡れる街角",
+      "ar": [
+        {
+          "name": "中村雅俊"
+        }
+      ],
+      "al": {
+        "name": "恋人も濡れる街角",
+        "tns": [
+          "恋人も濡れる街角"
+        ]
+      },
+      "dt": 264173,
+      "tns": [
+        "恋人も濡れる街角",
+        "淋湿恋人的街角"
+      ]
+    },
+    "candidate": {
+      "id": "4whXjWvXxL0qccNMxZAUGR",
+      "name": "恋人も濡れる街角",
+      "artists": [
+        {
+          "name": "Masatoshi Nakamura"
+        }
+      ],
+      "album": {
+        "name": "恋人も濡れる街角"
+      },
+      "duration_ms": 264173,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27945117,
+      "name": "失恋有根据",
+      "ar": [
+        {
+          "name": "郑秀文"
+        }
+      ],
+      "al": {
+        "name": "True Legend 101",
+        "tns": [
+          "True Legend 101"
+        ]
+      },
+      "dt": 244440,
+      "tns": [
+        "失恋有根据"
+      ]
+    },
+    "candidate": {
+      "id": "44B9y8FVlzUOB2ORqPC1o8",
+      "name": "失戀有根據",
+      "artists": [
+        {
+          "name": "Sammi Cheng"
+        }
+      ],
+      "album": {
+        "name": "True Legend 101"
+      },
+      "duration_ms": 244440,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2163629816,
+      "name": "STORIE BREVI",
+      "ar": [
+        {
+          "name": "Tananai"
+        },
+        {
+          "name": "Annalisa"
+        }
+      ],
+      "al": {
+        "name": "STORIE BREVI",
+        "tns": [
+          "STORIE BREVI"
+        ]
+      },
+      "dt": 175153,
+      "tns": [
+        "STORIE BREVI",
+        "短篇小说"
+      ]
+    },
+    "candidate": {
+      "id": "5GZupy8zByqFmXvpwZ4JOC",
+      "name": "STORIE BREVI",
+      "artists": [
+        {
+          "name": "Tananai"
+        },
+        {
+          "name": "Annalisa"
+        }
+      ],
+      "album": {
+        "name": "STORIE BREVI"
+      },
+      "duration_ms": 175153,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1850135,
+      "name": "Say You Love Me",
+      "ar": [
+        {
+          "name": "Patti Austin"
+        }
+      ],
+      "al": {
+        "name": "End of a Rainbow",
+        "tns": [
+          "End of a Rainbow"
+        ]
+      },
+      "dt": 367827,
+      "tns": [
+        "Say You Love Me"
+      ]
+    },
+    "candidate": {
+      "id": "0gse1QXCrwGakIME52dhXN",
+      "name": "Say You Love Me",
+      "artists": [
+        {
+          "name": "Patti Austin"
+        }
+      ],
+      "album": {
+        "name": "End of a Rainbow"
+      },
+      "duration_ms": 367773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27970187,
+      "name": "잘 알지도 못하면서",
+      "ar": [
+        {
+          "name": "金艺林"
+        }
+      ],
+      "al": {
+        "name": "Goodbye 20",
+        "tns": [
+          "Goodbye 20"
+        ]
+      },
+      "dt": 317657,
+      "tns": [
+        "잘 알지도 못하면서",
+        "什么也不懂",
+        "Without knowing it all"
+      ]
+    },
+    "candidate": {
+      "id": "1II09tytmvND9oiuy3FRA5",
+      "name": "Without knowing it all",
+      "artists": [
+        {
+          "name": "LIM KIM"
+        }
+      ],
+      "album": {
+        "name": "Goodbye 20"
+      },
+      "duration_ms": 317657,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 33419747,
+      "name": "Burning Friday Night",
+      "ar": [
+        {
+          "name": "Lucky Kilimanjaro"
+        }
+      ],
+      "al": {
+        "name": "FULLCOLOR",
+        "tns": [
+          "FULLCOLOR"
+        ]
+      },
+      "dt": 255465,
+      "tns": [
+        "Burning Friday Night",
+        "燃烧的周五之夜"
+      ]
+    },
+    "candidate": {
+      "id": "1NlkoYEA1ndLQIKzXTPh9V",
+      "name": "Burning Friday Night",
+      "artists": [
+        {
+          "name": "Lucky Kilimanjaro"
+        }
+      ],
+      "album": {
+        "name": "FULLCOLOR"
+      },
+      "duration_ms": 255408,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2728184037,
+      "name": "你知道我最害怕一个人天黑",
+      "ar": [
+        {
+          "name": "金海心"
+        }
+      ],
+      "al": {
+        "name": "你知道我最害怕一个人天黑",
+        "tns": [
+          "你知道我最害怕一个人天黑"
+        ]
+      },
+      "dt": 201438,
+      "tns": [
+        "你知道我最害怕一个人天黑"
+      ]
+    },
+    "candidate": {
+      "id": "1LbGuCQ1Mvno4g9bMG1YLS",
+      "name": "你知道我最害怕一个人天黑",
+      "artists": [
+        {
+          "name": "Jin Hai Xin"
+        }
+      ],
+      "album": {
+        "name": "你知道我最害怕一个人天黑"
+      },
+      "duration_ms": 201438,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26140679,
+      "name": "冷めたスープ",
+      "ar": [
+        {
+          "name": "柴田淳"
+        }
+      ],
+      "al": {
+        "name": "あなたと見た夢 君のいない朝",
+        "tns": [
+          "あなたと見た夢 君のいない朝"
+        ]
+      },
+      "dt": 289701,
+      "tns": [
+        "冷めたスープ",
+        "冷掉的汤"
+      ]
+    },
+    "candidate": {
+      "id": "0popLJEb2eyxv35NqgqGfr",
+      "name": "冷めたスープ",
+      "artists": [
+        {
+          "name": "Jun Shibata"
+        }
+      ],
+      "album": {
+        "name": "あなたと見た夢　君のいない朝"
+      },
+      "duration_ms": 289701,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1300594652,
+      "name": "처음만 힘들지",
+      "ar": [
+        {
+          "name": "015B"
+        },
+        {
+          "name": "NAYUL"
+        }
+      ],
+      "al": {
+        "name": "The Legacy 02",
+        "tns": [
+          "The Legacy 02"
+        ]
+      },
+      "dt": 205859,
+      "tns": [
+        "처음만 힘들지",
+        "Hard to Start"
+      ]
+    },
+    "candidate": {
+      "id": "2MxlULOEyapHB4RBRd344M",
+      "name": "Hard to Start",
+      "artists": [
+        {
+          "name": "015B"
+        },
+        {
+          "name": "Nayul"
+        }
+      ],
+      "album": {
+        "name": "Hard to Start"
+      },
+      "duration_ms": 205859,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 638353,
+      "name": "涙をたばねて",
+      "ar": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－",
+        "tns": [
+          "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+        ]
+      },
+      "dt": 253053,
+      "tns": [
+        "涙をたばねて",
+        "含着眼泪"
+      ]
+    },
+    "candidate": {
+      "id": "5Ym5hDQX32Ano97ndP0f7o",
+      "name": "涙をたばねて",
+      "artists": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+      },
+      "duration_ms": 253053,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 306665,
+      "name": "一样的月光",
+      "ar": [
+        {
+          "name": "徐佳莹"
+        }
+      ],
+      "al": {
+        "name": "LaLa首张创作专辑",
+        "tns": [
+          "LaLa首张创作专辑"
+        ]
+      },
+      "dt": 240386,
+      "tns": [
+        "一样的月光"
+      ]
+    },
+    "candidate": {
+      "id": "4wRYpv96z3nmsiC9f3BdWh",
+      "name": "一樣的月光",
+      "artists": [
+        {
+          "name": "LaLa Hsu"
+        }
+      ],
+      "album": {
+        "name": "徐佳瑩LaLa首張創作專輯"
+      },
+      "duration_ms": 240386,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22649646,
+      "name": "No Limit",
+      "ar": [
+        {
+          "name": "Sowelu"
+        }
+      ],
+      "al": {
+        "name": "SWEET BRIDGE",
+        "tns": [
+          "SWEET BRIDGE"
+        ]
+      },
+      "dt": 273531,
+      "tns": [
+        "No Limit"
+      ]
+    },
+    "candidate": {
+      "id": "5KFYSm9w6KoAKuVLvcCSEP",
+      "name": "No Limit",
+      "artists": [
+        {
+          "name": "Sowelu"
+        }
+      ],
+      "album": {
+        "name": "SWEET BRIDGE"
+      },
+      "duration_ms": 274906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1616018,
+      "name": "Fallin' Out",
+      "ar": [
+        {
+          "name": "Keyshia Cole"
+        }
+      ],
+      "al": {
+        "name": "Just Like You",
+        "tns": [
+          "Just Like You"
+        ]
+      },
+      "dt": 267080,
+      "tns": [
+        "Fallin' Out"
+      ]
+    },
+    "candidate": {
+      "id": "1Tn0b93GeEZ1wDDRpT6WhM",
+      "name": "Fallin' Out",
+      "artists": [
+        {
+          "name": "Keyshia Cole"
+        }
+      ],
+      "album": {
+        "name": "Just Like You"
+      },
+      "duration_ms": 266960,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 18215887,
+      "name": "Vénus Des Abribus",
+      "ar": [
+        {
+          "name": "Patricia Kaas"
+        }
+      ],
+      "al": {
+        "name": "Mademoiselle Chante",
+        "tns": [
+          "Mademoiselle Chante"
+        ]
+      },
+      "dt": 231000,
+      "tns": [
+        "Vénus Des Abribus",
+        "候车亭的维纳斯"
+      ]
+    },
+    "candidate": {
+      "id": "0GiY8ebpNT2gJcWUHUvUHk",
+      "name": "Vénus des abribus",
+      "artists": [
+        {
+          "name": "Patricia Kaas"
+        }
+      ],
+      "album": {
+        "name": "Carnets de scène"
+      },
+      "duration_ms": 228600,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 450694,
+      "name": "モニカ",
+      "ar": [
+        {
+          "name": "吉川晃司"
+        }
+      ],
+      "al": {
+        "name": "BEST BEST BEST 1984-1988",
+        "tns": [
+          "BEST BEST BEST 1984-1988"
+        ]
+      },
+      "dt": 221000,
+      "tns": [
+        "モニカ",
+        "莫妮卡"
+      ]
+    },
+    "candidate": {
+      "id": "6UvNFSUw0Ai4j86rokv5GE",
+      "name": "モニカ",
+      "artists": [
+        {
+          "name": "Koji Kikkawa"
+        }
+      ],
+      "album": {
+        "name": "BEST BEST BEST 1984-1988"
+      },
+      "duration_ms": 218600,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 769617,
+      "name": "夜風",
+      "ar": [
+        {
+          "name": "Lamp"
+        }
+      ],
+      "al": {
+        "name": "木洩陽通りにて",
+        "tns": [
+          "木洩陽通りにて"
+        ]
+      },
+      "dt": 341800,
+      "tns": [
+        "夜風"
+      ]
+    },
+    "candidate": {
+      "id": "6mOdPbbVcDuGDotNo3bHtC",
+      "name": "夜風",
+      "artists": [
+        {
+          "name": "Lamp"
+        }
+      ],
+      "album": {
+        "name": "木洩陽通りにて"
+      },
+      "duration_ms": 341800,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 595199,
+      "name": "恋におちて　-Fall In love-",
+      "ar": [
+        {
+          "name": "小林明子"
+        }
+      ],
+      "al": {
+        "name": "小林明子　ゴールデン☆ベスト",
+        "tns": [
+          "小林明子　ゴールデン☆ベスト"
+        ]
+      },
+      "dt": 301603,
+      "tns": [
+        "恋におちて　-Fall In love-",
+        "坠入爱河"
+      ]
+    },
+    "candidate": {
+      "id": "2jK9UuSpaEdWDPV839be02",
+      "name": "恋におちて -Fall in love-",
+      "artists": [
+        {
+          "name": "Akiko Kobayashi"
+        }
+      ],
+      "album": {
+        "name": "GOLDEN☆BEST 小林明子 Single Collection～恋におちて～"
+      },
+      "duration_ms": 301546,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2022402988,
+      "name": "Venus Flytrap feat. 佐藤千亜妃",
+      "ar": [
+        {
+          "name": "春野"
+        },
+        {
+          "name": "佐藤千亜妃"
+        }
+      ],
+      "al": {
+        "name": "Venus Flytrap feat. 佐藤千亜妃",
+        "tns": [
+          "Venus Flytrap feat. 佐藤千亜妃",
+          "Venus Flytrap feat. Chiaki Sato"
+        ]
+      },
+      "dt": 225419,
+      "tns": [
+        "Venus Flytrap feat. 佐藤千亜妃",
+        "捕蝇草"
+      ]
+    },
+    "candidate": {
+      "id": "1YXrGKtu8iNnBl1tL6EvdH",
+      "name": "Venus Flytrap feat. Chiaki Sato",
+      "artists": [
+        {
+          "name": "haruno"
+        },
+        {
+          "name": "CHIAKI SATO"
+        }
+      ],
+      "album": {
+        "name": "Venus Flytrap feat. Chiaki Sato"
+      },
+      "duration_ms": 225967,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 287063,
+      "name": "我怀念的",
+      "ar": [
+        {
+          "name": "孙燕姿"
+        }
+      ],
+      "al": {
+        "name": "逆光",
+        "tns": [
+          "逆光"
+        ]
+      },
+      "dt": 289066,
+      "tns": [
+        "我怀念的"
+      ]
+    },
+    "candidate": {
+      "id": "7z2M7DsEjZjwXBkWG3zd21",
+      "name": "我懷念的",
+      "artists": [
+        {
+          "name": "Stefanie Sun"
+        }
+      ],
+      "album": {
+        "name": "逆光"
+      },
+      "duration_ms": 289066,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26113761,
+      "name": "休もう、ONCE MORE",
+      "ar": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "al": {
+        "name": "POP STATION",
+        "tns": [
+          "POP STATION"
+        ]
+      },
+      "dt": 331760,
+      "tns": [
+        "休もう、ONCE MORE",
+        "休憩吧、再次"
+      ]
+    },
+    "candidate": {
+      "id": "4VkoC2yMAVbt8jllPlcOiQ",
+      "name": "休もう、ONCE MORE",
+      "artists": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "album": {
+        "name": "POP STATION"
+      },
+      "duration_ms": 331760,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 493786,
+      "name": "接吻",
+      "ar": [
+        {
+          "name": "ORIGINAL LOVE"
+        }
+      ],
+      "al": {
+        "name": "COLOR CHIPS~ORIGINAL LOVE",
+        "tns": [
+          "COLOR CHIPS~ORIGINAL LOVE"
+        ]
+      },
+      "dt": 301106,
+      "tns": [
+        "接吻"
+      ]
+    },
+    "candidate": {
+      "id": "4Y1kikrwlBD0ESg9mdOfQp",
+      "name": "接吻",
+      "artists": [
+        {
+          "name": "Original Love"
+        }
+      ],
+      "album": {
+        "name": "TOKYO - CITY POP -"
+      },
+      "duration_ms": 280693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1317162660,
+      "name": "春の森の回転木馬",
+      "ar": [
+        {
+          "name": "中嶋美智代"
+        }
+      ],
+      "al": {
+        "name": "中嶋+シングルコレクション",
+        "tns": [
+          "中嶋+シングルコレクション"
+        ]
+      },
+      "dt": 187973,
+      "tns": [
+        "春の森の回転木馬",
+        "春日森林的旋转木马"
+      ]
+    },
+    "candidate": {
+      "id": "7daWSTmkBjGbKr5MXvaKcC",
+      "name": "Haru no Mori no Kaiten Mokuba",
+      "artists": [
+        {
+          "name": "Michiyo Nakajima"
+        }
+      ],
+      "album": {
+        "name": "Nakajima + Single Collection"
+      },
+      "duration_ms": 187973,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 33761137,
+      "name": "揺れるドレス",
+      "ar": [
+        {
+          "name": "LUCKY TAPES"
+        }
+      ],
+      "al": {
+        "name": "The SHOW",
+        "tns": [
+          "The SHOW"
+        ]
+      },
+      "dt": 250000,
+      "tns": [
+        "揺れるドレス",
+        "摇摆的礼服"
+      ]
+    },
+    "candidate": {
+      "id": "3yHIy6l84aL6In3XfKZtjy",
+      "name": "揺れるドレス",
+      "artists": [
+        {
+          "name": "LUCKY TAPES"
+        }
+      ],
+      "album": {
+        "name": "The SHOW"
+      },
+      "duration_ms": 250000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22753265,
+      "name": "SILENT NIGHT",
+      "ar": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "al": {
+        "name": "SONG FOR YOU",
+        "tns": [
+          "SONG FOR YOU",
+          "SONG FOR YOU"
+        ]
+      },
+      "dt": 281782,
+      "tns": [
+        "SILENT NIGHT",
+        "SILENT NIGHT"
+      ]
+    },
+    "candidate": {
+      "id": "6NqJJL4foOGSCYhC5his8c",
+      "name": "Silent Night",
+      "artists": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "album": {
+        "name": "Song For You"
+      },
+      "duration_ms": 281554,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 437608060,
+      "name": "ナイトグルーヴ",
+      "ar": [
+        {
+          "name": "iri"
+        }
+      ],
+      "al": {
+        "name": "Groove it",
+        "tns": [
+          "Groove it",
+          "Groove it"
+        ]
+      },
+      "dt": 214026,
+      "tns": [
+        "ナイトグルーヴ",
+        "Night Groove"
+      ]
+    },
+    "candidate": {
+      "id": "5nnEGWycHraBQ0EhfOFToK",
+      "name": "ナイトグルーヴ",
+      "artists": [
+        {
+          "name": "iri"
+        }
+      ],
+      "album": {
+        "name": "Groove it"
+      },
+      "duration_ms": 214026,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22737627,
+      "name": "MY ALL",
+      "ar": [
+        {
+          "name": "浜崎あゆみ"
+        }
+      ],
+      "al": {
+        "name": "GUILTY",
+        "tns": [
+          "GUILTY",
+          "原罪"
+        ]
+      },
+      "dt": 322546,
+      "tns": [
+        "MY ALL"
+      ]
+    },
+    "candidate": {
+      "id": "6k4xd963iPaquBsEaUlIMj",
+      "name": "MY ALL",
+      "artists": [
+        {
+          "name": "Ayumi Hamasaki"
+        }
+      ],
+      "album": {
+        "name": "GUILTY"
+      },
+      "duration_ms": 321635,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28403111,
+      "name": "特别的人",
+      "ar": [
+        {
+          "name": "方大同"
+        }
+      ],
+      "al": {
+        "name": "危险世界",
+        "tns": [
+          "危险世界"
+        ]
+      },
+      "dt": 259064,
+      "tns": [
+        "特别的人",
+        "Special Person"
+      ]
+    },
+    "candidate": {
+      "id": "0VTzUEuHYD8s7CgQ15cDPo",
+      "name": "特別的人",
+      "artists": [
+        {
+          "name": "Khalil Fong"
+        }
+      ],
+      "album": {
+        "name": "危險世界"
+      },
+      "duration_ms": 259079,
+      "is_playable": true
+    }
+  }
+]

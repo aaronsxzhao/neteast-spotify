@@ -47,6 +47,7 @@ const VERIFIED_CREDITS = new Map([
 // A solo source credit may denote a reviewed collaboration, not every release
 // by either member. Require the complete roster AND tight recording evidence.
 const VERIFIED_ROSTERS = new Map([
+  ['156288', { name: '我会好好的', artist: '伍佰 & China Blue', rosters: [['Wu Bai']] }],
   ['1854231422', { name: 'モア！ジャンプ！モア！ (feat. 花里みのり&桐谷遥&桃井愛莉&日野森雫&初音ミク)',
     sourceRoster: ['ナユタン星人', 'MORE MORE JUMP！', '初音ミク'], rosters: [['MORE MORE JUMP!']] }],
   ['526439257', { name: 'Goodbye to Your Love', artist: '二宮愛',
@@ -99,6 +100,8 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['156288', { name: '我会好好的', artist: '伍佰 & China Blue', trackId: '7tC6ami9OxhNYP6ykcKAct' }],
+  ['454828889', { name: '人质', artist: '张惠妹', trackId: '2yGDozozwXW9y6Pmgilkfo' }],
   ['3419824228', { name: '花束じゃなくキミといたい feat. 玉置浩二', artist: '絢香', trackId: '4il15pZcNNkbwLMrI7dBaC', requireCompleteRoster: true }],
   ['29827508', { name: '哪怕', artist: '莫文蔚', trackId: '4HKsAa7XAvZZs1x0Betdkx' }],
   ['29122850', { name: 'いかないで collaboration', artist: '德永英明', trackId: '43JGCJZuHcqyVA2hyL4cIX', requireCompleteRoster: true }],
@@ -174,6 +177,7 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['张惠妹', ['A-Mei Chang', '張惠妹']],
   ['絢香', ['ayaka']],
   ['玉置浩二', ['Koji Tamaki']],
   ['G.E.M.邓紫棋', ['G.E.M.', '鄧紫棋', '邓紫棋']],
