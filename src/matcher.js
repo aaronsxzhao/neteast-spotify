@@ -100,6 +100,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['2047652597', { name: '森の小さなレストラン', artist: '手嶌葵', trackId: '37XYyITs3EVTmU5eNrimEd' }],
+  ['280765', { name: '喜欢两个人', artist: '彭佳慧', trackId: '72K8evix8Y6R4oiwLw7EHG' }],
+  ['29751583', { name: 'CITY HUNTER ~愛よ消えないで~', artist: '小比類巻かほる', trackId: '76X2KY7pDefceL4VDaeCJo' }],
   ['156288', { name: '我会好好的', artist: '伍佰 & China Blue', trackId: '7tC6ami9OxhNYP6ykcKAct' }],
   ['454828889', { name: '人质', artist: '张惠妹', trackId: '2yGDozozwXW9y6Pmgilkfo' }],
   ['3419824228', { name: '花束じゃなくキミといたい feat. 玉置浩二', artist: '絢香', trackId: '4il15pZcNNkbwLMrI7dBaC', requireCompleteRoster: true }],
@@ -177,6 +180,9 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['手嶌葵', ['Aoi Teshima']],
+  ['彭佳慧', ['Julia Peng']],
+  ['小比類巻かほる', ['Kahoru Kohiruimaki']],
   ['张惠妹', ['A-Mei Chang', '張惠妹']],
   ['絢香', ['ayaka']],
   ['玉置浩二', ['Koji Tamaki']],

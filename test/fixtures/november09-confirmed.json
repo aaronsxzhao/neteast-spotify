@@ -1,0 +1,925 @@
+[
+  {
+    "source": {
+      "id": 22711357,
+      "name": "Darlin'",
+      "ar": [
+        {
+          "name": "BENI"
+        }
+      ],
+      "al": {
+        "name": "MTV UNplugged",
+        "tns": [
+          "MTV UNplugged"
+        ]
+      },
+      "dt": 267540,
+      "tns": [
+        "Darlin'"
+      ]
+    },
+    "candidate": {
+      "id": "4QY4y6lv1hfJwOhbNGgrNW",
+      "name": "Darlin’ - Live At Billboard Live Tokyo / 2011",
+      "artists": [
+        {
+          "name": "BENI"
+        }
+      ],
+      "album": {
+        "name": "MTV Unplugged (Live At Billboard Live Tokyo / 2011)"
+      },
+      "duration_ms": 267480,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 566530625,
+      "name": "Seven Lonely Days",
+      "ar": [
+        {
+          "name": "Georgia Gibbs"
+        }
+      ],
+      "al": {
+        "name": "Radio Hits from the 50's, Vol. 2",
+        "tns": [
+          "Radio Hits from the 50's, Vol. 2"
+        ]
+      },
+      "dt": 129640,
+      "tns": [
+        "Seven Lonely Days"
+      ]
+    },
+    "candidate": {
+      "id": "2m4D7BzwANz07X4IwogvdG",
+      "name": "Seven Lonely Days",
+      "artists": [
+        {
+          "name": "Georgia Gibbs"
+        }
+      ],
+      "album": {
+        "name": "AM Radio Days: The Lost Hits Worlwide"
+      },
+      "duration_ms": 129199,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 509311681,
+      "name": "썸 탈꺼야",
+      "ar": [
+        {
+          "name": "脸红的思春期"
+        }
+      ],
+      "al": {
+        "name": "Red Diary Page.1",
+        "tns": [
+          "Red Diary Page.1"
+        ]
+      },
+      "dt": 181373,
+      "tns": [
+        "썸 탈꺼야",
+        "Some"
+      ]
+    },
+    "candidate": {
+      "id": "3jsYQw78lrxJA2ysnmOIf9",
+      "name": "Some",
+      "artists": [
+        {
+          "name": "BOL4"
+        }
+      ],
+      "album": {
+        "name": "Red Diary Page.1"
+      },
+      "duration_ms": 181373,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1300423074,
+      "name": "可一可再",
+      "ar": [
+        {
+          "name": "陈奕迅"
+        },
+        {
+          "name": "eason and the duo band"
+        }
+      ],
+      "al": {
+        "name": "L.O.V.E.",
+        "tns": [
+          "L.O.V.E."
+        ]
+      },
+      "dt": 287573,
+      "tns": [
+        "可一可再"
+      ]
+    },
+    "candidate": {
+      "id": "4hPBGtZisl600ivED9G6rd",
+      "name": "可一可再",
+      "artists": [
+        {
+          "name": "Eason Chan"
+        },
+        {
+          "name": "eason and the duo band"
+        }
+      ],
+      "album": {
+        "name": "L.O.V.E."
+      },
+      "duration_ms": 287573,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2063473897,
+      "name": "真夜中のドア～stay with me",
+      "ar": [
+        {
+          "name": "松原みき"
+        }
+      ],
+      "al": {
+        "name": "潮風ドライヴ～CITYPOP DRIVE～",
+        "tns": [
+          "潮風ドライヴ～CITYPOP DRIVE～",
+          "Sea Bleeze Drive -Citypop Drive-"
+        ]
+      },
+      "dt": 311933,
+      "tns": [
+        "真夜中のドア～stay with me",
+        "午夜之门～留在我身边"
+      ]
+    },
+    "candidate": {
+      "id": "4J2oDU9oacz7lJ7H8A8P8v",
+      "name": "Mayonaka no Door~stay with me",
+      "artists": [
+        {
+          "name": "Miki Matsubara"
+        }
+      ],
+      "album": {
+        "name": "Miki Matsubara Best Collection"
+      },
+      "duration_ms": 312293,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28946894,
+      "name": "All The Time",
+      "ar": [
+        {
+          "name": "Bahamas"
+        }
+      ],
+      "al": {
+        "name": "Bahamas Is Afie",
+        "tns": [
+          "Bahamas Is Afie"
+        ]
+      },
+      "dt": 234921,
+      "tns": [
+        "All The Time"
+      ]
+    },
+    "candidate": {
+      "id": "0qI1W6chJgvrSAzAkX9JBa",
+      "name": "All The Time",
+      "artists": [
+        {
+          "name": "Bahamas"
+        }
+      ],
+      "album": {
+        "name": "Bahamas Is Afie"
+      },
+      "duration_ms": 234973,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22780173,
+      "name": "ラブソウル",
+      "ar": [
+        {
+          "name": "Rickie-G"
+        }
+      ],
+      "al": {
+        "name": "am08:59",
+        "tns": [
+          "am08:59"
+        ]
+      },
+      "dt": 295786,
+      "tns": [
+        "ラブソウル",
+        "Love Soul"
+      ]
+    },
+    "candidate": {
+      "id": "2SGO4fCq7KVRHUxyycZQxW",
+      "name": "ラブソウル",
+      "artists": [
+        {
+          "name": "Rickie-G"
+        }
+      ],
+      "album": {
+        "name": "am 08:59"
+      },
+      "duration_ms": 295786,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 306855,
+      "name": "蘇州河 (慕容雪 - Mandarin Version)",
+      "ar": [
+        {
+          "name": "薛凯琪"
+        }
+      ],
+      "al": {
+        "name": "Read Me",
+        "tns": [
+          "Read Me"
+        ]
+      },
+      "dt": 240520,
+      "tns": [
+        "蘇州河 (慕容雪 - Mandarin Version)"
+      ]
+    },
+    "candidate": {
+      "id": "47JOyJqpIDBorZ9F53Z8QW",
+      "name": "苏州河 - Live",
+      "artists": [
+        {
+          "name": "薛凯琪"
+        },
+        {
+          "name": "Fine乐团"
+        }
+      ],
+      "album": {
+        "name": "奔赴！万人现场 第6期"
+      },
+      "duration_ms": 255000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28785355,
+      "name": "Groovy!",
+      "ar": [
+        {
+          "name": "広瀬香美"
+        }
+      ],
+      "al": {
+        "name": "カードキャプターさくら オリジナル・サウンドトラック2",
+        "tns": [
+          "カードキャプターさくら オリジナル・サウンドトラック2"
+        ]
+      },
+      "dt": 266973,
+      "tns": [
+        "Groovy!",
+        "TV动画《魔卡少女樱》ED1"
+      ]
+    },
+    "candidate": {
+      "id": "4Zn7UNii8TYLQyHbNUgAfO",
+      "name": "Groovy! (2022 Remastering)",
+      "artists": [
+        {
+          "name": "Kohmi Hirose"
+        }
+      ],
+      "album": {
+        "name": "Kohmi30th"
+      },
+      "duration_ms": 259626,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22735282,
+      "name": "島の願い",
+      "ar": [
+        {
+          "name": "PENGIN"
+        }
+      ],
+      "al": {
+        "name": "PENGIN HOME",
+        "tns": [
+          "PENGIN HOME"
+        ]
+      },
+      "dt": 339847,
+      "tns": [
+        "島の願い",
+        "岛之愿"
+      ]
+    },
+    "candidate": {
+      "id": "4LkZNIdVO6mY6xNHLYJFPw",
+      "name": "島の願い",
+      "artists": [
+        {
+          "name": "Pengin"
+        },
+        {
+          "name": "Metis"
+        }
+      ],
+      "album": {
+        "name": "PENGIN HOME"
+      },
+      "duration_ms": 339786,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27674997,
+      "name": "secret base ~君がくれたもの~ (Summernoise Ver.)",
+      "ar": [
+        {
+          "name": "茅野愛衣"
+        },
+        {
+          "name": "戸松遥"
+        },
+        {
+          "name": "早見沙織"
+        }
+      ],
+      "al": {
+        "name": "secret base ～君がくれたもの～12 years after special package",
+        "tns": [
+          "secret base ～君がくれたもの～12 years after special package"
+        ]
+      },
+      "dt": 301139,
+      "tns": [
+        "secret base ~君がくれたもの~ (Summernoise Ver.)",
+        "秘密基地 ~你所给予之物~"
+      ]
+    },
+    "candidate": {
+      "id": "0p4ydp2KrtllEqSrPVZ2NL",
+      "name": "secret base ～君がくれたもの～ (Summernoise Ver.)",
+      "artists": [
+        {
+          "name": "本間芽衣子（CV.茅野愛衣）"
+        },
+        {
+          "name": "安城鳴子（CV.戸松 遥）"
+        },
+        {
+          "name": "鶴見知利子（CV.早見沙織）"
+        }
+      ],
+      "album": {
+        "name": "secret base ～君がくれたもの～12 years after special package"
+      },
+      "duration_ms": 301080,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1806516957,
+      "name": "深蓝",
+      "ar": [
+        {
+          "name": "陈婧霏"
+        }
+      ],
+      "al": {
+        "name": "陈婧霏",
+        "tns": [
+          "陈婧霏"
+        ]
+      },
+      "dt": 238642,
+      "tns": [
+        "深蓝"
+      ]
+    },
+    "candidate": {
+      "id": "54ZstdCX7cfTl5zBLLCn2Z",
+      "name": "深藍",
+      "artists": [
+        {
+          "name": "陳婧霏"
+        }
+      ],
+      "album": {
+        "name": "陳婧霏"
+      },
+      "duration_ms": 238642,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 25780448,
+      "name": "30",
+      "ar": [
+        {
+          "name": "Ms.OOJA"
+        }
+      ],
+      "al": {
+        "name": "30",
+        "tns": [
+          "30"
+        ]
+      },
+      "dt": 318902,
+      "tns": [
+        "30"
+      ]
+    },
+    "candidate": {
+      "id": "1M79kDSCrUfPNf78T4XhhW",
+      "name": "30",
+      "artists": [
+        {
+          "name": "Ms.OOJA"
+        }
+      ],
+      "album": {
+        "name": "FAITH"
+      },
+      "duration_ms": 319613,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22685936,
+      "name": "今のままでいて (I DON'T THINK I CAN WAIT)",
+      "ar": [
+        {
+          "name": "当山ひとみ"
+        }
+      ],
+      "al": {
+        "name": "ハートはLAマインド",
+        "tns": [
+          "ハートはLAマインド"
+        ]
+      },
+      "dt": 255026,
+      "tns": [
+        "今のままでいて (I DON'T THINK I CAN WAIT)",
+        "当下就好"
+      ]
+    },
+    "candidate": {
+      "id": "2Jg7ZhcowKTgjP4hm3Vjte",
+      "name": "今のままでいて (I DON'T THINK I CAN WAIT)",
+      "artists": [
+        {
+          "name": "Hitomi Tohyama"
+        }
+      ],
+      "album": {
+        "name": "ハートはLAマインド"
+      },
+      "duration_ms": 255026,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1459603014,
+      "name": "君がいない夜",
+      "ar": [
+        {
+          "name": "鈴木彩子"
+        }
+      ],
+      "al": {
+        "name": "24の誓い",
+        "tns": [
+          "24の誓い"
+        ]
+      },
+      "dt": 334866,
+      "tns": [
+        "君がいない夜",
+        "没有你的夜晚"
+      ]
+    },
+    "candidate": {
+      "id": "2BXRZzpZByJq8vlpnlJAfB",
+      "name": "君がいない夜",
+      "artists": [
+        {
+          "name": "鈴木彩子"
+        }
+      ],
+      "album": {
+        "name": "24の誓い"
+      },
+      "duration_ms": 334866,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1977455491,
+      "name": "恋は最高（I'M IN LOVE）",
+      "ar": [
+        {
+          "name": "高村亜留"
+        }
+      ],
+      "al": {
+        "name": "ARU FIRST",
+        "tns": [
+          "ARU FIRST"
+        ]
+      },
+      "dt": 266634,
+      "tns": [
+        "恋は最高（I'M IN LOVE）",
+        "爱恋的感觉最棒"
+      ]
+    },
+    "candidate": {
+      "id": "72HHTV84sDLstsPE8LhdEd",
+      "name": "I'm In Love (Yoshizawa dynamite.jp Gimmick Edit)",
+      "artists": [
+        {
+          "name": "高村亜留"
+        }
+      ],
+      "album": {
+        "name": "I'm In Love -EP-"
+      },
+      "duration_ms": 294065,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 842945,
+      "name": "シーズン・イン・ザ・サン",
+      "ar": [
+        {
+          "name": "TUBE"
+        }
+      ],
+      "al": {
+        "name": "THE SEASON IN THE SUN",
+        "tns": [
+          "THE SEASON IN THE SUN"
+        ]
+      },
+      "dt": 242230,
+      "tns": [
+        "シーズン・イン・ザ・サン",
+        "阳光的季节"
+      ]
+    },
+    "candidate": {
+      "id": "1mbFlmyw5rJua63zNeDeO2",
+      "name": "シーズン・イン・ザ・サン",
+      "artists": [
+        {
+          "name": "TUBE"
+        }
+      ],
+      "album": {
+        "name": "THE SEASON IN THE SUN"
+      },
+      "duration_ms": 242160,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22816482,
+      "name": "海",
+      "ar": [
+        {
+          "name": "芳本美代子"
+        }
+      ],
+      "al": {
+        "name": "GOLDEN BEST",
+        "tns": [
+          "GOLDEN BEST"
+        ]
+      },
+      "dt": 245249,
+      "tns": [
+        "海"
+      ]
+    },
+    "candidate": {
+      "id": "0eHxE4VnTdqJjMDcwLvlVA",
+      "name": "海",
+      "artists": [
+        {
+          "name": "芳本美代子"
+        }
+      ],
+      "album": {
+        "name": "芳本美代子 ゴールデン★ベスト"
+      },
+      "duration_ms": 243186,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 555959,
+      "name": "扉をあけて",
+      "ar": [
+        {
+          "name": "ANZA"
+        }
+      ],
+      "al": {
+        "name": "扉をあけて",
+        "tns": [
+          "扉をあけて"
+        ]
+      },
+      "dt": 283493,
+      "tns": [
+        "扉をあけて",
+        "敞开心扉",
+        "TV动画《魔卡少女樱》OP2",
+        "TVアニメ「カードキャプターさくら」第2期オープニング主題歌"
+      ]
+    },
+    "candidate": {
+      "id": "0DO0NtFn6hB4Brt44Z8Tkz",
+      "name": "扉をあけて",
+      "artists": [
+        {
+          "name": "ANZA"
+        }
+      ],
+      "album": {
+        "name": "カードキャプターさくら　ソングコレクション 1999.4～2001.2"
+      },
+      "duration_ms": 282906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1478435236,
+      "name": "春夏秋冬 A Balloon's Journey",
+      "ar": [
+        {
+          "name": "张国荣"
+        }
+      ],
+      "al": {
+        "name": "春夏秋冬 A Balloon's Journey",
+        "tns": [
+          "春夏秋冬 A Balloon's Journey"
+        ]
+      },
+      "dt": 252000,
+      "tns": [
+        "春夏秋冬 A Balloon's Journey"
+      ]
+    },
+    "candidate": {
+      "id": "01I5PszJ2fdDaKccLBgrCq",
+      "name": "春夏秋冬 A Balloon's Journey",
+      "artists": [
+        {
+          "name": "Leslie Cheung"
+        }
+      ],
+      "album": {
+        "name": "春夏秋冬 A Balloon's Journey"
+      },
+      "duration_ms": 252470,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 465409,
+      "name": "夏の终わり",
+      "ar": [
+        {
+          "name": "森山直太朗"
+        }
+      ],
+      "al": {
+        "name": "夏の終わり",
+        "tns": [
+          "夏の終わり"
+        ]
+      },
+      "dt": 346600,
+      "tns": [
+        "夏の终わり",
+        "夏日终章"
+      ]
+    },
+    "candidate": {
+      "id": "7Mj6GfMsebXSypG7CNTwbV",
+      "name": "夏の終わり",
+      "artists": [
+        {
+          "name": "Naotaro Moriyama"
+        }
+      ],
+      "album": {
+        "name": "夏の終わり"
+      },
+      "duration_ms": 346733,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22766090,
+      "name": "想い出はあざやかに",
+      "ar": [
+        {
+          "name": "田中好子"
+        }
+      ],
+      "al": {
+        "name": "Yoshiko",
+        "tns": [
+          "Yoshiko"
+        ]
+      },
+      "dt": 245691,
+      "tns": [
+        "想い出はあざやかに",
+        "回忆鲜艳"
+      ]
+    },
+    "candidate": {
+      "id": "5fTq3kufSbWmQeDd1VxKbw",
+      "name": "想い出はあざやかに",
+      "artists": [
+        {
+          "name": "田中好子"
+        }
+      ],
+      "album": {
+        "name": "好子"
+      },
+      "duration_ms": 245691,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27676680,
+      "name": "Black",
+      "ar": [
+        {
+          "name": "G-DRAGON"
+        },
+        {
+          "name": "JENNIE"
+        }
+      ],
+      "al": {
+        "name": "쿠데타 (COUP D'ETAT)",
+        "tns": [
+          "쿠데타 (COUP D'ETAT)"
+        ]
+      },
+      "dt": 205773,
+      "tns": [
+        "Black"
+      ]
+    },
+    "candidate": {
+      "id": "44f1TNdoQUgf3PUYraCTsH",
+      "name": "Black (Feat. JENNIE of BLACKPINK)",
+      "artists": [
+        {
+          "name": "G-DRAGON"
+        },
+        {
+          "name": "JENNIE"
+        }
+      ],
+      "album": {
+        "name": "COUP D'ETAT (Korean Version)"
+      },
+      "duration_ms": 203772,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 818073,
+      "name": "ロビンソン",
+      "ar": [
+        {
+          "name": "スピッツ"
+        }
+      ],
+      "al": {
+        "name": "ロビンソン",
+        "tns": [
+          "ロビンソン"
+        ]
+      },
+      "dt": 262666,
+      "tns": [
+        "ロビンソン",
+        "Robinson"
+      ]
+    },
+    "candidate": {
+      "id": "5YP52gnoypy9H1jg5RIwUW",
+      "name": "ロビンソン",
+      "artists": [
+        {
+          "name": "SPITZ"
+        }
+      ],
+      "album": {
+        "name": "CYCLE HIT 1991-1997 Spitz Complete Single Collection"
+      },
+      "duration_ms": 261053,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 536622304,
+      "name": "Lemon",
+      "ar": [
+        {
+          "name": "米津玄師"
+        }
+      ],
+      "al": {
+        "name": "Lemon",
+        "tns": [
+          "Lemon"
+        ]
+      },
+      "dt": 256000,
+      "tns": [
+        "Lemon",
+        "日剧《非自然死亡》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "7Cd17G3oNQ34OWUwS8ZxfR",
+      "name": "Lemon",
+      "artists": [
+        {
+          "name": "Kenshi Yonezu"
+        }
+      ],
+      "album": {
+        "name": "Lemon"
+      },
+      "duration_ms": 256116,
+      "is_playable": true
+    }
+  }
+]

@@ -1,0 +1,848 @@
+[
+  {
+    "source": {
+      "id": 41632971,
+      "name": "Dear",
+      "ar": [
+        {
+          "name": "lecca"
+        }
+      ],
+      "al": {
+        "name": "BEST POSITIVE",
+        "tns": [
+          "BEST POSITIVE"
+        ]
+      },
+      "dt": 264080,
+      "tns": [
+        "Dear"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "72zYzGFcqgSw89kFjQCHPy",
+        "name": "Dear Mr. Christian",
+        "artists": [
+          {
+            "name": "Derek Minor"
+          },
+          {
+            "name": "Lecrae"
+          }
+        ],
+        "album": {
+          "name": "Minorville"
+        },
+        "duration_ms": 265173,
+        "is_playable": true
+      },
+      {
+        "id": "6z4qM1wHXsLxLMzswjVdtF",
+        "name": "Dear - lecca NON STOP MEGA MIX",
+        "artists": [
+          {
+            "name": "lecca"
+          }
+        ],
+        "album": {
+          "name": "lecca NON STOP MEGA MIX"
+        },
+        "duration_ms": 130026,
+        "is_playable": true
+      },
+      {
+        "id": "6tDxrq4FxEL2q15y37tXT9",
+        "name": "Dear Mama",
+        "artists": [
+          {
+            "name": "2Pac"
+          }
+        ],
+        "album": {
+          "name": "Me Against The World"
+        },
+        "duration_ms": 280000,
+        "is_playable": true
+      },
+      {
+        "id": "7CmQjA7j6CxyPBkH3tP95W",
+        "name": "Dear god",
+        "artists": [
+          {
+            "name": "Tate McRae"
+          }
+        ],
+        "album": {
+          "name": "So Close To What"
+        },
+        "duration_ms": 171014,
+        "is_playable": true
+      },
+      {
+        "id": "6UdNAO674yXHaZroB8PkS7",
+        "name": "Dear",
+        "artists": [
+          {
+            "id": "0IeQisXdixzRUBpYSxQJDu",
+            "name": "lecca"
+          }
+        ],
+        "album": {
+          "name": "BEST POSITIVE"
+        },
+        "duration_ms": 264080,
+        "is_playable": false
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2047652597,
+      "name": "森の小さなレストラン",
+      "ar": [
+        {
+          "name": "手嶌葵"
+        }
+      ],
+      "al": {
+        "name": "森の小さなレストラン",
+        "tns": [
+          "森の小さなレストラン"
+        ]
+      },
+      "dt": 153033,
+      "tns": [
+        "森の小さなレストラン",
+        "森林小屋"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2bn9Ns50fVLc0jJ9qQuUo6",
+        "name": "森の小さなレストラン",
+        "artists": [
+          {
+            "name": "Naotaro Moriyama"
+          }
+        ],
+        "album": {
+          "name": "弓弦葉"
+        },
+        "duration_ms": 177465,
+        "is_playable": true
+      },
+      {
+        "id": "2iv3leXBl20qiIe67N5O5t",
+        "name": "森の小さなレストラン",
+        "artists": [
+          {
+            "name": "Epic Music Gekka"
+          }
+        ],
+        "album": {
+          "name": "Excalibur"
+        },
+        "duration_ms": 92240,
+        "is_playable": true
+      },
+      {
+        "id": "6hsN1vbVFaCJq2bIZKhhPN",
+        "name": "森の小さなレストラン",
+        "artists": [
+          {
+            "name": "Uki"
+          }
+        ],
+        "album": {
+          "name": "シークレット・ドリーム"
+        },
+        "duration_ms": 101479,
+        "is_playable": true
+      },
+      {
+        "id": "0R8mlsopDx6sUD6lGTiv8v",
+        "name": "森林小屋",
+        "artists": [
+          {
+            "name": "美鋼琴子"
+          }
+        ],
+        "album": {
+          "name": "森眠鋼琴輕音樂"
+        },
+        "duration_ms": 227000,
+        "is_playable": true
+      },
+      {
+        "id": "2LXlWEDV4CXRzon3NgESq6",
+        "name": "森の小さなレストランへようこそ - ep1",
+        "artists": [
+          {
+            "name": "F&B Illusionist"
+          }
+        ],
+        "album": {
+          "name": "光の道 - The Path of Light"
+        },
+        "duration_ms": 189959,
+        "is_playable": true
+      },
+      {
+        "id": "37XYyITs3EVTmU5eNrimEd",
+        "name": "森の小さなレストラン",
+        "artists": [
+          {
+            "id": "4FrFdi2hHpulQOxDihRIQD",
+            "name": "Aoi Teshima"
+          }
+        ],
+        "album": {
+          "name": "森の小さなレストラン"
+        },
+        "duration_ms": 153033,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22773568,
+      "name": "ひとり上手",
+      "ar": [
+        {
+          "name": "中島みゆき"
+        }
+      ],
+      "al": {
+        "name": "大吟醸",
+        "tns": [
+          "大吟醸",
+          "大吟酿"
+        ]
+      },
+      "dt": 257053,
+      "tns": [
+        "ひとり上手",
+        "习惯孤独"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5S1xV3T6zQuyeRpg2chO2W",
+        "name": "ひとり上手",
+        "artists": [
+          {
+            "name": "Fuyumi Sakamoto"
+          }
+        ],
+        "album": {
+          "name": "Love Songs II ～ずっとあなたが好きでした～"
+        },
+        "duration_ms": 260079,
+        "is_playable": true
+      },
+      {
+        "id": "5w6ogQ4mU4DPW6DULni7sI",
+        "name": "ひとり上手",
+        "artists": [
+          {
+            "name": "Fuyumi Sakamoto"
+          }
+        ],
+        "album": {
+          "name": "LOVE SONGS BEST"
+        },
+        "duration_ms": 260066,
+        "is_playable": true
+      },
+      {
+        "id": "6N5OYT0ngwwKcp6TwZ1qeS",
+        "name": "ひとり上手",
+        "artists": [
+          {
+            "name": "久我陽子"
+          }
+        ],
+        "album": {
+          "name": "ひとり上手"
+        },
+        "duration_ms": 259066,
+        "is_playable": true
+      },
+      {
+        "id": "6wRgqiAGSoXJZtNgdspQ4H",
+        "name": "习惯孤独",
+        "artists": [
+          {
+            "name": "陈佳"
+          }
+        ],
+        "album": {
+          "name": "又见邓丽君V"
+        },
+        "duration_ms": 230208,
+        "is_playable": true
+      },
+      {
+        "id": "7oSAzD9RTyiPHOM16noKMl",
+        "name": "ひとり上手",
+        "artists": [
+          {
+            "id": "0caDIM0rTovLDe5UdFvK1t",
+            "name": "中島みゆき"
+          }
+        ],
+        "album": {
+          "name": "ひとり上手"
+        },
+        "duration_ms": 254800,
+        "is_playable": false
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 36921256,
+      "name": "Do You Love Me",
+      "ar": [
+        {
+          "name": "国分友里恵"
+        }
+      ],
+      "al": {
+        "name": "Do You Love Me",
+        "tns": [
+          "Do You Love Me"
+        ]
+      },
+      "dt": 274991,
+      "tns": [
+        "Do You Love Me"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7IUv36NL5erXotT7sTQ5MD",
+        "name": "Do You Love",
+        "artists": [
+          {
+            "name": "Trish Toledo"
+          },
+          {
+            "name": "Baby Bash"
+          },
+          {
+            "name": "Joey Quiñones"
+          },
+          {
+            "name": "Edward \"E-Dub\" Rios"
+          }
+        ],
+        "album": {
+          "name": "Do You Love"
+        },
+        "duration_ms": 270856,
+        "is_playable": true
+      },
+      {
+        "id": "36scQQxJgtuLLtICbfrdvP",
+        "name": "Do you love me",
+        "artists": [
+          {
+            "name": "datfootdive"
+          }
+        ],
+        "album": {
+          "name": "Do you love me?"
+        },
+        "duration_ms": 77647,
+        "is_playable": true
+      },
+      {
+        "id": "0srYBJH7KXFscU5ATweYEb",
+        "name": "do you love me",
+        "artists": [
+          {
+            "name": "pupsies"
+          }
+        ],
+        "album": {
+          "name": "do you love me"
+        },
+        "duration_ms": 118727,
+        "is_playable": true
+      },
+      {
+        "id": "0p8bejOjnrxr21gq2UWpuT",
+        "name": "do you love me?",
+        "artists": [
+          {
+            "name": "Lil Darkie"
+          }
+        ],
+        "album": {
+          "name": "do you love me?"
+        },
+        "duration_ms": 126000,
+        "is_playable": true
+      },
+      {
+        "id": "5dWLQBMgv22DbyzJPK8SQy",
+        "name": "Do You Love Me",
+        "artists": [
+          {
+            "name": "Sofia Camara"
+          }
+        ],
+        "album": {
+          "name": "Do You Love Me"
+        },
+        "duration_ms": 206474,
+        "is_playable": true
+      },
+      {
+        "id": "73EaWaA8rTyZuBdPCVZjCd",
+        "name": "Easy Love",
+        "artists": [
+          {
+            "id": "1TnNKsMdzxwBiHkde10tPX",
+            "name": "Yurie Kokubu"
+          }
+        ],
+        "album": {
+          "name": "Silent Moon ＋1"
+        },
+        "duration_ms": 282906,
+        "is_playable": true
+      },
+      {
+        "id": "3liiZRlJxa8GeLUgWMoIeu",
+        "name": "Once Upon a Dream - From \"Maleficent\" / Pop Version",
+        "artists": [
+          {
+            "id": "00FQb4jTyendYWaN8pK0wa",
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "Once Upon a Dream (from \"Maleficent\") [Original Motion Picture Soundtrack]"
+        },
+        "duration_ms": 203080,
+        "is_playable": true
+      },
+      {
+        "id": "3aSWXU6owkZeVhh94XxEWO",
+        "name": "30 For 30 (with Kendrick Lamar)",
+        "artists": [
+          {
+            "id": "7tYKF4w9nC0nq9CsPZTHyP",
+            "name": "SZA"
+          },
+          {
+            "id": "2YZyLoL8N0Wb9xBt1NhZWg",
+            "name": "Kendrick Lamar"
+          }
+        ],
+        "album": {
+          "name": "SOS Deluxe: LANA"
+        },
+        "duration_ms": 278277,
+        "is_playable": true
+      },
+      {
+        "id": "4wcBRRpIfesgcyUtis7PEg",
+        "name": "1 step forward, 3 steps back",
+        "artists": [
+          {
+            "id": "1McMsnEElThX1knmY4oliG",
+            "name": "Olivia Rodrigo"
+          }
+        ],
+        "album": {
+          "name": "SOUR"
+        },
+        "duration_ms": 163586,
+        "is_playable": true
+      },
+      {
+        "id": "5BZsQlgw21vDOAjoqkNgKb",
+        "name": "DAISIES",
+        "artists": [
+          {
+            "id": "1uNFoZAHBGtllmzznpCI3s",
+            "name": "Justin Bieber"
+          }
+        ],
+        "album": {
+          "name": "SWAG"
+        },
+        "duration_ms": 176453,
+        "is_playable": true
+      },
+      {
+        "id": "7x5xYW5W42OGPAdHUyyguy",
+        "name": "Locked Away (feat. Adam Levine)",
+        "artists": [
+          {
+            "id": "4TH4BHy0LdBi3dpBW4P2UX",
+            "name": "R. City"
+          },
+          {
+            "id": "4bYPcJP5jwMhSivRcqie2n",
+            "name": "Adam Levine"
+          }
+        ],
+        "album": {
+          "name": "What Dreams Are Made Of"
+        },
+        "duration_ms": 227475,
+        "is_playable": true
+      },
+      {
+        "id": "5C3AY2e3hF83MYLXUXfvJX",
+        "name": "I wanna Be With You",
+        "artists": [
+          {
+            "id": "1TnNKsMdzxwBiHkde10tPX",
+            "name": "Yurie Kokubu"
+          }
+        ],
+        "album": {
+          "name": "STEPS ＋2"
+        },
+        "duration_ms": 306920,
+        "is_playable": true
+      },
+      {
+        "id": "1dLeSutde2Nt4DIWaLKxXO",
+        "name": "Just a Joke",
+        "artists": [
+          {
+            "id": "1TnNKsMdzxwBiHkde10tPX",
+            "name": "Yurie Kokubu"
+          }
+        ],
+        "album": {
+          "name": "Relief 72 hours"
+        },
+        "duration_ms": 189213,
+        "is_playable": true
+      },
+      {
+        "id": "5mLWPRZGlgjn9FlLNGie0Z",
+        "name": "Do You Love Me - Live At The Nippon Budokan, Tokyo, Japan - April 2, 1977 - Show 2",
+        "artists": [
+          {
+            "id": "07XSN3sPlIlB2L2XNcTwJw",
+            "name": "KISS"
+          }
+        ],
+        "album": {
+          "name": "Rock And Roll Over (50th Anniversary Super Deluxe)"
+        },
+        "duration_ms": 220333,
+        "is_playable": true
+      },
+      {
+        "id": "2jANiFTo75vzfJJhq3iek0",
+        "name": "Luv Connection",
+        "artists": [
+          {
+            "id": "3tA3IcStjrOq8H4wi4pb73",
+            "name": "KOJI 1200"
+          }
+        ],
+        "album": {
+          "name": "アメリカ大好き!"
+        },
+        "duration_ms": 210973,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 280765,
+      "name": "喜欢两个人",
+      "ar": [
+        {
+          "name": "彭佳慧"
+        }
+      ],
+      "al": {
+        "name": "美声荣耀",
+        "tns": [
+          "美声荣耀"
+        ]
+      },
+      "dt": 332840,
+      "tns": [
+        "喜欢两个人"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2EzR9e4M20nsA3JSfcrDaU",
+        "name": "喜歡兩個人",
+        "artists": [
+          {
+            "name": "Julia Peng"
+          }
+        ],
+        "album": {
+          "name": "最佳美聲 典藏精選"
+        },
+        "duration_ms": 331240,
+        "is_playable": true
+      },
+      {
+        "id": "2NoHHyAbLl90Lue7nxx4Ss",
+        "name": "喜歡兩個人",
+        "artists": [
+          {
+            "name": "Julia Peng"
+          }
+        ],
+        "album": {
+          "name": "情歌手"
+        },
+        "duration_ms": 330733,
+        "is_playable": true
+      },
+      {
+        "id": "1M6J46n3jEHAdYMYHl15Pm",
+        "name": "喜歡兩個人",
+        "artists": [
+          {
+            "name": "Julia Peng"
+          }
+        ],
+        "album": {
+          "name": "人海中遇見你-最佳婚禮歌曲"
+        },
+        "duration_ms": 331240,
+        "is_playable": true
+      },
+      {
+        "id": "7qQQwgDLebTXK9VfjkhVvk",
+        "name": "喜歡兩個人",
+        "artists": [
+          {
+            "name": "Julia Peng"
+          }
+        ],
+        "album": {
+          "name": "暢情錄(2002新歌+精選)"
+        },
+        "duration_ms": 331240,
+        "is_playable": true
+      },
+      {
+        "id": "72K8evix8Y6R4oiwLw7EHG",
+        "name": "喜歡兩個人",
+        "artists": [
+          {
+            "id": "7B4GBM2vQJvwyghdsvEV77",
+            "name": "Julia Peng"
+          }
+        ],
+        "album": {
+          "name": "絕對收藏彭佳慧"
+        },
+        "duration_ms": 333106,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 29751583,
+      "name": "CITY HUNTER ~愛よ消えないで~",
+      "ar": [
+        {
+          "name": "小比類巻かほる"
+        }
+      ],
+      "al": {
+        "name": "City Hunter Sound Collection X -Theme Songs-",
+        "tns": [
+          "City Hunter Sound Collection X -Theme Songs-",
+          "动画《城市猎人》系列主题曲集"
+        ]
+      },
+      "dt": 245013,
+      "tns": [
+        "CITY HUNTER ~愛よ消えないで~",
+        "城市猎人~爱啊请别消失~",
+        "TV动画《城市猎人》第1-26集片头曲"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7zkQSbrrrH9Y9GWh3LvYAA",
+        "name": "City Hunter 〜愛よ消えないで〜",
+        "artists": [
+          {
+            "name": "Kahoru Kohiruimaki"
+          }
+        ],
+        "album": {
+          "name": "CITY HUNTER　オリジナル・アニメーション・サウンドトラック"
+        },
+        "duration_ms": 244053,
+        "is_playable": true
+      },
+      {
+        "id": "4c0G3S4tGbwoJrF8Ve662r",
+        "name": "City Hunter 〜愛よ消えないで〜",
+        "artists": [
+          {
+            "name": "Kahoru Kohiruimaki"
+          }
+        ],
+        "album": {
+          "name": "The LEGEND"
+        },
+        "duration_ms": 246573,
+        "is_playable": true
+      },
+      {
+        "id": "4ApPqoj7ENKnSx1qNCtI87",
+        "name": "City Hunter 〜愛よ消えないで〜",
+        "artists": [
+          {
+            "name": "Kahoru Kohiruimaki"
+          }
+        ],
+        "album": {
+          "name": "黄金の80'sベストヒッツ35曲！〜Epic35〜"
+        },
+        "duration_ms": 246573,
+        "is_playable": true
+      },
+      {
+        "id": "5NjBuIojlUUI69V86gCW6m",
+        "name": "City Hunter ~愛よ消えないで~",
+        "artists": [
+          {
+            "name": "Shoko Nakagawa"
+          }
+        ],
+        "album": {
+          "name": "65535"
+        },
+        "duration_ms": 243066,
+        "is_playable": true
+      },
+      {
+        "id": "76X2KY7pDefceL4VDaeCJo",
+        "name": "City Hunter 〜愛よ消えないで〜",
+        "artists": [
+          {
+            "id": "25AlSzLodlCYZrjU8je4pJ",
+            "name": "Kahoru Kohiruimaki"
+          }
+        ],
+        "album": {
+          "name": "劇場版シティーハンター <新宿プライベート・アイズ> -VOCAL COLLECTION-"
+        },
+        "duration_ms": 244720,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22760128,
+      "name": "Baby if,",
+      "ar": [
+        {
+          "name": "Fayray"
+        }
+      ],
+      "al": {
+        "name": "Genuine",
+        "tns": [
+          "Genuine"
+        ]
+      },
+      "dt": 257000,
+      "tns": [
+        "Baby if,"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1AD7eNI5guxzMnmh9dAj0j",
+        "name": "Baby if,",
+        "artists": [
+          {
+            "name": "Mika Nakashima"
+          }
+        ],
+        "album": {
+          "name": "MESSAGE ～Piano & Voice～"
+        },
+        "duration_ms": 283586,
+        "is_playable": true
+      },
+      {
+        "id": "0nKjVbpweery76JA8Ylbhk",
+        "name": "Baby if,",
+        "artists": [
+          {
+            "name": "Mika Nakashima"
+          }
+        ],
+        "album": {
+          "name": "Baby if,"
+        },
+        "duration_ms": 283586,
+        "is_playable": true
+      },
+      {
+        "id": "7nwYyzZ0htSb1CxIZ5Fhrd",
+        "name": "Baby if I",
+        "artists": [
+          {
+            "name": "King George"
+          }
+        ],
+        "album": {
+          "name": "Baby if I"
+        },
+        "duration_ms": 202448,
+        "is_playable": true
+      },
+      {
+        "id": "2j7wI9QWrP8cjKDdOLVQTU",
+        "name": "Babylon",
+        "artists": [
+          {
+            "name": "Taylor Swift"
+          }
+        ],
+        "album": {
+          "name": "The Life of a Showgirl: The Encore"
+        },
+        "duration_ms": 219365,
+        "is_playable": true
+      },
+      {
+        "id": "72KeCPed2lFqZhbzTwszJs",
+        "name": "Babylon",
+        "artists": [
+          {
+            "name": "Taylor Swift"
+          }
+        ],
+        "album": {
+          "name": "The Life of a Showgirl: The Encore"
+        },
+        "duration_ms": 219365,
+        "is_playable": true
+      }
+    ]
+  }
+]
