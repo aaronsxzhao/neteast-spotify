@@ -1,0 +1,931 @@
+[
+  {
+    "source": {
+      "id": 452620656,
+      "name": "missing you",
+      "ar": [
+        {
+          "name": "具島直子"
+        }
+      ],
+      "al": {
+        "name": "missing you",
+        "tns": [
+          "missing you"
+        ]
+      },
+      "dt": 330396,
+      "tns": [
+        "missing you"
+      ]
+    },
+    "candidate": {
+      "id": "5E7nOftyzWQxbsVjvOAlpF",
+      "name": "missing you",
+      "artists": [
+        {
+          "name": "Naoko Gushima"
+        }
+      ],
+      "album": {
+        "name": "mellow medicine"
+      },
+      "duration_ms": 330360,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 256555,
+      "name": "寂寞流星群",
+      "ar": [
+        {
+          "name": "林忆莲"
+        }
+      ],
+      "al": {
+        "name": "2001莲",
+        "tns": [
+          "2001莲"
+        ]
+      },
+      "dt": 239960,
+      "tns": [
+        "寂寞流星群"
+      ]
+    },
+    "candidate": {
+      "id": "1CkG3aOMTrMZUI44Fvaoes",
+      "name": "寂寞流星群",
+      "artists": [
+        {
+          "name": "Sandy Lam"
+        }
+      ],
+      "album": {
+        "name": "2001 蓮"
+      },
+      "duration_ms": 239960,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 18733198,
+      "name": "Dealbreaker",
+      "ar": [
+        {
+          "name": "Rachael Yamagata"
+        }
+      ],
+      "al": {
+        "name": "Chesapeake",
+        "tns": [
+          "Chesapeake"
+        ]
+      },
+      "dt": 344146,
+      "tns": [
+        "Dealbreaker"
+      ]
+    },
+    "candidate": {
+      "id": "2dyZe2rAzWVqVcRaS1QPXL",
+      "name": "Dealbreaker",
+      "artists": [
+        {
+          "name": "Rachael Yamagata"
+        }
+      ],
+      "album": {
+        "name": "Chesapeake"
+      },
+      "duration_ms": 346933,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22803756,
+      "name": "ブリキの月",
+      "ar": [
+        {
+          "name": "セカイイチ"
+        }
+      ],
+      "al": {
+        "name": "Sekaiichi",
+        "tns": [
+          "Sekaiichi"
+        ]
+      },
+      "dt": 357494,
+      "tns": [
+        "ブリキの月",
+        "白铁之月"
+      ]
+    },
+    "candidate": {
+      "id": "7EjqWyfZYZK3tWLYfRDu0f",
+      "name": "ブリキの月",
+      "artists": [
+        {
+          "name": "Sekaiichi"
+        }
+      ],
+      "album": {
+        "name": "セカイイチ"
+      },
+      "duration_ms": 357440,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1818015417,
+      "name": "夏夜のマジック",
+      "ar": [
+        {
+          "name": "土岐麻子"
+        }
+      ],
+      "al": {
+        "name": "HOME TOWN ～Cover Songs～",
+        "tns": [
+          "HOME TOWN ～Cover Songs～"
+        ]
+      },
+      "dt": 304266,
+      "tns": [
+        "夏夜のマジック",
+        "夏夜魔法"
+      ]
+    },
+    "candidate": {
+      "id": "4H15DPcx96pHtUdICF8Chc",
+      "name": "夏夜のマジック",
+      "artists": [
+        {
+          "name": "Asako Toki"
+        }
+      ],
+      "album": {
+        "name": "HOME TOWN ～Cover Songs～"
+      },
+      "duration_ms": 304266,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1401863689,
+      "name": "约会在星期天晚上",
+      "ar": [
+        {
+          "name": "莫非定律乐团"
+        }
+      ],
+      "al": {
+        "name": "约会在星期天晚上",
+        "tns": [
+          "约会在星期天晚上"
+        ]
+      },
+      "dt": 218937,
+      "tns": [
+        "约会在星期天晚上"
+      ]
+    },
+    "candidate": {
+      "id": "21h8ZV7nyZIY9CYAnt6TNg",
+      "name": "约会在星期天晚上",
+      "artists": [
+        {
+          "name": "莫非定律乐团"
+        }
+      ],
+      "album": {
+        "name": "约会在星期天晚上"
+      },
+      "duration_ms": 218937,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3394764994,
+      "name": "さよならペンギン",
+      "ar": [
+        {
+          "name": "青葉市子"
+        }
+      ],
+      "al": {
+        "name": "さよならペンギン",
+        "tns": [
+          "さよならペンギン"
+        ]
+      },
+      "dt": 111096,
+      "tns": [
+        "さよならペンギン"
+      ]
+    },
+    "candidate": {
+      "id": "2xJ66XR7lbKqL55J70cXqJ",
+      "name": "SAYONARA PENGUIN",
+      "artists": [
+        {
+          "name": "Ichiko Aoba"
+        }
+      ],
+      "album": {
+        "name": "SAYONARA PENGUIN"
+      },
+      "duration_ms": 111096,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3358030188,
+      "name": "RETAKE",
+      "ar": [
+        {
+          "name": "野田愛実"
+        }
+      ],
+      "al": {
+        "name": "RETAKE",
+        "tns": [
+          "RETAKE"
+        ]
+      },
+      "dt": 144900,
+      "tns": [
+        "RETAKE",
+        "重启"
+      ]
+    },
+    "candidate": {
+      "id": "3pnG6ECc3XByUP98Iouvvq",
+      "name": "RETAKE",
+      "artists": [
+        {
+          "name": "野田愛実"
+        }
+      ],
+      "album": {
+        "name": "RETAKE"
+      },
+      "duration_ms": 144900,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 630019,
+      "name": "Infinite Love(無限の愛)",
+      "ar": [
+        {
+          "name": "中原めいこ"
+        }
+      ],
+      "al": {
+        "name": "Happy Birthday, Love for you",
+        "tns": [
+          "Happy Birthday, Love for you"
+        ]
+      },
+      "dt": 301133,
+      "tns": [
+        "Infinite Love(無限の愛)",
+        "无限的爱"
+      ]
+    },
+    "candidate": {
+      "id": "0K5c3pi58qtBIOhvXF0VGe",
+      "name": "Infinite Love(無限の愛)",
+      "artists": [
+        {
+          "name": "Meiko Nakahara"
+        }
+      ],
+      "album": {
+        "name": "Happy Birthday, Love for you"
+      },
+      "duration_ms": 301133,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 205449,
+      "name": "失恋无罪",
+      "ar": [
+        {
+          "name": "黄丽玲"
+        }
+      ],
+      "al": {
+        "name": "失恋无罪",
+        "tns": [
+          "失恋无罪"
+        ]
+      },
+      "dt": 246693,
+      "tns": [
+        "失恋无罪",
+        "Lovelorn, Not Guilty"
+      ]
+    },
+    "candidate": {
+      "id": "2s96YKKpfBUbQP3lJuhkfX",
+      "name": "失戀無罪",
+      "artists": [
+        {
+          "name": "A-Lin"
+        }
+      ],
+      "album": {
+        "name": "失戀無罪"
+      },
+      "duration_ms": 246693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 722928,
+      "name": "Departures〜あなたにおくるアイの歌〜",
+      "ar": [
+        {
+          "name": "EGOIST"
+        }
+      ],
+      "al": {
+        "name": "Departures~あなたにおくるアイの歌~",
+        "tns": [
+          "Departures~あなたにおくるアイの歌~"
+        ]
+      },
+      "dt": 255013,
+      "tns": [
+        "Departures〜あなたにおくるアイの歌〜",
+        "Departures ~赠于你的爱之歌~",
+        "TV动画《罪恶王冠》片尾曲"
+      ]
+    },
+    "candidate": {
+      "id": "5iScqgKQne0dNnlI8MAytp",
+      "name": "Departures 〜あなたにおくるアイの歌〜",
+      "artists": [
+        {
+          "name": "EGOIST"
+        }
+      ],
+      "album": {
+        "name": "Departures - Anata Ni Okuru Ai No Uta"
+      },
+      "duration_ms": 255586,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2743437005,
+      "name": "Okay, Goodbye",
+      "ar": [
+        {
+          "name": "藤井風"
+        }
+      ],
+      "al": {
+        "name": "Prema",
+        "tns": [
+          "Prema"
+        ]
+      },
+      "dt": 230908,
+      "tns": [
+        "Okay, Goodbye"
+      ]
+    },
+    "candidate": {
+      "id": "1Vw0JiY6Jk8vCypHzb3fo4",
+      "name": "Okay, Goodbye",
+      "artists": [
+        {
+          "name": "Fujii Kaze"
+        }
+      ],
+      "album": {
+        "name": "Prema"
+      },
+      "duration_ms": 230908,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1370286013,
+      "name": "Fresh Go",
+      "ar": [
+        {
+          "name": "SPiCYSOL"
+        }
+      ],
+      "al": {
+        "name": "EASY-EP",
+        "tns": [
+          "EASY-EP"
+        ]
+      },
+      "dt": 218906,
+      "tns": [
+        "Fresh Go",
+        "日本フレスコボール協会オフィシャル応援ソング"
+      ]
+    },
+    "candidate": {
+      "id": "0tSutMvPYAxhktBqYuenfy",
+      "name": "Fresh Go",
+      "artists": [
+        {
+          "name": "SPiCYSOL"
+        }
+      ],
+      "album": {
+        "name": "EASY-EP"
+      },
+      "duration_ms": 218906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 36392029,
+      "name": "日落大道",
+      "ar": [
+        {
+          "name": "梁博"
+        }
+      ],
+      "al": {
+        "name": "迷藏",
+        "tns": [
+          "迷藏"
+        ]
+      },
+      "dt": 275434,
+      "tns": [
+        "日落大道"
+      ]
+    },
+    "candidate": {
+      "id": "7xfdU6f2wxu6yZmggyVURh",
+      "name": "日落大道",
+      "artists": [
+        {
+          "name": "梁博"
+        }
+      ],
+      "album": {
+        "name": "迷藏"
+      },
+      "duration_ms": 275434,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1305367749,
+      "name": "I LOVE YOU SO",
+      "ar": [
+        {
+          "name": "大橋純子"
+        }
+      ],
+      "al": {
+        "name": "MAGICAL 大橋純子の世界 III",
+        "tns": [
+          "MAGICAL 大橋純子の世界 III"
+        ]
+      },
+      "dt": 279880,
+      "tns": [
+        "I LOVE YOU SO"
+      ]
+    },
+    "candidate": {
+      "id": "11x1qIGquHDFn1HuzZpUtC",
+      "name": "I LOVE YOU SO",
+      "artists": [
+        {
+          "name": "Junko Ohashi"
+        }
+      ],
+      "album": {
+        "name": "MAGICAL 大橋純子の世界 III"
+      },
+      "duration_ms": 279880,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 21948077,
+      "name": "Communication",
+      "ar": [
+        {
+          "name": "The Cardigans"
+        }
+      ],
+      "al": {
+        "name": "Long Gone Before Daylight",
+        "tns": [
+          "Long Gone Before Daylight"
+        ]
+      },
+      "dt": 269213,
+      "tns": [
+        "Communication"
+      ]
+    },
+    "candidate": {
+      "id": "2XOTqTNpELKBqq2FQaXcik",
+      "name": "Communication",
+      "artists": [
+        {
+          "name": "The Cardigans"
+        }
+      ],
+      "album": {
+        "name": "Long Gone Before Daylight"
+      },
+      "duration_ms": 268680,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1487533794,
+      "name": "Holiday",
+      "ar": [
+        {
+          "name": "平井 大"
+        }
+      ],
+      "al": {
+        "name": "Holiday",
+        "tns": [
+          "Holiday"
+        ]
+      },
+      "dt": 195362,
+      "tns": [
+        "Holiday",
+        "日剧《竹内凉真的拍摄休日》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "0mOcCHxgDyry2kEjZjh8y4",
+      "name": "Holiday",
+      "artists": [
+        {
+          "name": "HIRAIDAI"
+        }
+      ],
+      "album": {
+        "name": "Holiday"
+      },
+      "duration_ms": 195362,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1442003098,
+      "name": "life hack",
+      "ar": [
+        {
+          "name": "Vaundy"
+        }
+      ],
+      "al": {
+        "name": "life hack",
+        "tns": [
+          "life hack"
+        ]
+      },
+      "dt": 226442,
+      "tns": [
+        "life hack"
+      ]
+    },
+    "candidate": {
+      "id": "3jXtuJcki1LZa7I8YSRDRn",
+      "name": "life hack",
+      "artists": [
+        {
+          "name": "Vaundy"
+        }
+      ],
+      "album": {
+        "name": "life hack"
+      },
+      "duration_ms": 226442,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22795870,
+      "name": "恋は流星",
+      "ar": [
+        {
+          "name": "吉田美奈子"
+        }
+      ],
+      "al": {
+        "name": "Twilight Zone",
+        "tns": [
+          "Twilight Zone"
+        ]
+      },
+      "dt": 407463,
+      "tns": [
+        "恋は流星",
+        "爱是流星"
+      ]
+    },
+    "candidate": {
+      "id": "2NGWAXh6sisNpVHIAAlME0",
+      "name": "恋は流星",
+      "artists": [
+        {
+          "name": "Minako Yoshida"
+        }
+      ],
+      "album": {
+        "name": "TWILIGHT ZONE"
+      },
+      "duration_ms": 407400,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1819274042,
+      "name": "夜の恋は",
+      "ar": [
+        {
+          "name": "indigo la End"
+        }
+      ],
+      "al": {
+        "name": "夜行秘密",
+        "tns": [
+          "夜行秘密"
+        ]
+      },
+      "dt": 231693,
+      "tns": [
+        "夜の恋は",
+        "夜晚之恋"
+      ]
+    },
+    "candidate": {
+      "id": "6ro08ceTgI7r7fC7VEQNUx",
+      "name": "夜の恋は",
+      "artists": [
+        {
+          "name": "indigo la End"
+        }
+      ],
+      "album": {
+        "name": "夜行秘密"
+      },
+      "duration_ms": 231693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1998395414,
+      "name": "自転車にのって",
+      "ar": [
+        {
+          "name": "KYOZO & BUN"
+        }
+      ],
+      "al": {
+        "name": "トラベリン’・バンド",
+        "tns": [
+          "トラベリン’・バンド"
+        ]
+      },
+      "dt": 328120,
+      "tns": [
+        "自転車にのって",
+        "骑上自行车",
+        "电影《鲭鱼罐头》插曲",
+        "映画『サバカン SABAKAN』挿入歌"
+      ]
+    },
+    "candidate": {
+      "id": "0YPsWah53ax1Wi2PzTQRa8",
+      "name": "Jitenshani Notte",
+      "artists": [
+        {
+          "name": "KYOZO"
+        },
+        {
+          "name": "BUN"
+        }
+      ],
+      "album": {
+        "name": "TRAVELIN' BAND"
+      },
+      "duration_ms": 328120,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 479198065,
+      "name": "Fantasic Show",
+      "ar": [
+        {
+          "name": "Yogee New Waves"
+        }
+      ],
+      "al": {
+        "name": "WAVES",
+        "tns": [
+          "WAVES"
+        ]
+      },
+      "dt": 325535,
+      "tns": [
+        "Fantasic Show"
+      ]
+    },
+    "candidate": {
+      "id": "1x2J3YlkCq3F6kFouUPwEE",
+      "name": "Fantasic Show",
+      "artists": [
+        {
+          "name": "Yogee New Waves"
+        }
+      ],
+      "album": {
+        "name": "WAVES"
+      },
+      "duration_ms": 325535,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 601521,
+      "name": "SUMMER EYES",
+      "ar": [
+        {
+          "name": "菊池桃子"
+        }
+      ],
+      "al": {
+        "name": "菊池桃子スペシャル・セレクションI",
+        "tns": [
+          "菊池桃子スペシャル・セレクションI"
+        ]
+      },
+      "dt": 217640,
+      "tns": [
+        "SUMMER EYES",
+        "夏日・信号"
+      ]
+    },
+    "candidate": {
+      "id": "1VR0dvn29nYiHFfQeGTaU2",
+      "name": "SUMMER EYES",
+      "artists": [
+        {
+          "name": "Momoko Kikuchi"
+        }
+      ],
+      "album": {
+        "name": "SUMMER EYES"
+      },
+      "duration_ms": 217640,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1824185544,
+      "name": "Wave",
+      "ar": [
+        {
+          "name": "山根麻以"
+        }
+      ],
+      "al": {
+        "name": "たそがれ",
+        "tns": [
+          "たそがれ"
+        ]
+      },
+      "dt": 280680,
+      "tns": [
+        "Wave"
+      ]
+    },
+    "candidate": {
+      "id": "0vMN8Xw0BiNYf1uhxx30PU",
+      "name": "Wave",
+      "artists": [
+        {
+          "name": "Mai Yamane"
+        }
+      ],
+      "album": {
+        "name": "Wave"
+      },
+      "duration_ms": 279379,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2132780053,
+      "name": "6x6",
+      "ar": [
+        {
+          "name": "The Royal Heartaches"
+        }
+      ],
+      "al": {
+        "name": "KHARUI",
+        "tns": [
+          "KHARUI"
+        ]
+      },
+      "dt": 296162,
+      "tns": [
+        "6x6"
+      ]
+    },
+    "candidate": {
+      "id": "5HUCslck10aqSvFvmJC7Yr",
+      "name": "6x6",
+      "artists": [
+        {
+          "name": "The Royal Heartaches"
+        }
+      ],
+      "album": {
+        "name": "KHARUI"
+      },
+      "duration_ms": 296162,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 37955171,
+      "name": "Week End",
+      "ar": [
+        {
+          "name": "星野源"
+        }
+      ],
+      "al": {
+        "name": "YELLOW DANCER",
+        "tns": [
+          "YELLOW DANCER"
+        ]
+      },
+      "dt": 270466,
+      "tns": [
+        "Week End",
+        "电视节目『周六闹钟新闻』主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "5eZdmSbdCtO344dC0A3CB2",
+      "name": "Week End",
+      "artists": [
+        {
+          "name": "Gen Hoshino"
+        }
+      ],
+      "album": {
+        "name": "YELLOW DANCER"
+      },
+      "duration_ms": 270466,
+      "is_playable": true
+    }
+  }
+]

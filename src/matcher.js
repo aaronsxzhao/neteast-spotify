@@ -57,6 +57,8 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['1938733035', { name: '緩りらら', artist: '笠原瑠斗', titles: ['Yururirara'] }],
+  ['2020639987', { name: 'Rule (Kimini Muchuu) (Live 2023)', artist: '宇多田ヒカル', titles: ['Rule (君に夢中) - Live 2023'] }],
   ['29122850', { name: 'いかないで collaboration', artist: '德永英明', titles: ['いかないで'] }],
   ['601458', { name: '真夏のSequence', artist: '菊池桃子', titles: ['Manatsu no Sequence'] }],
   ['491233901', { name: '금요병', artist: 'Dalda', titles: ['Friday Blues'] }],
@@ -100,6 +102,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['498880671', { name: 'Lily feat. Rachel', artist: '鈴木真海子', trackId: '4nCHNiMsnSYT0am8S2ifI1', requireCompleteRoster: true }],
+  ['1938733035', { name: '緩りらら', artist: '笠原瑠斗', trackId: '0EeDQLRSNWsZzNsyKsJ402' }],
+  ['2020639987', { name: 'Rule (Kimini Muchuu) (Live 2023)', artist: '宇多田ヒカル', trackId: '47NaTEPlCpA9owkdsn6ok7' }],
   ['2047652597', { name: '森の小さなレストラン', artist: '手嶌葵', trackId: '37XYyITs3EVTmU5eNrimEd' }],
   ['280765', { name: '喜欢两个人', artist: '彭佳慧', trackId: '72K8evix8Y6R4oiwLw7EHG' }],
   ['29751583', { name: 'CITY HUNTER ~愛よ消えないで~', artist: '小比類巻かほる', trackId: '76X2KY7pDefceL4VDaeCJo' }],
@@ -180,6 +185,8 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['鈴木真海子', ['Mamiko Suzuki']],
+  ['笠原瑠斗', ['Ryuto Kasahara']],
   ['手嶌葵', ['Aoi Teshima']],
   ['彭佳慧', ['Julia Peng']],
   ['小比類巻かほる', ['Kahoru Kohiruimaki']],

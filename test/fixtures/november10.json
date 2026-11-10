@@ -1,0 +1,768 @@
+[
+  {
+    "source": {
+      "id": 541083,
+      "name": "RAINY WALK",
+      "ar": [
+        {
+          "name": "山下達郎"
+        }
+      ],
+      "al": {
+        "name": "MOONGLOW",
+        "tns": [
+          "MOONGLOW"
+        ]
+      },
+      "dt": 309000,
+      "tns": [
+        "RAINY WALK"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4sjD3M6iXbUCLynmoSJMzv",
+        "name": "Rainy Walk",
+        "artists": [
+          {
+            "name": "Kul Mark"
+          }
+        ],
+        "album": {
+          "name": "Rainy Walk"
+        },
+        "duration_ms": 41808,
+        "is_playable": true
+      },
+      {
+        "id": "6UOTxJ7a0AD8GNgWvQwXnu",
+        "name": "RAINY WALK(オリジナル：山下達郎)[acoustic guitar]",
+        "artists": [
+          {
+            "name": "MTA"
+          }
+        ],
+        "album": {
+          "name": "Histrical POPs vol.12"
+        },
+        "duration_ms": 219938,
+        "is_playable": true
+      },
+      {
+        "id": "0e5IIVSWFtYSKIC3drcVrz",
+        "name": "Rainy Walk",
+        "artists": [
+          {
+            "name": "Sullivan Murphy"
+          }
+        ],
+        "album": {
+          "name": "Lazy Sunday"
+        },
+        "duration_ms": 209717,
+        "is_playable": true
+      },
+      {
+        "id": "2AWCrWOLyXTFyq0bxQywPj",
+        "name": "rainy walk",
+        "artists": [
+          {
+            "name": "Kayorama"
+          }
+        ],
+        "album": {
+          "name": "rainy walk"
+        },
+        "duration_ms": 145959,
+        "is_playable": true
+      },
+      {
+        "id": "2e2PajlTKfSugEoz1RFSGh",
+        "name": "Rainy Day Woman",
+        "artists": [
+          {
+            "name": "Miki Matsubara"
+          }
+        ],
+        "album": {
+          "name": "Who Are You? (Remastered)"
+        },
+        "duration_ms": 307226,
+        "is_playable": true
+      },
+      {
+        "id": "3mlqYwpqk8g5CFxmaJjAKv",
+        "name": "Rain - Version for Piano Trio",
+        "artists": [
+          {
+            "id": "1tcgfoMTT1szjUeaikxRjA",
+            "name": "Ryuichi Sakamoto"
+          },
+          {
+            "id": "5QdS83aNvQzKgj43VTdY8d",
+            "name": "Jaques Morelenbaum"
+          },
+          {
+            "id": "2DJqfDZuuxw73GMy6ognYM",
+            "name": "David Nadien"
+          }
+        ],
+        "album": {
+          "name": "1996"
+        },
+        "duration_ms": 218440,
+        "is_playable": true
+      },
+      {
+        "id": "5w90381QSXUfkbZD4buQmX",
+        "name": "RAINY HEART",
+        "artists": [
+          {
+            "id": "2FdiOm1d5IVBdLlobhzlTF",
+            "name": "Kingo Hamada"
+          }
+        ],
+        "album": {
+          "name": "BEST COLLECTION 〜MOON YEARS〜"
+        },
+        "duration_ms": 282800,
+        "is_playable": true
+      },
+      {
+        "id": "2LZ9iobmtiQa52mZMIebuH",
+        "name": "レイン",
+        "artists": [
+          {
+            "id": "24b231EnCM3BkpiuWs5VBE",
+            "name": "SID"
+          }
+        ],
+        "album": {
+          "name": "dead stock"
+        },
+        "duration_ms": 255533,
+        "is_playable": true
+      },
+      {
+        "id": "3Y2S5izRYLPf0Bfb4HNJ2U",
+        "name": "Rainy Runway",
+        "artists": [
+          {
+            "id": "0O1UtbTe4ca7HabaiMhYZ7",
+            "name": "KIRINJI"
+          }
+        ],
+        "album": {
+          "name": "Steppin' Out"
+        },
+        "duration_ms": 243888,
+        "is_playable": true
+      },
+      {
+        "id": "3INsIMe6Ap6EJ2xXgt9NB8",
+        "name": "Rainy Tapestry",
+        "artists": [
+          {
+            "id": "0rFHElzeddB9ymDjgpBENX",
+            "name": "Lamp"
+          }
+        ],
+        "album": {
+          "name": "For Lovers"
+        },
+        "duration_ms": 326546,
+        "is_playable": true
+      },
+      {
+        "id": "0OfonnFXPGfsO1GINDZq6v",
+        "name": "Rain of Fire",
+        "artists": [
+          {
+            "id": "7nzSoJISlVJsn7O0yTeMOB",
+            "name": "Joe Hisaishi"
+          },
+          {
+            "id": "0MvSBMGRQJY3mRwIbJsqF1",
+            "name": "Royal Philharmonic Orchestra"
+          }
+        ],
+        "album": {
+          "name": "Symphonic Suite The Boy and the Heron for piano and orchestra"
+        },
+        "duration_ms": 88426,
+        "is_playable": true
+      },
+      {
+        "id": "69tMBng03dwqnlo5LSR645",
+        "name": "RAINY DAY BLUE - 2026 Edit / Live At 日本武道館, 1981",
+        "artists": [
+          {
+            "id": "2Ex4vjQ6mSh5woTlDWto6d",
+            "name": "Masayoshi Takanaka"
+          }
+        ],
+        "album": {
+          "name": "RAINBOW GOBLINS STORY Live at Budokan 1981〜虹伝説 〜"
+        },
+        "duration_ms": 372573,
+        "is_playable": true
+      },
+      {
+        "id": "0JTjuVPS4frbrnCfiEs4Ud",
+        "name": "Raindrop City",
+        "artists": [
+          {
+            "id": "0rFHElzeddB9ymDjgpBENX",
+            "name": "Lamp"
+          }
+        ],
+        "album": {
+          "name": "Soyokaze Apartment Room 201"
+        },
+        "duration_ms": 261519,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 498880671,
+      "name": "Lily feat. Rachel",
+      "ar": [
+        {
+          "name": "鈴木真海子"
+        },
+        {
+          "name": "Rachel"
+        }
+      ],
+      "al": {
+        "name": "Deep Green",
+        "tns": [
+          "Deep Green"
+        ]
+      },
+      "dt": 147750,
+      "tns": [
+        "Lily feat. Rachel"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0lks2Kt9veMOFEAPN0fsqN",
+        "name": "Lily",
+        "artists": [
+          {
+            "name": "Alan Walker"
+          },
+          {
+            "name": "K-391"
+          },
+          {
+            "name": "Emelie Hollow"
+          }
+        ],
+        "album": {
+          "name": "Different World"
+        },
+        "duration_ms": 195840,
+        "is_playable": true
+      },
+      {
+        "id": "2wcifzaL5979mgXn4pIhiK",
+        "name": "LILY",
+        "artists": [
+          {
+            "name": "Christian Hayes"
+          }
+        ],
+        "album": {
+          "name": "Last I Love You"
+        },
+        "duration_ms": 235294,
+        "is_playable": true
+      },
+      {
+        "id": "5IWbEsr0GOkGwoHmMhISlB",
+        "name": "Lily",
+        "artists": [
+          {
+            "name": "Reiko Kudo"
+          }
+        ],
+        "album": {
+          "name": "Rice Field Silently Riping In The Night"
+        },
+        "duration_ms": 278640,
+        "is_playable": true
+      },
+      {
+        "id": "5Vzk7fpvue2EGQv9hPwtLk",
+        "name": "Lovely Lily",
+        "artists": [
+          {
+            "name": "Rachel Allyn"
+          }
+        ],
+        "album": {
+          "name": "Do It Yourself"
+        },
+        "duration_ms": 249933,
+        "is_playable": true
+      },
+      {
+        "id": "4nCHNiMsnSYT0am8S2ifI1",
+        "name": "Lily",
+        "artists": [
+          {
+            "id": "21bkNzNX7do9qb8SM9wFQF",
+            "name": "Mamiko Suzuki"
+          },
+          {
+            "id": "6k2XA52whNeJDYbIes1nOC",
+            "name": "Rachel"
+          }
+        ],
+        "album": {
+          "name": "Deep green"
+        },
+        "duration_ms": 147750,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1938733035,
+      "name": "緩りらら",
+      "ar": [
+        {
+          "name": "笠原瑠斗"
+        }
+      ],
+      "al": {
+        "name": "緩りらら",
+        "tns": [
+          "緩りらら"
+        ]
+      },
+      "dt": 240506,
+      "tns": [
+        "緩りらら",
+        "松松垮垮的"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "64yBq9eR8Qg0oGYv5fYoZN",
+        "name": "雨はりらりら",
+        "artists": [
+          {
+            "name": "ShibayanRecords"
+          }
+        ],
+        "album": {
+          "name": "マジコカタストロフィ"
+        },
+        "duration_ms": 489000,
+        "is_playable": true
+      },
+      {
+        "id": "7HtoSpHzJmNjmIwt2vdgFG",
+        "name": "Yururirara",
+        "artists": [
+          {
+            "name": "RYUTO KASAHARA"
+          }
+        ],
+        "album": {
+          "name": "HONEY meets ISLAND CAFE - Sea of Love 7 - Collaboration with The Holiday"
+        },
+        "duration_ms": 240506,
+        "is_playable": true
+      },
+      {
+        "id": "364JzOajs76bJymjHm3sVY",
+        "name": "ピースサイン - Peace Sign",
+        "artists": [
+          {
+            "name": "Kenshi Yonezu"
+          }
+        ],
+        "album": {
+          "name": "BOOTLEG"
+        },
+        "duration_ms": 238525,
+        "is_playable": true
+      },
+      {
+        "id": "6lDMusqO2IB3j3tYUfqBnJ",
+        "name": "Yururirara - Mixed",
+        "artists": [
+          {
+            "name": "RYUTO KASAHARA"
+          }
+        ],
+        "album": {
+          "name": "Lovers City Groove 2 (DJ Mix)"
+        },
+        "duration_ms": 243213,
+        "is_playable": true
+      },
+      {
+        "id": "0EeDQLRSNWsZzNsyKsJ402",
+        "name": "Yururirara",
+        "artists": [
+          {
+            "id": "3jBsOn36WAeFeq0c7qt8Oz",
+            "name": "RYUTO KASAHARA"
+          }
+        ],
+        "album": {
+          "name": "Yururirara"
+        },
+        "duration_ms": 240506,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2020639987,
+      "name": "Rule (Kimini Muchuu) (Live 2023)",
+      "ar": [
+        {
+          "name": "宇多田ヒカル"
+        }
+      ],
+      "al": {
+        "name": "40代はいろいろ -Live from Metropolis Studios-",
+        "tns": [
+          "40代はいろいろ -Live from Metropolis Studios-"
+        ]
+      },
+      "dt": 216897,
+      "tns": [
+        "Rule (Kimini Muchuu) (Live 2023)"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7EWHLy1MbHyRNuTRJQt9C9",
+        "name": "Rule of Nines",
+        "artists": [
+          {
+            "name": "二口魔菜 Futakuchi Mana"
+          }
+        ],
+        "album": {
+          "name": "Covers 2021"
+        },
+        "duration_ms": 221379,
+        "is_playable": true
+      },
+      {
+        "id": "2G8tfTExxzpRKssKzKwDYV",
+        "name": "Simple And Clean",
+        "artists": [
+          {
+            "name": "Hikaru Utada"
+          }
+        ],
+        "album": {
+          "name": "COLORS"
+        },
+        "duration_ms": 300760,
+        "is_playable": true
+      },
+      {
+        "id": "74ZhWPdUHlVjFmXFD2JOVv",
+        "name": "Simple And Clean",
+        "artists": [
+          {
+            "name": "Hikaru Utada"
+          }
+        ],
+        "album": {
+          "name": "DEEP RIVER"
+        },
+        "duration_ms": 303973,
+        "is_playable": true
+      },
+      {
+        "id": "5RhWszHMSKzb7KiXk4Ae0M",
+        "name": "One Last Kiss",
+        "artists": [
+          {
+            "name": "Hikaru Utada"
+          }
+        ],
+        "album": {
+          "name": "One Last Kiss"
+        },
+        "duration_ms": 252026,
+        "is_playable": true
+      },
+      {
+        "id": "47NaTEPlCpA9owkdsn6ok7",
+        "name": "Rule (君に夢中) - Live 2023",
+        "artists": [
+          {
+            "id": "7lbSsjYACZHn1MSDXPxNF2",
+            "name": "Hikaru Utada"
+          }
+        ],
+        "album": {
+          "name": "40代はいろいろ -Live from Metropolis Studios-"
+        },
+        "duration_ms": 216829,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1294109866,
+      "name": "ミライのテーマ",
+      "ar": [
+        {
+          "name": "山下達郎"
+        }
+      ],
+      "al": {
+        "name": "ミライのテーマ / うたのきしゃ",
+        "tns": [
+          "ミライのテーマ / うたのきしゃ"
+        ]
+      },
+      "dt": 261506,
+      "tns": [
+        "ミライのテーマ",
+        "未来的主题曲",
+        "动画电影《未来的未来》片头曲 / 映画「未来のミライ」OPテーマ"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4y50PiCJ77Y5LKCPQLhQ7W",
+        "name": "ミライのテーマ/未来のミライ(8bit)",
+        "artists": [
+          {
+            "name": "Studio Megaane"
+          }
+        ],
+        "album": {
+          "name": "2010'sアニメ8bit vol.04"
+        },
+        "duration_ms": 270156,
+        "is_playable": true
+      },
+      {
+        "id": "2QNQDwmCy5Tg89k3lMzPtd",
+        "name": "ミライのテーマ - 「未来のミライ」より",
+        "artists": [
+          {
+            "name": "栗田博文"
+          },
+          {
+            "name": "Tokyo Philharmonic Orchestra"
+          }
+        ],
+        "album": {
+          "name": "STUDIO CHIZU Music Journey Vol. 1 - Cinematic Orchestra 2022"
+        },
+        "duration_ms": 125702,
+        "is_playable": true
+      },
+      {
+        "id": "5oh6RP8B3siyotvmeYjMaQ",
+        "name": "ミライのテーマ（『未来のミライ』より）",
+        "artists": [
+          {
+            "name": "川村健"
+          }
+        ],
+        "album": {
+          "name": "ピアノでアニメソング～邦画アニメ"
+        },
+        "duration_ms": 225020,
+        "is_playable": true
+      },
+      {
+        "id": "43a4z4EvinHmjtMXzLipQQ",
+        "name": "ミライのテーマ 映画未来のミライ 主題歌（バック演奏編）",
+        "artists": [
+          {
+            "name": "Crimson Craftsman"
+          }
+        ],
+        "album": {
+          "name": "ミライのテーマ 映画未来のミライ 主題歌（バック演奏編）"
+        },
+        "duration_ms": 265454,
+        "is_playable": true
+      },
+      {
+        "id": "5Fqz14AgntUfJ9Xy0YCAlc",
+        "name": "私のテーマ",
+        "artists": [
+          {
+            "name": "Michiru Oshima"
+          }
+        ],
+        "album": {
+          "name": "アニメ『四畳半タイムマシンブルース』Original Soundtrack"
+        },
+        "duration_ms": 101466,
+        "is_playable": true
+      },
+      {
+        "id": "5ppmwBydEoS75hDpR8Omeg",
+        "name": "ミライのテーマ(オリジナルアーティスト:山下達郎)[オルゴール]",
+        "artists": [
+          {
+            "id": "3IpbcDAUZbVwgXkgMDUZkW",
+            "name": "ヒーリング・オルゴール・ラボラトリー"
+          }
+        ],
+        "album": {
+          "name": "オルゴール JPOP VOL.5"
+        },
+        "duration_ms": 39431,
+        "is_playable": true
+      },
+      {
+        "id": "6ggCUjC5j2uhighYnTee8X",
+        "name": "キスカ",
+        "artists": [
+          {
+            "id": "41hQ0PoEyj9xEBhwt73aWC",
+            "name": "Tatsuro Yamashita"
+          }
+        ],
+        "album": {
+          "name": "PACIFIC"
+        },
+        "duration_ms": 325533,
+        "is_playable": true
+      },
+      {
+        "id": "6MBB1w8rl9XEGqrfWcBq4I",
+        "name": "儀礼",
+        "artists": [
+          {
+            "id": "64mecceQewFCKwCK6JBW0o",
+            "name": "Yasuharu Takanashi"
+          },
+          {
+            "id": "11J6wtGIMBv3bT0m2kW6m4",
+            "name": "YAIBA"
+          }
+        ],
+        "album": {
+          "name": "NARUTO-ナルト- 疾風伝　オリジナル・サウンドトラック Ⅱ"
+        },
+        "duration_ms": 134120,
+        "is_playable": true
+      },
+      {
+        "id": "29EDdkdXjaMns5ZJ7Dts5x",
+        "name": "山霞",
+        "artists": [
+          {
+            "id": "64mecceQewFCKwCK6JBW0o",
+            "name": "Yasuharu Takanashi"
+          },
+          {
+            "id": "11J6wtGIMBv3bT0m2kW6m4",
+            "name": "YAIBA"
+          }
+        ],
+        "album": {
+          "name": "NARUTO-ナルト- 疾風伝　オリジナル・サウンドトラック Ⅱ"
+        },
+        "duration_ms": 152400,
+        "is_playable": true
+      },
+      {
+        "id": "6Xb9Oj6TB2FDO4YIxE6lsQ",
+        "name": "小村",
+        "artists": [
+          {
+            "id": "0G8iubd5gKv5vdPnmHRaxT",
+            "name": "Yutaka Yamada"
+          }
+        ],
+        "album": {
+          "name": "「ヴィンランド・サガ」オリジナル・サウンドトラック"
+        },
+        "duration_ms": 246160,
+        "is_playable": true
+      },
+      {
+        "id": "38HUGy0T2xuL1gAjBk77US",
+        "name": "Theme",
+        "artists": [
+          {
+            "id": "1vKVBTtUR4qdLXjYxcJhos",
+            "name": "藤丸バンド"
+          },
+          {
+            "id": "29nIFzsiS967tiGPt6fC8U",
+            "name": "芳野藤丸"
+          }
+        ],
+        "album": {
+          "name": "BGM"
+        },
+        "duration_ms": 99160,
+        "is_playable": true
+      },
+      {
+        "id": "4fMuQ7uxAYJQfdk0TYakmR",
+        "name": "Yasashisa Ni Tsutsumareta Nara (From \"Majo No Takkyūbin\") - Piano Version",
+        "artists": [
+          {
+            "id": "0Gt3UdwQmnBwt4Ik75cmmY",
+            "name": "reimagined"
+          }
+        ],
+        "album": {
+          "name": "Studio Ghibli Piano"
+        },
+        "duration_ms": 86571,
+        "is_playable": true
+      },
+      {
+        "id": "27UdiYR18YmzD4ci8BzigM",
+        "name": "Tatsuo",
+        "artists": [
+          {
+            "id": "0Z9l3Ufmrp3UyNy1FYqZiA",
+            "name": "Ryoto"
+          }
+        ],
+        "album": {
+          "name": "A Clear Day"
+        },
+        "duration_ms": 50204,
+        "is_playable": true
+      },
+      {
+        "id": "1q0wzsDmE9BnvpEUuIZdiq",
+        "name": "Stranger - Demo 1987",
+        "artists": [
+          {
+            "id": "5lXRsIedscGcDfLaoeUswU",
+            "name": "Alien"
+          }
+        ],
+        "album": {
+          "name": "Best & Rare"
+        },
+        "duration_ms": 185400,
+        "is_playable": true
+      }
+    ]
+  }
+]
