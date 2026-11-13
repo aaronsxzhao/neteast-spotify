@@ -1,0 +1,36 @@
+# November 13 complete missing-track review
+
+Actual import **19/32 (59.38%)**, finished **08:09:02 Beijing**. [Run 43331839211](https://github.com/aaronsxzhao/neteast-spotify/actions/runs/43331839211) made 208 requests, zero retries. Later successful checks are not additional imports. Fresh authenticated reads confirmed `/me` AaronZ (`fnota8o1ant1zer1670tsgx0w`) and playlist owner AaronZ, name NetEase Daily, ID `4BI0KArIAsnQGHZRY8DSIE`, items.total=19.
+
+All 13 misses were examined before edits, using saved diagnostics, public release evidence and bounded account-market reads. Local/cloud credentials agreed; no cooldown was active. Review used **19 HTTP requests**, including authentication, playlist metadata, seven direct reads and nine supplemental searches; eight-second minimum spacing, zero retries, no 429. No sync dispatch or playlist write.
+
+| Missing song | Checked evidence and result | Decision |
+| --- | --- | --- |
+| 新宿午前3时25分 — 北野武 | Reviewed prior diagnostics and original title 時 / ビートたけし＆たけし軍団 credit; supplemental Japanese title/artist query returned other songs. | Correct Spotify candidate remains unconfirmed; no absence claim. |
+| Sincerely — 浜田朱里 | 瞳・センチメンタル release track listing and Juri/Shuri Hamada spellings reviewed. Saved and supplemental results are other performers, including TRUE and Hosono. | No verified candidate. Do not equate same English title with same recording. |
+| 今天是我的 — 汪晨蕊 | Original source release/title and public release mentions checked. Cached and exact original title/artist free-text results include different songs, not a verified recording. | No verified candidate; catalog availability unresolved. |
+| ハーフムーン・セレナーデ — 河合奈保子 | Direct `3eeXfKpoIJBKJTwGb33Mt3` is Naoko Kawai, 332160 ms versus source 332626. Fresh response says is_playable=false, market restriction. Supplemental Half Moon Serenade search finds other artists. | Correct recording verified but unavailable in this account market. Do not replace with a cover. |
+| ソー・ロング・マイ・ラヴ — 小田和正 | Existing reviewed pointer `0lM08CHxy1DQ4RdvfGPGGT`, Kazumasa Oda, 349666 ms versus 352000. Fresh response market-restricted; supplementary search yielded other songs/artists. | Existing title fix cannot remove account-market restriction. No verified playable alternative. |
+| 泪桥 — 伍佰 & China Blue | Artist official 淚橋 album materials plus playable `0NAcDn6U2GB2Arhspmh38S`, Wu Bai, identical album/title and 225186 ms. Source band credit blocked identity. | Source-scoped complete credit rule and direct pointer. No universal band/member alias. |
+| Plastic Love (TARA Bootleg) — TARA | Creator Bandcamp release identifies this bootleg. Saved and supplemental Spotify candidates are Takeuchi originals or other performers. | No verified TARA Spotify recording. Original/other remix is not an acceptable artist substitution. |
+| 一枚の写真 — 石田ひかり | Teichiku official track listing confirms original artist/song. Cached and original-title/Hikari Ishida query produce other artists and songs. | Correct Spotify candidate remains unconfirmed. |
+| 流年 — 王菲 | Universal artist biography and official Faye Wong video establish identity. Direct `7wL87unK7Vi96HM0I5vgB0`, 王菲2001, 276973 ms, playable; source 272200 ms. | Add verified 王菲/Faye Wong alias and pointer. Normal identity, title, duration and availability checks remain mandatory. |
+| Jack Rabbit Slim's Twist Contest / You Never Can Tell — Jerome Patrick Hoban, Uma Thurman, Chuck Berry | Source is one 192666-ms combined track. Spotify soundtrack has playable dialogue `1FaU01TqZoXyaaUtB04Ms1` (32253 ms) and Chuck Berry song `7p6ZGUXjUe0ctAu5RNnghu` (161453 ms); combined duration 193706 ms. | Structural one-to-many case. Neither component alone represents the full source. Keep unmatched; multi-item sync/report support is not implemented in this change. |
+| 誰にもわからない私の痛み — 宇都美慶子 | Artist official discography confirms release; original/translated names and Keiko Utsumi considered. Saved and supplemental results are other songs/artists. | No verified Spotify candidate; availability unresolved. |
+| California Dreaming — The Mamas & the Papas | Official Charts confirms California Dreamin'. Direct soundtrack `5R6L4K7zPKlab8UszDR0x0` is playable, 160440 ms versus 159720. Cached same-artist releases were rejected as ambiguous recordings. | Source-scoped canonical title enables alternate-release handling; direct soundtrack pointer avoids repeated search. Offline pool may select same-song Golden Era compilation `1ZEOIhSn6BKErV59bIgn76`; that cached ID has not been freshly market-checked. Direct lookup test uses the fresh playable soundtrack. |
+| TV in Black & White — Lana Del Rey | Saved results include MATTEØ, Mr. Purrsitives, 3mma/ACENS. Supplemental title/artist search returned different Lana songs and other performers. Public unreleased-song references do not establish Spotify identity. | No verified original candidate. No aliases to unrelated uploader names, no global catalog-absence claim. |
+
+## Evidence links
+
+- [Wu Bai official album](https://wubai.com/%E3%80%8A%E6%B7%9A%E6%A9%8B%E3%80%8B%E5%B0%88%E8%BC%AF%E8%B3%87%E6%96%99/), [official song recommendation](https://wubai.com/%E3%80%8A%E6%B7%9A%E6%A9%8B%E3%80%8B%E6%AD%8C%E6%9B%B2%E6%8E%A8%E8%96%A6/).
+- [Universal Faye Wong biography](https://www.universal-music.co.jp/faye-wong/biography/), [official 流年 video](https://www.youtube.com/watch?v=mjuS9shGYhE), [Spotify 王菲2001 album](https://open.spotify.com/embed/album/4Fc9GamQahrPbjcgebPRkM).
+- [Official Charts California Dreamin'](https://www.officialcharts.com/songs/mamas-the-papas-california-dreamin-0/).
+- [TARA creator release](https://taramasca09.bandcamp.com/track/plastic-love-tara-bootleg), [Teichiku Hikari Ishida catalog](https://www.teichiku.co.jp/chronicle/catalog/TECH-30367.html), [Keiko Utsumi official discography](https://utsumikeiko.xii.jp/bio.html).
+- [Original 新宿 credit metadata](https://www.uta-net.com/song/86766/?target=tieup), [Sincerely album listing](https://www.fanfan1.com/products/detail.php?product_id=573496), [今天是我的 public release mention](https://weibo.com/2/detail/5342840775250284). These support source identification, not Spotify availability.
+- [Combined Pulp Fiction release metadata](https://musicbrainz.org/release/da14004d-f6af-4dd7-aab7-033bef53e805), [Spotify dialogue](https://open.spotify.com/track/1FaU01TqZoXyaaUtB04Ms1), [Spotify song](https://open.spotify.com/track/7p6ZGUXjUe0ctAu5RNnghu).
+
+## Validation
+
+Fixtures cover every missing song, saved candidate diagnostics, supplemental searches, seven direct reads, and all 19 imported tracks. Regression tests verify three recoveries, one catalog query per direct pointer without search, wrong performer/instrumental/unplayable rejection, source-scoped band credit, and refusal to replace a combined source with one soundtrack component. All 19 imported IDs survive replay. **364 tests pass**, zero failures.
+
+Offline potential **22/32 (68.75%)**, three additional verified playable candidates. Actual import remains **19/32**. Seven candidates remain unresolved, two are account-market restricted, and one needs multi-item representation. No automatic rerun or changes to title, custom cover, schedule, pacing or request budget. Future sync must recheck availability.

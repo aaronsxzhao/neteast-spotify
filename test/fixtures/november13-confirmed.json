@@ -1,0 +1,690 @@
+[
+  {
+    "source": {
+      "id": 1866523931,
+      "name": "Ginger",
+      "ar": [
+        {
+          "name": "TOMOO"
+        }
+      ],
+      "al": {
+        "name": "Ginger",
+        "tns": [
+          "Ginger"
+        ]
+      },
+      "dt": 202413,
+      "tns": [
+        "Ginger",
+        "Ginger"
+      ]
+    },
+    "candidate": {
+      "id": "28pvMnRZKNiqz6xgBBMkr2",
+      "name": "Ginger",
+      "artists": [
+        {
+          "name": "TOMOO"
+        }
+      ],
+      "album": {
+        "name": "Ginger"
+      },
+      "duration_ms": 202413,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2019574134,
+      "name": "真夜中のドア〜stay with me",
+      "ar": [
+        {
+          "name": "松原みき"
+        }
+      ],
+      "al": {
+        "name": "POCKET PARK (Remastered)",
+        "tns": [
+          "POCKET PARK (Remastered)"
+        ]
+      },
+      "dt": 311720,
+      "tns": [
+        "真夜中のドア〜stay with me",
+        "午夜之门~Stay With Me",
+        "Mayonaka no Door~stay with me"
+      ]
+    },
+    "candidate": {
+      "id": "7J5uS4KWccKN1Bj1QBZ3qe",
+      "name": "Mayonaka no Door~stay with me",
+      "artists": [
+        {
+          "name": "Miki Matsubara"
+        }
+      ],
+      "album": {
+        "name": "Pocket Park (Remastered)"
+      },
+      "duration_ms": 311720,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1098827,
+      "name": "Old Time Rock and Roll",
+      "ar": [
+        {
+          "name": "Bob Seger"
+        }
+      ],
+      "al": {
+        "name": "Stranger in Town",
+        "tns": [
+          "Stranger in Town"
+        ]
+      },
+      "dt": 194375,
+      "tns": [
+        "Old Time Rock and Roll"
+      ]
+    },
+    "candidate": {
+      "id": "5jQI0mj9xWX6m8TymhzWll",
+      "name": "Old Time Rock And Roll - Remastered 2011",
+      "artists": [
+        {
+          "name": "Bob Seger"
+        }
+      ],
+      "album": {
+        "name": "Ultimate Hits: Rock And Roll Never Forgets (Remastered)"
+      },
+      "duration_ms": 195253,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 446297,
+      "name": "LA･LA･LA LOVE SONG",
+      "ar": [
+        {
+          "name": "久保田利伸"
+        }
+      ],
+      "al": {
+        "name": "LA・LA・LA LOVE SONG",
+        "tns": [
+          "LA・LA・LA LOVE SONG"
+        ]
+      },
+      "dt": 286557,
+      "tns": [
+        "LA･LA･LA LOVE SONG"
+      ]
+    },
+    "candidate": {
+      "id": "2NFKSwzaNKXAqBqlXgeTEo",
+      "name": "LA･LA･LA LOVE SONG",
+      "artists": [
+        {
+          "name": "Toshinobu Kubota"
+        },
+        {
+          "name": "Naomi Campbell"
+        }
+      ],
+      "album": {
+        "name": "LA･LA･LA LOVE THANG"
+      },
+      "duration_ms": 286493,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28830804,
+      "name": "東京",
+      "ar": [
+        {
+          "name": "柴田淳"
+        }
+      ],
+      "al": {
+        "name": "COVER 70's",
+        "tns": [
+          "COVER 70's"
+        ]
+      },
+      "dt": 256069,
+      "tns": [
+        "東京"
+      ]
+    },
+    "candidate": {
+      "id": "36Ik1FwIKAkZoIMmGnuMRu",
+      "name": "東京",
+      "artists": [
+        {
+          "name": "Jun Shibata"
+        }
+      ],
+      "album": {
+        "name": "COVER 70's"
+      },
+      "duration_ms": 256069,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 213791,
+      "name": "阁楼",
+      "ar": [
+        {
+          "name": "陈慧琳"
+        }
+      ],
+      "al": {
+        "name": "Stylish Index",
+        "tns": [
+          "Stylish Index"
+        ]
+      },
+      "dt": 203506,
+      "tns": [
+        "阁楼"
+      ]
+    },
+    "candidate": {
+      "id": "0446XoqpXsavkE0EQRskZE",
+      "name": "閣樓",
+      "artists": [
+        {
+          "name": "Kelly Chen"
+        }
+      ],
+      "album": {
+        "name": "Kelly Stylish Index"
+      },
+      "duration_ms": 203506,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2051795687,
+      "name": "Waking Up Together With You",
+      "ar": [
+        {
+          "name": "Ardhito Pramono"
+        }
+      ],
+      "al": {
+        "name": "Waking Up Together With You",
+        "tns": [
+          "Waking Up Together With You"
+        ]
+      },
+      "dt": 178890,
+      "tns": [
+        "Waking Up Together With You"
+      ]
+    },
+    "candidate": {
+      "id": "6WsG550j67Aj29z0iel7lo",
+      "name": "Waking Up Together With You",
+      "artists": [
+        {
+          "name": "Ardhito Pramono"
+        }
+      ],
+      "album": {
+        "name": "Waking Up Together With You"
+      },
+      "duration_ms": 178890,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28432420,
+      "name": "SAYONARAベイベー",
+      "ar": [
+        {
+          "name": "加藤ミリヤ"
+        }
+      ],
+      "al": {
+        "name": "SAYONARAベイベー／恋シテル",
+        "tns": [
+          "SAYONARAベイベー／恋シテル"
+        ]
+      },
+      "dt": 269444,
+      "tns": [
+        "SAYONARAベイベー",
+        "再见宝贝"
+      ]
+    },
+    "candidate": {
+      "id": "2TIEjTvGebCRvdMyQDiqoy",
+      "name": "SAYONARAベイベー",
+      "artists": [
+        {
+          "name": "Miliyah"
+        }
+      ],
+      "album": {
+        "name": "SAYONARAベイベー／恋シテル"
+      },
+      "duration_ms": 270706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1300452754,
+      "name": "River Side Cafe",
+      "ar": [
+        {
+          "name": "小山水城"
+        }
+      ],
+      "al": {
+        "name": "Angel's Dream",
+        "tns": [
+          "Angel's Dream"
+        ]
+      },
+      "dt": 277666,
+      "tns": [
+        "River Side Cafe"
+      ]
+    },
+    "candidate": {
+      "id": "6fP9BBHWvrDv9ght5xrCRL",
+      "name": "Riverside Cafe",
+      "artists": [
+        {
+          "name": "小山水城"
+        }
+      ],
+      "album": {
+        "name": "Angel's Dream"
+      },
+      "duration_ms": 277666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27961752,
+      "name": "I Will Survive - Single Version",
+      "ar": [
+        {
+          "name": "Gloria Gaynor"
+        }
+      ],
+      "al": {
+        "name": "Soulstars",
+        "tns": [
+          "Soulstars"
+        ]
+      },
+      "dt": 191608,
+      "tns": [
+        "I Will Survive - Single Version"
+      ]
+    },
+    "candidate": {
+      "id": "5t5Ybjv6HMk87PF9y1D4np",
+      "name": "I Will Survive - Single Version",
+      "artists": [
+        {
+          "name": "Gloria Gaynor"
+        }
+      ],
+      "album": {
+        "name": "House Party Jams"
+      },
+      "duration_ms": 197573,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1400424017,
+      "name": "Bloody Mary Girl",
+      "ar": [
+        {
+          "name": "She Her Her Hers"
+        }
+      ],
+      "al": {
+        "name": "location",
+        "tns": [
+          "location"
+        ]
+      },
+      "dt": 259492,
+      "tns": [
+        "Bloody Mary Girl"
+      ]
+    },
+    "candidate": {
+      "id": "3se9YurPfXqDzGsjURs3hZ",
+      "name": "Bloody Mary Girl",
+      "artists": [
+        {
+          "name": "She Her Her Hers"
+        }
+      ],
+      "album": {
+        "name": "location"
+      },
+      "duration_ms": 259492,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22685906,
+      "name": "Darling (2023 Remaster)",
+      "ar": [
+        {
+          "name": "当山ひとみ"
+        }
+      ],
+      "al": {
+        "name": "FIVE PENNYS (2023 Remaster)",
+        "tns": [
+          "FIVE PENNYS (2023 Remaster)"
+        ]
+      },
+      "dt": 309146,
+      "tns": [
+        "Darling (2023 Remaster)"
+      ]
+    },
+    "candidate": {
+      "id": "3D2sDzuocLrMb1YVP4vhFQ",
+      "name": "Darling - 2023 Remaster",
+      "artists": [
+        {
+          "name": "Hitomi Tohyama"
+        }
+      ],
+      "album": {
+        "name": "Five Pennys (2023 Remaster)"
+      },
+      "duration_ms": 309146,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28192175,
+      "name": "Miracle Love",
+      "ar": [
+        {
+          "name": "牧瀬里穂"
+        }
+      ],
+      "al": {
+        "name": "Mariya's Songbook",
+        "tns": [
+          "Mariya's Songbook"
+        ]
+      },
+      "dt": 249103,
+      "tns": [
+        "Miracle Love"
+      ]
+    },
+    "candidate": {
+      "id": "1xVzyyDVz0jQzUfkaNe0zm",
+      "name": "Miracle Love",
+      "artists": [
+        {
+          "name": "牧瀬里穂"
+        }
+      ],
+      "album": {
+        "name": "P. S. Riho"
+      },
+      "duration_ms": 249040,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27901932,
+      "name": "花樽与花",
+      "ar": [
+        {
+          "name": "周笔畅"
+        }
+      ],
+      "al": {
+        "name": "Unlock",
+        "tns": [
+          "Unlock"
+        ]
+      },
+      "dt": 279937,
+      "tns": [
+        "花樽与花"
+      ]
+    },
+    "candidate": {
+      "id": "71EOVj0ZKoGyd2H7PJgymz",
+      "name": "花樽與花",
+      "artists": [
+        {
+          "name": "Bibi Zhou"
+        }
+      ],
+      "album": {
+        "name": "unlock"
+      },
+      "duration_ms": 279937,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2035226384,
+      "name": "90s",
+      "ar": [
+        {
+          "name": "Kamikoto"
+        }
+      ],
+      "al": {
+        "name": "90s",
+        "tns": [
+          "90s"
+        ]
+      },
+      "dt": 99843,
+      "tns": [
+        "90s"
+      ]
+    },
+    "candidate": {
+      "id": "1dzt7uOfS9Z2AstBMB9tR9",
+      "name": "90s",
+      "artists": [
+        {
+          "name": "Kamikoto"
+        }
+      ],
+      "album": {
+        "name": "90s"
+      },
+      "duration_ms": 99843,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 553245,
+      "name": "Blue Apple",
+      "ar": [
+        {
+          "name": "柿原朱美"
+        }
+      ],
+      "al": {
+        "name": "Yes",
+        "tns": [
+          "Yes"
+        ]
+      },
+      "dt": 330066,
+      "tns": [
+        "Blue Apple",
+        "蔚蓝苹果"
+      ]
+    },
+    "candidate": {
+      "id": "0izA3mYl0ciB3qD3Jytk1J",
+      "name": "blue apple",
+      "artists": [
+        {
+          "name": "AK Akemi Kakihara"
+        }
+      ],
+      "album": {
+        "name": "yes"
+      },
+      "duration_ms": 330066,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 471763630,
+      "name": "渡月橋 ～君 想ふ～",
+      "ar": [
+        {
+          "name": "倉木麻衣"
+        }
+      ],
+      "al": {
+        "name": "渡月橋 ～君 想ふ～",
+        "tns": [
+          "渡月橋 ～君 想ふ～",
+          "渡月桥 〜我想念你〜"
+        ]
+      },
+      "dt": 247893,
+      "tns": [
+        "渡月橋 ～君 想ふ～",
+        "渡月桥~思君~",
+        "剧场版《名侦探柯南 唐红的恋歌》主题曲 ；劇場版「名探偵コナン から紅の恋歌」主題歌"
+      ]
+    },
+    "candidate": {
+      "id": "2uPcV6HjLBMvSkXXM1tnXE",
+      "name": "渡月橋 ～君 想ふ～",
+      "artists": [
+        {
+          "name": "Mai Kuraki"
+        }
+      ],
+      "album": {
+        "name": "渡月橋 ～君 想ふ～"
+      },
+      "duration_ms": 247900,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1317379535,
+      "name": "Line by Line",
+      "ar": [
+        {
+          "name": "PREP"
+        },
+        {
+          "name": "Cory Wong"
+        },
+        {
+          "name": "Paul Jackson Jr"
+        }
+      ],
+      "al": {
+        "name": "Line by Line",
+        "tns": [
+          "Line by Line"
+        ]
+      },
+      "dt": 237786,
+      "tns": [
+        "Line by Line"
+      ]
+    },
+    "candidate": {
+      "id": "2Q2KyAJe3CZbBFLIjo3F3Z",
+      "name": "Line by Line",
+      "artists": [
+        {
+          "name": "PREP"
+        },
+        {
+          "name": "Cory Wong"
+        },
+        {
+          "name": "Paul Jackson, Jr."
+        }
+      ],
+      "album": {
+        "name": "Line by Line"
+      },
+      "duration_ms": 237786,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 530705,
+      "name": "NAGISA MODERATO",
+      "ar": [
+        {
+          "name": "高中正義"
+        }
+      ],
+      "al": {
+        "name": "THE MAN WITH THE GUITAR -recorded at LIVETERIA-",
+        "tns": [
+          "THE MAN WITH THE GUITAR -recorded at LIVETERIA-"
+        ]
+      },
+      "dt": 371867,
+      "tns": [
+        "NAGISA MODERATO"
+      ]
+    },
+    "candidate": {
+      "id": "1V4yGfKxloEPfQsD11b8xR",
+      "name": "NAGISA MODERATO",
+      "artists": [
+        {
+          "name": "Masayoshi Takanaka"
+        }
+      ],
+      "album": {
+        "name": "THE MAN WITH THE GUITAR -recorded at LIVETERIA-"
+      },
+      "duration_ms": 371800,
+      "is_playable": true
+    }
+  }
+]

@@ -1,0 +1,2340 @@
+[
+  {
+    "source": {
+      "id": 433757,
+      "name": "新宿午前3时25分",
+      "ar": [
+        {
+          "name": "北野武"
+        }
+      ],
+      "al": {
+        "name": "GOLDEN☆BEST",
+        "tns": [
+          "GOLDEN☆BEST"
+        ]
+      },
+      "dt": 301000,
+      "tns": [
+        "新宿午前3时25分"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4WH0cjS1ZRimYnzTslti8J",
+        "name": "新宿午前四時",
+        "artists": [
+          {
+            "name": "Goro Noguchi"
+          }
+        ],
+        "album": {
+          "name": "GORO IN LOS ANGELES,U.S.A. -北回帰線-"
+        },
+        "duration_ms": 272373,
+        "is_playable": true
+      },
+      {
+        "id": "6gC6bjHl0UhyRIQufwH90o",
+        "name": "新宿ロフト恋の物語",
+        "artists": [
+          {
+            "name": "修豚"
+          },
+          {
+            "name": "都子"
+          }
+        ],
+        "album": {
+          "name": "ベスト・オブ・ニューロティカ (2014 Edition)"
+        },
+        "duration_ms": 294413,
+        "is_playable": true
+      },
+      {
+        "id": "3sxYJb62C5HnhxyKFhipmf",
+        "name": "新宿駅",
+        "artists": [
+          {
+            "name": "Shinsei Kamattechan"
+          }
+        ],
+        "album": {
+          "name": "英雄syndrome"
+        },
+        "duration_ms": 285453,
+        "is_playable": true
+      },
+      {
+        "id": "3FGktQzpeL0PHHoUz6Gh1V",
+        "name": "新宿",
+        "artists": [
+          {
+            "name": "大森靖子&THEピンクトカレフ"
+          }
+        ],
+        "album": {
+          "name": "トカレフ"
+        },
+        "duration_ms": 159906,
+        "is_playable": true
+      },
+      {
+        "id": "1GS4on8S5gvm7cgy8zrxdT",
+        "name": "新宿の女",
+        "artists": [
+          {
+            "name": "Keiko Fuji"
+          }
+        ],
+        "album": {
+          "name": "ゴールデン☆ベスト　藤圭子ヒット＆カバーコレクション　艶歌と縁歌"
+        },
+        "duration_ms": 220520,
+        "is_playable": true
+      },
+      {
+        "id": "5Mg6yx8m3SrFP5yzFP7RQd",
+        "name": "浴室",
+        "artists": [
+          {
+            "name": "Sheena Ringo"
+          }
+        ],
+        "album": {
+          "name": "勝訴ストリップ"
+        },
+        "duration_ms": 255400,
+        "is_playable": true
+      },
+      {
+        "id": "20idh1P3sWBenEto9apu9A",
+        "name": "新宿海峡",
+        "artists": [
+          {
+            "name": "Harumi Miyako"
+          }
+        ],
+        "album": {
+          "name": "裏町ごころ"
+        },
+        "duration_ms": 265518,
+        "is_playable": true
+      },
+      {
+        "id": "2N994vbnxEV8eihFiHPe3K",
+        "name": "新宿ホットドッグ",
+        "artists": [
+          {
+            "name": "メガテラ・ゼロ"
+          }
+        ],
+        "album": {
+          "name": "新宿ホットドッグ"
+        },
+        "duration_ms": 217815,
+        "is_playable": true
+      },
+      {
+        "id": "1EXf9IkRdyomM3bqAFgZdH",
+        "name": "浴室",
+        "artists": [
+          {
+            "name": "Sheena Ringo"
+          },
+          {
+            "name": "斎藤ネコ"
+          }
+        ],
+        "album": {
+          "name": "平成風俗"
+        },
+        "duration_ms": 263800,
+        "is_playable": true
+      },
+      {
+        "id": "7fS84wIuhxleSaECc0CRua",
+        "name": "遺書",
+        "artists": [
+          {
+            "name": "Tatsuya Kitani"
+          }
+        ],
+        "album": {
+          "name": "遺書"
+        },
+        "duration_ms": 185139,
+        "is_playable": true
+      },
+      {
+        "id": "1PMC5OkvI6EXtVatacVcOQ",
+        "name": "生徒夢日報 (feat. 初音ミク)",
+        "artists": [
+          {
+            "name": "kinoue64"
+          },
+          {
+            "name": "Hatsune Miku"
+          }
+        ],
+        "album": {
+          "name": "生徒夢日報"
+        },
+        "duration_ms": 289371,
+        "is_playable": true
+      },
+      {
+        "id": "1bivf8GaSEUDXHVUZzwPqn",
+        "name": "新宿ゴールデン街",
+        "artists": [
+          {
+            "name": "２８１４"
+          }
+        ],
+        "album": {
+          "name": "新しい日の誕生"
+        },
+        "duration_ms": 531600,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 29539330,
+      "name": "Sincerely",
+      "ar": [
+        {
+          "name": "浜田朱里"
+        }
+      ],
+      "al": {
+        "name": "瞳・センチメンタル",
+        "tns": [
+          "瞳・センチメンタル"
+        ]
+      },
+      "dt": 216133,
+      "tns": [
+        "Sincerely"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7lWPgRBsxgkZ57GRqxXYZe",
+        "name": "sincerely,",
+        "artists": [
+          {
+            "name": "Yuri Kil"
+          }
+        ],
+        "album": {
+          "name": "sincerely,"
+        },
+        "duration_ms": 220583,
+        "is_playable": true
+      },
+      {
+        "id": "4Sf7W91vwViqaWpdXXt5sr",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "Trio in Transit"
+          }
+        ],
+        "album": {
+          "name": "Sincerely"
+        },
+        "duration_ms": 202616,
+        "is_playable": true
+      },
+      {
+        "id": "4nna9JONFIwr98bcX6tlta",
+        "name": "Sincerely, Me",
+        "artists": [
+          {
+            "name": "Mike Faist"
+          },
+          {
+            "name": "Ben Platt"
+          },
+          {
+            "name": "Will Roland"
+          }
+        ],
+        "album": {
+          "name": "Dear Evan Hansen (Original Broadway Cast Recording)"
+        },
+        "duration_ms": 222960,
+        "is_playable": true
+      },
+      {
+        "id": "1774XGEDmmV7ynAzCQHrhU",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "TRUE"
+          }
+        ],
+        "album": {
+          "name": "TRUE the BEST"
+        },
+        "duration_ms": 275200,
+        "is_playable": true
+      },
+      {
+        "id": "6hOD1yxLeWllJ2TiwbuwQg",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "The Moonglows"
+          }
+        ],
+        "album": {
+          "name": "The Best Of Bobby Lester And The Moonglows"
+        },
+        "duration_ms": 189946,
+        "is_playable": true
+      },
+      {
+        "id": "6nz7At42lKq9HQSyUm1C79",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "Haruomi Hosono"
+          }
+        ],
+        "album": {
+          "name": "Yours Sincerely"
+        },
+        "duration_ms": 112793,
+        "is_playable": true
+      },
+      {
+        "id": "1bQW0fiydd9GxOC2gB1Uyz",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "The Paris Sisters"
+          }
+        ],
+        "album": {
+          "name": "Sing Everything Under The Sun"
+        },
+        "duration_ms": 134453,
+        "is_playable": true
+      },
+      {
+        "id": "4KQONEpH0lgJhvqChd2PPa",
+        "name": "Sincerely",
+        "artists": [
+          {
+            "name": "The Moonglows"
+          }
+        ],
+        "album": {
+          "name": "20th Century Masters: The Millennium Collection: Best Of The Moonglows"
+        },
+        "duration_ms": 192360,
+        "is_playable": true
+      },
+      {
+        "id": "1A1qr49Rs4jJ5nPj8y0Ews",
+        "name": "Sincerely True",
+        "artists": [
+          {
+            "name": "A Samurai In Tokyo"
+          }
+        ],
+        "album": {
+          "name": "Manga For Dreams"
+        },
+        "duration_ms": 64000,
+        "is_playable": true
+      },
+      {
+        "id": "72N8UFLVeuVHzfBnKkVpL6",
+        "name": "Sincerely Yours",
+        "artists": [
+          {
+            "name": "Sweet Sensation"
+          }
+        ],
+        "album": {
+          "name": "Take It While It's Hot"
+        },
+        "duration_ms": 291733,
+        "is_playable": true
+      },
+      {
+        "id": "1xdMn0S53JPGDC9rd6hBqo",
+        "name": "Sincerity",
+        "artists": [
+          {
+            "name": "norio"
+          },
+          {
+            "name": "16"
+          }
+        ],
+        "album": {
+          "name": "Sincerity"
+        },
+        "duration_ms": 206000,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2103300863,
+      "name": "今天是我的",
+      "ar": [
+        {
+          "name": "汪晨蕊"
+        }
+      ],
+      "al": {
+        "name": "今天是我的",
+        "tns": [
+          "今天是我的"
+        ]
+      },
+      "dt": 195600,
+      "tns": [
+        "今天是我的"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "368ypJEEv2UJ2CaIx2aQfv",
+        "name": "今天是我的生日",
+        "artists": [
+          {
+            "name": "Leonardo Travensoli"
+          }
+        ],
+        "album": {
+          "name": "今天是我的生日"
+        },
+        "duration_ms": 183640,
+        "is_playable": true
+      },
+      {
+        "id": "3t3CQKj6arvNau8DjQw3nN",
+        "name": "今天是我的生日",
+        "artists": [
+          {
+            "name": "Elbe施琴"
+          }
+        ],
+        "album": {
+          "name": "今天是我的生日"
+        },
+        "duration_ms": 324000,
+        "is_playable": true
+      },
+      {
+        "id": "38ORyBwXIlXtJRzCAm2W0Z",
+        "name": "今天是我的那一天",
+        "artists": [
+          {
+            "name": "Leila 蕾拉"
+          }
+        ],
+        "album": {
+          "name": "曾经，现在和我"
+        },
+        "duration_ms": 179959,
+        "is_playable": true
+      },
+      {
+        "id": "65URET1i2xmDo2yKH5H8D4",
+        "name": "今天不是我的天",
+        "artists": [
+          {
+            "name": "王以童"
+          }
+        ],
+        "album": {
+          "name": "今天不是我的天"
+        },
+        "duration_ms": 147072,
+        "is_playable": true
+      },
+      {
+        "id": "5JjRAdUnjc3AtM8Ke1jSSg",
+        "name": "今天谁是我的爱人",
+        "artists": [
+          {
+            "name": "伍俊華"
+          }
+        ],
+        "album": {
+          "name": "今天谁是我的爱人"
+        },
+        "duration_ms": 267641,
+        "is_playable": true
+      },
+      {
+        "id": "1sXeli52yqBBUqOyUgIprr",
+        "name": "今天不回家",
+        "artists": [
+          {
+            "name": "姚蘇蓉"
+          }
+        ],
+        "album": {
+          "name": "今天不回家"
+        },
+        "duration_ms": 172199,
+        "is_playable": true
+      },
+      {
+        "id": "6oKX7YD2cKIUgdI5fhVQbV",
+        "name": "今宵多珍重",
+        "artists": [
+          {
+            "name": "Tsui Ping"
+          }
+        ],
+        "album": {
+          "name": "心聲弦韻"
+        },
+        "duration_ms": 149573,
+        "is_playable": true
+      },
+      {
+        "id": "2AXnAetDRbu3DJBGksBC1D",
+        "name": "今天 - 空灵版",
+        "artists": [
+          {
+            "name": "洋澜一"
+          }
+        ],
+        "album": {
+          "name": "今天 (空灵版)"
+        },
+        "duration_ms": 250664,
+        "is_playable": true
+      },
+      {
+        "id": "5v3AGqx0VeLtdBKo5FLcv2",
+        "name": "今天我非常寂寞(1987)",
+        "artists": [
+          {
+            "name": "Kenny Bee"
+          }
+        ],
+        "album": {
+          "name": "寶麗金88極品音色系列 - 鍾鎮濤"
+        },
+        "duration_ms": 258866,
+        "is_playable": true
+      },
+      {
+        "id": "054rsik6MzETq8xRIGJ6Nn",
+        "name": "今天",
+        "artists": [
+          {
+            "name": "Andy Lau"
+          }
+        ],
+        "album": {
+          "name": "真永遠"
+        },
+        "duration_ms": 226666,
+        "is_playable": true
+      },
+      {
+        "id": "6RC8pWKEIYpkkbXd3q6tB5",
+        "name": "凌晨两点的星空",
+        "artists": [
+          {
+            "name": "袁沛儿"
+          }
+        ],
+        "album": {
+          "name": "火锅哲学"
+        },
+        "duration_ms": 197116,
+        "is_playable": true
+      },
+      {
+        "id": "0M3n2DmS0deeHrrTz1Av8n",
+        "name": "清晨之前的月亮",
+        "artists": [
+          {
+            "name": "孔碧莹"
+          }
+        ],
+        "album": {
+          "name": "清晨之前的月亮"
+        },
+        "duration_ms": 164103,
+        "is_playable": true
+      },
+      {
+        "id": "4Ly2bBphHgfSZE9WEoxCqX",
+        "name": "今天的一切",
+        "artists": [
+          {
+            "name": "常宽"
+          }
+        ],
+        "album": {
+          "name": "今天的一切"
+        },
+        "duration_ms": 173811,
+        "is_playable": true
+      },
+      {
+        "id": "281GZa4NRfuxGRMOKkFVgZ",
+        "name": "今夜我只想做你的女人",
+        "artists": [
+          {
+            "name": "徐婧"
+          }
+        ],
+        "album": {
+          "name": "今夜我只想做你的女人"
+        },
+        "duration_ms": 251428,
+        "is_playable": true
+      },
+      {
+        "id": "2qxaECOG9R6jU4h4htLDmz",
+        "name": "凌晨的太阳没升起",
+        "artists": [
+          {
+            "name": "ZQS"
+          }
+        ],
+        "album": {
+          "name": "凌晨的太阳没升起"
+        },
+        "duration_ms": 215623,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1355979244,
+      "name": "ハーフムーン・セレナーデ",
+      "ar": [
+        {
+          "name": "河合奈保子"
+        }
+      ],
+      "al": {
+        "name": "私が好きな河合奈保子",
+        "tns": [
+          "私が好きな河合奈保子"
+        ]
+      },
+      "dt": 332626,
+      "tns": [
+        "ハーフムーン・セレナーデ",
+        " 月半小夜曲"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3eeXfKpoIJBKJTwGb33Mt3",
+        "name": "ハーフムーン・セレナーデ",
+        "artists": [
+          {
+            "name": "Naoko Kawai"
+          }
+        ],
+        "album": {
+          "name": "ゴールデン☆アイドル 河合奈保子"
+        },
+        "duration_ms": 332160,
+        "is_playable": false
+      },
+      {
+        "id": "7qqc0RZ5vv12qEqxWXbOUj",
+        "name": "ハーフムーン・セレナーデ",
+        "artists": [
+          {
+            "name": "青山 新"
+          }
+        ],
+        "album": {
+          "name": "ときめき"
+        },
+        "duration_ms": 352533,
+        "is_playable": true
+      },
+      {
+        "id": "5jKvcHtXmIbzj5rMBWyhsZ",
+        "name": "ハーフムーン・セレナーデ",
+        "artists": [
+          {
+            "name": "Mynel"
+          }
+        ],
+        "album": {
+          "name": "観覧車の上で街の灯りを見下ろしながら聴くローファイジャズ"
+        },
+        "duration_ms": 200039,
+        "is_playable": true
+      },
+      {
+        "id": "7jFNX9aTdcQfhIgUVE02hi",
+        "name": "月半小夜曲",
+        "artists": [
+          {
+            "name": "Hacken Lee"
+          }
+        ],
+        "album": {
+          "name": "命運符號"
+        },
+        "duration_ms": 290973,
+        "is_playable": true
+      },
+      {
+        "id": "6bgyqeRKl3HN8jEn1b98WO",
+        "name": "月半小夜曲",
+        "artists": [
+          {
+            "name": "Hacken Lee"
+          }
+        ],
+        "album": {
+          "name": "Hacken Lee Friendless Collection"
+        },
+        "duration_ms": 291600,
+        "is_playable": true
+      },
+      {
+        "id": "1taJWeuu0InICnZ8jayJfn",
+        "name": "Half Moon Serenade",
+        "artists": [
+          {
+            "name": "Sky"
+          }
+        ],
+        "album": {
+          "name": "Sky's Violin, Vol. 7"
+        },
+        "duration_ms": 286340,
+        "is_playable": true
+      },
+      {
+        "id": "6FNd0AA6VEp0KwRwqtjzI7",
+        "name": "A Serenade To An Old-Fashioned Girl",
+        "artists": [
+          {
+            "name": "Bing Crosby"
+          }
+        ],
+        "album": {
+          "name": "Blue Skies"
+        },
+        "duration_ms": 187479,
+        "is_playable": true
+      },
+      {
+        "id": "11ZIlIbMIYQLEMXSXQD1PJ",
+        "name": "Half Moon",
+        "artists": [
+          {
+            "name": "Nick DePirro"
+          }
+        ],
+        "album": {
+          "name": "Half Moon"
+        },
+        "duration_ms": 128625,
+        "is_playable": true
+      },
+      {
+        "id": "2XilllM3LNVQPvCrOX749W",
+        "name": "Moon",
+        "artists": [
+          {
+            "name": "Toshiki Soejima"
+          },
+          {
+            "name": "Nahokimama"
+          }
+        ],
+        "album": {
+          "name": "Scene"
+        },
+        "duration_ms": 192705,
+        "is_playable": true
+      },
+      {
+        "id": "3C3ASp6pXAmWEFjHtwECc2",
+        "name": "The Grandfather Clock",
+        "artists": [
+          {
+            "name": "Aceyalone"
+          }
+        ],
+        "album": {
+          "name": "A Book of Human Language"
+        },
+        "duration_ms": 297200,
+        "is_playable": true
+      },
+      {
+        "id": "21JarrrgKiG1k1QiU3BLl6",
+        "name": "PARASOMNIA",
+        "artists": [
+          {
+            "name": "ALLIN*"
+          }
+        ],
+        "album": {
+          "name": "PARASOMNIA - The Winter Single"
+        },
+        "duration_ms": 214171,
+        "is_playable": true
+      },
+      {
+        "id": "0KOpJBgv1D4CBkD3KQwbLH",
+        "name": "Moonlit Serenade - Eastbeat Version",
+        "artists": [
+          {
+            "name": "VINCENT LUC"
+          }
+        ],
+        "album": {
+          "name": "Moonlit Serenade (Eastbeat Version)"
+        },
+        "duration_ms": 327406,
+        "is_playable": true
+      },
+      {
+        "id": "3nppYBtLCWgLIOQXNrNtxN",
+        "name": "Moon, Please",
+        "artists": [
+          {
+            "name": "Go Kurosawa"
+          }
+        ],
+        "album": {
+          "name": "soft shakes"
+        },
+        "duration_ms": 276060,
+        "is_playable": true
+      },
+      {
+        "id": "6VaHtyjVxNmJ47ldYF5E0z",
+        "name": "Moonlit Serenade",
+        "artists": [
+          {
+            "name": "VINCENT LUC"
+          }
+        ],
+        "album": {
+          "name": "Moonlit Serenade"
+        },
+        "duration_ms": 288559,
+        "is_playable": true
+      },
+      {
+        "id": "4rNZxHdO18SF4PPjKQNaaC",
+        "name": "I'll Massage Your Feet",
+        "artists": [
+          {
+            "name": "Hairspring"
+          }
+        ],
+        "album": {
+          "name": "Down"
+        },
+        "duration_ms": 193839,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 487280,
+      "name": "ソー・ロング・マイ・ラヴ",
+      "ar": [
+        {
+          "name": "小田和正"
+        }
+      ],
+      "al": {
+        "name": "So Long My Love",
+        "tns": [
+          "So Long My Love"
+        ]
+      },
+      "dt": 352000,
+      "tns": [
+        "ソー・ロング・マイ・ラヴ",
+        "再见了我亲爱的"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0lM08CHxy1DQ4RdvfGPGGT",
+        "name": "so long my love",
+        "artists": [
+          {
+            "name": "Kazumasa Oda"
+          }
+        ],
+        "album": {
+          "name": "so long my love"
+        },
+        "duration_ms": 349666,
+        "is_playable": false
+      },
+      {
+        "id": "5ghnSfbSEAG6oPdMdUEtEQ",
+        "name": "So Long My Love",
+        "artists": [
+          {
+            "name": "Gene Clarksville"
+          }
+        ],
+        "album": {
+          "name": "So Long My Love"
+        },
+        "duration_ms": 163800,
+        "is_playable": true
+      },
+      {
+        "id": "61pP0bjDf68Sxi1CduxUcv",
+        "name": "So long, my love",
+        "artists": [
+          {
+            "name": "Jotique"
+          }
+        ],
+        "album": {
+          "name": "So long, my love"
+        },
+        "duration_ms": 244693,
+        "is_playable": true
+      },
+      {
+        "id": "6Bs6qcIYn6EfVSHZKqq99O",
+        "name": "ソー・ロング",
+        "artists": [
+          {
+            "name": "Chihiro Yamanaka"
+          }
+        ],
+        "album": {
+          "name": "ベスト 2005 - 2015"
+        },
+        "duration_ms": 334373,
+        "is_playable": true
+      },
+      {
+        "id": "61wEQf9lrPImtkXtVJKoLM",
+        "name": "ソー・ロング",
+        "artists": [
+          {
+            "name": "Chihiro Yamanaka"
+          }
+        ],
+        "album": {
+          "name": "フォーエヴァー・ビギンズ (インターナショナル)"
+        },
+        "duration_ms": 334960,
+        "is_playable": true
+      },
+      {
+        "id": "3wQ3wGclEUhHT72aLiLBn5",
+        "name": "So Long, Mrs. - 2012 Remaster",
+        "artists": [
+          {
+            "name": "Kazuhito Murata"
+          }
+        ],
+        "album": {
+          "name": "ひとかけらの夏 (Debut 30th Anniversary Edition)"
+        },
+        "duration_ms": 207720,
+        "is_playable": true
+      },
+      {
+        "id": "0LxBsUJG6FVNEOM1hJsFmK",
+        "name": "Sweet Love",
+        "artists": [
+          {
+            "name": "Junko Ohashi"
+          }
+        ],
+        "album": {
+          "name": "For Tomorrow"
+        },
+        "duration_ms": 289960,
+        "is_playable": true
+      },
+      {
+        "id": "4kzIXvjeREV7Zc5PXt9lKB",
+        "name": "So Long",
+        "artists": [
+          {
+            "name": "松木美定"
+          }
+        ],
+        "album": {
+          "name": "THE MAGICAL TOUCH"
+        },
+        "duration_ms": 234772,
+        "is_playable": true
+      },
+      {
+        "id": "6FRwDxXsvSasw0y2eDArsz",
+        "name": "Sunshine Of Your Love",
+        "artists": [
+          {
+            "name": "Cream"
+          }
+        ],
+        "album": {
+          "name": "Disraeli Gears"
+        },
+        "duration_ms": 250000,
+        "is_playable": true
+      },
+      {
+        "id": "0vB4Vd6PtkJSEnWsmqATnZ",
+        "name": "Nothing's Gonna Change My Love for You",
+        "artists": [
+          {
+            "name": "George Benson"
+          }
+        ],
+        "album": {
+          "name": "20/20"
+        },
+        "duration_ms": 242678,
+        "is_playable": true
+      },
+      {
+        "id": "2uqxIVBp03x9OsINjrKoR3",
+        "name": "ラムのラブソング",
+        "artists": [
+          {
+            "name": "松谷 祐子"
+          }
+        ],
+        "album": {
+          "name": "アニソンNo.1"
+        },
+        "duration_ms": 205813,
+        "is_playable": true
+      },
+      {
+        "id": "2DlIwu1iDTILEMXA7MUotn",
+        "name": "Beautiful Trauma",
+        "artists": [
+          {
+            "name": "P!nk"
+          }
+        ],
+        "album": {
+          "name": "Beautiful Trauma"
+        },
+        "duration_ms": 250060,
+        "is_playable": true
+      },
+      {
+        "id": "1kF9vY7s9DlcPtJFCMyA3k",
+        "name": "her smile",
+        "artists": [
+          {
+            "name": "Keanu Bicol"
+          }
+        ],
+        "album": {
+          "name": "butterfly / her smile"
+        },
+        "duration_ms": 235536,
+        "is_playable": true
+      },
+      {
+        "id": "6oBDhkYQDhFS2q0wQ6xZLO",
+        "name": "Pretty Please",
+        "artists": [
+          {
+            "name": "Hearts2Hearts"
+          }
+        ],
+        "album": {
+          "name": "Pretty Please"
+        },
+        "duration_ms": 204322,
+        "is_playable": true
+      },
+      {
+        "id": "2J9I7oTBuWhrG8MW7nF90b",
+        "name": "So Long As I Walk",
+        "artists": [
+          {
+            "name": "Yuka Kitamura"
+          }
+        ],
+        "album": {
+          "name": "Witch Hat Atelier (Original Anime Soundtrack)"
+        },
+        "duration_ms": 192733,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 156736,
+      "name": "泪桥",
+      "ar": [
+        {
+          "name": "伍佰 & China Blue"
+        }
+      ],
+      "al": {
+        "name": "泪桥",
+        "tns": [
+          "泪桥"
+        ]
+      },
+      "dt": 225186,
+      "tns": [
+        "泪桥"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0NAcDn6U2GB2Arhspmh38S",
+        "name": "淚橋",
+        "artists": [
+          {
+            "name": "Wu Bai"
+          }
+        ],
+        "album": {
+          "name": "淚橋"
+        },
+        "duration_ms": 225186,
+        "is_playable": true
+      },
+      {
+        "id": "7bC5qwm9B3diOCdlYM5tCW",
+        "name": "泪桥",
+        "artists": [
+          {
+            "name": "火鸡"
+          }
+        ],
+        "album": {
+          "name": "泪桥"
+        },
+        "duration_ms": 226853,
+        "is_playable": true
+      },
+      {
+        "id": "4AdXdH2OK0oy5tNYy3lOpM",
+        "name": "泪桥",
+        "artists": [
+          {
+            "name": "椰子水很甜"
+          }
+        ],
+        "album": {
+          "name": "泪桥"
+        },
+        "duration_ms": 226023,
+        "is_playable": true
+      },
+      {
+        "id": "2P3EMVnDAQeHJB36kSJ471",
+        "name": "泪桥",
+        "artists": [
+          {
+            "name": "Yihuik苡慧"
+          }
+        ],
+        "album": {
+          "name": "泪桥"
+        },
+        "duration_ms": 222000,
+        "is_playable": true
+      },
+      {
+        "id": "2WEAAGPLa22CY9Fk5HVUO3",
+        "name": "淚橋",
+        "artists": [
+          {
+            "name": "Wu Bai"
+          }
+        ],
+        "album": {
+          "name": "忘情 1015 精選集"
+        },
+        "duration_ms": 226133,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 408328190,
+      "name": "Plastic Love (TARA Bootleg)",
+      "ar": [
+        {
+          "name": "TARA"
+        }
+      ],
+      "al": {
+        "name": "Plastic Love (TARA Bootleg)",
+        "tns": [
+          "Plastic Love (TARA Bootleg)"
+        ]
+      },
+      "dt": 226273,
+      "tns": [
+        "Plastic Love (TARA Bootleg)"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3ljEzcpsXThqfImeqk9THy",
+        "name": "Plastic Love",
+        "artists": [
+          {
+            "name": "Archipelia"
+          }
+        ],
+        "album": {
+          "name": "Plastic Love"
+        },
+        "duration_ms": 148831,
+        "is_playable": true
+      },
+      {
+        "id": "7rU6Iebxzlvqy5t857bKFq",
+        "name": "Plastic Love",
+        "artists": [
+          {
+            "name": "Mariya Takeuchi"
+          }
+        ],
+        "album": {
+          "name": "Expressions"
+        },
+        "duration_ms": 294493,
+        "is_playable": true
+      },
+      {
+        "id": "04OSVgX7mZtqPwppNhVgZR",
+        "name": "Plastic Love",
+        "artists": [
+          {
+            "name": "Never Obey Again"
+          }
+        ],
+        "album": {
+          "name": "Plastic Love"
+        },
+        "duration_ms": 200210,
+        "is_playable": true
+      },
+      {
+        "id": "0K9rIsZfdlzAoOEWyeFQYM",
+        "name": "Plastic Love",
+        "artists": [
+          {
+            "name": "Friday Night Plans"
+          }
+        ],
+        "album": {
+          "name": "Plastic Love"
+        },
+        "duration_ms": 275891,
+        "is_playable": true
+      },
+      {
+        "id": "22OGhrVHUarlxoORTSjgqu",
+        "name": "Plastic Love",
+        "artists": [
+          {
+            "name": "Geno Samuel"
+          }
+        ],
+        "album": {
+          "name": "Plastic Love"
+        },
+        "duration_ms": 371206,
+        "is_playable": true
+      },
+      {
+        "id": "1Z1fN0KFNu0aG2EpbBVwvN",
+        "name": "プラスティック・ラブ",
+        "artists": [
+          {
+            "name": "Mariya Takeuchi"
+          }
+        ],
+        "album": {
+          "name": "VARIETY (30th Anniversary Edition)"
+        },
+        "duration_ms": 294346,
+        "is_playable": true
+      },
+      {
+        "id": "5F2COlPnZeomdZl5TcSBol",
+        "name": "Plastic Waves",
+        "artists": [
+          {
+            "name": "Starjunk 95"
+          }
+        ],
+        "album": {
+          "name": "Plastic Memories - EP"
+        },
+        "duration_ms": 200952,
+        "is_playable": true
+      },
+      {
+        "id": "6wGM54Fj2JcuSFamPhXJwh",
+        "name": "plastic",
+        "artists": [
+          {
+            "name": "Punkinloveee"
+          }
+        ],
+        "album": {
+          "name": "plastic"
+        },
+        "duration_ms": 139993,
+        "is_playable": true
+      },
+      {
+        "id": "1mfSZCG8rszKRNXg7MAYcW",
+        "name": "Ikaw Na ang Mauna",
+        "artists": [
+          {
+            "name": "Richel B"
+          }
+        ],
+        "album": {
+          "name": "My Angel Through the Years"
+        },
+        "duration_ms": 233680,
+        "is_playable": true
+      },
+      {
+        "id": "1x5taT5bGQ4AAqBZuNPRKk",
+        "name": "Mixtaping the Radio",
+        "artists": [
+          {
+            "name": "Brandon Davis"
+          }
+        ],
+        "album": {
+          "name": "Life's Too Short"
+        },
+        "duration_ms": 216206,
+        "is_playable": true
+      },
+      {
+        "id": "76ice9W9naIMcoPfFyOlnB",
+        "name": "THE WAY",
+        "artists": [
+          {
+            "name": "AdyB"
+          },
+          {
+            "name": "NANE"
+          }
+        ],
+        "album": {
+          "name": "DEVOTION"
+        },
+        "duration_ms": 195803,
+        "is_playable": true
+      },
+      {
+        "id": "08UjJNcqrN6y9t8FnWcOHp",
+        "name": "Cabaret",
+        "artists": [
+          {
+            "name": "Gosha Grey"
+          }
+        ],
+        "album": {
+          "name": "Kondor"
+        },
+        "duration_ms": 176004,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1427664751,
+      "name": "一枚の写真",
+      "ar": [
+        {
+          "name": "石田ひかり"
+        }
+      ],
+      "al": {
+        "name": "White Virgin",
+        "tns": [
+          "White Virgin",
+          "ホワイト・ヴァージン"
+        ]
+      },
+      "dt": 268506,
+      "tns": [
+        "一枚の写真",
+        "一张相片"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3FQtLYdOkhzFuFheMrZ7rN",
+        "name": "一枚の写真",
+        "artists": [
+          {
+            "name": "Junko Akimoto"
+          }
+        ],
+        "album": {
+          "name": "秋元順子ベスト ～シングルス～"
+        },
+        "duration_ms": 282360,
+        "is_playable": true
+      },
+      {
+        "id": "4ONur88uvjebfehv2aHQGn",
+        "name": "一枚の写真",
+        "artists": [
+          {
+            "name": "Junko Akimoto"
+          }
+        ],
+        "album": {
+          "name": "秋元順子ベスト 愛のままで…"
+        },
+        "duration_ms": 283986,
+        "is_playable": true
+      },
+      {
+        "id": "0zc6XVSjk8C7s1OuHIyajA",
+        "name": "一枚の写真",
+        "artists": [
+          {
+            "name": "Junko Akimoto"
+          }
+        ],
+        "album": {
+          "name": "秋元順子 全曲集 ～ひとりごと～"
+        },
+        "duration_ms": 284147,
+        "is_playable": true
+      },
+      {
+        "id": "4HippgEUQqQlzafF3oQCx9",
+        "name": "一枚の写真",
+        "artists": [
+          {
+            "name": "QWAI"
+          }
+        ],
+        "album": {
+          "name": "約束"
+        },
+        "duration_ms": 255853,
+        "is_playable": true
+      },
+      {
+        "id": "2MCkt4mevJCeRp4PGsQTcZ",
+        "name": "一枚の写真",
+        "artists": [
+          {
+            "name": "Natsuko Godai"
+          }
+        ],
+        "album": {
+          "name": "流転の花"
+        },
+        "duration_ms": 250786,
+        "is_playable": true
+      },
+      {
+        "id": "5JbIiEY2Ttextq0Eoiw7qn",
+        "name": "深い森",
+        "artists": [
+          {
+            "name": "Do As Infinity"
+          }
+        ],
+        "album": {
+          "name": "DEEP FOREST"
+        },
+        "duration_ms": 245433,
+        "is_playable": true
+      },
+      {
+        "id": "0XEHoRAvfEiExyBZN6r6WS",
+        "name": "真実の詩",
+        "artists": [
+          {
+            "name": "Do As Infinity"
+          }
+        ],
+        "album": {
+          "name": "TRUE SONG"
+        },
+        "duration_ms": 254366,
+        "is_playable": true
+      },
+      {
+        "id": "6dQHnLbn8IholTJzr58OT4",
+        "name": "Ichiban no Takaramono - Yui final Ver.",
+        "artists": [
+          {
+            "name": "LiSA"
+          },
+          {
+            "name": "VISUAL ARTS / Key"
+          }
+        ],
+        "album": {
+          "name": "Ichiban no Takaramono -Yui final ver.- / Girls Dead Monster STARRING LiSA"
+        },
+        "duration_ms": 368240,
+        "is_playable": true
+      },
+      {
+        "id": "5hyuqT3PwqSKtH1EUSST20",
+        "name": "嘘",
+        "artists": [
+          {
+            "name": "SID"
+          }
+        ],
+        "album": {
+          "name": "hikari"
+        },
+        "duration_ms": 205973,
+        "is_playable": true
+      },
+      {
+        "id": "1Oe45Ze9SwanHB2vL7gY9H",
+        "name": "これを依存と呼ぶなら",
+        "artists": [
+          {
+            "name": "MEJIBRAY"
+          }
+        ],
+        "album": {
+          "name": "Slivers.exe"
+        },
+        "duration_ms": 340346,
+        "is_playable": true
+      },
+      {
+        "id": "0WfiKb7fAPiqVHLDumYn0A",
+        "name": "時を繋ぐもの",
+        "artists": [
+          {
+            "name": "The Roots"
+          }
+        ],
+        "album": {
+          "name": "想いをカタチに／時を繋ぐもの"
+        },
+        "duration_ms": 324023,
+        "is_playable": true
+      },
+      {
+        "id": "05Wm7teYB3IPYpvoW8iNSh",
+        "name": "いつまでも",
+        "artists": [
+          {
+            "name": "GReeeeN"
+          }
+        ],
+        "album": {
+          "name": "塩、コショウ"
+        },
+        "duration_ms": 242533,
+        "is_playable": true
+      },
+      {
+        "id": "4fyB7tt4v2EuvDBNjus2B6",
+        "name": "東京キャスター",
+        "artists": [
+          {
+            "name": "HarryP"
+          }
+        ],
+        "album": {
+          "name": "RESCUE OF RAINBOWS"
+        },
+        "duration_ms": 305226,
+        "is_playable": true
+      },
+      {
+        "id": "350DiIiXPc5nMScbHJ5mJp",
+        "name": "つぼみ",
+        "artists": [
+          {
+            "name": "Aqua Timez"
+          }
+        ],
+        "album": {
+          "name": "because you are you"
+        },
+        "duration_ms": 302466,
+        "is_playable": true
+      },
+      {
+        "id": "3vCxVEBRpPsx7nnCQ1jsrk",
+        "name": "Inochi to Shield",
+        "artists": [
+          {
+            "name": "Isaak Wolf"
+          }
+        ],
+        "album": {
+          "name": "Inochi to Shield"
+        },
+        "duration_ms": 208556,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 299445,
+      "name": "流年",
+      "ar": [
+        {
+          "name": "王菲"
+        }
+      ],
+      "al": {
+        "name": "你王菲所以我王菲",
+        "tns": [
+          "你王菲所以我王菲"
+        ]
+      },
+      "dt": 272200,
+      "tns": [
+        "流年"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7wL87unK7Vi96HM0I5vgB0",
+        "name": "流年",
+        "artists": [
+          {
+            "name": "Faye Wong"
+          }
+        ],
+        "album": {
+          "name": "王菲2001"
+        },
+        "duration_ms": 276973,
+        "is_playable": true
+      },
+      {
+        "id": "1MHqDVJVfvKeKd6nbdQuwE",
+        "name": "流年",
+        "artists": [
+          {
+            "name": "ZaZaZsu"
+          }
+        ],
+        "album": {
+          "name": "就是怦然心动"
+        },
+        "duration_ms": 263942,
+        "is_playable": true
+      },
+      {
+        "id": "6JrjHqMjib6fU2b5iwSWQy",
+        "name": "流年",
+        "artists": [
+          {
+            "name": "阿悠悠"
+          }
+        ],
+        "album": {
+          "name": "流年"
+        },
+        "duration_ms": 213421,
+        "is_playable": true
+      },
+      {
+        "id": "4l3Jr4QvHU19QrgGLKiZkG",
+        "name": "流年",
+        "artists": [
+          {
+            "name": "何潔"
+          }
+        ],
+        "album": {
+          "name": "《天乩之白蛇传说》影视原声带"
+        },
+        "duration_ms": 238890,
+        "is_playable": true
+      },
+      {
+        "id": "7kwkOw0gVbWIbSlALe2EQz",
+        "name": "流年多少",
+        "artists": [
+          {
+            "name": "卢正珊"
+          }
+        ],
+        "album": {
+          "name": "银河之恋"
+        },
+        "duration_ms": 80179,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 5057823,
+      "name": "Jack Rabbit Slim's Twist Contest / You Never Can Tell",
+      "ar": [
+        {
+          "name": "Jerome Patrick Hoban"
+        },
+        {
+          "name": "Uma Thurman"
+        },
+        {
+          "name": "Chuck Berry"
+        }
+      ],
+      "al": {
+        "name": "Pulp Fiction",
+        "tns": [
+          "Pulp Fiction"
+        ]
+      },
+      "dt": 192666,
+      "tns": [
+        "Jack Rabbit Slim's Twist Contest / You Never Can Tell"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1FaU01TqZoXyaaUtB04Ms1",
+        "name": "Jack Rabbit Slims Twist Contest",
+        "artists": [
+          {
+            "name": "Jerome Patrick Hoban"
+          }
+        ],
+        "album": {
+          "name": "Pulp Fiction (Music From The Motion Picture)"
+        },
+        "duration_ms": 32253,
+        "is_playable": true
+      },
+      {
+        "id": "7p6ZGUXjUe0ctAu5RNnghu",
+        "name": "You Never Can Tell",
+        "artists": [
+          {
+            "name": "Chuck Berry"
+          }
+        ],
+        "album": {
+          "name": "Pulp Fiction (Music From The Motion Picture)"
+        },
+        "duration_ms": 161453,
+        "is_playable": true
+      },
+      {
+        "id": "6FT83pFXKhDlXDsNJFAHWz",
+        "name": "You Never Can Tell",
+        "artists": [
+          {
+            "name": "Chuck Berry"
+          }
+        ],
+        "album": {
+          "name": "St. Louis To Liverpool"
+        },
+        "duration_ms": 161906,
+        "is_playable": true
+      },
+      {
+        "id": "4qe3upa4fIhkeWmGb4o5kg",
+        "name": "You Never Can Tell (C’est La Vie) - Live",
+        "artists": [
+          {
+            "name": "Jerry Garcia Band"
+          },
+          {
+            "name": "Jerry Garcia"
+          }
+        ],
+        "album": {
+          "name": "GarciaLive Volume 23: August 14th, 1993 Shoreline Amphitheatre"
+        },
+        "duration_ms": 475170,
+        "is_playable": true
+      },
+      {
+        "id": "1qVLm98UAAFyYuq4HCKFBV",
+        "name": "You Never Can Tell (C'est la Vie) - 2003 Remaster",
+        "artists": [
+          {
+            "name": "Emmylou Harris"
+          }
+        ],
+        "album": {
+          "name": "Luxury Liner (Expanded & Remastered)"
+        },
+        "duration_ms": 208773,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 27790809,
+      "name": "誰にもわからない私の痛み",
+      "ar": [
+        {
+          "name": "宇都美慶子"
+        }
+      ],
+      "al": {
+        "name": "誰にもわからない私の痛み",
+        "tns": [
+          "誰にもわからない私の痛み"
+        ]
+      },
+      "dt": 272826,
+      "tns": [
+        "誰にもわからない私の痛み",
+        "没有人会明白的我的痛苦"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7vQlZ4fzkCk8Xwn67kxoef",
+        "name": "没有人",
+        "artists": [
+          {
+            "name": "尹春晓"
+          }
+        ],
+        "album": {
+          "name": "没有人"
+        },
+        "duration_ms": 216020,
+        "is_playable": true
+      },
+      {
+        "id": "4bgVk4itt6wPVrJJwh5vyp",
+        "name": "SWEET MEMORIES",
+        "artists": [
+          {
+            "name": "Seiko Matsuda"
+          }
+        ],
+        "album": {
+          "name": "BIBLE"
+        },
+        "duration_ms": 271706,
+        "is_playable": true
+      },
+      {
+        "id": "21C6GAIM4TAfRHoNADr2OQ",
+        "name": "没有你陪伴我真的好孤单",
+        "artists": [
+          {
+            "name": "冷漠"
+          }
+        ],
+        "album": {
+          "name": "没有你陪伴我真的好孤单"
+        },
+        "duration_ms": 289600,
+        "is_playable": true
+      },
+      {
+        "id": "58L34DMcHQgAkDTWATNrCa",
+        "name": "Legend of Mermaid - Lucia Solo Version",
+        "artists": [
+          {
+            "name": "Lucia Nanami (CV: Asumi Nakada)"
+          }
+        ],
+        "album": {
+          "name": "Splash Dream"
+        },
+        "duration_ms": 275960,
+        "is_playable": true
+      },
+      {
+        "id": "4zKlYkf8A4QJqX1D9oGFZU",
+        "name": "Obenkyou Shitoiteyo",
+        "artists": [
+          {
+            "name": "ZUTOMAYO"
+          }
+        ],
+        "album": {
+          "name": "Gusare"
+        },
+        "duration_ms": 279200,
+        "is_playable": true
+      },
+      {
+        "id": "2dA887WZMuvwkFn31iO2KB",
+        "name": "遠い匂い",
+        "artists": [
+          {
+            "name": "YO-KING"
+          }
+        ],
+        "album": {
+          "name": "日々とポップス"
+        },
+        "duration_ms": 234626,
+        "is_playable": true
+      },
+      {
+        "id": "0kBsGfZsbQku5HH8vP9lmM",
+        "name": "FACES PLACES",
+        "artists": [
+          {
+            "name": "globe"
+          }
+        ],
+        "album": {
+          "name": "FACES PLACES"
+        },
+        "duration_ms": 384766,
+        "is_playable": true
+      },
+      {
+        "id": "35MeePbBnryubkVG0v8GbI",
+        "name": "ブルーアンバー",
+        "artists": [
+          {
+            "name": "back number"
+          }
+        ],
+        "album": {
+          "name": "ブルーアンバー"
+        },
+        "duration_ms": 207845,
+        "is_playable": true
+      },
+      {
+        "id": "4BvuZVf9KyBN3QiPfeI9hw",
+        "name": "crossing field",
+        "artists": [
+          {
+            "name": "LiSA"
+          }
+        ],
+        "album": {
+          "name": "LANDSPACE"
+        },
+        "duration_ms": 248946,
+        "is_playable": true
+      },
+      {
+        "id": "781eCm44DxjVZiln6OjN9G",
+        "name": "ヒトサマアレルギー",
+        "artists": [
+          {
+            "name": "Kairikibear"
+          },
+          {
+            "name": "flower"
+          }
+        ],
+        "album": {
+          "name": "一期一会"
+        },
+        "duration_ms": 198640,
+        "is_playable": true
+      },
+      {
+        "id": "0jjygW2mhgfVT8OOgEyp7U",
+        "name": "AIYOU",
+        "artists": [
+          {
+            "name": "Eve"
+          }
+        ],
+        "album": {
+          "name": "AIYOU"
+        },
+        "duration_ms": 159895,
+        "is_playable": true
+      },
+      {
+        "id": "7nrAtwYEkrhJX3bPYtLIum",
+        "name": "ヒトサマアレルギー - はるまきごはん Remix",
+        "artists": [
+          {
+            "name": "Kairikibear"
+          },
+          {
+            "name": "Harumakigohan"
+          }
+        ],
+        "album": {
+          "name": "ベノマ"
+        },
+        "duration_ms": 242333,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 4875911,
+      "name": "California Dreaming",
+      "ar": [
+        {
+          "name": "The Mamas & the Papas"
+        }
+      ],
+      "al": {
+        "name": "声光回忆",
+        "tns": [
+          "声光回忆"
+        ]
+      },
+      "dt": 159720,
+      "tns": [
+        "California Dreaming",
+        "电影《重庆森林》插曲"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5R6L4K7zPKlab8UszDR0x0",
+        "name": "California Dreamin'",
+        "artists": [
+          {
+            "name": "The Mamas & The Papas"
+          }
+        ],
+        "album": {
+          "name": "重慶森林 (電影原聲大碟)"
+        },
+        "duration_ms": 160440,
+        "is_playable": true
+      },
+      {
+        "id": "1ZEOIhSn6BKErV59bIgn76",
+        "name": "California Dreamin'",
+        "artists": [
+          {
+            "name": "The Mamas & The Papas"
+          }
+        ],
+        "album": {
+          "name": "All The Leaves Are Brown The Golden Era Collection"
+        },
+        "duration_ms": 160373,
+        "is_playable": true
+      },
+      {
+        "id": "6pwhPuPd4JEv4XeJDUpxBt",
+        "name": "California Dreamin' - Mono Version",
+        "artists": [
+          {
+            "name": "The Mamas & The Papas"
+          }
+        ],
+        "album": {
+          "name": "If You Can Believe Your Eyes And Ears (Mono Version)"
+        },
+        "duration_ms": 164560,
+        "is_playable": true
+      },
+      {
+        "id": "7hd2eoaD5BRfH22JNaTAtB",
+        "name": "California Dreamin' - Single Version",
+        "artists": [
+          {
+            "name": "The Mamas & The Papas"
+          }
+        ],
+        "album": {
+          "name": "Lagerfeuer Oldies"
+        },
+        "duration_ms": 159200,
+        "is_playable": true
+      },
+      {
+        "id": "6HAXWgSBbLqC3wunz6wGYc",
+        "name": "California Dreamin' - Single Version",
+        "artists": [
+          {
+            "name": "The Mamas & The Papas"
+          }
+        ],
+        "album": {
+          "name": "Rainy Days"
+        },
+        "duration_ms": 159200,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 33544561,
+      "name": "TV in Black & White",
+      "ar": [
+        {
+          "name": "Lana Del Rey"
+        }
+      ],
+      "al": {
+        "name": "The Unreleased Collection",
+        "tns": [
+          "The Unreleased Collection"
+        ]
+      },
+      "dt": 217444,
+      "tns": [
+        "TV in Black & White"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1OJGjaqRE91q1HLbk1Qayz",
+        "name": "TV IN BLACK & WHITE",
+        "artists": [
+          {
+            "name": "MATTEØ"
+          }
+        ],
+        "album": {
+          "name": "TEENAGE WASTELAND"
+        },
+        "duration_ms": 225610,
+        "is_playable": true
+      },
+      {
+        "id": "3iEHKj7PIK3DXNFwTLzBW3",
+        "name": "TV in Black and White",
+        "artists": [
+          {
+            "name": "Mr. Purrsitives"
+          }
+        ],
+        "album": {
+          "name": "TV in Black and White"
+        },
+        "duration_ms": 216879,
+        "is_playable": true
+      },
+      {
+        "id": "0qvmVZQDM84SMKEdFMQC7p",
+        "name": "TV in Black and White",
+        "artists": [
+          {
+            "name": "3mma"
+          },
+          {
+            "name": "ACENS"
+          }
+        ],
+        "album": {
+          "name": "TV in Black and White"
+        },
+        "duration_ms": 214842,
+        "is_playable": true
+      },
+      {
+        "id": "7usDTVzY0Yo6BvhShAF9y1",
+        "name": "TV In Black And Whitee - Acoustic ver.",
+        "artists": [
+          {
+            "name": "Mr. Purrsitives"
+          }
+        ],
+        "album": {
+          "name": "TV In Black And Whitee"
+        },
+        "duration_ms": 214199,
+        "is_playable": true
+      },
+      {
+        "id": "3JqqtoGMP7PPXG78ypkiJR",
+        "name": "TV in Black and White - Acoustic Ver.",
+        "artists": [
+          {
+            "name": "Mr. Purrsitives"
+          }
+        ],
+        "album": {
+          "name": "TV in Black and White"
+        },
+        "duration_ms": 206479,
+        "is_playable": true
+      },
+      {
+        "id": "7IM4xK4W4n06UAV48ZXMup",
+        "name": "White Feather Hawk Tail Deer Hunter",
+        "artists": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "White Feather Hawk Tail Deer Hunter"
+        },
+        "duration_ms": 234049,
+        "is_playable": true
+      },
+      {
+        "id": "5DSi7heBC8eTIFROBvttnp",
+        "name": "Season Of The Witch",
+        "artists": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "Season Of The Witch (From The Motion Picture \"Scary Stories To Tell In The Dark\")"
+        },
+        "duration_ms": 247147,
+        "is_playable": true
+      },
+      {
+        "id": "1NZs6n6hl8UuMaX0UC0YTz",
+        "name": "Brooklyn Baby",
+        "artists": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "Ultraviolence (Deluxe)"
+        },
+        "duration_ms": 351640,
+        "is_playable": true
+      },
+      {
+        "id": "1y3r6RXiJZNBV1EI0NggpS",
+        "name": "Ultraviolence",
+        "artists": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "Ultraviolence (Deluxe)"
+        },
+        "duration_ms": 251480,
+        "is_playable": true
+      },
+      {
+        "id": "3sYDVtqO35oRSOIMx7dOqR",
+        "name": "Freak",
+        "artists": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "album": {
+          "name": "Honeymoon"
+        },
+        "duration_ms": 295093,
+        "is_playable": true
+      },
+      {
+        "id": "1qKCO2Tocwg8CbepJ9uDtd",
+        "name": "Mean girls",
+        "artists": [
+          {
+            "name": "Charli xcx"
+          }
+        ],
+        "album": {
+          "name": "BRAT"
+        },
+        "duration_ms": 189410,
+        "is_playable": true
+      },
+      {
+        "id": "4O1etEzE7zc8ZO80KNd5GZ",
+        "name": "Every Girl Gets Her Wish",
+        "artists": [
+          {
+            "name": "Saint Avangeline"
+          }
+        ],
+        "album": {
+          "name": "Every Girl Gets Her Wish"
+        },
+        "duration_ms": 259797,
+        "is_playable": true
+      },
+      {
+        "id": "0YDeLNmFiwc6U5lHHdSXdq",
+        "name": "Catch My Breath",
+        "artists": [
+          {
+            "name": "Alex Warren"
+          }
+        ],
+        "album": {
+          "name": "You'll Be Alright, Kid"
+        },
+        "duration_ms": 192892,
+        "is_playable": true
+      },
+      {
+        "id": "4aha3sFO6kTx0Jq4Fp5b3y",
+        "name": "Catch My Breath",
+        "artists": [
+          {
+            "name": "Alex Warren"
+          }
+        ],
+        "album": {
+          "name": "You'll Be Alright, Kid (Chapter 1)"
+        },
+        "duration_ms": 192892,
+        "is_playable": true
+      },
+      {
+        "id": "31WRmxCQdDxtY4KVt7a8FL",
+        "name": "Catch My Breath",
+        "artists": [
+          {
+            "name": "Alex Warren"
+          }
+        ],
+        "album": {
+          "name": "You'll Be Alright, Kid (Chapter 1)"
+        },
+        "duration_ms": 192892,
+        "is_playable": true
+      }
+    ]
+  }
+]

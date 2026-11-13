@@ -47,6 +47,7 @@ const VERIFIED_CREDITS = new Map([
 // A solo source credit may denote a reviewed collaboration, not every release
 // by either member. Require the complete roster AND tight recording evidence.
 const VERIFIED_ROSTERS = new Map([
+  ['156736', { name: '泪桥', artist: '伍佰 & China Blue', rosters: [['Wu Bai']] }],
   ['156288', { name: '我会好好的', artist: '伍佰 & China Blue', rosters: [['Wu Bai']] }],
   ['1854231422', { name: 'モア！ジャンプ！モア！ (feat. 花里みのり&桐谷遥&桃井愛莉&日野森雫&初音ミク)',
     sourceRoster: ['ナユタン星人', 'MORE MORE JUMP！', '初音ミク'], rosters: [['MORE MORE JUMP!']] }],
@@ -57,6 +58,7 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['4875911', { name: 'California Dreaming', artist: 'The Mamas & the Papas', titles: ["California Dreamin'"] }],
   ['1938733035', { name: '緩りらら', artist: '笠原瑠斗', titles: ['Yururirara'] }],
   ['2020639987', { name: 'Rule (Kimini Muchuu) (Live 2023)', artist: '宇多田ヒカル', titles: ['Rule (君に夢中) - Live 2023'] }],
   ['29122850', { name: 'いかないで collaboration', artist: '德永英明', titles: ['いかないで'] }],
@@ -102,6 +104,9 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['156736', { name: '泪桥', artist: '伍佰 & China Blue', trackId: '0NAcDn6U2GB2Arhspmh38S' }],
+  ['299445', { name: '流年', artist: '王菲', trackId: '7wL87unK7Vi96HM0I5vgB0' }],
+  ['4875911', { name: 'California Dreaming', artist: 'The Mamas & the Papas', trackId: '5R6L4K7zPKlab8UszDR0x0' }],
   ['498880671', { name: 'Lily feat. Rachel', artist: '鈴木真海子', trackId: '4nCHNiMsnSYT0am8S2ifI1', requireCompleteRoster: true }],
   ['1938733035', { name: '緩りらら', artist: '笠原瑠斗', trackId: '0EeDQLRSNWsZzNsyKsJ402' }],
   ['2020639987', { name: 'Rule (Kimini Muchuu) (Live 2023)', artist: '宇多田ヒカル', trackId: '47NaTEPlCpA9owkdsn6ok7' }],
@@ -185,6 +190,7 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['王菲', ['Faye Wong']],
   ['鈴木真海子', ['Mamiko Suzuki']],
   ['笠原瑠斗', ['Ryuto Kasahara']],
   ['手嶌葵', ['Aoi Teshima']],
