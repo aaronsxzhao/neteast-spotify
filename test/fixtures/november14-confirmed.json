@@ -1,0 +1,902 @@
+[
+  {
+    "source": {
+      "id": 1367358886,
+      "name": "All about Anna",
+      "ar": [
+        {
+          "name": "昨夜派对（L.N Party）"
+        }
+      ],
+      "al": {
+        "name": "短篇与玫瑰的八毫米",
+        "tns": [
+          "短篇与玫瑰的八毫米"
+        ]
+      },
+      "dt": 268580,
+      "tns": [
+        "All about Anna"
+      ]
+    },
+    "candidate": {
+      "id": "2YdGZWYopKX9NaYJTQFtNB",
+      "name": "All about Anna",
+      "artists": [
+        {
+          "name": "昨夜派对"
+        }
+      ],
+      "album": {
+        "name": "短篇与玫瑰的八毫米"
+      },
+      "duration_ms": 268580,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28838055,
+      "name": "再见悲哀",
+      "ar": [
+        {
+          "name": "林忆莲"
+        }
+      ],
+      "al": {
+        "name": "我最喜爱的Eric Kwok作品展",
+        "tns": [
+          "我最喜爱的Eric Kwok作品展"
+        ]
+      },
+      "dt": 220450,
+      "tns": [
+        "再见悲哀"
+      ]
+    },
+    "candidate": {
+      "id": "4dtGOHiORFemWpob6iNcSu",
+      "name": "再見悲哀",
+      "artists": [
+        {
+          "name": "Sandy Lam"
+        }
+      ],
+      "album": {
+        "name": "大男人真女人"
+      },
+      "duration_ms": 222000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 601458,
+      "name": "真夏のSequence",
+      "ar": [
+        {
+          "name": "菊池桃子"
+        }
+      ],
+      "al": {
+        "name": "TROPIC of CAPRICORN",
+        "tns": [
+          "TROPIC of CAPRICORN"
+        ]
+      },
+      "dt": 282800,
+      "tns": [
+        "真夏のSequence",
+        "盛夏的插曲"
+      ]
+    },
+    "candidate": {
+      "id": "50yyhKQf0FyRw4MwcQ7p0C",
+      "name": "Manatsu no Sequence",
+      "artists": [
+        {
+          "name": "Momoko Kikuchi"
+        }
+      ],
+      "album": {
+        "name": "TROPIC of CAPRICORN"
+      },
+      "duration_ms": 282800,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 555142,
+      "name": "そばにいるね",
+      "ar": [
+        {
+          "name": "青山テルマ"
+        },
+        {
+          "name": "SoulJa"
+        }
+      ],
+      "al": {
+        "name": "そばにいるね",
+        "tns": [
+          "そばにいるね"
+        ]
+      },
+      "dt": 304906,
+      "tns": [
+        "そばにいるね",
+        "留在我身边"
+      ]
+    },
+    "candidate": {
+      "id": "1Rvh5RimhF3ndpclBmIdeJ",
+      "name": "そばにいるね",
+      "artists": [
+        {
+          "name": "Thelma Aoyama"
+        },
+        {
+          "name": "SoulJa"
+        }
+      ],
+      "album": {
+        "name": "そばにいるね"
+      },
+      "duration_ms": 302906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 540931,
+      "name": "クリスマス・イブ",
+      "ar": [
+        {
+          "name": "山下達郎"
+        }
+      ],
+      "al": {
+        "name": "クリスマス・イブ",
+        "tns": [
+          "クリスマス・イブ"
+        ]
+      },
+      "dt": 255866,
+      "tns": [
+        "クリスマス・イブ",
+        "Christmas Eve",
+        "Christmas Eve"
+      ]
+    },
+    "candidate": {
+      "id": "04utPBobXAMjh3QF0MxyqA",
+      "name": "クリスマス･イブ",
+      "artists": [
+        {
+          "name": "CHEMISTRY"
+        }
+      ],
+      "album": {
+        "name": "Winter of Love"
+      },
+      "duration_ms": 256346,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 4132379,
+      "name": "I Hate Myself for Loving You",
+      "ar": [
+        {
+          "name": "Joan Jett & the Blackhearts"
+        }
+      ],
+      "al": {
+        "name": "Greatest Hits",
+        "tns": [
+          "Greatest Hits"
+        ]
+      },
+      "dt": 247613,
+      "tns": [
+        "I Hate Myself for Loving You"
+      ]
+    },
+    "candidate": {
+      "id": "7LVmPjVwn1iED8OdPtBwdx",
+      "name": "I Hate Myself for Loving You",
+      "artists": [
+        {
+          "name": "Joan Jett & the Blackhearts"
+        }
+      ],
+      "album": {
+        "name": "Greatest Hits"
+      },
+      "duration_ms": 247613,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1840174725,
+      "name": "Juggler",
+      "ar": [
+        {
+          "name": "黒住憲五"
+        }
+      ],
+      "al": {
+        "name": "白い夏／Juggler",
+        "tns": [
+          "白い夏／Juggler"
+        ]
+      },
+      "dt": 251333,
+      "tns": [
+        "Juggler"
+      ]
+    },
+    "candidate": {
+      "id": "6VHIqG4uWgXCsY6bE7H08r",
+      "name": "Juggler",
+      "artists": [
+        {
+          "name": "黒住憲五"
+        }
+      ],
+      "album": {
+        "name": "Shiroi Natsu / Juggler"
+      },
+      "duration_ms": 251333,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 408532377,
+      "name": "Grave of Music",
+      "ar": [
+        {
+          "name": "セカイイチ"
+        }
+      ],
+      "al": {
+        "name": "Round Table",
+        "tns": [
+          "Round Table"
+        ]
+      },
+      "dt": 213623,
+      "tns": [
+        "Grave of Music"
+      ]
+    },
+    "candidate": {
+      "id": "7zBbXrf8JHqftBgSvOOnOq",
+      "name": "Grave of Music",
+      "artists": [
+        {
+          "name": "Sekaiichi"
+        }
+      ],
+      "album": {
+        "name": "Round Table"
+      },
+      "duration_ms": 213560,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 865251,
+      "name": "ENDLESS RAIN",
+      "ar": [
+        {
+          "name": "X JAPAN"
+        }
+      ],
+      "al": {
+        "name": "X JAPAN BEST 〜FAN'S SELECTION〜",
+        "tns": [
+          "X JAPAN BEST 〜FAN'S SELECTION〜"
+        ]
+      },
+      "dt": 393947,
+      "tns": [
+        "ENDLESS RAIN",
+        "无尽的雨"
+      ]
+    },
+    "candidate": {
+      "id": "3CcBPcgquU2KI2ue16ZCYN",
+      "name": "ENDLESS RAIN - Remaster",
+      "artists": [
+        {
+          "name": "X JAPAN"
+        }
+      ],
+      "album": {
+        "name": "BLUE BLOOD REMASTERED EDITION"
+      },
+      "duration_ms": 396200,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 16521106,
+      "name": "No Woman No Cry (Live At The Roxy, 1976)",
+      "ar": [
+        {
+          "name": "Bob Marley & The Wailers"
+        },
+        {
+          "name": "Vincent Ford"
+        }
+      ],
+      "al": {
+        "name": "Rastaman Vibration",
+        "tns": [
+          "Rastaman Vibration"
+        ]
+      },
+      "dt": 318809,
+      "tns": [
+        "No Woman No Cry (Live At The Roxy, 1976)"
+      ]
+    },
+    "candidate": {
+      "id": "47Gxi4mw83VO1Wb7ExbRTi",
+      "name": "No Woman No Cry - Live At The Roxy, 1976",
+      "artists": [
+        {
+          "name": "Bob Marley & The Wailers"
+        }
+      ],
+      "album": {
+        "name": "Rastaman Vibration"
+      },
+      "duration_ms": 318880,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1372726248,
+      "name": "新宝島",
+      "ar": [
+        {
+          "name": "サカナクション"
+        }
+      ],
+      "al": {
+        "name": "834.194",
+        "tns": [
+          "834.194"
+        ]
+      },
+      "dt": 305000,
+      "tns": [
+        "新宝島",
+        "新宝岛",
+        "电影《爆漫王。》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "4a48lWUd64bZgHUDx0GZlj",
+      "name": "新宝島",
+      "artists": [
+        {
+          "name": "sakanaction"
+        }
+      ],
+      "album": {
+        "name": "834.194"
+      },
+      "duration_ms": 305000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 25657348,
+      "name": "幸福了 然后呢",
+      "ar": [
+        {
+          "name": "黄丽玲"
+        }
+      ],
+      "al": {
+        "name": "幸福了 然后呢",
+        "tns": [
+          "幸福了 然后呢"
+        ]
+      },
+      "dt": 307706,
+      "tns": [
+        "幸福了 然后呢"
+      ]
+    },
+    "candidate": {
+      "id": "6G2IcPtB3fvF4RLyanDBQQ",
+      "name": "幸福了 然後呢",
+      "artists": [
+        {
+          "name": "A-Lin"
+        }
+      ],
+      "album": {
+        "name": "幸福了 然後呢 (影音慶功版)"
+      },
+      "duration_ms": 307706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28737747,
+      "name": "Lost Stars",
+      "ar": [
+        {
+          "name": "Adam Levine"
+        }
+      ],
+      "al": {
+        "name": "Begin Again (Music From and Inspired By the Original Motion Picture)",
+        "tns": [
+          "Begin Again (Music From and Inspired By the Original Motion Picture)"
+        ]
+      },
+      "dt": 267933,
+      "tns": [
+        "Lost Stars",
+        "迷失的星星",
+        "电影《歌曲改变人生》插曲"
+      ]
+    },
+    "candidate": {
+      "id": "0QpSOB1HV3ueiUjqkca8qK",
+      "name": "Lost Stars",
+      "artists": [
+        {
+          "name": "Adam Levine"
+        }
+      ],
+      "album": {
+        "name": "Begin Again - Music From And Inspired By The Original Motion Picture"
+      },
+      "duration_ms": 267920,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2095883505,
+      "name": "踊り子",
+      "ar": [
+        {
+          "name": "Vaundy"
+        }
+      ],
+      "al": {
+        "name": "replica",
+        "tns": [
+          "replica"
+        ]
+      },
+      "dt": 230109,
+      "tns": [
+        "踊り子",
+        "舞女"
+      ]
+    },
+    "candidate": {
+      "id": "1YXot2MLAG9sttepCtBRM7",
+      "name": "踊り子",
+      "artists": [
+        {
+          "name": "Vaundy"
+        }
+      ],
+      "album": {
+        "name": "replica"
+      },
+      "duration_ms": 229328,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22696713,
+      "name": "Dance In The Memories",
+      "ar": [
+        {
+          "name": "中原めいこ"
+        }
+      ],
+      "al": {
+        "name": "GOLDEN☆BEST",
+        "tns": [
+          "GOLDEN☆BEST"
+        ]
+      },
+      "dt": 251611,
+      "tns": [
+        "Dance In The Memories",
+        "TVアニメ「きまぐれオレンジ★ロード」ED3テーマ"
+      ]
+    },
+    "candidate": {
+      "id": "4sqJiloGOEnKQMNzc1O769",
+      "name": "Dance in the memories",
+      "artists": [
+        {
+          "name": "Meiko Nakahara"
+        }
+      ],
+      "album": {
+        "name": "TWIN BEST 中原めいこ"
+      },
+      "duration_ms": 251706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 382108,
+      "name": "You'll See",
+      "ar": [
+        {
+          "name": "Tizzy Bac"
+        }
+      ],
+      "al": {
+        "name": "我想你会变成这样都是我害的",
+        "tns": [
+          "我想你会变成这样都是我害的"
+        ]
+      },
+      "dt": 396000,
+      "tns": [
+        "You'll See"
+      ]
+    },
+    "candidate": {
+      "id": "1JPgzzWvOxAIQmO90viArj",
+      "name": "You'll See",
+      "artists": [
+        {
+          "name": "Tizzy Bac"
+        }
+      ],
+      "album": {
+        "name": "我想你會變成這樣都是我害的"
+      },
+      "duration_ms": 396000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1377058576,
+      "name": "台風の夜",
+      "ar": [
+        {
+          "name": "具島直子"
+        }
+      ],
+      "al": {
+        "name": "URBAN BLUES Presents BEST OF NAOKO GUSHIMA",
+        "tns": [
+          "URBAN BLUES Presents BEST OF NAOKO GUSHIMA"
+        ]
+      },
+      "dt": 258530,
+      "tns": [
+        "台風の夜",
+        "台风之夜"
+      ]
+    },
+    "candidate": {
+      "id": "0GQMFjVteGq7mD8KIqJ2uJ",
+      "name": "台風の夜",
+      "artists": [
+        {
+          "name": "Naoko Gushima"
+        }
+      ],
+      "album": {
+        "name": "URBAN BLUES Presents BEST OF NAOKO GUSHIMA"
+      },
+      "duration_ms": 258466,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 21223795,
+      "name": "Let You Win",
+      "ar": [
+        {
+          "name": "Macy Gray"
+        }
+      ],
+      "al": {
+        "name": "The Sellout",
+        "tns": [
+          "The Sellout"
+        ]
+      },
+      "dt": 236933,
+      "tns": [
+        "Let You Win"
+      ]
+    },
+    "candidate": {
+      "id": "2BsWnGW81XmnslsQnNHo52",
+      "name": "Let You Win",
+      "artists": [
+        {
+          "name": "Macy Gray"
+        }
+      ],
+      "album": {
+        "name": "The Sellout"
+      },
+      "duration_ms": 236933,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26143179,
+      "name": "雨の中の噴水",
+      "ar": [
+        {
+          "name": "須藤薫"
+        }
+      ],
+      "al": {
+        "name": "DROPS",
+        "tns": [
+          "DROPS"
+        ]
+      },
+      "dt": 252000,
+      "tns": [
+        "雨の中の噴水",
+        "雨中喷泉"
+      ]
+    },
+    "candidate": {
+      "id": "6kW5udA4Jzpal625UKplss",
+      "name": "雨の中の噴水",
+      "artists": [
+        {
+          "name": "Kaoru Sudo"
+        }
+      ],
+      "album": {
+        "name": "DROPS"
+      },
+      "duration_ms": 253640,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 112167,
+      "name": "想你的旧名字",
+      "ar": [
+        {
+          "name": "李克勤"
+        }
+      ],
+      "al": {
+        "name": "No.1 Hits",
+        "tns": [
+          "No.1 Hits"
+        ]
+      },
+      "dt": 271882,
+      "tns": [
+        "想你的旧名字"
+      ]
+    },
+    "candidate": {
+      "id": "0nGD4qpfBaDNMVCD757deu",
+      "name": "想你的舊名字",
+      "artists": [
+        {
+          "name": "Hacken Lee"
+        }
+      ],
+      "album": {
+        "name": "The Greatest Hits"
+      },
+      "duration_ms": 274306,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2658203,
+      "name": "The One You Love",
+      "ar": [
+        {
+          "name": "Glenn Frey"
+        }
+      ],
+      "al": {
+        "name": "No Fun Aloud",
+        "tns": [
+          "No Fun Aloud"
+        ]
+      },
+      "dt": 274560,
+      "tns": [
+        "The One You Love"
+      ]
+    },
+    "candidate": {
+      "id": "4uvARnZIajUDXWXPifhK3B",
+      "name": "The One You Love",
+      "artists": [
+        {
+          "name": "Glenn Frey"
+        }
+      ],
+      "album": {
+        "name": "No Fun Aloud"
+      },
+      "duration_ms": 274560,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28798666,
+      "name": "高層ビル",
+      "ar": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "al": {
+        "name": "FOREVER FOREVER",
+        "tns": [
+          "FOREVER FOREVER"
+        ]
+      },
+      "dt": 339813,
+      "tns": [
+        "高層ビル",
+        "高楼"
+      ]
+    },
+    "candidate": {
+      "id": "12AOivvdPKyvFGuBFwZ01M",
+      "name": "高層ビル",
+      "artists": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "album": {
+        "name": "FOREVER FOREVER"
+      },
+      "duration_ms": 339813,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 423365,
+      "name": "瞳をとじて",
+      "ar": [
+        {
+          "name": "平井堅"
+        }
+      ],
+      "al": {
+        "name": "瞳をとじて",
+        "tns": [
+          "瞳をとじて"
+        ]
+      },
+      "dt": 340079,
+      "tns": [
+        "瞳をとじて",
+        "轻闭双眼"
+      ]
+    },
+    "candidate": {
+      "id": "4eHZuD1NdSSwtJCgGk7YLd",
+      "name": "瞳をとじて",
+      "artists": [
+        {
+          "name": "Ken Hirai"
+        }
+      ],
+      "album": {
+        "name": "Hitomiotojite"
+      },
+      "duration_ms": 340026,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 713131,
+      "name": "英雄",
+      "ar": [
+        {
+          "name": "doa"
+        }
+      ],
+      "al": {
+        "name": "英雄",
+        "tns": [
+          "英雄"
+        ]
+      },
+      "dt": 201760,
+      "tns": [
+        "英雄",
+        "特摄《奈克瑟斯奥特曼》OP1"
+      ]
+    },
+    "candidate": {
+      "id": "1cWVgRqXAUDUGdMaokl2cX",
+      "name": "英雄",
+      "artists": [
+        {
+          "name": "doa"
+        }
+      ],
+      "album": {
+        "name": "英雄"
+      },
+      "duration_ms": 198107,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 501467877,
+      "name": "Peoples",
+      "ar": [
+        {
+          "name": "Cheers Elephant"
+        }
+      ],
+      "al": {
+        "name": "Like Wind Blows Fire",
+        "tns": [
+          "Like Wind Blows Fire"
+        ]
+      },
+      "dt": 199373,
+      "tns": [
+        "Peoples"
+      ]
+    },
+    "candidate": {
+      "id": "2C8Xjk2DrEywKBfBb7ITZK",
+      "name": "Peoples",
+      "artists": [
+        {
+          "name": "Cheers Elephant"
+        }
+      ],
+      "album": {
+        "name": "Like Wind Blows Fire"
+      },
+      "duration_ms": 199373,
+      "is_playable": true
+    }
+  }
+]

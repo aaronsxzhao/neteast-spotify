@@ -1,0 +1,685 @@
+[
+  {
+    "source": {
+      "id": 22722696,
+      "name": "空を見上げて",
+      "ar": [
+        {
+          "name": "河合その子"
+        }
+      ],
+      "al": {
+        "name": "Replica",
+        "tns": [
+          "Replica"
+        ]
+      },
+      "dt": 261067,
+      "tns": [
+        "空を見上げて",
+        "仰望天空"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1U8vzpsCm1ImJogHMheScv",
+        "name": "空を見上げて",
+        "artists": [
+          {
+            "name": "河合その子"
+          }
+        ],
+        "album": {
+          "name": "sonnet"
+        },
+        "duration_ms": 261466,
+        "is_playable": false
+      },
+      {
+        "id": "1Z0zFZFcmmDfmNZe2ACAAw",
+        "name": "仰望天空",
+        "artists": [
+          {
+            "name": "凡奇"
+          }
+        ],
+        "album": {
+          "name": "仰望天空"
+        },
+        "duration_ms": 259196,
+        "is_playable": true
+      },
+      {
+        "id": "3LybqPlNja5giDm5eIueBI",
+        "name": "空を見上げて",
+        "artists": [
+          {
+            "name": "Takako Shirai"
+          }
+        ],
+        "album": {
+          "name": "逮捕しちゃうぞ　限定解除コレクションII"
+        },
+        "duration_ms": 309100,
+        "is_playable": true
+      },
+      {
+        "id": "0B8VAkSfynoYOeFggXoU9e",
+        "name": "空を見上げて",
+        "artists": [
+          {
+            "name": "Yoko Minamino"
+          }
+        ],
+        "album": {
+          "name": "Four Seasons NANNO Selection"
+        },
+        "duration_ms": 226840,
+        "is_playable": true
+      },
+      {
+        "id": "5LCqIWHziEO73xyJ9T47ED",
+        "name": "仰望天空",
+        "artists": [
+          {
+            "name": "Landy Wen"
+          }
+        ],
+        "album": {
+          "name": "有點野"
+        },
+        "duration_ms": 233933,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1984474579,
+      "name": "行走的鱼",
+      "ar": [
+        {
+          "name": "徐佳莹"
+        }
+      ],
+      "al": {
+        "name": "联名",
+        "tns": [
+          "联名"
+        ]
+      },
+      "dt": 245172,
+      "tns": [
+        "行走的鱼",
+        "汪苏泷概念创作集《联名》作品"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5EvVYm1CnsyMuXtFnGQKH9",
+        "name": "行走的鱼 (汪苏泷概念创作集《联名》作品)",
+        "artists": [
+          {
+            "name": "LaLa Hsu"
+          }
+        ],
+        "album": {
+          "name": "联名"
+        },
+        "duration_ms": 245172,
+        "is_playable": true
+      },
+      {
+        "id": "1649VAY9SXdgFh0vdRPw1Y",
+        "name": "行走的鱼 - Live",
+        "artists": [
+          {
+            "name": "Gigi Leung"
+          },
+          {
+            "name": "Kelly Yu"
+          }
+        ],
+        "album": {
+          "name": "天赐的声音第五季 第7期 (Live)"
+        },
+        "duration_ms": 239709,
+        "is_playable": true
+      },
+      {
+        "id": "1GAsycLPADuAsLdkCmWXRz",
+        "name": "行走的鱼 (汪苏泷概念创作集《联名》作品)",
+        "artists": [
+          {
+            "name": "LaLa Hsu"
+          }
+        ],
+        "album": {
+          "name": "行走的鱼"
+        },
+        "duration_ms": 245172,
+        "is_playable": true
+      },
+      {
+        "id": "0aS4Yxh1YReBMP7qKRcela",
+        "name": "行走的鱼",
+        "artists": [
+          {
+            "name": "宝石Gem"
+          },
+          {
+            "name": "李玖哲"
+          },
+          {
+            "name": "陈楚生"
+          }
+        ],
+        "album": {
+          "name": "行走的鱼"
+        },
+        "duration_ms": 293833,
+        "is_playable": true
+      },
+      {
+        "id": "7aLYL940d1hPjdKCPRQyTT",
+        "name": "行走的鱼 - Live",
+        "artists": [
+          {
+            "name": "Silence Wang"
+          }
+        ],
+        "album": {
+          "name": "声生不息.家年华 (第七期 live)"
+        },
+        "duration_ms": 276586,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 32069683,
+      "name": "ちょっと待ってよ",
+      "ar": [
+        {
+          "name": "never young beach"
+        }
+      ],
+      "al": {
+        "name": "YASHINOKI HOUSE",
+        "tns": [
+          "YASHINOKI HOUSE"
+        ]
+      },
+      "dt": 203640,
+      "tns": [
+        "ちょっと待ってよ",
+        "等等我"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2lRBn2VurnIVhLXLUuOoYN",
+        "name": "等等我",
+        "artists": [
+          {
+            "name": "Daniel Chan"
+          }
+        ],
+        "album": {
+          "name": "比我幸福"
+        },
+        "duration_ms": 198626,
+        "is_playable": true
+      },
+      {
+        "id": "2UHBgzPC5o0NHrjNFHemqT",
+        "name": "ちょっと待ってよ (Chotto Matte yo)",
+        "artists": [
+          {
+            "name": "EEEERBLE"
+          }
+        ],
+        "album": {
+          "name": "その距離の先へ (Sono Kyori no Saki e)"
+        },
+        "duration_ms": 222160,
+        "is_playable": true
+      },
+      {
+        "id": "5gKPJ0gvx94TrfHldhIg3d",
+        "name": "ちょっと待ってよ",
+        "artists": [
+          {
+            "name": "J girl"
+          }
+        ],
+        "album": {
+          "name": "初恋"
+        },
+        "duration_ms": 217560,
+        "is_playable": true
+      },
+      {
+        "id": "70s4AX8TnzGWVU0v4C7hDA",
+        "name": "等等我",
+        "artists": [
+          {
+            "name": "张博闻"
+          }
+        ],
+        "album": {
+          "name": "等等我"
+        },
+        "duration_ms": 193600,
+        "is_playable": true
+      },
+      {
+        "id": "4MJLjO4M4jZDq14S3kXaXK",
+        "name": "等等我",
+        "artists": [
+          {
+            "name": "Magic Power"
+          }
+        ],
+        "album": {
+          "name": "射手"
+        },
+        "duration_ms": 278826,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2139361238,
+      "name": "ずっとずっとずっと",
+      "ar": [
+        {
+          "name": "大橋トリオ"
+        }
+      ],
+      "al": {
+        "name": "『まなざし』 ～羊毛とおはなトリビュート～",
+        "tns": [
+          "『まなざし』 ～羊毛とおはなトリビュート～"
+        ]
+      },
+      "dt": 262755,
+      "tns": [
+        "ずっとずっとずっと",
+        "永远永远永远"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5D1OvYAatXxTdmPNlj0xBP",
+        "name": "永远永远永远永远永远",
+        "artists": [
+          {
+            "name": "黄格雷"
+          },
+          {
+            "name": "郭傑克"
+          },
+          {
+            "name": "CHILYNOKIA"
+          },
+          {
+            "name": "electoi"
+          }
+        ],
+        "album": {
+          "name": "永远永远永远永远永远"
+        },
+        "duration_ms": 264141,
+        "is_playable": true
+      },
+      {
+        "id": "6OD52f3b2nW08dVYCwvj8A",
+        "name": "ずっとずっとずっと",
+        "artists": [
+          {
+            "name": "木之本桜(丹下桜)"
+          },
+          {
+            "name": "ケルベロス(久川綾)"
+          }
+        ],
+        "album": {
+          "name": "カードキャプターさくら　ソングコレクション 1998.4～1999.2"
+        },
+        "duration_ms": 275866,
+        "is_playable": true
+      },
+      {
+        "id": "3oy9Y621WDsAXSAwJKSSZV",
+        "name": "ずっとずっとずっと",
+        "artists": [
+          {
+            "name": "Ryokuoushoku Shakai"
+          }
+        ],
+        "album": {
+          "name": "Actor"
+        },
+        "duration_ms": 229986,
+        "is_playable": true
+      },
+      {
+        "id": "2He9deEfdXYWxnTUi0oOb0",
+        "name": "ずっとずっとずっと",
+        "artists": [
+          {
+            "name": "Ryokuoushoku Shakai"
+          }
+        ],
+        "album": {
+          "name": "ずっとずっとずっと"
+        },
+        "duration_ms": 228546,
+        "is_playable": true
+      },
+      {
+        "id": "3IM2I88PCBQUgRpomZSVtf",
+        "name": "ずっとずっとずっと",
+        "artists": [
+          {
+            "name": "YAMI-KAWAII LAB."
+          }
+        ],
+        "album": {
+          "name": "ずっとずっとずっと / Always.Always.Always"
+        },
+        "duration_ms": 228239,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 26389381,
+      "name": "真夏の果実",
+      "ar": [
+        {
+          "name": "桑田佳祐"
+        }
+      ],
+      "al": {
+        "name": "オリジナル",
+        "tns": [
+          "オリジナル"
+        ]
+      },
+      "dt": 281133,
+      "tns": [
+        "真夏の果実",
+        "盛夏的果实"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3AVLsBieDGotYuo5RPEL64",
+        "name": "真夏の果実",
+        "artists": [
+          {
+            "name": "サザンオールスターズ"
+          }
+        ],
+        "album": {
+          "name": "真夏の果実"
+        },
+        "duration_ms": 279300,
+        "is_playable": true
+      },
+      {
+        "id": "2rKsRZo4RlZCYrOlNr1f4n",
+        "name": "真夏の果実",
+        "artists": [
+          {
+            "name": "EXILE"
+          }
+        ],
+        "album": {
+          "name": "EXILE ENTERTAINMENT BEST"
+        },
+        "duration_ms": 283133,
+        "is_playable": true
+      },
+      {
+        "id": "7pTpg4VZvF1PpTNLG1vuaQ",
+        "name": "盛夏的果實 - Live",
+        "artists": [
+          {
+            "name": "Karen Mok"
+          }
+        ],
+        "album": {
+          "name": "回蔚 莫文蔚巡迴演唱會 @台北小巨蛋 (Live)"
+        },
+        "duration_ms": 281984,
+        "is_playable": true
+      },
+      {
+        "id": "6epRWgwouOTmH9jwod4mrK",
+        "name": "真夏の果実(オリジナルアーティスト:サザンオールスターズ)[ガイドメロディ無しカラオケ]",
+        "artists": [
+          {
+            "name": "歌っちゃ王"
+          }
+        ],
+        "album": {
+          "name": "真夏の果実(オリジナルアーティスト:サザンオールスターズ)[ガイドメロディ無しカラオケ]"
+        },
+        "duration_ms": 281202,
+        "is_playable": true
+      },
+      {
+        "id": "5Q3yy3AwyKPvnlX33C1vZw",
+        "name": "真夏の果実",
+        "artists": [
+          {
+            "name": "BONNIE PINK"
+          }
+        ],
+        "album": {
+          "name": "REMINISCENCE"
+        },
+        "duration_ms": 288293,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22773649,
+      "name": "最愛(Remaster)",
+      "ar": [
+        {
+          "name": "中島みゆき"
+        }
+      ],
+      "al": {
+        "name": "御色なおし(Remaster)",
+        "tns": [
+          "御色なおし(Remaster)",
+          "新娘更衣"
+        ]
+      },
+      "dt": 259866,
+      "tns": [
+        "最愛(Remaster)",
+        "最爱"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3iPB7P5NCYJEtgf7EHKp7s",
+        "name": "最愛",
+        "artists": [
+          {
+            "name": "Vivian Chow"
+          }
+        ],
+        "album": {
+          "name": "回憶從今天開始"
+        },
+        "duration_ms": 265800,
+        "is_playable": true
+      },
+      {
+        "id": "473vCEDYCgaMNmbRgwD63p",
+        "name": "最愛",
+        "artists": [
+          {
+            "name": "Vivian Chow"
+          }
+        ],
+        "album": {
+          "name": "萬千寵愛30首"
+        },
+        "duration_ms": 265533,
+        "is_playable": true
+      },
+      {
+        "id": "6LELPz2rlDX5R7LyCjF5pu",
+        "name": "最愛",
+        "artists": [
+          {
+            "name": "Vivian Chow"
+          }
+        ],
+        "album": {
+          "name": "最愛"
+        },
+        "duration_ms": 265440,
+        "is_playable": true
+      },
+      {
+        "id": "4F1BP3249boAf2BQcAGj45",
+        "name": "最愛",
+        "artists": [
+          {
+            "name": "Kazumi Tateishi Trio"
+          }
+        ],
+        "album": {
+          "name": "JAZZで聴くふゆのうた"
+        },
+        "duration_ms": 356550,
+        "is_playable": true
+      },
+      {
+        "id": "5qEBjeHHYGPh3JEcj3hyYq",
+        "name": "最愛",
+        "artists": [
+          {
+            "name": "Yoshie Kashiwabara"
+          }
+        ],
+        "album": {
+          "name": "～ 45th Anniversary ～ YOSHIE SELECTION ALL TIME BEST (UM EDITION)"
+        },
+        "duration_ms": 288493,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22671888,
+      "name": "HEARTでふりむいて",
+      "ar": [
+        {
+          "name": "和田加奈子"
+        }
+      ],
+      "al": {
+        "name": "DESSERTに星くずのゼリーを",
+        "tns": [
+          "DESSERTに星くずのゼリーを"
+        ]
+      },
+      "dt": 243093,
+      "tns": [
+        "HEARTでふりむいて",
+        "用真心回顾"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "4Co1OjIiGp0Fa5yr7rndy1",
+        "name": "Heart 111",
+        "artists": [
+          {
+            "name": "yuri"
+          }
+        ],
+        "album": {
+          "name": "Heart 111"
+        },
+        "duration_ms": 112093,
+        "is_playable": true
+      },
+      {
+        "id": "7mgEhy50MGWP4YDq6WHW1W",
+        "name": "HEART ATTACK",
+        "artists": [
+          {
+            "name": "Yumi"
+          }
+        ],
+        "album": {
+          "name": "TRASH"
+        },
+        "duration_ms": 117794,
+        "is_playable": true
+      },
+      {
+        "id": "4sZzZNIstrMGQEnKnUFFJD",
+        "name": "Heat Abnormal",
+        "artists": [
+          {
+            "name": "Iyowa"
+          }
+        ],
+        "album": {
+          "name": "Films, Sunny Spots, Graduations"
+        },
+        "duration_ms": 239999,
+        "is_playable": true
+      },
+      {
+        "id": "68peSN0i1B7SKhGkCWgeGH",
+        "name": "Heat abnormal (feat. Rei Adachi)",
+        "artists": [
+          {
+            "name": "Iyowa"
+          },
+          {
+            "name": "Rei Adachi"
+          }
+        ],
+        "album": {
+          "name": "Heat abnormal (feat. Rei Adachi)"
+        },
+        "duration_ms": 239999,
+        "is_playable": true
+      },
+      {
+        "id": "5ZaUK9umfZRdSxdA2cdMz9",
+        "name": "Heart (VIVINOS - ALNST Sub : SUA Part.1)",
+        "artists": [
+          {
+            "name": "C!naH"
+          }
+        ],
+        "album": {
+          "name": "Heart (VIVINOS - ALNST Sub : SUA Part.1)"
+        },
+        "duration_ms": 192062,
+        "is_playable": true
+      }
+    ]
+  }
+]

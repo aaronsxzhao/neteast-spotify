@@ -58,6 +58,7 @@ const VERIFIED_ROSTERS = new Map([
 // Reviewed translations are recording-scoped; never translate a common title
 // such as 회상 for unrelated artists. All candidates still pass normal scoring.
 const SCOPED_TITLES = new Map([
+  ['1984474579', { name: '行走的鱼', artist: '徐佳莹', titles: ['行走的鱼 (汪苏泷概念创作集《联名》作品)'] }],
   ['4875911', { name: 'California Dreaming', artist: 'The Mamas & the Papas', titles: ["California Dreamin'"] }],
   ['1938733035', { name: '緩りらら', artist: '笠原瑠斗', titles: ['Yururirara'] }],
   ['2020639987', { name: 'Rule (Kimini Muchuu) (Live 2023)', artist: '宇多田ヒカル', titles: ['Rule (君に夢中) - Live 2023'] }],
@@ -104,6 +105,7 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['1984474579', { name: '行走的鱼', artist: '徐佳莹', trackId: '5EvVYm1CnsyMuXtFnGQKH9' }],
   ['156736', { name: '泪桥', artist: '伍佰 & China Blue', trackId: '0NAcDn6U2GB2Arhspmh38S' }],
   ['299445', { name: '流年', artist: '王菲', trackId: '7wL87unK7Vi96HM0I5vgB0' }],
   ['4875911', { name: 'California Dreaming', artist: 'The Mamas & the Papas', trackId: '5R6L4K7zPKlab8UszDR0x0' }],
@@ -190,6 +192,7 @@ const DIFFERENT_RECORDINGS = new Map([
 ])
 
 const ARTIST_ALIASES = new Map([
+  ['徐佳莹', ['LaLa Hsu']],
   ['王菲', ['Faye Wong']],
   ['鈴木真海子', ['Mamiko Suzuki']],
   ['笠原瑠斗', ['Ryuto Kasahara']],
