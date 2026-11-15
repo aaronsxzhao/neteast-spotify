@@ -408,7 +408,7 @@ function metadataNames(entity = {}) {
 function titleMetadata(song) {
   return metadataNames(song).filter(value => value === song.name ||
     (!LANGUAGE_LABEL.test(value.normalize('NFKC').trim()) &&
-      !/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release)/iu.test(value) &&
+      !/(?:主题曲|主題曲|片头曲|片尾曲|插曲|OPテーマ|EDテーマ|主題歌|限定パッケージ|iTunes\s+Store|ボーナストラック|bonus\s+track|exclusive\s+release|概念[创創]作集.*作品)/iu.test(value) &&
       !/^(?:[男女](?:声|聲|生)版|伴奏(?:版)?|现场版|現場版|原唱版|翻唱版|inst\.?|instrumental|karaoke|live(?:\s+version)?|remaster(?:ed)?(?:\s+\d{4})?)$/iu.test(value.trim())))
 }
 
@@ -651,7 +651,7 @@ function stripPromotionLabel(value) {
   return String(value).normalize('NFKC').replace(/\s+[-–—]\s*第[0-9一二三四五六七八九十]+波\s*$/u, '')
 }
 
-const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version)$/i
+const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version|mix)$/i
 
 function languageEdition(value) {
   const full = String(value).normalize('NFKC')

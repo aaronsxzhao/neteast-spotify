@@ -1,0 +1,2090 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-15T14:37:11.331Z",
+  "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
+  "reviewComplete": false,
+  "entries": [
+    {
+      "sourceId": 1969845251,
+      "name": "夜の海",
+      "artists": [
+        "桑名晴子"
+      ],
+      "album": "Moonlight Island",
+      "durationMs": 348133,
+      "source": {
+        "id": 1969845251,
+        "name": "夜の海",
+        "ar": [
+          {
+            "name": "桑名晴子"
+          }
+        ],
+        "al": {
+          "name": "Moonlight Island"
+        },
+        "dt": 348133
+      },
+      "evidence": "docs/catalog-review-2026-11-06.md",
+      "candidateIds": [
+        "5hiJ26z9axLX6xrqG5sZUS",
+        "2t0grwjSOxV72V1RWXhscB",
+        "32oW0UVKa97rS8AG0EHcts",
+        "3VJoplJu1rrYTItmqQIRci",
+        "3K2cK2d1yGJyr6QKu89HT0"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-06",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "夜の海 桑名晴子",
+        "sourceId": 1969845251
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 3394841456,
+      "name": "夏待",
+      "artists": [
+        "Himawari",
+        "Aosaki"
+      ],
+      "album": "夏待",
+      "durationMs": 217299,
+      "source": {
+        "id": 3394841456,
+        "name": "夏待",
+        "ar": [
+          {
+            "name": "Himawari"
+          },
+          {
+            "name": "Aosaki"
+          }
+        ],
+        "al": {
+          "name": "夏待"
+        },
+        "dt": 217299
+      },
+      "evidence": "docs/catalog-review-2026-11-06.md",
+      "candidateIds": [
+        "7cSOQ3LGP7KkqdQMehlpCU",
+        "27uvU0Rtt05hDYwFmpBA9s",
+        "1pU6PB9hZyoqTPTOyorkWL",
+        "0k94brBOknUiIgQ7kUNUkA",
+        "6zlNkJOqNncHklCUAPZ61g"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-06",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "夏待 Aosaki",
+        "sourceId": 3394841456
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 33410685,
+      "name": "泡になった",
+      "artists": [
+        "Monolog",
+        "市川愛"
+      ],
+      "album": "THE LIMELIGHT",
+      "durationMs": 281000,
+      "source": {
+        "id": 33410685,
+        "name": "泡になった",
+        "ar": [
+          {
+            "name": "Monolog"
+          },
+          {
+            "name": "市川愛"
+          }
+        ],
+        "al": {
+          "name": "THE LIMELIGHT",
+          "tns": [
+            "THE LIMELIGHT"
+          ]
+        },
+        "dt": 281000,
+        "tns": [
+          "泡になった",
+          "化为泡沫",
+          "Awani Natta"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "7yOzOw1MMZgh3jUBaKwyXu",
+        "3ahuBeeDs4oSPdCFxY6DuA",
+        "5dSzu44NACX2Ko9iPJPMtC",
+        "4vfiGNKkvJTTRuki89QSBo",
+        "0Rvx5EpunmojuYlXPwvBbQ"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Awa Ni Natta monolog Ai Ichikawa",
+        "sourceId": 33410685
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22671888,
+      "name": "HEARTでふりむいて",
+      "artists": [
+        "和田加奈子"
+      ],
+      "album": "DESSERTに星くずのゼリーを",
+      "durationMs": 243093,
+      "source": {
+        "id": 22671888,
+        "name": "HEARTでふりむいて",
+        "ar": [
+          {
+            "name": "和田加奈子"
+          }
+        ],
+        "al": {
+          "name": "DESSERTに星くずのゼリーを",
+          "tns": [
+            "DESSERTに星くずのゼリーを"
+          ]
+        },
+        "dt": 243093,
+        "tns": [
+          "HEARTでふりむいて",
+          "用真心回顾"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "4Co1OjIiGp0Fa5yr7rndy1",
+        "7mgEhy50MGWP4YDq6WHW1W",
+        "4sZzZNIstrMGQEnKnUFFJD",
+        "68peSN0i1B7SKhGkCWgeGH",
+        "5ZaUK9umfZRdSxdA2cdMz9"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "HEARTでふりむいて Kanako Wada",
+        "sourceId": 22671888
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22722696,
+      "name": "空を見上げて",
+      "artists": [
+        "河合その子"
+      ],
+      "album": "Replica",
+      "durationMs": 261067,
+      "source": {
+        "id": 22722696,
+        "name": "空を見上げて",
+        "ar": [
+          {
+            "name": "河合その子"
+          }
+        ],
+        "al": {
+          "name": "Replica",
+          "tns": [
+            "Replica"
+          ]
+        },
+        "dt": 261067,
+        "tns": [
+          "空を見上げて",
+          "仰望天空"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "1U8vzpsCm1ImJogHMheScv",
+        "1Z0zFZFcmmDfmNZe2ACAAw",
+        "3LybqPlNja5giDm5eIueBI",
+        "0B8VAkSfynoYOeFggXoU9e",
+        "5LCqIWHziEO73xyJ9T47ED"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "album",
+        "id": "51UY6Kbsu6WktNMjVRcxUv",
+        "sourceId": 22722696
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 451568,
+      "name": "香港街燈",
+      "artists": [
+        "角松敏生"
+      ],
+      "album": "あるがままに",
+      "durationMs": 374000,
+      "source": {
+        "id": 451568,
+        "name": "香港街燈",
+        "ar": [
+          {
+            "name": "角松敏生"
+          }
+        ],
+        "al": {
+          "name": "あるがままに"
+        },
+        "dt": 374000
+      },
+      "evidence": "docs/catalog-review-2026-11-06.md",
+      "candidateIds": [
+        "284Lz0i5AuX8QYBXrN4eVz",
+        "22DSFdWKbqJCb0yNLrJPFM",
+        "3E4meqellpKgsGvgUZ5N3c",
+        "0uikfleAVyZgTMjiue1otI",
+        "6QfDCfZ3kePoSgEfhISvZ0"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-06",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "香港街燈 Toshiki Kadomatsu",
+        "sourceId": 451568
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 211520,
+      "name": "你不要那样看着我的眼睛",
+      "artists": [
+        "蔡琴"
+      ],
+      "album": "你不要那样看着我的眼睛",
+      "durationMs": 273000,
+      "source": {
+        "id": 211520,
+        "name": "你不要那样看着我的眼睛",
+        "ar": [
+          {
+            "name": "蔡琴"
+          }
+        ],
+        "al": {
+          "name": "你不要那样看着我的眼睛",
+          "tns": [
+            "你不要那样看着我的眼睛"
+          ]
+        },
+        "dt": 273000,
+        "tns": [
+          "你不要那样看着我的眼睛"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-07.md",
+      "candidateIds": [
+        "1WIYoQ5crkhLgOtM8kC3BG",
+        "5Lra6Ot7vu491nG53omUj2",
+        "6OnkhLQAVtw2wTZrYB2Gi0",
+        "2bVYG421ZMIGHBgfbH2JpN",
+        "0jX5FZrpoVAWyUvpa13uU8"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-07",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "你不要那样看着我的眼睛 蔡琴",
+        "sourceId": 211520
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 2719381953,
+      "name": "异心引力",
+      "artists": [
+        "银河快递"
+      ],
+      "album": "异心引力",
+      "durationMs": 234473,
+      "source": {
+        "id": 2719381953,
+        "name": "异心引力",
+        "ar": [
+          {
+            "name": "银河快递"
+          }
+        ],
+        "al": {
+          "name": "异心引力",
+          "tns": [
+            "异心引力",
+            "Funny"
+          ]
+        },
+        "dt": 234473,
+        "tns": [
+          "异心引力",
+          "Funny"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-07.md",
+      "candidateIds": [
+        "4FYbo4yQzu3hGkj2Ix4ucW",
+        "1fCIXUcPNsSisUvgq2UDA9",
+        "63u02UKn5JBxe9WQ7CUkNn",
+        "57izWRQXkuKYpQ4RHNYi24",
+        "2LfP0ZgaowOB9LxlhDj7vk"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-07",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "异心引力 银河快递",
+        "sourceId": 2719381953
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22655497,
+      "name": "Deeper and Deeper",
+      "artists": [
+        "CAGNET",
+        "Anna McMurphy"
+      ],
+      "album": "Here We Are Again",
+      "durationMs": 288925,
+      "source": {
+        "id": 22655497,
+        "name": "Deeper and Deeper",
+        "ar": [
+          {
+            "name": "CAGNET"
+          },
+          {
+            "name": "Anna McMurphy"
+          }
+        ],
+        "al": {
+          "name": "Here We Are Again",
+          "tns": [
+            "Here We Are Again"
+          ]
+        },
+        "dt": 288925,
+        "tns": [
+          "Deeper and Deeper",
+          "日剧《Long Vacation》插曲"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-08.md",
+      "candidateIds": [
+        "4ycvkX3kxm0bDTDAmxzu4P",
+        "5TCPfd2sUyyTthOhFNRo4Q",
+        "5Roo8xy0qjRppfwmSWWXQF",
+        "6KU8g98m1tcrUXRNjPQeOI",
+        "5ElzKkLs6ZQ1Sp2YEkzHm9",
+        "3e6Z2h3LsACpW7vqKawOVn"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-08",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
+        "sourceId": 22655497
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 812400,
+      "name": "PLANET",
+      "artists": [
+        "ラムジ"
+      ],
+      "album": "3ラムジ",
+      "durationMs": 243400,
+      "source": {
+        "id": 812400,
+        "name": "PLANET",
+        "ar": [
+          {
+            "name": "ラムジ"
+          }
+        ],
+        "al": {
+          "name": "3ラムジ",
+          "tns": [
+            "3ラムジ",
+            "3 Lambsey"
+          ]
+        },
+        "dt": 243400,
+        "tns": [
+          "PLANET"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-08.md",
+      "candidateIds": [
+        "3UFePyU0mSJvGONoLWKTeW",
+        "7EJmiLMTRzBTad6ak393V8",
+        "2KKty9SBCLZR8kwOKrOY85",
+        "2gaULwYeXtG7UbRXxu9Hrq",
+        "5Zy4OB1HiZA1FSpoOKKfPo"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-08",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "5Zy4OB1HiZA1FSpoOKKfPo",
+        "sourceId": 812400
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 559961,
+      "name": "雨上がり",
+      "artists": [
+        "ari"
+      ],
+      "album": "雨上がり",
+      "durationMs": 311000,
+      "source": {
+        "id": 559961,
+        "name": "雨上がり",
+        "ar": [
+          {
+            "name": "ari"
+          }
+        ],
+        "al": {
+          "name": "雨上がり",
+          "tns": [
+            "雨上がり"
+          ]
+        },
+        "dt": 311000,
+        "tns": [
+          "雨上がり",
+          "雨后"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-08.md",
+      "candidateIds": [
+        "2fHvk1zW4ZU8nCezkuR9sj",
+        "0HTslntkrmJnoioyln03g0",
+        "1fvjxpaSeHgDo4NP52QdWR",
+        "4Gr3TYH05Wd7fgZuHjVrFP",
+        "06OblR9x55oMdX9rsPJlgO",
+        "2BlDX1yfT0ea5wo0vjCKKa",
+        "5V3orVziFzM4Hy0mXsL3L8",
+        "2LZ9iobmtiQa52mZMIebuH",
+        "78kPbdzorf9Cgy8aQ7Mse5",
+        "42zYgxSbU9FtK2OSLHpYw0",
+        "0f0uETv1H0ZyCryKEVXEVR",
+        "3I6bm9fAqx596Bg9D0c4mx",
+        "4t6x0VJp61MogoG8J4VZGC",
+        "5vHgxEPYqisliSHDwZdgJU",
+        "3htuF7gVYjSCG3qsdvchXa",
+        "13tTSvgg9v8rSUxYieT7IN",
+        "1wObi8g1yGli1LzawKgHU6",
+        "407Ht02hw2gvad4vZym0dc",
+        "3Vz0oJ5J3RQGhhB5Eo33V9",
+        "4OvA8AJOVbecIWqKsDyW7H",
+        "3oLTG4oM1q1a2lEcMMN1mW",
+        "1kqrfod5ibxHBrBMwhrApD",
+        "70z9gQLHt0QUXaOYvpV3Og"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-08",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "雨上がり ari",
+        "sourceId": 559961
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 41632971,
+      "name": "Dear",
+      "artists": [
+        "lecca"
+      ],
+      "album": "BEST POSITIVE",
+      "durationMs": 264080,
+      "source": {
+        "id": 41632971,
+        "name": "Dear",
+        "ar": [
+          {
+            "name": "lecca"
+          }
+        ],
+        "al": {
+          "name": "BEST POSITIVE",
+          "tns": [
+            "BEST POSITIVE"
+          ]
+        },
+        "dt": 264080,
+        "tns": [
+          "Dear"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-09.md",
+      "candidateIds": [
+        "72zYzGFcqgSw89kFjQCHPy",
+        "6z4qM1wHXsLxLMzswjVdtF",
+        "6tDxrq4FxEL2q15y37tXT9",
+        "7CmQjA7j6CxyPBkH3tP95W",
+        "6UdNAO674yXHaZroB8PkS7"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-09",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "6UdNAO674yXHaZroB8PkS7",
+        "sourceId": 41632971
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22773568,
+      "name": "ひとり上手",
+      "artists": [
+        "中島みゆき"
+      ],
+      "album": "大吟醸",
+      "durationMs": 257053,
+      "source": {
+        "id": 22773568,
+        "name": "ひとり上手",
+        "ar": [
+          {
+            "name": "中島みゆき"
+          }
+        ],
+        "al": {
+          "name": "大吟醸",
+          "tns": [
+            "大吟醸",
+            "大吟酿"
+          ]
+        },
+        "dt": 257053,
+        "tns": [
+          "ひとり上手",
+          "习惯孤独"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-09.md",
+      "candidateIds": [
+        "5S1xV3T6zQuyeRpg2chO2W",
+        "5w6ogQ4mU4DPW6DULni7sI",
+        "6N5OYT0ngwwKcp6TwZ1qeS",
+        "6wRgqiAGSoXJZtNgdspQ4H",
+        "7oSAzD9RTyiPHOM16noKMl"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-09",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "7oSAzD9RTyiPHOM16noKMl",
+        "sourceId": 22773568
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 36921256,
+      "name": "Do You Love Me",
+      "artists": [
+        "国分友里恵"
+      ],
+      "album": "Do You Love Me",
+      "durationMs": 274991,
+      "source": {
+        "id": 36921256,
+        "name": "Do You Love Me",
+        "ar": [
+          {
+            "name": "国分友里恵"
+          }
+        ],
+        "al": {
+          "name": "Do You Love Me",
+          "tns": [
+            "Do You Love Me"
+          ]
+        },
+        "dt": 274991,
+        "tns": [
+          "Do You Love Me"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-09.md",
+      "candidateIds": [
+        "7IUv36NL5erXotT7sTQ5MD",
+        "36scQQxJgtuLLtICbfrdvP",
+        "0srYBJH7KXFscU5ATweYEb",
+        "0p8bejOjnrxr21gq2UWpuT",
+        "5dWLQBMgv22DbyzJPK8SQy",
+        "73EaWaA8rTyZuBdPCVZjCd",
+        "3liiZRlJxa8GeLUgWMoIeu",
+        "3aSWXU6owkZeVhh94XxEWO",
+        "4wcBRRpIfesgcyUtis7PEg",
+        "5BZsQlgw21vDOAjoqkNgKb",
+        "7x5xYW5W42OGPAdHUyyguy",
+        "5C3AY2e3hF83MYLXUXfvJX",
+        "1dLeSutde2Nt4DIWaLKxXO",
+        "5mLWPRZGlgjn9FlLNGie0Z",
+        "2jANiFTo75vzfJJhq3iek0"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-09",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Do You Love Me 国分友里恵",
+        "sourceId": 36921256
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22760128,
+      "name": "Baby if,",
+      "artists": [
+        "Fayray"
+      ],
+      "album": "Genuine",
+      "durationMs": 257000,
+      "source": {
+        "id": 22760128,
+        "name": "Baby if,",
+        "ar": [
+          {
+            "name": "Fayray"
+          }
+        ],
+        "al": {
+          "name": "Genuine",
+          "tns": [
+            "Genuine"
+          ]
+        },
+        "dt": 257000,
+        "tns": [
+          "Baby if,"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-09.md",
+      "candidateIds": [
+        "1AD7eNI5guxzMnmh9dAj0j",
+        "0nKjVbpweery76JA8Ylbhk",
+        "7nwYyzZ0htSb1CxIZ5Fhrd",
+        "2j7wI9QWrP8cjKDdOLVQTU",
+        "72KeCPed2lFqZhbzTwszJs"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-09",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Baby if, Fayray",
+        "sourceId": 22760128
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 541083,
+      "name": "RAINY WALK",
+      "artists": [
+        "山下達郎"
+      ],
+      "album": "MOONGLOW",
+      "durationMs": 309000,
+      "source": {
+        "id": 541083,
+        "name": "RAINY WALK",
+        "ar": [
+          {
+            "name": "山下達郎"
+          }
+        ],
+        "al": {
+          "name": "MOONGLOW",
+          "tns": [
+            "MOONGLOW"
+          ]
+        },
+        "dt": 309000,
+        "tns": [
+          "RAINY WALK"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-10.md",
+      "candidateIds": [
+        "4sjD3M6iXbUCLynmoSJMzv",
+        "6UOTxJ7a0AD8GNgWvQwXnu",
+        "0e5IIVSWFtYSKIC3drcVrz",
+        "2AWCrWOLyXTFyq0bxQywPj",
+        "2e2PajlTKfSugEoz1RFSGh",
+        "3mlqYwpqk8g5CFxmaJjAKv",
+        "5w90381QSXUfkbZD4buQmX",
+        "2LZ9iobmtiQa52mZMIebuH",
+        "3Y2S5izRYLPf0Bfb4HNJ2U",
+        "3INsIMe6Ap6EJ2xXgt9NB8",
+        "0OfonnFXPGfsO1GINDZq6v",
+        "69tMBng03dwqnlo5LSR645",
+        "0JTjuVPS4frbrnCfiEs4Ud"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-10",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "RAINY WALK 山下達郎",
+        "sourceId": 541083
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 1294109866,
+      "name": "ミライのテーマ",
+      "artists": [
+        "山下達郎"
+      ],
+      "album": "ミライのテーマ / うたのきしゃ",
+      "durationMs": 261506,
+      "source": {
+        "id": 1294109866,
+        "name": "ミライのテーマ",
+        "ar": [
+          {
+            "name": "山下達郎"
+          }
+        ],
+        "al": {
+          "name": "ミライのテーマ / うたのきしゃ",
+          "tns": [
+            "ミライのテーマ / うたのきしゃ"
+          ]
+        },
+        "dt": 261506,
+        "tns": [
+          "ミライのテーマ",
+          "未来的主题曲",
+          "动画电影《未来的未来》片头曲 / 映画「未来のミライ」OPテーマ"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-10.md",
+      "candidateIds": [
+        "4y50PiCJ77Y5LKCPQLhQ7W",
+        "2QNQDwmCy5Tg89k3lMzPtd",
+        "5oh6RP8B3siyotvmeYjMaQ",
+        "43a4z4EvinHmjtMXzLipQQ",
+        "5Fqz14AgntUfJ9Xy0YCAlc",
+        "5ppmwBydEoS75hDpR8Omeg",
+        "6ggCUjC5j2uhighYnTee8X",
+        "6MBB1w8rl9XEGqrfWcBq4I",
+        "29EDdkdXjaMns5ZJ7Dts5x",
+        "6Xb9Oj6TB2FDO4YIxE6lsQ",
+        "38HUGy0T2xuL1gAjBk77US",
+        "4fMuQ7uxAYJQfdk0TYakmR",
+        "27UdiYR18YmzD4ci8BzigM",
+        "1q0wzsDmE9BnvpEUuIZdiq"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-10",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "ミライのテーマ 山下達郎",
+        "sourceId": 1294109866
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 433757,
+      "name": "新宿午前3时25分",
+      "artists": [
+        "北野武"
+      ],
+      "album": "GOLDEN☆BEST",
+      "durationMs": 301000,
+      "source": {
+        "id": 433757,
+        "name": "新宿午前3时25分",
+        "ar": [
+          {
+            "name": "北野武"
+          }
+        ],
+        "al": {
+          "name": "GOLDEN☆BEST",
+          "tns": [
+            "GOLDEN☆BEST"
+          ]
+        },
+        "dt": 301000,
+        "tns": [
+          "新宿午前3时25分"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "4WH0cjS1ZRimYnzTslti8J",
+        "6gC6bjHl0UhyRIQufwH90o",
+        "3sxYJb62C5HnhxyKFhipmf",
+        "3FGktQzpeL0PHHoUz6Gh1V",
+        "1GS4on8S5gvm7cgy8zrxdT",
+        "5Mg6yx8m3SrFP5yzFP7RQd",
+        "20idh1P3sWBenEto9apu9A",
+        "2N994vbnxEV8eihFiHPe3K",
+        "1EXf9IkRdyomM3bqAFgZdH",
+        "7fS84wIuhxleSaECc0CRua",
+        "1PMC5OkvI6EXtVatacVcOQ",
+        "1bivf8GaSEUDXHVUZzwPqn"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "新宿午前3時25分 ビートたけし",
+        "sourceId": 433757
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 29539330,
+      "name": "Sincerely",
+      "artists": [
+        "浜田朱里"
+      ],
+      "album": "瞳・センチメンタル",
+      "durationMs": 216133,
+      "source": {
+        "id": 29539330,
+        "name": "Sincerely",
+        "ar": [
+          {
+            "name": "浜田朱里"
+          }
+        ],
+        "al": {
+          "name": "瞳・センチメンタル",
+          "tns": [
+            "瞳・センチメンタル"
+          ]
+        },
+        "dt": 216133,
+        "tns": [
+          "Sincerely"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "7lWPgRBsxgkZ57GRqxXYZe",
+        "4Sf7W91vwViqaWpdXXt5sr",
+        "4nna9JONFIwr98bcX6tlta",
+        "1774XGEDmmV7ynAzCQHrhU",
+        "6hOD1yxLeWllJ2TiwbuwQg",
+        "6nz7At42lKq9HQSyUm1C79",
+        "1bQW0fiydd9GxOC2gB1Uyz",
+        "4KQONEpH0lgJhvqChd2PPa",
+        "1A1qr49Rs4jJ5nPj8y0Ews",
+        "72N8UFLVeuVHzfBnKkVpL6",
+        "1xdMn0S53JPGDC9rd6hBqo"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Sincerely Juri Hamada",
+        "sourceId": 29539330
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 2103300863,
+      "name": "今天是我的",
+      "artists": [
+        "汪晨蕊"
+      ],
+      "album": "今天是我的",
+      "durationMs": 195600,
+      "source": {
+        "id": 2103300863,
+        "name": "今天是我的",
+        "ar": [
+          {
+            "name": "汪晨蕊"
+          }
+        ],
+        "al": {
+          "name": "今天是我的",
+          "tns": [
+            "今天是我的"
+          ]
+        },
+        "dt": 195600,
+        "tns": [
+          "今天是我的"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "368ypJEEv2UJ2CaIx2aQfv",
+        "3t3CQKj6arvNau8DjQw3nN",
+        "38ORyBwXIlXtJRzCAm2W0Z",
+        "65URET1i2xmDo2yKH5H8D4",
+        "5JjRAdUnjc3AtM8Ke1jSSg",
+        "1sXeli52yqBBUqOyUgIprr",
+        "6oKX7YD2cKIUgdI5fhVQbV",
+        "2AXnAetDRbu3DJBGksBC1D",
+        "5v3AGqx0VeLtdBKo5FLcv2",
+        "054rsik6MzETq8xRIGJ6Nn",
+        "6RC8pWKEIYpkkbXd3q6tB5",
+        "0M3n2DmS0deeHrrTz1Av8n",
+        "4Ly2bBphHgfSZE9WEoxCqX",
+        "281GZa4NRfuxGRMOKkFVgZ",
+        "2qxaECOG9R6jU4h4htLDmz"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "今天是我的 汪晨蕊",
+        "sourceId": 2103300863
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 1355979244,
+      "name": "ハーフムーン・セレナーデ",
+      "artists": [
+        "河合奈保子"
+      ],
+      "album": "私が好きな河合奈保子",
+      "durationMs": 332626,
+      "source": {
+        "id": 1355979244,
+        "name": "ハーフムーン・セレナーデ",
+        "ar": [
+          {
+            "name": "河合奈保子"
+          }
+        ],
+        "al": {
+          "name": "私が好きな河合奈保子",
+          "tns": [
+            "私が好きな河合奈保子"
+          ]
+        },
+        "dt": 332626,
+        "tns": [
+          "ハーフムーン・セレナーデ",
+          " 月半小夜曲"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "3eeXfKpoIJBKJTwGb33Mt3",
+        "7qqc0RZ5vv12qEqxWXbOUj",
+        "5jKvcHtXmIbzj5rMBWyhsZ",
+        "7jFNX9aTdcQfhIgUVE02hi",
+        "6bgyqeRKl3HN8jEn1b98WO",
+        "1taJWeuu0InICnZ8jayJfn",
+        "6FNd0AA6VEp0KwRwqtjzI7",
+        "11ZIlIbMIYQLEMXSXQD1PJ",
+        "2XilllM3LNVQPvCrOX749W",
+        "3C3ASp6pXAmWEFjHtwECc2",
+        "21JarrrgKiG1k1QiU3BLl6",
+        "0KOpJBgv1D4CBkD3KQwbLH",
+        "3nppYBtLCWgLIOQXNrNtxN",
+        "6VaHtyjVxNmJ47ldYF5E0z",
+        "4rNZxHdO18SF4PPjKQNaaC"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "3eeXfKpoIJBKJTwGb33Mt3",
+        "sourceId": 1355979244
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 487280,
+      "name": "ソー・ロング・マイ・ラヴ",
+      "artists": [
+        "小田和正"
+      ],
+      "album": "So Long My Love",
+      "durationMs": 352000,
+      "source": {
+        "id": 487280,
+        "name": "ソー・ロング・マイ・ラヴ",
+        "ar": [
+          {
+            "name": "小田和正"
+          }
+        ],
+        "al": {
+          "name": "So Long My Love",
+          "tns": [
+            "So Long My Love"
+          ]
+        },
+        "dt": 352000,
+        "tns": [
+          "ソー・ロング・マイ・ラヴ",
+          "再见了我亲爱的"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "0lM08CHxy1DQ4RdvfGPGGT",
+        "5ghnSfbSEAG6oPdMdUEtEQ",
+        "61pP0bjDf68Sxi1CduxUcv",
+        "6Bs6qcIYn6EfVSHZKqq99O",
+        "61wEQf9lrPImtkXtVJKoLM",
+        "3wQ3wGclEUhHT72aLiLBn5",
+        "0LxBsUJG6FVNEOM1hJsFmK",
+        "4kzIXvjeREV7Zc5PXt9lKB",
+        "6FRwDxXsvSasw0y2eDArsz",
+        "0vB4Vd6PtkJSEnWsmqATnZ",
+        "2uqxIVBp03x9OsINjrKoR3",
+        "2DlIwu1iDTILEMXA7MUotn",
+        "1kF9vY7s9DlcPtJFCMyA3k",
+        "6oBDhkYQDhFS2q0wQ6xZLO",
+        "2J9I7oTBuWhrG8MW7nF90b"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "0lM08CHxy1DQ4RdvfGPGGT",
+        "sourceId": 487280
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 408328190,
+      "name": "Plastic Love (TARA Bootleg)",
+      "artists": [
+        "TARA"
+      ],
+      "album": "Plastic Love (TARA Bootleg)",
+      "durationMs": 226273,
+      "source": {
+        "id": 408328190,
+        "name": "Plastic Love (TARA Bootleg)",
+        "ar": [
+          {
+            "name": "TARA"
+          }
+        ],
+        "al": {
+          "name": "Plastic Love (TARA Bootleg)",
+          "tns": [
+            "Plastic Love (TARA Bootleg)"
+          ]
+        },
+        "dt": 226273,
+        "tns": [
+          "Plastic Love (TARA Bootleg)"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "3ljEzcpsXThqfImeqk9THy",
+        "7rU6Iebxzlvqy5t857bKFq",
+        "04OSVgX7mZtqPwppNhVgZR",
+        "0K9rIsZfdlzAoOEWyeFQYM",
+        "22OGhrVHUarlxoORTSjgqu",
+        "1Z1fN0KFNu0aG2EpbBVwvN",
+        "5F2COlPnZeomdZl5TcSBol",
+        "6wGM54Fj2JcuSFamPhXJwh",
+        "1mfSZCG8rszKRNXg7MAYcW",
+        "1x5taT5bGQ4AAqBZuNPRKk",
+        "76ice9W9naIMcoPfFyOlnB",
+        "08UjJNcqrN6y9t8FnWcOHp"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Plastic Love (TARA Bootleg) TARA",
+        "sourceId": 408328190
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 1427664751,
+      "name": "一枚の写真",
+      "artists": [
+        "石田ひかり"
+      ],
+      "album": "White Virgin",
+      "durationMs": 268506,
+      "source": {
+        "id": 1427664751,
+        "name": "一枚の写真",
+        "ar": [
+          {
+            "name": "石田ひかり"
+          }
+        ],
+        "al": {
+          "name": "White Virgin",
+          "tns": [
+            "White Virgin",
+            "ホワイト・ヴァージン"
+          ]
+        },
+        "dt": 268506,
+        "tns": [
+          "一枚の写真",
+          "一张相片"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "3FQtLYdOkhzFuFheMrZ7rN",
+        "4ONur88uvjebfehv2aHQGn",
+        "0zc6XVSjk8C7s1OuHIyajA",
+        "4HippgEUQqQlzafF3oQCx9",
+        "2MCkt4mevJCeRp4PGsQTcZ",
+        "5JbIiEY2Ttextq0Eoiw7qn",
+        "0XEHoRAvfEiExyBZN6r6WS",
+        "6dQHnLbn8IholTJzr58OT4",
+        "5hyuqT3PwqSKtH1EUSST20",
+        "1Oe45Ze9SwanHB2vL7gY9H",
+        "0WfiKb7fAPiqVHLDumYn0A",
+        "05Wm7teYB3IPYpvoW8iNSh",
+        "4fyB7tt4v2EuvDBNjus2B6",
+        "350DiIiXPc5nMScbHJ5mJp",
+        "3vCxVEBRpPsx7nnCQ1jsrk"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "一枚の写真 Hikari Ishida",
+        "sourceId": 1427664751
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 5057823,
+      "name": "Jack Rabbit Slim's Twist Contest / You Never Can Tell",
+      "artists": [
+        "Jerome Patrick Hoban",
+        "Uma Thurman",
+        "Chuck Berry"
+      ],
+      "album": "Pulp Fiction",
+      "durationMs": 192666,
+      "source": {
+        "id": 5057823,
+        "name": "Jack Rabbit Slim's Twist Contest / You Never Can Tell",
+        "ar": [
+          {
+            "name": "Jerome Patrick Hoban"
+          },
+          {
+            "name": "Uma Thurman"
+          },
+          {
+            "name": "Chuck Berry"
+          }
+        ],
+        "al": {
+          "name": "Pulp Fiction",
+          "tns": [
+            "Pulp Fiction"
+          ]
+        },
+        "dt": 192666,
+        "tns": [
+          "Jack Rabbit Slim's Twist Contest / You Never Can Tell"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "1FaU01TqZoXyaaUtB04Ms1",
+        "7p6ZGUXjUe0ctAu5RNnghu",
+        "6FT83pFXKhDlXDsNJFAHWz",
+        "4qe3upa4fIhkeWmGb4o5kg",
+        "1qVLm98UAAFyYuq4HCKFBV"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "1FaU01TqZoXyaaUtB04Ms1",
+        "sourceId": 5057823
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 27790809,
+      "name": "誰にもわからない私の痛み",
+      "artists": [
+        "宇都美慶子"
+      ],
+      "album": "誰にもわからない私の痛み",
+      "durationMs": 272826,
+      "source": {
+        "id": 27790809,
+        "name": "誰にもわからない私の痛み",
+        "ar": [
+          {
+            "name": "宇都美慶子"
+          }
+        ],
+        "al": {
+          "name": "誰にもわからない私の痛み",
+          "tns": [
+            "誰にもわからない私の痛み"
+          ]
+        },
+        "dt": 272826,
+        "tns": [
+          "誰にもわからない私の痛み",
+          "没有人会明白的我的痛苦"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "7vQlZ4fzkCk8Xwn67kxoef",
+        "4bgVk4itt6wPVrJJwh5vyp",
+        "21C6GAIM4TAfRHoNADr2OQ",
+        "58L34DMcHQgAkDTWATNrCa",
+        "4zKlYkf8A4QJqX1D9oGFZU",
+        "2dA887WZMuvwkFn31iO2KB",
+        "0kBsGfZsbQku5HH8vP9lmM",
+        "35MeePbBnryubkVG0v8GbI",
+        "4BvuZVf9KyBN3QiPfeI9hw",
+        "781eCm44DxjVZiln6OjN9G",
+        "0jjygW2mhgfVT8OOgEyp7U",
+        "7nrAtwYEkrhJX3bPYtLIum"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "誰にもわからない私の痛み Keiko Utsumi",
+        "sourceId": 27790809
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 33544561,
+      "name": "TV in Black & White",
+      "artists": [
+        "Lana Del Rey"
+      ],
+      "album": "The Unreleased Collection",
+      "durationMs": 217444,
+      "source": {
+        "id": 33544561,
+        "name": "TV in Black & White",
+        "ar": [
+          {
+            "name": "Lana Del Rey"
+          }
+        ],
+        "al": {
+          "name": "The Unreleased Collection",
+          "tns": [
+            "The Unreleased Collection"
+          ]
+        },
+        "dt": 217444,
+        "tns": [
+          "TV in Black & White"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-13.md",
+      "candidateIds": [
+        "1OJGjaqRE91q1HLbk1Qayz",
+        "3iEHKj7PIK3DXNFwTLzBW3",
+        "0qvmVZQDM84SMKEdFMQC7p",
+        "7usDTVzY0Yo6BvhShAF9y1",
+        "3JqqtoGMP7PPXG78ypkiJR",
+        "7IM4xK4W4n06UAV48ZXMup",
+        "5DSi7heBC8eTIFROBvttnp",
+        "1NZs6n6hl8UuMaX0UC0YTz",
+        "1y3r6RXiJZNBV1EI0NggpS",
+        "3sYDVtqO35oRSOIMx7dOqR",
+        "1qKCO2Tocwg8CbepJ9uDtd",
+        "4O1etEzE7zc8ZO80KNd5GZ",
+        "0YDeLNmFiwc6U5lHHdSXdq",
+        "4aha3sFO6kTx0Jq4Fp5b3y",
+        "31WRmxCQdDxtY4KVt7a8FL"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-13",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "TV in Black & White Lana Del Rey",
+        "sourceId": 33544561
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 1984474579,
+      "name": "行走的鱼",
+      "artists": [
+        "徐佳莹"
+      ],
+      "album": "联名",
+      "durationMs": 245172,
+      "source": {
+        "id": 1984474579,
+        "name": "行走的鱼",
+        "ar": [
+          {
+            "name": "徐佳莹"
+          }
+        ],
+        "al": {
+          "name": "联名",
+          "tns": [
+            "联名"
+          ]
+        },
+        "dt": 245172,
+        "tns": [
+          "行走的鱼",
+          "汪苏泷概念创作集《联名》作品"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "5EvVYm1CnsyMuXtFnGQKH9",
+        "1649VAY9SXdgFh0vdRPw1Y",
+        "1GAsycLPADuAsLdkCmWXRz",
+        "0aS4Yxh1YReBMP7qKRcela",
+        "7aLYL940d1hPjdKCPRQyTT"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "5EvVYm1CnsyMuXtFnGQKH9",
+        "sourceId": 1984474579
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 32069683,
+      "name": "ちょっと待ってよ",
+      "artists": [
+        "never young beach"
+      ],
+      "album": "YASHINOKI HOUSE",
+      "durationMs": 203640,
+      "source": {
+        "id": 32069683,
+        "name": "ちょっと待ってよ",
+        "ar": [
+          {
+            "name": "never young beach"
+          }
+        ],
+        "al": {
+          "name": "YASHINOKI HOUSE",
+          "tns": [
+            "YASHINOKI HOUSE"
+          ]
+        },
+        "dt": 203640,
+        "tns": [
+          "ちょっと待ってよ",
+          "等等我"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "2lRBn2VurnIVhLXLUuOoYN",
+        "2UHBgzPC5o0NHrjNFHemqT",
+        "5gKPJ0gvx94TrfHldhIg3d",
+        "70s4AX8TnzGWVU0v4C7hDA",
+        "4MJLjO4M4jZDq14S3kXaXK"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Chotto Matteyo never young beach",
+        "sourceId": 32069683
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 2139361238,
+      "name": "ずっとずっとずっと",
+      "artists": [
+        "大橋トリオ"
+      ],
+      "album": "『まなざし』 ～羊毛とおはなトリビュート～",
+      "durationMs": 262755,
+      "source": {
+        "id": 2139361238,
+        "name": "ずっとずっとずっと",
+        "ar": [
+          {
+            "name": "大橋トリオ"
+          }
+        ],
+        "al": {
+          "name": "『まなざし』 ～羊毛とおはなトリビュート～",
+          "tns": [
+            "『まなざし』 ～羊毛とおはなトリビュート～"
+          ]
+        },
+        "dt": 262755,
+        "tns": [
+          "ずっとずっとずっと",
+          "永远永远永远"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "5D1OvYAatXxTdmPNlj0xBP",
+        "6OD52f3b2nW08dVYCwvj8A",
+        "3oy9Y621WDsAXSAwJKSSZV",
+        "2He9deEfdXYWxnTUi0oOb0",
+        "3IM2I88PCBQUgRpomZSVtf"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "album",
+        "id": "3ulQkh3QCuLs4lNbPuwYHq",
+        "sourceId": 2139361238
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 26389381,
+      "name": "真夏の果実",
+      "artists": [
+        "桑田佳祐"
+      ],
+      "album": "オリジナル",
+      "durationMs": 281133,
+      "source": {
+        "id": 26389381,
+        "name": "真夏の果実",
+        "ar": [
+          {
+            "name": "桑田佳祐"
+          }
+        ],
+        "al": {
+          "name": "オリジナル",
+          "tns": [
+            "オリジナル"
+          ]
+        },
+        "dt": 281133,
+        "tns": [
+          "真夏の果実",
+          "盛夏的果实"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "3AVLsBieDGotYuo5RPEL64",
+        "2rKsRZo4RlZCYrOlNr1f4n",
+        "7pTpg4VZvF1PpTNLG1vuaQ",
+        "6epRWgwouOTmH9jwod4mrK",
+        "5Q3yy3AwyKPvnlX33C1vZw"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "3AVLsBieDGotYuo5RPEL64",
+        "sourceId": 26389381
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 22773649,
+      "name": "最愛(Remaster)",
+      "artists": [
+        "中島みゆき"
+      ],
+      "album": "御色なおし(Remaster)",
+      "durationMs": 259866,
+      "source": {
+        "id": 22773649,
+        "name": "最愛(Remaster)",
+        "ar": [
+          {
+            "name": "中島みゆき"
+          }
+        ],
+        "al": {
+          "name": "御色なおし(Remaster)",
+          "tns": [
+            "御色なおし(Remaster)",
+            "新娘更衣"
+          ]
+        },
+        "dt": 259866,
+        "tns": [
+          "最愛(Remaster)",
+          "最爱"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-14.md",
+      "candidateIds": [
+        "3iPB7P5NCYJEtgf7EHKp7s",
+        "473vCEDYCgaMNmbRgwD63p",
+        "6LELPz2rlDX5R7LyCjF5pu",
+        "4F1BP3249boAf2BQcAGj45",
+        "5qEBjeHHYGPh3JEcj3hyYq"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-14",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "最愛 Miyuki Nakajima",
+        "sourceId": 22773649
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 26123720,
+      "name": "無人の島",
+      "artists": [
+        "TRUE"
+      ],
+      "album": "anytime,anywhere",
+      "durationMs": 362080,
+      "source": {
+        "id": 26123720,
+        "name": "無人の島",
+        "ar": [
+          {
+            "name": "TRUE"
+          }
+        ],
+        "al": {
+          "name": "anytime,anywhere",
+          "tns": [
+            "anytime,anywhere"
+          ]
+        },
+        "dt": 362080,
+        "tns": [
+          "無人の島",
+          "无人岛"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "02OjX2aaE5EAyveeluFR2B",
+        "54yuCAn8FKfO9PMNsQXP7L",
+        "1jPa5jWc9GsB1ayR8lPSLz",
+        "74iDQrenIlMyV8HIXdj0ES",
+        "4eKWYcfmSSnV3F5pDYiEWo"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "02OjX2aaE5EAyveeluFR2B",
+        "sourceId": 26123720
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 2680631339,
+      "name": "いとしのエリー",
+      "artists": [
+        "サザンオールスターズ"
+      ],
+      "album": "いとしのエリー",
+      "durationMs": 266066,
+      "source": {
+        "id": 2680631339,
+        "name": "いとしのエリー",
+        "ar": [
+          {
+            "name": "サザンオールスターズ"
+          }
+        ],
+        "al": {
+          "name": "いとしのエリー",
+          "tns": [
+            "いとしのエリー"
+          ]
+        },
+        "dt": 266066,
+        "tns": [
+          "いとしのエリー",
+          "心爱的艾莉"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "1TApEXSKbGFEEWoRAReZI6",
+        "30Vx3VEyLGmNmoTM8JfFOX",
+        "4bDhhz5l0CkjJljmKo1lQn",
+        "18mZuiiN95kIbi5S8dFkk7",
+        "6OdwxMFlAFqd9QgPghHfdV"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "5f7nYDvM5Hj9cPJnbwZrre",
+        "sourceId": 2680631339
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 29848057,
+      "name": "HAPPEN ENDING [JAPANESE MIX]",
+      "artists": [
+        "EPIK HIGH",
+        "李遐怡"
+      ],
+      "album": "SHOE BOX -Japan Edition-",
+      "durationMs": 264000,
+      "source": {
+        "id": 29848057,
+        "name": "HAPPEN ENDING [JAPANESE MIX]",
+        "ar": [
+          {
+            "name": "EPIK HIGH"
+          },
+          {
+            "name": "李遐怡"
+          }
+        ],
+        "al": {
+          "name": "SHOE BOX -Japan Edition-",
+          "tns": [
+            "SHOE BOX -Japan Edition-"
+          ]
+        },
+        "dt": 264000,
+        "tns": [
+          "HAPPEN ENDING [JAPANESE MIX]",
+          "随和的结尾"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "6KrJn7TLGbkXwbU8GAS5Sk",
+        "1Szz2K6zjz3tbHJFfuIb4E",
+        "6OhLNTT1ac1h2NiIuDDfg5",
+        "3wB7yAm4WwIvz3TrsYPgOt",
+        "2Gd25nA8k3K01ZKR0bCySw"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Happen Ending Lee Hi Japanese",
+        "sourceId": 29848057
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 454567,
+      "name": "グッドバイ・デイ",
+      "artists": [
+        "来生たかお"
+      ],
+      "album": "テーマ・ソングス(1)CMソン",
+      "durationMs": 323996,
+      "source": {
+        "id": 454567,
+        "name": "グッドバイ・デイ",
+        "ar": [
+          {
+            "name": "来生たかお"
+          }
+        ],
+        "al": {
+          "name": "テーマ・ソングス(1)CMソン",
+          "tns": [
+            "テーマ・ソングス(1)CMソン"
+          ]
+        },
+        "dt": 323996,
+        "tns": [
+          "グッドバイ・デイ",
+          "离别之日 Goodbye Day"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "1aav3pSTWAe5pViRRqfgn4",
+        "0bVpurYEKPeyNnyFquWMH6",
+        "1K8yPXTn0ijWY1sFGf6mjq",
+        "29Ll3I1DgonLKAUGdgNPMV",
+        "5pmo2MOGwfi0HNVIqDf5IH"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "album",
+        "id": "5GrnlgYqa9I9eemh0g7lvN",
+        "sourceId": 454567
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 1999290990,
+      "name": "誘魚灯",
+      "artists": [
+        "伊藤美奈子"
+      ],
+      "album": "誘魚灯",
+      "durationMs": 217155,
+      "source": {
+        "id": 1999290990,
+        "name": "誘魚灯",
+        "ar": [
+          {
+            "name": "伊藤美奈子"
+          }
+        ],
+        "al": {
+          "name": "誘魚灯",
+          "tns": [
+            "誘魚灯"
+          ]
+        },
+        "dt": 217155,
+        "tns": [
+          "誘魚灯"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "1zGnuABdQiSQ6oh4ejLXFg",
+        "4gLe0k54ph93kzNvh8V2PV",
+        "3oUMm2O8vm5Wk4AURYZ0Kd",
+        "1fAwdgyZuzPjk84ppDrytL",
+        "0eNc2H9m8yzSSUDB4Xqs9j"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "誘魚灯 伊藤美奈子",
+        "sourceId": 1999290990
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 407440,
+      "name": "世界中の誰よりきっと",
+      "artists": [
+        "德永英明"
+      ],
+      "album": "VOCALIST & BALLADE BEST",
+      "durationMs": 326253,
+      "source": {
+        "id": 407440,
+        "name": "世界中の誰よりきっと",
+        "ar": [
+          {
+            "name": "德永英明"
+          }
+        ],
+        "al": {
+          "name": "VOCALIST & BALLADE BEST",
+          "tns": [
+            "VOCALIST & BALLADE BEST"
+          ]
+        },
+        "dt": 326253,
+        "tns": [
+          "世界中の誰よりきっと",
+          "胜过世上任何人"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "0UOgeNhp2Q6Bo2FpXWx34C",
+        "5ejHst1dqWJCubd9iT7uww",
+        "6116o39EQhdTVnIz0jB0nN",
+        "2NzQgPlKWQIoFWbtrjR7PJ",
+        "3l6fy5jlgsHHZYrc6bCtjL"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "世界中の誰よりきっと 徳永英明",
+        "sourceId": 407440
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 701026,
+      "name": "日和",
+      "artists": [
+        "Canappeco"
+      ],
+      "album": "misora sketch",
+      "durationMs": 294974,
+      "source": {
+        "id": 701026,
+        "name": "日和",
+        "ar": [
+          {
+            "name": "Canappeco"
+          }
+        ],
+        "al": {
+          "name": "misora sketch",
+          "tns": [
+            "misora sketch"
+          ]
+        },
+        "dt": 294974,
+        "tns": [
+          "日和"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "5u0gZfyg35NB6osLMhxnfV",
+        "6z6zqnWPlpNFmvBoiS4Lob",
+        "4nXv9VAkICTfQMZWG78ZD9",
+        "5yjTfouI3yQGLiXywxRied",
+        "5DNmBcs2AqUzCLigmIqC1m"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "日和 Canappeco",
+        "sourceId": 701026
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 27158959,
+      "name": "Come Back To Me",
+      "artists": [
+        "宇多田ヒカル"
+      ],
+      "album": "Promo Only: Mainstream Radio, March 2009",
+      "durationMs": 238004,
+      "source": {
+        "id": 27158959,
+        "name": "Come Back To Me",
+        "ar": [
+          {
+            "name": "宇多田ヒカル"
+          }
+        ],
+        "al": {
+          "name": "Promo Only: Mainstream Radio, March 2009",
+          "tns": [
+            "Promo Only: Mainstream Radio, March 2009"
+          ]
+        },
+        "dt": 238004,
+        "tns": [
+          "Come Back To Me"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-15.md",
+      "candidateIds": [
+        "5wwiq5TX0bFx4MrR2l9kc0",
+        "74iRv2O8kvfItYz3yVeI1h",
+        "0BnugXqRqfNqBSDHFyTVQn",
+        "0NSSqYISjnav81CEn6EgBY",
+        "62HKW77nt6tudsIHXT2A0M"
+      ],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-15",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "track",
+        "id": "5wwiq5TX0bFx4MrR2l9kc0",
+        "sourceId": 27158959
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    },
+    {
+      "sourceId": 28718974,
+      "name": "別れ1940",
+      "artists": [
+        "深津絵里"
+      ],
+      "album": "毒苺",
+      "durationMs": 181000,
+      "source": {
+        "id": 28718974,
+        "name": "別れ1940",
+        "ar": [
+          {
+            "name": "深津絵里"
+          }
+        ],
+        "al": {
+          "name": "毒苺"
+        },
+        "dt": 181000
+      },
+      "evidence": "docs/catalog-review-2026-11-05.md",
+      "candidateIds": [],
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-05",
+      "blockedBy": "local-api-connection-timeout",
+      "retryAt": "2026-11-15T14:51:24.852Z",
+      "nextAction": {
+        "type": "search",
+        "query": "別れ1940 ICHIGO ICHIE",
+        "sourceId": 28718974
+      },
+      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
+      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+    }
+  ],
+  "lastAttempt": {
+    "reason": "transient-backoff",
+    "retryAt": 1794754284852,
+    "networkCode": "ETIMEDOUT",
+    "at": "2026-11-15T14:36:24.857Z",
+    "requests": 4,
+    "retries": 2,
+    "completedCatalogRequests": 0
+  }
+}

@@ -76,3 +76,17 @@ test('new sync resets memory-only album data and market-restricted tracks remain
   await f.client.findAlbumTracks(source)
   assert.equal(f.calls.length, 4)
 })
+
+test('three-request budget reaches second edition before paginating first', async () => {
+  const second = { ...album, id: 'b'.repeat(22) }
+  const f = fixture(url => {
+    if (url.pathname === '/v1/search') return Response.json({ albums: { items: [album, second] } })
+    const isSecond = url.pathname.includes(second.id)
+    return Response.json({ next: isSecond ? null : 'more', items: [{ id: isSecond ? 'correct' : 'other', name: isSecond ? source.name : 'Other song' }] })
+  })
+  let used = 0
+  const rows = await f.client.findAlbumTracks(source, { takeQuery: () => used < 3 && ++used })
+  assert.equal(used, 3)
+  assert.equal(rows.at(-1).id, 'correct')
+  assert.ok(!f.calls.some(url => url.includes('offset=50')))
+})

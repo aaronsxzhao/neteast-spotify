@@ -1,3 +1,12 @@
+const NETWORK_CODES = new Set(['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT', 'ENOTFOUND', 'EAI_AGAIN',
+  'EPIPE', 'ENETUNREACH', 'EHOSTUNREACH', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT',
+  'UND_ERR_BODY_TIMEOUT', 'UND_ERR_SOCKET', 'CERT_HAS_EXPIRED', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'])
+export function safeNetworkDiagnostic(error) {
+  const code = [error?.code, error?.cause?.code, ...(error?.cause?.errors || []).map(e => e?.code)]
+    .find(code => NETWORK_CODES.has(code))
+  return code || (['AbortError', 'TimeoutError'].includes(error?.name) ? error.name : 'UNKNOWN_NETWORK_ERROR')
+}
+
 const HOUR = 60 * 60_000
 
 // Retire only the old application's 60/hour pause. Provider and network
@@ -94,7 +103,9 @@ export class RequestSafety {
         const until = Math.max(this.now() + [2000, 8000][Math.min(attempt, 1)],
           error.retryAfter ? retryDeadline(error.retryAfter, this.now()) : 0)
         if (!readOnly || attempt >= 2 || until - this.now() > 60_000) {
-          throw await this.transient(error.status, error.retryAfter)
+          const paused = await this.transient(error.status, error.retryAfter)
+          if (error.networkCode) paused.networkCode = error.networkCode
+          throw paused
         }
         // Persist BEFORE waiting: crashes/new runners cannot bypass the wait.
         await this.backoff('transient-retry', until)
@@ -139,7 +150,15 @@ export class RequestSafety {
       let response
       this.stats.lastStatus = null
       try { response = await fetchImpl(url, options) }
-      catch { throw Object.assign(new Error('network-error'), { transient: true }) }
+      catch (error) {
+        const networkCode = safeNetworkDiagnostic(error)
+        // Store only controlled codes and endpoint categories, never messages,
+        // request headers, URLs, token bodies or arbitrary nested error data.
+        const diagnostic = { code: networkCode, operation: this.stats.lastOperation, at: this.now() }
+        this.stats.lastNetworkError = diagnostic
+        await this.store.update(state => { state.spotify.lastNetworkError = diagnostic })
+        throw Object.assign(new Error('network-error'), { transient: true, networkCode })
+      }
       this.stats.lastStatus = response.status
       if (response.status === 429) {
         const until = retryDeadline(response.headers?.get('retry-after'), this.now())
@@ -151,6 +170,9 @@ export class RequestSafety {
       if (response.status >= 500) throw Object.assign(new Error('provider-error'), {
         transient: true, status: response.status, retryAfter: response.headers?.get('retry-after'),
       })
+      if (response.ok && this.store.state.spotify.transientFailures) {
+        await this.store.update(state => { state.spotify.transientFailures = 0 })
+      }
       return response
   }
 }

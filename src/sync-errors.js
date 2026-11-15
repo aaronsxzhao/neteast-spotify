@@ -1,3 +1,4 @@
+import { safeNetworkDiagnostic } from './request-safety.js'
 // Classify by controlled provenance/status, never by provider message text.
 // In particular, a parsing TypeError is not evidence of a network outage.
 const programErrors = new Set(['TypeError', 'RangeError', 'ReferenceError', 'SyntaxError', 'URIError', 'EvalError'])
@@ -38,6 +39,7 @@ export function classifySyncError(error) {
 export function safeFailureDetails(error) {
   return {
     failureKind: classifySyncError(error),
+    ...(error?.networkCode ? { networkCode: safeNetworkDiagnostic({ code: error.networkCode, name: error.networkCode }) } : {}),
     source: providers.has(error?.source) || error?.source === 'github-state' ? error.source : 'application',
     errorType: programErrors.has(error?.name) ? error.name : 'Error',
   }

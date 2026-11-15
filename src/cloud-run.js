@@ -1,6 +1,6 @@
 import { appendFile } from 'node:fs/promises'
 import { CloudStore, GitHubState, parseConfig } from './cloud-state.js'
-import { SpotifyClient } from './spotify.js'
+import { SpotifyClient, spotifyFetch } from './spotify.js'
 import { SyncService, dateInTimezone, hourInTimezone } from './sync.js'
 import { getDailyRecommendations } from './netease.js'
 import { runCloudSync, cloudRunSummary } from './cloud-policy.js'
@@ -41,7 +41,7 @@ async function main() {
   await migrateRequestBudget(store)
   mask(store.state.spotify.refreshToken)
   const spotify = new SpotifyClient(store, async (url, options) => {
-    const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30_000) })
+    const response = await spotifyFetch(url, options)
     if (url === 'https://accounts.spotify.com/api/token') {
       const result = await response.clone().json().catch(() => ({}))
       mask(result.access_token)

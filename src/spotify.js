@@ -21,11 +21,22 @@ async function readResponse(response) {
   }
 }
 
+// Bound headers AND response-body reads. Keep all retries in RequestSafety;
+// this transport never retries or switches accounts/endpoints on its own.
+export async function spotifyFetch(url, options = {}) {
+  const timeout = AbortSignal.timeout(30_000)
+  const signal = options.signal ? AbortSignal.any([options.signal, timeout]) : timeout
+  const response = await fetch(url, { ...options, signal })
+  const body = await response.arrayBuffer()
+  return new Response(response.status === 204 || response.status === 304 ? null : body,
+    { status: response.status, statusText: response.statusText, headers: response.headers })
+}
+
 export class SpotifyClient {
   // Only used by one client/run. Encrypted checkpoint cache below survives a
   // pause mid-song; memory avoids re-reading a shared album for later songs.
   albumCache = new Map()
-  constructor(store, fetchImpl = fetch, safetyOptions = {}) {
+  constructor(store, fetchImpl = spotifyFetch, safetyOptions = {}) {
     this.store = store
     this.safety = new RequestSafety(store, safetyOptions)
     this.fetch = (url, options) => this.safety.fetch(fetchImpl, url, options)
@@ -140,6 +151,7 @@ export class SpotifyClient {
   }
 
   async request(path, options = {}, attempt = 0) {
+    this.safety.check() // Check before token refresh; paused reads must not authorize first.
     const cooldown = Number(this.store.state.spotify.retryAfterUntil || 0) - Date.now()
     if (cooldown > 0) {
       const error = new Error('Spotify provider cooldown is still active')
@@ -256,9 +268,13 @@ export class SpotifyClient {
       if (albums.length) break
     }
     const tracks = []
-    for (const album of albums) {
-      // Do not follow a remote next URL; construct bounded same-origin paths.
-      for (let offset = 0; offset < 100; offset += 50) {
+    // Breadth first: with a three-request allowance, read page one of both
+    // plausible editions before spending the last slot on page two of one.
+    // This prevents a long compilation from starving the original release.
+    let pending = albums.map(album => ({ album, offset: 0 }))
+    while (pending.length) {
+      const next = []
+      for (const { album, offset } of pending) {
         if (!takeQuery()) return tracks
         const page = await this.cachedAlbumRequest(`/albums/${album.id}/tracks?limit=50&offset=${offset}`, result => ({
           more: Boolean(result?.next), items: (result?.items || []).map(track => ({
@@ -269,8 +285,9 @@ export class SpotifyClient {
           })),
         }))
         tracks.push(...page.items.map(track => ({ ...track, album })))
-        if (!page.more) break
+        if (page.more && offset === 0) next.push({ album, offset: 50 })
       }
+      pending = next
     }
     return tracks
   }
