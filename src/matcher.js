@@ -105,6 +105,7 @@ const SCOPED_TITLES = new Map([
 // Public catalog pointers are retrieval hints, NOT confirmed account-market
 // matches. Verify availability and run normal scoring on every fresh sync.
 const CATALOG_HINTS = new Map([
+  ['27158959', { name: 'Come Back To Me', artist: '宇多田ヒカル', trackId: '5wwiq5TX0bFx4MrR2l9kc0' }],
   ['1984474579', { name: '行走的鱼', artist: '徐佳莹', trackId: '5EvVYm1CnsyMuXtFnGQKH9' }],
   ['156736', { name: '泪桥', artist: '伍佰 & China Blue', trackId: '0NAcDn6U2GB2Arhspmh38S' }],
   ['299445', { name: '流年', artist: '王菲', trackId: '7wL87unK7Vi96HM0I5vgB0' }],
@@ -207,7 +208,7 @@ const ARTIST_ALIASES = new Map([
   ['脸红的思春期', ['BOL4', 'Bolbbalgan4', '볼빨간사춘기']],
   ['重音テト', ['Kasane Teto']],
   ['张叶蕾', ['Leafy Zhang张叶蕾']],
-  ['宇多田ヒカル', ['Hikaru Utada']],
+  ['宇多田ヒカル', ['Hikaru Utada', 'Utada']],
   ['タイナカ彩智', ['タイナカ サチ', 'タイナカサチ', 'Sachi Tainaka']],
   ['中島みゆき', ['Miyuki Nakajima']],
   ['伊藤由奈', ['Yuna Ito']],

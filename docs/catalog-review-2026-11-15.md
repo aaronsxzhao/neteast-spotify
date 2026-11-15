@@ -1,0 +1,37 @@
+# November 15 missing-track review
+
+Actual import **22/31 (70.97%)**, completed **10:24:36 Beijing**, including three same-artist alternate versions. [Run 43666378527](https://github.com/aaronsxzhao/neteast-spotify/actions/runs/43666378527) reports **155 requests, zero retries, 31 processed songs**. Later successful checks are not additional imports.
+
+The current encrypted cloud report was refreshed from `daily-relay-state`. Local/cloud credentials agreed and their stored pauses had expired before review. A fresh `/me` verification failed with a network exception before identity or playlist metadata was returned. The existing request-safety client persisted `transient-backoff` until **19:02:45 Beijing**; four request reservations were recorded during authentication/profile handling. No HTTP 429 was received. All Spotify requests stopped at that pause. No candidate or playlist reads completed, no write or sync dispatch occurred. The import count above comes from the cloud report, not a fresh independent count of AaronZ's playlist `4BI0KArIAsnQGHZRY8DSIE`.
+
+## All nine misses
+
+Every saved candidate set was reviewed before edits. Public searches covered original titles, performer names, romanized names and release/album metadata. The authenticated follow-up plan was interrupted before candidate reads. Correct public catalog leads are not proof of account-market playback; an unresolved row is not proof of absence.
+
+| Song | Evidence and failure reason | Outcome / remaining work |
+| --- | --- | --- |
+| 無人の島 — TRUE | Existing recording-scoped TRUE/Miho Karasawa credit is already recognized. Saved `02OjX2aaE5EAyveeluFR2B` on TRACKS has identical 362080 ms but was marked unplayable in the morning report. anytime,anywhere CD listing confirms the song under 唐沢美帆. | No identity fix needed. Correct known candidate was unavailable at sync time; fresh status and alternate release availability remain unverified. |
+| いとしのエリー — サザンオールスターズ | Saved results only include JUJU, BENI and instrumental performers. Official band single page confirms the recording. Public Spotify page identifies same-band track `5f7nYDvM5Hj9cPJnbwZrre`; chart metadata gives another lead `0donbyfoyQuz1Y5N9dhkxr`. | Strong retrieval lead; exact duration, recording edition and account availability are pending. Do not add an untested pointer or substitute other artists. |
+| HAPPEN ENDING [JAPANESE MIX] — EPIK HIGH, 李遐怡 | Source Japan edition, 264000 ms. Saved `6KrJn7TLGbkXwbU8GAS5Sk` is Korean 헤픈엔딩 Happen Ending with Joe Won Sun, 264349 ms. YGEX Lee Hi release confirms a Japanese version with LEE HI; Bugs lists Japan edition guest explicitly. | Similar timing does not establish the same guest/language recording. Keep the Korean candidate rejected. Correct Japanese Spotify track remains unresolved; planned authenticated search was not executed. |
+| グッドバイ・デイ — 来生たかお | Universal and artist official discography establish Goodbye Day / Takao Kisugi. Saved results are A.S.A.P., YUI and other unrelated performers. Public Spotify single `5GrnlgYqa9I9eemh0g7lvN` lists Takao Kisugi's Goodbye Day at 5:19, versus source 323996 ms. | Correct song/artist release lead, exact track metadata and availability pending. No claimed offline recovery from album-level evidence alone. |
+| 誘魚灯 — 伊藤美奈子 | Sony otonano and label-supplied release listing confirm this title and artist. Source 217155 ms. Saved Minako Ito candidate is a different song, アムール; other results are different artists or titles. | No verified correct Spotify track. Original/romanized public searches did not resolve it; supplemental API query was not executed after pause. |
+| 泡になった — Monolog, 市川愛 | THE LIMELIGHT release listing identifies monolog + Ai Ichikawa and track 7 泡になった / AWA NI NATTA. Source 281000 ms. Saved results are Yank!, 茂木祐作 and Mayumi Kojima, not the source collaboration. | Correct source release and romanized credit identified; no confirmed Spotify track. Require both performers, not a general alias to either solo artist. |
+| 世界中の誰よりきっと — 德永英明 | Universal's VOCALIST & BALLADE BEST listing confirms Tokunaga's version. Source 326253 ms. Saved candidates are Debbie Gibson/Eric Martin, Noriko Sakai, Mone Kamishiraishi, Nakayama/WANDS and Tetsuro Oda, all different performances. | No verified Tokunaga Spotify candidate. Existing artist alias cannot fix missing retrieval by itself; original/romanized release search is inconclusive, fresh API query remains pending. |
+| 日和 — Canappeco | misora sketch listing (RMJ-2009) identifies track 5 日和; source 294974 ms. Saved same-title results belong to Empty Peperoncino, AQUAPLUS, Wolf in Car, LIN NICKLIN and Shiba. | No verified Spotify candidate. Original title/Canappeco/album public searches confirm source release only. No substitutions or absence claim. |
+| Come Back To Me — 宇多田ヒカル | Universal explicitly identifies Utada as Hikaru Utada's English-release name; official artist video confirms the song. Saved `5wwiq5TX0bFx4MrR2l9kc0`, Utada, Remastered 2026, is 237960 ms versus 238004 source; original single `74iRv2O8kvfItYz3yVeI1h` is 237200 ms. Both were rejected solely for unconfirmed identity. | Add official Utada alias and source-scoped remaster pointer. Both recordings now pass offline; direct pointer needs one catalog query with no search. Availability is not freshly verified. Remaster is explicitly named in target metadata. |
+
+## Evidence
+
+- [Universal Utada/Hikaru identity and remaster release](https://www.universal-music.co.jp/utada-hikaru/remaster2026/), [official Come Back To Me video](https://www.youtube.com/watch?v=CKPA8L5ZpqU).
+- [anytime,anywhere release listing](https://www.kinokuniya.co.jp/f/dsg-10-4988013124707).
+- [Southern All Stars official single](https://southernallstars.jp/discography/artist/1/detail/82/), [public Spotify candidate](https://open.spotify.com/intl-ja/track/5f7nYDvM5Hj9cPJnbwZrre).
+- [YGEX Lee Hi album](https://ygex.jp/leehi/discography/detail.php?id=1015644), [Bugs Japanese-mix credit](https://music.bugs.co.kr/track/6329573?wl_ref=list_tr_08_tr).
+- [Universal Takao Kisugi Goodbye Day](https://www.universal-music.co.jp/kisugi-takao/products/h00k-20154/), [Spotify single listing](https://open.spotify.com/album/5GrnlgYqa9I9eemh0g7lvN).
+- [Sony otonano 誘魚灯](https://otonanoweb.jp/s/magazine/diary/detail/11986?cd=series&ima=0522), [release listing](https://tower.jp/item/7979271).
+- [THE LIMELIGHT track listing](https://www.cdjapan.co.jp/product/GRGAJ-6), [Universal Tokunaga album](https://store.universal-music.co.jp/products/umck9421), [misora sketch track listing](https://www.cdjapan.co.jp/product/DAKRMJ-2009).
+
+## Validation and limits
+
+**385 tests pass**, zero failures. Twelve new tests cover all nine saved candidate pools, source ID/artist pointer guards, rejection of unavailable/instrumental/wrong-artist candidates, Utada original and remaster acceptance, rejection of the guest/language-mismatched Happen Ending, and replay of all **22** previously imported IDs without change.
+
+Only the evidence-backed Utada alias and pointer were changed. No global match thresholds, request budget, retry policy, schedule, title or cover changes. One additional cached match is recoverable offline: potential **23/31 (74.19%)** if future account-market verification succeeds. Actual import remains **22/31**. All nine have documented review outcomes, but online verification is incomplete; the other eight are not declared irrecoverable. No automatic rerun.

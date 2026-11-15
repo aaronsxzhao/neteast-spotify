@@ -1,0 +1,873 @@
+[
+  {
+    "source": {
+      "id": 26123720,
+      "name": "無人の島",
+      "ar": [
+        {
+          "name": "TRUE"
+        }
+      ],
+      "al": {
+        "name": "anytime,anywhere",
+        "tns": [
+          "anytime,anywhere"
+        ]
+      },
+      "dt": 362080,
+      "tns": [
+        "無人の島",
+        "无人岛"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "02OjX2aaE5EAyveeluFR2B",
+        "name": "無人の島",
+        "artists": [
+          {
+            "name": "Miho Karasawa"
+          }
+        ],
+        "album": {
+          "name": "TRACKS"
+        },
+        "duration_ms": 362080,
+        "is_playable": false
+      },
+      {
+        "id": "54yuCAn8FKfO9PMNsQXP7L",
+        "name": "無人島",
+        "artists": [
+          {
+            "name": "Sammi Cheng"
+          }
+        ],
+        "album": {
+          "name": "Listen To Mi"
+        },
+        "duration_ms": 206000,
+        "is_playable": true
+      },
+      {
+        "id": "1jPa5jWc9GsB1ayR8lPSLz",
+        "name": "无人岛",
+        "artists": [
+          {
+            "name": "Bibi Zhou"
+          }
+        ],
+        "album": {
+          "name": "谁动了我的琴弦"
+        },
+        "duration_ms": 183746,
+        "is_playable": true
+      },
+      {
+        "id": "74iDQrenIlMyV8HIXdj0ES",
+        "name": "无人岛",
+        "artists": [
+          {
+            "name": "ICE杨长青"
+          }
+        ],
+        "album": {
+          "name": "SURE"
+        },
+        "duration_ms": 180512,
+        "is_playable": true
+      },
+      {
+        "id": "4eKWYcfmSSnV3F5pDYiEWo",
+        "name": "無人島",
+        "artists": [
+          {
+            "name": "東涌事發"
+          }
+        ],
+        "album": {
+          "name": "無人島"
+        },
+        "duration_ms": 298815,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2680631339,
+      "name": "いとしのエリー",
+      "ar": [
+        {
+          "name": "サザンオールスターズ"
+        }
+      ],
+      "al": {
+        "name": "いとしのエリー",
+        "tns": [
+          "いとしのエリー"
+        ]
+      },
+      "dt": 266066,
+      "tns": [
+        "いとしのエリー",
+        "心爱的艾莉"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1TApEXSKbGFEEWoRAReZI6",
+        "name": "いとしのエリー",
+        "artists": [
+          {
+            "name": "JUJU"
+          }
+        ],
+        "album": {
+          "name": "スナックJUJU ～夜のRequest～ 『帰ってきたママ』"
+        },
+        "duration_ms": 263266,
+        "is_playable": true
+      },
+      {
+        "id": "30Vx3VEyLGmNmoTM8JfFOX",
+        "name": "いとしのエリー",
+        "artists": [
+          {
+            "name": "広橋真紀子"
+          }
+        ],
+        "album": {
+          "name": "桑田佳祐コレクション"
+        },
+        "duration_ms": 258440,
+        "is_playable": true
+      },
+      {
+        "id": "4bDhhz5l0CkjJljmKo1lQn",
+        "name": "いとしのエリー",
+        "artists": [
+          {
+            "name": "BENI"
+          }
+        ],
+        "album": {
+          "name": "COVERS (<English Ver.>)"
+        },
+        "duration_ms": 252653,
+        "is_playable": true
+      },
+      {
+        "id": "18mZuiiN95kIbi5S8dFkk7",
+        "name": "いとしのエリー",
+        "artists": [
+          {
+            "name": "BENI"
+          }
+        ],
+        "album": {
+          "name": "BEST All Singles＆Covers Hits"
+        },
+        "duration_ms": 252840,
+        "is_playable": true
+      },
+      {
+        "id": "6OdwxMFlAFqd9QgPghHfdV",
+        "name": "いとしのエリー",
+        "artists": [
+          {
+            "name": "Noriyasu Takeuchi"
+          }
+        ],
+        "album": {
+          "name": "JPOPギターベスト２"
+        },
+        "duration_ms": 255053,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 29848057,
+      "name": "HAPPEN ENDING [JAPANESE MIX]",
+      "ar": [
+        {
+          "name": "EPIK HIGH"
+        },
+        {
+          "name": "李遐怡"
+        }
+      ],
+      "al": {
+        "name": "SHOE BOX -Japan Edition-",
+        "tns": [
+          "SHOE BOX -Japan Edition-"
+        ]
+      },
+      "dt": 264000,
+      "tns": [
+        "HAPPEN ENDING [JAPANESE MIX]",
+        "随和的结尾"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "6KrJn7TLGbkXwbU8GAS5Sk",
+        "name": "헤픈엔딩 Happen Ending",
+        "artists": [
+          {
+            "name": "Epik High"
+          },
+          {
+            "name": "Joe Won Sun"
+          }
+        ],
+        "album": {
+          "name": "SHOEBOX"
+        },
+        "duration_ms": 264349,
+        "is_playable": true
+      },
+      {
+        "id": "1Szz2K6zjz3tbHJFfuIb4E",
+        "name": "Happy Ending",
+        "artists": [
+          {
+            "name": "Kelela"
+          }
+        ],
+        "album": {
+          "name": "Raven"
+        },
+        "duration_ms": 248817,
+        "is_playable": true
+      },
+      {
+        "id": "6OhLNTT1ac1h2NiIuDDfg5",
+        "name": "Happy Ending",
+        "artists": [
+          {
+            "name": "r4x2"
+          }
+        ],
+        "album": {
+          "name": "Happy Ending"
+        },
+        "duration_ms": 117010,
+        "is_playable": true
+      },
+      {
+        "id": "3wB7yAm4WwIvz3TrsYPgOt",
+        "name": "happy ending",
+        "artists": [
+          {
+            "name": "ketchum"
+          }
+        ],
+        "album": {
+          "name": "super effective!"
+        },
+        "duration_ms": 126265,
+        "is_playable": true
+      },
+      {
+        "id": "2Gd25nA8k3K01ZKR0bCySw",
+        "name": "happy end",
+        "artists": [
+          {
+            "name": "Haisuinonasa"
+          }
+        ],
+        "album": {
+          "name": "about town"
+        },
+        "duration_ms": 180613,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 454567,
+      "name": "グッドバイ・デイ",
+      "ar": [
+        {
+          "name": "来生たかお"
+        }
+      ],
+      "al": {
+        "name": "テーマ・ソングス(1)CMソン",
+        "tns": [
+          "テーマ・ソングス(1)CMソン"
+        ]
+      },
+      "dt": 323996,
+      "tns": [
+        "グッドバイ・デイ",
+        "离别之日 Goodbye Day"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1aav3pSTWAe5pViRRqfgn4",
+        "name": "Goodbye Day",
+        "artists": [
+          {
+            "name": "A.S.A.P."
+          }
+        ],
+        "album": {
+          "name": "Vacation Hot Lovin'"
+        },
+        "duration_ms": 314840,
+        "is_playable": true
+      },
+      {
+        "id": "0bVpurYEKPeyNnyFquWMH6",
+        "name": "Good-Bye Days(feat. 初音ミク)",
+        "artists": [
+          {
+            "name": "KiTtY"
+          },
+          {
+            "name": "Hatsune Miku"
+          }
+        ],
+        "album": {
+          "name": "Good-Bye Days(feat. 初音ミク)"
+        },
+        "duration_ms": 221440,
+        "is_playable": true
+      },
+      {
+        "id": "1K8yPXTn0ijWY1sFGf6mjq",
+        "name": "Good-bye days",
+        "artists": [
+          {
+            "name": "YUI for 雨音 薫"
+          }
+        ],
+        "album": {
+          "name": "Good-bye days"
+        },
+        "duration_ms": 275893,
+        "is_playable": true
+      },
+      {
+        "id": "29Ll3I1DgonLKAUGdgNPMV",
+        "name": "グッデイ・グッバイ",
+        "artists": [
+          {
+            "name": "KIRINJI"
+          }
+        ],
+        "album": {
+          "name": "3"
+        },
+        "duration_ms": 325000,
+        "is_playable": true
+      },
+      {
+        "id": "5pmo2MOGwfi0HNVIqDf5IH",
+        "name": "Goodbye",
+        "artists": [
+          {
+            "name": "Miho Tsujibayashi"
+          }
+        ],
+        "album": {
+          "name": "Ombre"
+        },
+        "duration_ms": 245786,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 1999290990,
+      "name": "誘魚灯",
+      "ar": [
+        {
+          "name": "伊藤美奈子"
+        }
+      ],
+      "al": {
+        "name": "誘魚灯",
+        "tns": [
+          "誘魚灯"
+        ]
+      },
+      "dt": 217155,
+      "tns": [
+        "誘魚灯"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1zGnuABdQiSQ6oh4ejLXFg",
+        "name": "怨み節 - \"東映映画「さそり」シリーズ\"より",
+        "artists": [
+          {
+            "name": "Meiko Kaji"
+          }
+        ],
+        "album": {
+          "name": "梶芽衣子のはじき詩集(うた)"
+        },
+        "duration_ms": 216213,
+        "is_playable": true
+      },
+      {
+        "id": "4gLe0k54ph93kzNvh8V2PV",
+        "name": "窓を横切る雲",
+        "artists": [
+          {
+            "name": "笠井 紀美子"
+          }
+        ],
+        "album": {
+          "name": "SOFTROCK DRIVIN' - Utsukushii Hoshi"
+        },
+        "duration_ms": 218440,
+        "is_playable": true
+      },
+      {
+        "id": "3oUMm2O8vm5Wk4AURYZ0Kd",
+        "name": "誘魚燈 FISH ATTRACTOR LAMP",
+        "artists": [
+          {
+            "name": "徐浩東thewaterguy"
+          },
+          {
+            "name": "張小泉Syd Bastard"
+          },
+          {
+            "name": "苦海男雙龍"
+          }
+        ],
+        "album": {
+          "name": "苦海男雙龍"
+        },
+        "duration_ms": 129332,
+        "is_playable": true
+      },
+      {
+        "id": "1fAwdgyZuzPjk84ppDrytL",
+        "name": "かきおき",
+        "artists": [
+          {
+            "name": "Meiko Kaji"
+          }
+        ],
+        "album": {
+          "name": "梶芽衣子オリジナル・ベスト12 -やどかり-"
+        },
+        "duration_ms": 213666,
+        "is_playable": true
+      },
+      {
+        "id": "0eNc2H9m8yzSSUDB4Xqs9j",
+        "name": "アムール",
+        "artists": [
+          {
+            "name": "Minako Ito"
+          }
+        ],
+        "album": {
+          "name": "TENDERLY"
+        },
+        "duration_ms": 213933,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 33410685,
+      "name": "泡になった",
+      "ar": [
+        {
+          "name": "Monolog"
+        },
+        {
+          "name": "市川愛"
+        }
+      ],
+      "al": {
+        "name": "THE LIMELIGHT",
+        "tns": [
+          "THE LIMELIGHT"
+        ]
+      },
+      "dt": 281000,
+      "tns": [
+        "泡になった",
+        "化为泡沫",
+        "Awani Natta"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7yOzOw1MMZgh3jUBaKwyXu",
+        "name": "泡になった",
+        "artists": [
+          {
+            "name": "Yank!"
+          }
+        ],
+        "album": {
+          "name": "Slinky!"
+        },
+        "duration_ms": 343800,
+        "is_playable": true
+      },
+      {
+        "id": "3ahuBeeDs4oSPdCFxY6DuA",
+        "name": "泡になった",
+        "artists": [
+          {
+            "name": "茂木祐作"
+          }
+        ],
+        "album": {
+          "name": "泡になった"
+        },
+        "duration_ms": 422272,
+        "is_playable": true
+      },
+      {
+        "id": "5dSzu44NACX2Ko9iPJPMtC",
+        "name": "泡になった恋",
+        "artists": [
+          {
+            "name": "Mayumi Kojima"
+          },
+          {
+            "name": "Boom Pam"
+          }
+        ],
+        "album": {
+          "name": "With Boom Pam"
+        },
+        "duration_ms": 162946,
+        "is_playable": true
+      },
+      {
+        "id": "4vfiGNKkvJTTRuki89QSBo",
+        "name": "泡になった恋",
+        "artists": [
+          {
+            "name": "Mayumi Kojima"
+          }
+        ],
+        "album": {
+          "name": "路上"
+        },
+        "duration_ms": 161533,
+        "is_playable": true
+      },
+      {
+        "id": "0Rvx5EpunmojuYlXPwvBbQ",
+        "name": "泡になった恋",
+        "artists": [
+          {
+            "name": "Mayumi Kojima"
+          }
+        ],
+        "album": {
+          "name": "渚にて"
+        },
+        "duration_ms": 161533,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 407440,
+      "name": "世界中の誰よりきっと",
+      "ar": [
+        {
+          "name": "德永英明"
+        }
+      ],
+      "al": {
+        "name": "VOCALIST & BALLADE BEST",
+        "tns": [
+          "VOCALIST & BALLADE BEST"
+        ]
+      },
+      "dt": 326253,
+      "tns": [
+        "世界中の誰よりきっと",
+        "胜过世上任何人"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0UOgeNhp2Q6Bo2FpXWx34C",
+        "name": "世界中の誰よりきっと (MSV ver.)",
+        "artists": [
+          {
+            "name": "Debbie Gibson"
+          },
+          {
+            "name": "Eric Martin"
+          }
+        ],
+        "album": {
+          "name": "MS. VOCALIST"
+        },
+        "duration_ms": 294146,
+        "is_playable": true
+      },
+      {
+        "id": "5ejHst1dqWJCubd9iT7uww",
+        "name": "世界中の誰よりきっと",
+        "artists": [
+          {
+            "name": "Noriko Sakai"
+          }
+        ],
+        "album": {
+          "name": "大好き ～My Moments Best～"
+        },
+        "duration_ms": 240727,
+        "is_playable": true
+      },
+      {
+        "id": "6116o39EQhdTVnIz0jB0nN",
+        "name": "世界中の誰よりきっと",
+        "artists": [
+          {
+            "name": "Mone Kamishiraishi"
+          }
+        ],
+        "album": {
+          "name": "あの歌-2-"
+        },
+        "duration_ms": 218453,
+        "is_playable": true
+      },
+      {
+        "id": "2NzQgPlKWQIoFWbtrjR7PJ",
+        "name": "世界中の誰よりきっと",
+        "artists": [
+          {
+            "name": "中山美穂"
+          },
+          {
+            "name": "WANDS"
+          }
+        ],
+        "album": {
+          "name": "All Time Best"
+        },
+        "duration_ms": 246560,
+        "is_playable": true
+      },
+      {
+        "id": "3l6fy5jlgsHHZYrc6bCtjL",
+        "name": "世界中の誰よりきっと",
+        "artists": [
+          {
+            "name": "Tetsuro Oda"
+          }
+        ],
+        "album": {
+          "name": "MELODIES"
+        },
+        "duration_ms": 287106,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 701026,
+      "name": "日和",
+      "ar": [
+        {
+          "name": "Canappeco"
+        }
+      ],
+      "al": {
+        "name": "misora sketch",
+        "tns": [
+          "misora sketch"
+        ]
+      },
+      "dt": 294974,
+      "tns": [
+        "日和"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5u0gZfyg35NB6osLMhxnfV",
+        "name": "日和",
+        "artists": [
+          {
+            "name": "Empty Peperoncino"
+          }
+        ],
+        "album": {
+          "name": "からっぽペペロンチーノ"
+        },
+        "duration_ms": 307999,
+        "is_playable": true
+      },
+      {
+        "id": "6z6zqnWPlpNFmvBoiS4Lob",
+        "name": "日和",
+        "artists": [
+          {
+            "name": "AQUAPLUS"
+          }
+        ],
+        "album": {
+          "name": "うたわれるもの 偽りの仮面　ゲーム&アニメ　オリジナルサウンドトラック　上巻"
+        },
+        "duration_ms": 197720,
+        "is_playable": true
+      },
+      {
+        "id": "4nXv9VAkICTfQMZWG78ZD9",
+        "name": "日和",
+        "artists": [
+          {
+            "name": "Wolf in Car"
+          }
+        ],
+        "album": {
+          "name": "日和"
+        },
+        "duration_ms": 276560,
+        "is_playable": true
+      },
+      {
+        "id": "5yjTfouI3yQGLiXywxRied",
+        "name": "日和",
+        "artists": [
+          {
+            "name": "LIN NICKLIN"
+          }
+        ],
+        "album": {
+          "name": "日和"
+        },
+        "duration_ms": 209497,
+        "is_playable": true
+      },
+      {
+        "id": "5DNmBcs2AqUzCLigmIqC1m",
+        "name": "日和",
+        "artists": [
+          {
+            "name": "Shiba"
+          }
+        ],
+        "album": {
+          "name": "至福の眠り アロマ・ピアノ 凪～四葉 ヒーリング・ピアノ・セレクション～"
+        },
+        "duration_ms": 372102,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 27158959,
+      "name": "Come Back To Me",
+      "ar": [
+        {
+          "name": "宇多田ヒカル"
+        }
+      ],
+      "al": {
+        "name": "Promo Only: Mainstream Radio, March 2009",
+        "tns": [
+          "Promo Only: Mainstream Radio, March 2009"
+        ]
+      },
+      "dt": 238004,
+      "tns": [
+        "Come Back To Me"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5wwiq5TX0bFx4MrR2l9kc0",
+        "name": "Come Back To Me - Remastered 2026",
+        "artists": [
+          {
+            "name": "Utada"
+          }
+        ],
+        "album": {
+          "name": "This Is The One (Remastered)"
+        },
+        "duration_ms": 237960,
+        "is_playable": true
+      },
+      {
+        "id": "74iRv2O8kvfItYz3yVeI1h",
+        "name": "Come Back To Me",
+        "artists": [
+          {
+            "name": "Utada"
+          }
+        ],
+        "album": {
+          "name": "Come Back To Me"
+        },
+        "duration_ms": 237200,
+        "is_playable": true
+      },
+      {
+        "id": "0BnugXqRqfNqBSDHFyTVQn",
+        "name": "Come Back to Me",
+        "artists": [
+          {
+            "name": "Jungle"
+          }
+        ],
+        "album": {
+          "name": "Sunshine"
+        },
+        "duration_ms": 185025,
+        "is_playable": true
+      },
+      {
+        "id": "0NSSqYISjnav81CEn6EgBY",
+        "name": "Come Back To Me",
+        "artists": [
+          {
+            "name": "Janet Jackson"
+          }
+        ],
+        "album": {
+          "name": "Rhythm Nation 1814"
+        },
+        "duration_ms": 332741,
+        "is_playable": true
+      },
+      {
+        "id": "62HKW77nt6tudsIHXT2A0M",
+        "name": "Come back to me",
+        "artists": [
+          {
+            "name": "RM"
+          }
+        ],
+        "album": {
+          "name": "Right Place, Wrong Person"
+        },
+        "duration_ms": 388960,
+        "is_playable": true
+      }
+    ]
+  }
+]

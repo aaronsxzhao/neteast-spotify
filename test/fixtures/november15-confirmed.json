@@ -1,0 +1,811 @@
+[
+  {
+    "source": {
+      "id": 3389326869,
+      "name": "Ladyy",
+      "ar": [
+        {
+          "name": "chilldspot"
+        }
+      ],
+      "al": {
+        "name": "Ladyy",
+        "tns": [
+          "Ladyy"
+        ]
+      },
+      "dt": 217302,
+      "tns": [
+        "Ladyy"
+      ]
+    },
+    "candidate": {
+      "id": "2AGDuYq2ALgltKDAZTBGxw",
+      "name": "Ladyy",
+      "artists": [
+        {
+          "name": "chilldspot"
+        }
+      ],
+      "album": {
+        "name": "Ladyy"
+      },
+      "duration_ms": 217302,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3367978523,
+      "name": "PERFECT",
+      "ar": [
+        {
+          "name": "claquepot"
+        },
+        {
+          "name": "RUNG HYANG"
+        },
+        {
+          "name": "向井太一"
+        }
+      ],
+      "al": {
+        "name": "PERFECT",
+        "tns": [
+          "PERFECT"
+        ]
+      },
+      "dt": 207209,
+      "tns": [
+        "PERFECT"
+      ]
+    },
+    "candidate": {
+      "id": "6YAmbi66KeU8CYPCxISfBZ",
+      "name": "PERFECT",
+      "artists": [
+        {
+          "name": "claquepot"
+        },
+        {
+          "name": "RUNG HYANG"
+        },
+        {
+          "name": "Taichi Mukai"
+        }
+      ],
+      "album": {
+        "name": "PERFECT"
+      },
+      "duration_ms": 207209,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1306507575,
+      "name": "UMBRELLA",
+      "ar": [
+        {
+          "name": "THREE1989"
+        }
+      ],
+      "al": {
+        "name": "JET BLUE",
+        "tns": [
+          "JET BLUE"
+        ]
+      },
+      "dt": 240744,
+      "tns": [
+        "UMBRELLA"
+      ]
+    },
+    "candidate": {
+      "id": "3CXfh03zDQYTbuMVlZ3sMp",
+      "name": "UMBRELLA",
+      "artists": [
+        {
+          "name": "THREE1989"
+        }
+      ],
+      "album": {
+        "name": "JET BLUE"
+      },
+      "duration_ms": 240415,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22763956,
+      "name": "世界中の誰よりきっと ～Album Verion～",
+      "ar": [
+        {
+          "name": "WANDS"
+        }
+      ],
+      "al": {
+        "name": "SINGLES COLLECTION+6",
+        "tns": [
+          "SINGLES COLLECTION+6"
+        ]
+      },
+      "dt": 266693,
+      "tns": [
+        "世界中の誰よりきっと ～Album Verion～",
+        "胜过世间任何人"
+      ]
+    },
+    "candidate": {
+      "id": "7vvdk7B2gYiwyyeTNxq9QV",
+      "name": "世界中の誰よりきっと [WANDS 第5期ver.]",
+      "artists": [
+        {
+          "name": "WANDS"
+        }
+      ],
+      "album": {
+        "name": "BURN THE SECRET"
+      },
+      "duration_ms": 240546,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1310241345,
+      "name": "Hit The Road Jack",
+      "ar": [
+        {
+          "name": "Ray Charles"
+        }
+      ],
+      "al": {
+        "name": "100 Greatest Hits of Ray Charles",
+        "tns": [
+          "100 Greatest Hits of Ray Charles"
+        ]
+      },
+      "dt": 119840,
+      "tns": [
+        "Hit The Road Jack"
+      ]
+    },
+    "candidate": {
+      "id": "28oWUQCEDG6sK0HTev979v",
+      "name": "Hit the Road Jack",
+      "artists": [
+        {
+          "name": "Ray Charles"
+        }
+      ],
+      "album": {
+        "name": "Soul"
+      },
+      "duration_ms": 119880,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1406312967,
+      "name": "ヴィーナスたちの風景(VENUS DES ABRIBUS)",
+      "ar": [
+        {
+          "name": "工藤夕貴"
+        }
+      ],
+      "al": {
+        "name": "COSMOPOLITAN",
+        "tns": [
+          "COSMOPOLITAN",
+          "Cosmopolitan"
+        ]
+      },
+      "dt": 227666,
+      "tns": [
+        "ヴィーナスたちの風景(VENUS DES ABRIBUS)",
+        "Venus Tachi no Fukei(Venus Des Abribus)"
+      ]
+    },
+    "candidate": {
+      "id": "2W92779uDgjXavsZSeGItY",
+      "name": "ヴィーナスたちの風景(VENUS DES ABRIBUS)",
+      "artists": [
+        {
+          "name": "Youki Kudoh"
+        }
+      ],
+      "album": {
+        "name": "Cosmopolitan"
+      },
+      "duration_ms": 227666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28546494,
+      "name": "うたかたの恋",
+      "ar": [
+        {
+          "name": "原田知世"
+        }
+      ],
+      "al": {
+        "name": "noon moon",
+        "tns": [
+          "noon moon"
+        ]
+      },
+      "dt": 267040,
+      "tns": [
+        "うたかたの恋",
+        "如泡沫般的恋爱",
+        "如泡沫般的戀愛"
+      ]
+    },
+    "candidate": {
+      "id": "70c9RR3BlQflNs7VUUtFDX",
+      "name": "うたかたの恋",
+      "artists": [
+        {
+          "name": "Tomoyo Harada"
+        }
+      ],
+      "album": {
+        "name": "音楽と私"
+      },
+      "duration_ms": 272773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1967786901,
+      "name": "S.S.S.",
+      "ar": [
+        {
+          "name": "佐藤千亜妃"
+        }
+      ],
+      "al": {
+        "name": "S.S.S.",
+        "tns": [
+          "S.S.S."
+        ]
+      },
+      "dt": 201683,
+      "tns": [
+        "S.S.S."
+      ]
+    },
+    "candidate": {
+      "id": "48f0KSnaKBBM4v5Uo3NWKN",
+      "name": "S.S.S.",
+      "artists": [
+        {
+          "name": "CHIAKI SATO"
+        }
+      ],
+      "album": {
+        "name": "S.S.S."
+      },
+      "duration_ms": 201683,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1891835283,
+      "name": "Dancing with my phone",
+      "ar": [
+        {
+          "name": "HYBS"
+        }
+      ],
+      "al": {
+        "name": "Dancing with my phone",
+        "tns": [
+          "Dancing with my phone"
+        ]
+      },
+      "dt": 203532,
+      "tns": [
+        "Dancing with my phone"
+      ]
+    },
+    "candidate": {
+      "id": "4Zh9zZmEBoDLTKQRjXwict",
+      "name": "Dancing with my phone",
+      "artists": [
+        {
+          "name": "HYBS"
+        }
+      ],
+      "album": {
+        "name": "Dancing with my phone"
+      },
+      "duration_ms": 203532,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22753220,
+      "name": "暗礁",
+      "ar": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "al": {
+        "name": "after six",
+        "tns": [
+          "after six",
+          "after six"
+        ]
+      },
+      "dt": 346100,
+      "tns": [
+        "暗礁",
+        "Anshou"
+      ]
+    },
+    "candidate": {
+      "id": "56ECSpvqUl9HGvRh8RyEqh",
+      "name": "暗礁",
+      "artists": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "album": {
+        "name": "after six"
+      },
+      "duration_ms": 346100,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1305367751,
+      "name": "テレフォン・ナンバー",
+      "ar": [
+        {
+          "name": "大橋純子"
+        }
+      ],
+      "al": {
+        "name": "MAGICAL 大橋純子の世界 III",
+        "tns": [
+          "MAGICAL 大橋純子の世界 III"
+        ]
+      },
+      "dt": 239573,
+      "tns": [
+        "テレフォン・ナンバー",
+        "电话号码"
+      ]
+    },
+    "candidate": {
+      "id": "49vIvmsneQwxyFTdmCQzmV",
+      "name": "テレフォン・ナンバー",
+      "artists": [
+        {
+          "name": "Junko Ohashi"
+        }
+      ],
+      "album": {
+        "name": "MAGICAL 大橋純子の世界 III"
+      },
+      "duration_ms": 239573,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1916370539,
+      "name": "逃避行",
+      "ar": [
+        {
+          "name": "imase"
+        }
+      ],
+      "al": {
+        "name": "逃避行",
+        "tns": [
+          "逃避行"
+        ]
+      },
+      "dt": 191689,
+      "tns": [
+        "逃避行",
+        "逃走"
+      ]
+    },
+    "candidate": {
+      "id": "0iotyDF6RF5klVLztERO5Z",
+      "name": "逃避行",
+      "artists": [
+        {
+          "name": "imase"
+        }
+      ],
+      "album": {
+        "name": "逃避行"
+      },
+      "duration_ms": 191689,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3419824228,
+      "name": "花束じゃなくキミといたい feat. 玉置浩二",
+      "ar": [
+        {
+          "name": "絢香"
+        },
+        {
+          "name": "玉置浩二"
+        }
+      ],
+      "al": {
+        "name": "20 Lights - The Collection -",
+        "tns": [
+          "20 Lights - The Collection -"
+        ]
+      },
+      "dt": 297840,
+      "tns": [
+        "花束じゃなくキミといたい feat. 玉置浩二",
+        " 不要花束只想与你一起 feat. 玉置浩二"
+      ]
+    },
+    "candidate": {
+      "id": "4il15pZcNNkbwLMrI7dBaC",
+      "name": "花束じゃなくキミといたい feat. 玉置浩二",
+      "artists": [
+        {
+          "name": "ayaka"
+        },
+        {
+          "name": "Koji Tamaki"
+        }
+      ],
+      "album": {
+        "name": "20 Lights - The Collection -"
+      },
+      "duration_ms": 297840,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26107935,
+      "name": "Serendipity",
+      "ar": [
+        {
+          "name": "西原健一郎"
+        }
+      ],
+      "al": {
+        "name": "Illuminus",
+        "tns": [
+          "Illuminus"
+        ]
+      },
+      "dt": 245093,
+      "tns": [
+        "Serendipity"
+      ]
+    },
+    "candidate": {
+      "id": "5ryxdobYDJWyQQFamfDOxb",
+      "name": "Serendipity",
+      "artists": [
+        {
+          "name": "Kenichiro Nishihara"
+        },
+        {
+          "name": "Tamala"
+        },
+        {
+          "name": "Takurah"
+        }
+      ],
+      "album": {
+        "name": "Illuminus"
+      },
+      "duration_ms": 245093,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 36103058,
+      "name": "No.1",
+      "ar": [
+        {
+          "name": "槇原敬之"
+        }
+      ],
+      "al": {
+        "name": "No.1",
+        "tns": [
+          "No.1"
+        ]
+      },
+      "dt": 304229,
+      "tns": [
+        "No.1",
+        "映画『俺物語！！』主題歌"
+      ]
+    },
+    "candidate": {
+      "id": "1YQxOFL06pkUO7ID1QDZvr",
+      "name": "No.1",
+      "artists": [
+        {
+          "name": "Noriyuki Makihara"
+        }
+      ],
+      "album": {
+        "name": "No.1"
+      },
+      "duration_ms": 304229,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3329690223,
+      "name": "bestie",
+      "ar": [
+        {
+          "name": "muque"
+        }
+      ],
+      "al": {
+        "name": "bestie",
+        "tns": [
+          "bestie"
+        ]
+      },
+      "dt": 259903,
+      "tns": [
+        "bestie"
+      ]
+    },
+    "candidate": {
+      "id": "3LlShzvjsM4nem8uADXWvn",
+      "name": "bestie",
+      "artists": [
+        {
+          "name": "muque"
+        }
+      ],
+      "album": {
+        "name": "bestie"
+      },
+      "duration_ms": 259903,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 25638306,
+      "name": "ありがとう・・・",
+      "ar": [
+        {
+          "name": "KOKIA"
+        }
+      ],
+      "al": {
+        "name": "ありがとう…/ 愛しているから",
+        "tns": [
+          "ありがとう…/ 愛しているから"
+        ]
+      },
+      "dt": 248493,
+      "tns": [
+        "ありがとう・・・",
+        "谢谢・・・"
+      ]
+    },
+    "candidate": {
+      "id": "63eDwIzxmpCSgL6m2obY6E",
+      "name": "ありがとう…（the Coquillage edtion）",
+      "artists": [
+        {
+          "name": "KOKIA"
+        }
+      ],
+      "album": {
+        "name": "心ばかり"
+      },
+      "duration_ms": 262600,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1406266995,
+      "name": "I Love You Baby",
+      "ar": [
+        {
+          "name": "Paul Anka"
+        }
+      ],
+      "al": {
+        "name": "Songs I Love to Sing - The Very Best of Paul Anka",
+        "tns": [
+          "Songs I Love to Sing - The Very Best of Paul Anka"
+        ]
+      },
+      "dt": 226403,
+      "tns": [
+        "I Love You Baby"
+      ]
+    },
+    "candidate": {
+      "id": "1ZCbAbFSQHSxENHyqzi7Y1",
+      "name": "I Love You, Baby",
+      "artists": [
+        {
+          "name": "Paul Anka"
+        }
+      ],
+      "album": {
+        "name": "21 Golden Hits"
+      },
+      "duration_ms": 143666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 584816,
+      "name": "私らしく",
+      "ar": [
+        {
+          "name": "岩崎宏美"
+        }
+      ],
+      "al": {
+        "name": "Me too",
+        "tns": [
+          "Me too",
+          "Me too"
+        ]
+      },
+      "dt": 270758,
+      "tns": [
+        "私らしく",
+        "如我"
+      ]
+    },
+    "candidate": {
+      "id": "4ftrkCSsRZudXRWDvc0OcD",
+      "name": "私らしく",
+      "artists": [
+        {
+          "name": "Hiromi Iwasaki"
+        }
+      ],
+      "album": {
+        "name": "Me too"
+      },
+      "duration_ms": 270758,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1913268565,
+      "name": "Tangled Up",
+      "ar": [
+        {
+          "name": "Caro Emerald"
+        }
+      ],
+      "al": {
+        "name": "The Shocking Miss Emerald",
+        "tns": [
+          "The Shocking Miss Emerald"
+        ]
+      },
+      "dt": 195186,
+      "tns": [
+        "Tangled Up",
+        "神魂颠倒"
+      ]
+    },
+    "candidate": {
+      "id": "07LQt4B8vd5GEknqak8t7q",
+      "name": "Tangled Up",
+      "artists": [
+        {
+          "name": "Caro Emerald"
+        }
+      ],
+      "album": {
+        "name": "The Shocking Miss Emerald"
+      },
+      "duration_ms": 195187,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 18551521,
+      "name": "Let's Get The Mood Right",
+      "ar": [
+        {
+          "name": "Johnny Gill"
+        }
+      ],
+      "al": {
+        "name": "Let's Get The Mood Right",
+        "tns": [
+          "Let's Get The Mood Right"
+        ]
+      },
+      "dt": 315240,
+      "tns": [
+        "Let's Get The Mood Right"
+      ]
+    },
+    "candidate": {
+      "id": "6Rm7xbB9i6h144squqLeBy",
+      "name": "Let's Get The Mood Right",
+      "artists": [
+        {
+          "name": "Johnny Gill"
+        }
+      ],
+      "album": {
+        "name": "Let's Get The Mood Right"
+      },
+      "duration_ms": 315240,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 19078759,
+      "name": "Cruisin",
+      "ar": [
+        {
+          "name": "Sioen"
+        }
+      ],
+      "al": {
+        "name": "See You Naked",
+        "tns": [
+          "See You Naked"
+        ]
+      },
+      "dt": 236365,
+      "tns": [
+        "Cruisin"
+      ]
+    },
+    "candidate": {
+      "id": "2FQ4GDCwqtA7pSGprpdhGs",
+      "name": "Cruisin",
+      "artists": [
+        {
+          "name": "Sioen"
+        }
+      ],
+      "album": {
+        "name": "See You Naked"
+      },
+      "duration_ms": 236333,
+      "is_playable": true
+    }
+  }
+]
