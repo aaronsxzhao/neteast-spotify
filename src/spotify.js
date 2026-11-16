@@ -21,16 +21,8 @@ async function readResponse(response) {
   }
 }
 
-// Bound headers AND response-body reads. Keep all retries in RequestSafety;
-// this transport never retries or switches accounts/endpoints on its own.
-export async function spotifyFetch(url, options = {}) {
-  const timeout = AbortSignal.timeout(30_000)
-  const signal = options.signal ? AbortSignal.any([options.signal, timeout]) : timeout
-  const response = await fetch(url, { ...options, signal })
-  const body = await response.arrayBuffer()
-  return new Response(response.status === 204 || response.status === 304 ? null : body,
-    { status: response.status, statusText: response.statusText, headers: response.headers })
-}
+export { spotifyFetch } from './spotify-transport.js'
+import { spotifyFetch } from './spotify-transport.js'
 
 export class SpotifyClient {
   // Only used by one client/run. Encrypted checkpoint cache below survives a

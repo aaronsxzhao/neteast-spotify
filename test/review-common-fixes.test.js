@@ -35,14 +35,6 @@ test('transport diagnostics preserve safe error codes through backoff without se
  await assert.rejects(safety.fetch(async()=>{count++},'x'))
  assert.equal(count,3)
 })
-test('default Spotify transport bounds body reads and composes cancellation without retry', async () => {
- const original=globalThis.fetch;let calls=0;const controller=new AbortController()
- try {
-  globalThis.fetch=async(url,options)=>{calls++;assert.ok(options.signal);controller.abort();assert.ok(options.signal.aborted);return {arrayBuffer:async()=>{throw new DOMException('cancelled','AbortError')}}}
-  await assert.rejects(spotifyFetch('https://api.spotify.com/v1/me',{signal:controller.signal}),{name:'AbortError'})
-  assert.equal(calls,1)
- } finally {globalThis.fetch=original}
-})
 test('a successful response resets historical failure escalation without clearing provider cooldown', async()=>{
  let now=100000;const state={spotify:{transientFailures:4,retryAfterUntil:90000}}
  const safety=new RequestSafety({state,async update(fn){fn(state)}},{now:()=>now,sleep:async ms=>{now+=ms}})

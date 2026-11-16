@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T14:37:11.331Z",
+  "updatedAt": "2026-11-16T01:12:56.913Z",
   "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
   "reviewComplete": false,
   "entries": [
@@ -33,17 +33,41 @@
         "3VJoplJu1rrYTItmqQIRci",
         "3K2cK2d1yGJyr6QKu89HT0"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-06",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "夜の海 桑名晴子",
         "sourceId": 1969845251
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:09.602Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "夜の海 桑名晴子",
+            "sourceId": 1969845251
+          },
+          "checkedAt": "2026-11-16T01:07:09.602Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6kyKY1NorrwV2Nhel9WYzQ",
+        "77Yf88n9Tx7VhdWyXLbhN0",
+        "0JUWF44gfMszGNhjCF7Ufs",
+        "5QseXDzPvtjdeaWNhYbm0m",
+        "3ORbw4ZlgdYA3RHmlqWAzG",
+        "1zGnuABdQiSQ6oh4ejLXFg",
+        "4S2CZucQAIH9TwTpHvX3hu",
+        "7Fe2z1doVotACIjPuO0wQI",
+        "0loZ1KfQSLJxYR0Y7dImKN",
+        "3xZLM2uCS3ebXhIhcNOflw"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 3394841456,
@@ -78,17 +102,41 @@
         "0k94brBOknUiIgQ7kUNUkA",
         "6zlNkJOqNncHklCUAPZ61g"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-06",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "夏待 Aosaki",
         "sourceId": 3394841456
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:17.521Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "夏待 Aosaki",
+            "sourceId": 3394841456
+          },
+          "checkedAt": "2026-11-16T01:07:17.521Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6zlNkJOqNncHklCUAPZ61g",
+        "0OxBVRzo5bJcZklm3gsWOZ",
+        "4MwVirVMyerMiHkFomOZay",
+        "1w2tdCsX2yKFjbh3wHII94",
+        "3FUqp10RhCmMjyyB9extmo",
+        "5stUI9U3VGp2j4sbqJEiVI",
+        "48eAOOo2COGKCT34alma3O",
+        "2Tl9plCC1mml1tS9jepjC4",
+        "0Q5IxEqrMOl6rN4Mfkol1s",
+        "4PoNYxoWLABH1fjL0PZTLc"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 33410685,
@@ -131,17 +179,41 @@
         "4vfiGNKkvJTTRuki89QSBo",
         "0Rvx5EpunmojuYlXPwvBbQ"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Awa Ni Natta monolog Ai Ichikawa",
         "sourceId": 33410685
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:25.583Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Awa Ni Natta monolog Ai Ichikawa",
+            "sourceId": 33410685
+          },
+          "checkedAt": "2026-11-16T01:07:25.583Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "4o6J43bSBDERckXBIpVmye",
+        "6F1dWmY6wDqLTXb3Omt1Oz",
+        "4fJ9geU4DHYKgvaIGqccSk",
+        "6oP61bwiRTLZNvDjd9TrYN",
+        "6FGyfditPckUeqgzT3mvdq",
+        "15aQhht0hGSunRQ7wQtbUD",
+        "5nOlgfiMHNWxL7pyAz4MNm",
+        "2BFTun5DXT2HB2yEhTyUP8",
+        "7ycQdWdLuhUYtjnCwIzywT",
+        "3KwAPj5ErBvGeFufjjiAA0"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 22671888,
@@ -179,17 +251,41 @@
         "68peSN0i1B7SKhGkCWgeGH",
         "5ZaUK9umfZRdSxdA2cdMz9"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "HEARTでふりむいて Kanako Wada",
         "sourceId": 22671888
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:33.817Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "HEARTでふりむいて Kanako Wada",
+            "sourceId": 22671888
+          },
+          "checkedAt": "2026-11-16T01:07:33.817Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6XZaDbkoFqxZzeqrHWp4do",
+        "6YotklbOAnHN8TGer6QDHe",
+        "1H9RGVK5hw404lHcKCSA67",
+        "3VfDNvQaxhGrfgzwWcAhrF",
+        "7JKJ7p6vz8ZMDdzzd3mww2",
+        "6uFNwD4hgDJ8Ecj8Au0MEU",
+        "3dn2siji85tjGnMJ46ThCt",
+        "48aZTvprEm32B8i9wlTqPo",
+        "2OMXOzkmwkNk0k1e5XhEMJ",
+        "2ZQrZDGbWCtzV6uMwX77BO"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 22722696,
@@ -227,17 +323,60 @@
         "0B8VAkSfynoYOeFggXoU9e",
         "5LCqIWHziEO73xyJ9T47ED"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "album",
         "id": "51UY6Kbsu6WktNMjVRcxUv",
         "sourceId": 22722696
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:07:41.137Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "album",
+            "id": "51UY6Kbsu6WktNMjVRcxUv",
+            "sourceId": 22722696
+          },
+          "checkedAt": "2026-11-16T01:07:41.137Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6e5sgdPdT7w8wp7LMSRByd",
+        "5E82gN3CmCEI1JyROIGAJa",
+        "6KgTIal4XxExtMXLQFYWjX",
+        "3irlLj2L2yfTHIohGpQSRa",
+        "08keVvCJVUTzorSpXtqERA",
+        "1D6FmayA8DA3jqNxTWMJt9",
+        "4KeXpqP8v8gwbdLlWMrMCL",
+        "0yAAEaK5d8mcPvfqAs5aTN",
+        "3KvuvYGIceu5rEgrgvtBZI",
+        "5Q4bpbMvYBQRSi14sXmFGQ"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "4KeXpqP8v8gwbdLlWMrMCL",
+          "name": "空を見上げて",
+          "artists": [
+            {
+              "id": "6JqZWRsckwwJBjhyuBVbu0",
+              "name": "河合その子"
+            }
+          ],
+          "album": {
+            "id": "51UY6Kbsu6WktNMjVRcxUv",
+            "name": "Replica"
+          },
+          "durationMs": 261466,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 451568,
@@ -268,17 +407,41 @@
         "0uikfleAVyZgTMjiue1otI",
         "6QfDCfZ3kePoSgEfhISvZ0"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-06",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "香港街燈 Toshiki Kadomatsu",
         "sourceId": 451568
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:49.970Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "香港街燈 Toshiki Kadomatsu",
+            "sourceId": 451568
+          },
+          "checkedAt": "2026-11-16T01:07:49.970Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "3E4meqellpKgsGvgUZ5N3c",
+        "0uikfleAVyZgTMjiue1otI",
+        "1WWQfS0U14VtFrg4C6dFSO",
+        "7BfpYMkmM5PfA4esQMML9o",
+        "2mYJCrSy6VLrDXLi5F28cx",
+        "1YyAKZh0rvb3hWQFFquamQ",
+        "5DqWCxYsXg6rLyHmCVZlFf",
+        "4KPnyneWrW9kvAnwvLcJua",
+        "6Suo07pspp4344Tyt4NNL0",
+        "6fG61itFOMJwh9VJMwIwIu"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 211520,
@@ -315,17 +478,41 @@
         "2bVYG421ZMIGHBgfbH2JpN",
         "0jX5FZrpoVAWyUvpa13uU8"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-07",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "你不要那样看着我的眼睛 蔡琴",
         "sourceId": 211520
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:07:57.834Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "你不要那样看着我的眼睛 蔡琴",
+            "sourceId": 211520
+          },
+          "checkedAt": "2026-11-16T01:07:57.834Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "0jX5FZrpoVAWyUvpa13uU8",
+        "48AvbJHidJuaGTwhRLztWk",
+        "6LoBiMGrgNgJzmVLDi27bi",
+        "2ACZ3Gr66MoMzMr6QeXIFG",
+        "7MD4UdYIcBWfihdhLRcpN7",
+        "1VlbPwD20BZa4qtx103SPA",
+        "66lwKjyofBME9MGeeViuJc",
+        "4Iiu0boS5F09b4GM4O7H3R",
+        "3km1ZF4zenoM6VVLoebiQw",
+        "0E3gqN4l5Hw8e7OCc9LhXQ"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 2719381953,
@@ -364,17 +551,41 @@
         "57izWRQXkuKYpQ4RHNYi24",
         "2LfP0ZgaowOB9LxlhDj7vk"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-07",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "异心引力 银河快递",
         "sourceId": 2719381953
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:08:05.799Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "异心引力 银河快递",
+            "sourceId": 2719381953
+          },
+          "checkedAt": "2026-11-16T01:08:05.799Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "57izWRQXkuKYpQ4RHNYi24",
+        "70NgdwaHibE64B6EbhE9aD",
+        "63u02UKn5JBxe9WQ7CUkNn",
+        "6n3D42eDPl0YwwesqHcRwN",
+        "24Ids7QdonCMZTAfMjDAaM",
+        "0fpJEJz1PiHHjo1q5bDgnb",
+        "2LfP0ZgaowOB9LxlhDj7vk",
+        "7piOHSUt8M6AVxht7Vs4fn",
+        "1AEFRBAChAJgqBu5HTQoTC",
+        "0wpkeWLBVTbPXdHg3TMqwi"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 22655497,
@@ -417,17 +628,51 @@
         "5ElzKkLs6ZQ1Sp2YEkzHm9",
         "3e6Z2h3LsACpW7vqKawOVn"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-08",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
         "sourceId": 22655497
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:08:13.198Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
+            "sourceId": 22655497
+          },
+          "checkedAt": "2026-11-16T01:08:13.198Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5ElzKkLs6ZQ1Sp2YEkzHm9"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
+          "name": "Deeper and Deeper",
+          "artists": [
+            {
+              "id": "29M6fB5DXQGVJYsx66rDPo",
+              "name": "Cagnet"
+            }
+          ],
+          "album": {
+            "id": "2rLMix29gqEmQ3qxI2c31Y",
+            "name": "Here We Are Again～「ロングバケーション」オリジナルサウンドトラック III"
+          },
+          "durationMs": 288866,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 812400,
@@ -465,17 +710,51 @@
         "2gaULwYeXtG7UbRXxu9Hrq",
         "5Zy4OB1HiZA1FSpoOKKfPo"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-08",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "5Zy4OB1HiZA1FSpoOKKfPo",
         "sourceId": 812400
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:08:21.139Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "5Zy4OB1HiZA1FSpoOKKfPo",
+            "sourceId": 812400
+          },
+          "checkedAt": "2026-11-16T01:08:21.139Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5Zy4OB1HiZA1FSpoOKKfPo"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "5Zy4OB1HiZA1FSpoOKKfPo",
+          "name": "PLANET",
+          "artists": [
+            {
+              "id": "2rfFjnIdU5NDoQOshNa31z",
+              "name": "Labmsey"
+            }
+          ],
+          "album": {
+            "id": "1eesvAth8KUYdHRPDJRHSN",
+            "name": "3ラムジ"
+          },
+          "durationMs": 243400,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 559961,
@@ -531,17 +810,41 @@
         "1kqrfod5ibxHBrBMwhrApD",
         "70z9gQLHt0QUXaOYvpV3Og"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-08",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "雨上がり ari",
         "sourceId": 559961
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:08:29.738Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "雨上がり ari",
+            "sourceId": 559961
+          },
+          "checkedAt": "2026-11-16T01:08:29.738Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "2BlDX1yfT0ea5wo0vjCKKa",
+        "2LZ9iobmtiQa52mZMIebuH",
+        "5V3orVziFzM4Hy0mXsL3L8",
+        "78kPbdzorf9Cgy8aQ7Mse5",
+        "42zYgxSbU9FtK2OSLHpYw0",
+        "0f0uETv1H0ZyCryKEVXEVR",
+        "3I6bm9fAqx596Bg9D0c4mx",
+        "4t6x0VJp61MogoG8J4VZGC",
+        "5vHgxEPYqisliSHDwZdgJU",
+        "3htuF7gVYjSCG3qsdvchXa"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 41632971,
@@ -578,17 +881,51 @@
         "7CmQjA7j6CxyPBkH3tP95W",
         "6UdNAO674yXHaZroB8PkS7"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-09",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "6UdNAO674yXHaZroB8PkS7",
         "sourceId": 41632971
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:08:37.242Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "6UdNAO674yXHaZroB8PkS7",
+            "sourceId": 41632971
+          },
+          "checkedAt": "2026-11-16T01:08:37.242Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6UdNAO674yXHaZroB8PkS7"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "6UdNAO674yXHaZroB8PkS7",
+          "name": "Dear",
+          "artists": [
+            {
+              "id": "0IeQisXdixzRUBpYSxQJDu",
+              "name": "lecca"
+            }
+          ],
+          "album": {
+            "id": "1MyjThRN5U9PE2IK080JDk",
+            "name": "BEST POSITIVE"
+          },
+          "durationMs": 264080,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 22773568,
@@ -627,17 +964,51 @@
         "6wRgqiAGSoXJZtNgdspQ4H",
         "7oSAzD9RTyiPHOM16noKMl"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-09",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "7oSAzD9RTyiPHOM16noKMl",
         "sourceId": 22773568
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:08:45.138Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "7oSAzD9RTyiPHOM16noKMl",
+            "sourceId": 22773568
+          },
+          "checkedAt": "2026-11-16T01:08:45.138Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "7oSAzD9RTyiPHOM16noKMl"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "7oSAzD9RTyiPHOM16noKMl",
+          "name": "ひとり上手",
+          "artists": [
+            {
+              "id": "0caDIM0rTovLDe5UdFvK1t",
+              "name": "中島みゆき"
+            }
+          ],
+          "album": {
+            "id": "2nSODtiSpNtJakuQDd6GMi",
+            "name": "ひとり上手"
+          },
+          "durationMs": 254800,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 36921256,
@@ -684,17 +1055,41 @@
         "5mLWPRZGlgjn9FlLNGie0Z",
         "2jANiFTo75vzfJJhq3iek0"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-09",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Do You Love Me 国分友里恵",
         "sourceId": 36921256
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:08:53.630Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Do You Love Me 国分友里恵",
+            "sourceId": 36921256
+          },
+          "checkedAt": "2026-11-16T01:08:53.630Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6bY1uMCz4svOoxdXqivJ3P",
+        "3liiZRlJxa8GeLUgWMoIeu",
+        "3aSWXU6owkZeVhh94XxEWO",
+        "5BZsQlgw21vDOAjoqkNgKb",
+        "7x5xYW5W42OGPAdHUyyguy",
+        "5OSxlzTP3q7wvrszYTqawx",
+        "4xOpEooPfRHGZwSZELOtAB",
+        "4nxDVWaqVIgg3c8KCKJwD4",
+        "4aymlWQFi9l73HSIBLR7bI",
+        "7MaStaE2lWar6LLkBMW5ff"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 22760128,
@@ -731,17 +1126,41 @@
         "2j7wI9QWrP8cjKDdOLVQTU",
         "72KeCPed2lFqZhbzTwszJs"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-09",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Baby if, Fayray",
         "sourceId": 22760128
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:09:01.635Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Baby if, Fayray",
+            "sourceId": 22760128
+          },
+          "checkedAt": "2026-11-16T01:09:01.635Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "3XVBdLihbNbxUwZosxcGuJ",
+        "55lijDD6OAjLFFUHU9tcDm",
+        "2GFExyKXf9383tSRSrEHEt",
+        "3wvG6oGSZ6c7oskNDsI1CY",
+        "7FUV5QxUd5vbOFRC4nzSkm",
+        "7eYzn1CuiJK6VvUhf8zA6k",
+        "2ixsaeFioXJmMgkkbd4uj1",
+        "2wuE0xt20E6cB4PAXOmE5v",
+        "2952OPwh3MiKGVN5gXR70j",
+        "7FjQB93CVgyPc01dmKwt8X"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 541083,
@@ -786,17 +1205,41 @@
         "69tMBng03dwqnlo5LSR645",
         "0JTjuVPS4frbrnCfiEs4Ud"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-10",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "RAINY WALK 山下達郎",
         "sourceId": 541083
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:09:09.653Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "RAINY WALK 山下達郎",
+            "sourceId": 541083
+          },
+          "checkedAt": "2026-11-16T01:09:09.653Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6UOTxJ7a0AD8GNgWvQwXnu",
+        "3mlqYwpqk8g5CFxmaJjAKv",
+        "2e2PajlTKfSugEoz1RFSGh",
+        "5w90381QSXUfkbZD4buQmX",
+        "2LZ9iobmtiQa52mZMIebuH",
+        "3Y2S5izRYLPf0Bfb4HNJ2U",
+        "1joLkt6pAptbIUW0ctIPqy",
+        "3INsIMe6Ap6EJ2xXgt9NB8",
+        "69tMBng03dwqnlo5LSR645",
+        "0JTjuVPS4frbrnCfiEs4Ud"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 1294109866,
@@ -844,17 +1287,41 @@
         "27UdiYR18YmzD4ci8BzigM",
         "1q0wzsDmE9BnvpEUuIZdiq"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-10",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "ミライのテーマ 山下達郎",
         "sourceId": 1294109866
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:09:17.593Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "ミライのテーマ 山下達郎",
+            "sourceId": 1294109866
+          },
+          "checkedAt": "2026-11-16T01:09:17.593Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "49wqhJ6sMYlB8NlHO5fjjM",
+        "5ppmwBydEoS75hDpR8Omeg",
+        "5OfNVQdpsjhtBNlBRkPb5g",
+        "1zGnuABdQiSQ6oh4ejLXFg",
+        "0XEHoRAvfEiExyBZN6r6WS",
+        "5Fqz14AgntUfJ9Xy0YCAlc",
+        "29EDdkdXjaMns5ZJ7Dts5x",
+        "5YKTTSpEYQamW8KmZSNVeQ",
+        "74evZfk7o8OCXMZeVreMlB",
+        "2fmJzwSnLQAs8cKLOlYXZD"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 433757,
@@ -898,17 +1365,41 @@
         "1PMC5OkvI6EXtVatacVcOQ",
         "1bivf8GaSEUDXHVUZzwPqn"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "新宿午前3時25分 ビートたけし",
         "sourceId": 433757
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:09:25.693Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "新宿午前3時25分 ビートたけし",
+            "sourceId": 433757
+          },
+          "checkedAt": "2026-11-16T01:09:25.693Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "1GS4on8S5gvm7cgy8zrxdT",
+        "0jRnSvYidtmvaQZYX1Q5Hu",
+        "5Mg6yx8m3SrFP5yzFP7RQd",
+        "2N994vbnxEV8eihFiHPe3K",
+        "3FGktQzpeL0PHHoUz6Gh1V",
+        "3sxYJb62C5HnhxyKFhipmf",
+        "7fS84wIuhxleSaECc0CRua",
+        "1EXf9IkRdyomM3bqAFgZdH",
+        "1PMC5OkvI6EXtVatacVcOQ",
+        "1bivf8GaSEUDXHVUZzwPqn"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 29539330,
@@ -951,17 +1442,41 @@
         "72N8UFLVeuVHzfBnKkVpL6",
         "1xdMn0S53JPGDC9rd6hBqo"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Sincerely Juri Hamada",
         "sourceId": 29539330
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:09:33.874Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Sincerely Juri Hamada",
+            "sourceId": 29539330
+          },
+          "checkedAt": "2026-11-16T01:09:33.874Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "1774XGEDmmV7ynAzCQHrhU",
+        "6nz7At42lKq9HQSyUm1C79",
+        "4nna9JONFIwr98bcX6tlta",
+        "11tJOnz6QorIyOzmfI8QQU",
+        "7lWPgRBsxgkZ57GRqxXYZe",
+        "6hOD1yxLeWllJ2TiwbuwQg",
+        "4Sf7W91vwViqaWpdXXt5sr",
+        "1A1qr49Rs4jJ5nPj8y0Ews",
+        "1xdMn0S53JPGDC9rd6hBqo",
+        "37EaGsmWrNohhvr8foS9EM"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 2103300863,
@@ -1008,17 +1523,59 @@
         "281GZa4NRfuxGRMOKkFVgZ",
         "2qxaECOG9R6jU4h4htLDmz"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-playable",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "今天是我的 汪晨蕊",
         "sourceId": 2103300863
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:09:41.908Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "今天是我的 汪晨蕊",
+            "sourceId": 2103300863
+          },
+          "checkedAt": "2026-11-16T01:09:41.908Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "0AcJw5tom8Lz4yocOlpwv9",
+        "1sXeli52yqBBUqOyUgIprr",
+        "6oKX7YD2cKIUgdI5fhVQbV",
+        "054rsik6MzETq8xRIGJ6Nn",
+        "59fzj2keuVLiLle05VZqk4",
+        "2AXnAetDRbu3DJBGksBC1D",
+        "5Hi5YB5uFDkQ6JEaXUq865",
+        "5v3AGqx0VeLtdBKo5FLcv2",
+        "4Ly2bBphHgfSZE9WEoxCqX",
+        "281GZa4NRfuxGRMOKkFVgZ"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "0AcJw5tom8Lz4yocOlpwv9",
+          "name": "今天是我的",
+          "artists": [
+            {
+              "id": "6RWBF6aZR4dGYT5BQJ7eYA",
+              "name": "汪晨蕊"
+            }
+          ],
+          "album": {
+            "id": "1UdNqUE9Lf9jQiNI1J71TV",
+            "name": "今天是我的"
+          },
+          "durationMs": 195600,
+          "availability": "playable",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 1355979244,
@@ -1066,17 +1623,51 @@
         "6VaHtyjVxNmJ47ldYF5E0z",
         "4rNZxHdO18SF4PPjKQNaaC"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "3eeXfKpoIJBKJTwGb33Mt3",
         "sourceId": 1355979244
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:09:49.144Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "3eeXfKpoIJBKJTwGb33Mt3",
+            "sourceId": 1355979244
+          },
+          "checkedAt": "2026-11-16T01:09:49.144Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "3eeXfKpoIJBKJTwGb33Mt3"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "3eeXfKpoIJBKJTwGb33Mt3",
+          "name": "ハーフムーン・セレナーデ",
+          "artists": [
+            {
+              "id": "1BMCwAT2geYkKBKjRAJ8Qu",
+              "name": "Naoko Kawai"
+            }
+          ],
+          "album": {
+            "id": "44EhBc3VXJy79FSN28JG8m",
+            "name": "ゴールデン☆アイドル 河合奈保子"
+          },
+          "durationMs": 332160,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 487280,
@@ -1124,17 +1715,51 @@
         "6oBDhkYQDhFS2q0wQ6xZLO",
         "2J9I7oTBuWhrG8MW7nF90b"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "0lM08CHxy1DQ4RdvfGPGGT",
         "sourceId": 487280
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:09:57.289Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "0lM08CHxy1DQ4RdvfGPGGT",
+            "sourceId": 487280
+          },
+          "checkedAt": "2026-11-16T01:09:57.289Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "0lM08CHxy1DQ4RdvfGPGGT"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "0lM08CHxy1DQ4RdvfGPGGT",
+          "name": "so long my love",
+          "artists": [
+            {
+              "id": "2UzjSnmjccLgd1DkvAH5OR",
+              "name": "Kazumasa Oda"
+            }
+          ],
+          "album": {
+            "id": "25umzMP591FMAEkeiGKTuy",
+            "name": "so long my love"
+          },
+          "durationMs": 349666,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 408328190,
@@ -1178,17 +1803,41 @@
         "76ice9W9naIMcoPfFyOlnB",
         "08UjJNcqrN6y9t8FnWcOHp"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Plastic Love (TARA Bootleg) TARA",
         "sourceId": 408328190
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:10:05.623Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Plastic Love (TARA Bootleg) TARA",
+            "sourceId": 408328190
+          },
+          "checkedAt": "2026-11-16T01:10:05.623Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "7rU6Iebxzlvqy5t857bKFq",
+        "1K3qfNiMOzI5cbILMuWnRN",
+        "3chBLXLQgj1KB2h1KgQxmF",
+        "3ljEzcpsXThqfImeqk9THy",
+        "3FTtAV8d9qHyMjlvAGOPdu",
+        "5g1IxCinEawQcerAMrs2tU",
+        "2FPn9y8gvvrp9gydZmGpvT",
+        "4J20QVGtdAAOYMpb8iY2GG",
+        "5F2COlPnZeomdZl5TcSBol",
+        "6wGM54Fj2JcuSFamPhXJwh"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 1427664751,
@@ -1237,17 +1886,41 @@
         "350DiIiXPc5nMScbHJ5mJp",
         "3vCxVEBRpPsx7nnCQ1jsrk"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "一枚の写真 Hikari Ishida",
         "sourceId": 1427664751
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:10:13.704Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "一枚の写真 Hikari Ishida",
+            "sourceId": 1427664751
+          },
+          "checkedAt": "2026-11-16T01:10:13.704Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5JbIiEY2Ttextq0Eoiw7qn",
+        "0XEHoRAvfEiExyBZN6r6WS",
+        "6dQHnLbn8IholTJzr58OT4",
+        "5hyuqT3PwqSKtH1EUSST20",
+        "6CFFhnN5pq8Wpjtd1HXuhP",
+        "1Oe45Ze9SwanHB2vL7gY9H",
+        "0WfiKb7fAPiqVHLDumYn0A",
+        "05Wm7teYB3IPYpvoW8iNSh",
+        "4fyB7tt4v2EuvDBNjus2B6",
+        "350DiIiXPc5nMScbHJ5mJp"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 5057823,
@@ -1292,17 +1965,42 @@
         "4qe3upa4fIhkeWmGb4o5kg",
         "1qVLm98UAAFyYuq4HCKFBV"
       ],
-      "status": "pending-online-verification",
+      "status": "structural-one-to-many",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "1FaU01TqZoXyaaUtB04Ms1",
         "sourceId": 5057823
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Both dialogue and song components were read and are playable. Neither alone equals the combined source; one-to-many mapping remains unimplemented.",
+      "lastAttemptAt": "2026-11-16T01:12:37.371Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "1FaU01TqZoXyaaUtB04Ms1",
+            "sourceId": 5057823
+          },
+          "checkedAt": "2026-11-16T01:10:21.220Z",
+          "resultCount": 1
+        },
+        {
+          "job": {
+            "type": "track",
+            "id": "7p6ZGUXjUe0ctAu5RNnghu",
+            "sourceId": 5057823
+          },
+          "checkedAt": "2026-11-16T01:12:37.371Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "1FaU01TqZoXyaaUtB04Ms1",
+        "7p6ZGUXjUe0ctAu5RNnghu"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 27790809,
@@ -1347,17 +2045,41 @@
         "0jjygW2mhgfVT8OOgEyp7U",
         "7nrAtwYEkrhJX3bPYtLIum"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "誰にもわからない私の痛み Keiko Utsumi",
         "sourceId": 27790809
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:10:29.735Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "誰にもわからない私の痛み Keiko Utsumi",
+            "sourceId": 27790809
+          },
+          "checkedAt": "2026-11-16T01:10:29.735Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "4bgVk4itt6wPVrJJwh5vyp",
+        "58L34DMcHQgAkDTWATNrCa",
+        "0gPyIVlDeskj1cn8vEFwFi",
+        "2dA887WZMuvwkFn31iO2KB",
+        "35MeePbBnryubkVG0v8GbI",
+        "4BvuZVf9KyBN3QiPfeI9hw",
+        "4zKlYkf8A4QJqX1D9oGFZU",
+        "3cvO29TzG5gBoijynavMQw",
+        "781eCm44DxjVZiln6OjN9G",
+        "0jjygW2mhgfVT8OOgEyp7U"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 33544561,
@@ -1404,17 +2126,41 @@
         "4aha3sFO6kTx0Jq4Fp5b3y",
         "31WRmxCQdDxtY4KVt7a8FL"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-13",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "TV in Black & White Lana Del Rey",
         "sourceId": 33544561
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:10:37.686Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "TV in Black & White Lana Del Rey",
+            "sourceId": 33544561
+          },
+          "checkedAt": "2026-11-16T01:10:37.686Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "1klUDOiEDc6eYkI3n3Ntld",
+        "1NZs6n6hl8UuMaX0UC0YTz",
+        "5nW4z3pfZgJAJ2QTCz9AIE",
+        "1y3r6RXiJZNBV1EI0NggpS",
+        "3sYDVtqO35oRSOIMx7dOqR",
+        "1qKCO2Tocwg8CbepJ9uDtd",
+        "0YDeLNmFiwc6U5lHHdSXdq",
+        "4O1etEzE7zc8ZO80KNd5GZ",
+        "4aha3sFO6kTx0Jq4Fp5b3y",
+        "31WRmxCQdDxtY4KVt7a8FL"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 1984474579,
@@ -1452,17 +2198,50 @@
         "0aS4Yxh1YReBMP7qKRcela",
         "7aLYL940d1hPjdKCPRQyTT"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-playable",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "5EvVYm1CnsyMuXtFnGQKH9",
         "sourceId": 1984474579
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:10:45.353Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "5EvVYm1CnsyMuXtFnGQKH9",
+            "sourceId": 1984474579
+          },
+          "checkedAt": "2026-11-16T01:10:45.353Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5EvVYm1CnsyMuXtFnGQKH9"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "5EvVYm1CnsyMuXtFnGQKH9",
+          "name": "行走的鱼 (汪苏泷概念创作集《联名》作品)",
+          "artists": [
+            {
+              "id": "3dI4Io8XE33J2o04ZwjR0Y",
+              "name": "LaLa Hsu"
+            }
+          ],
+          "album": {
+            "id": "02unNrTy9Duobe8ZyTHmBT",
+            "name": "联名"
+          },
+          "durationMs": 245172,
+          "availability": "playable",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 32069683,
@@ -1500,17 +2279,58 @@
         "70s4AX8TnzGWVU0v4C7hDA",
         "4MJLjO4M4jZDq14S3kXaXK"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-playable-needs-title-retrieval",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Chotto Matteyo never young beach",
         "sourceId": 32069683
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Chotto Matteyo / ちょっと待ってよ verified against prior Apple/TuneCore release evidence, identical artist and album, 14 ms difference. Search result explicitly playable. Automatic title transliteration remains unsupported; no forced fuzzy match.",
+      "lastAttemptAt": "2026-11-16T01:10:53.832Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Chotto Matteyo never young beach",
+            "sourceId": 32069683
+          },
+          "checkedAt": "2026-11-16T01:10:53.832Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "42gokOGxxInN6n43Xekxqk",
+        "2cL360CDEVWtavnqLu32sI",
+        "4LOg3dKvCAJiF9NYC7YqzG",
+        "5lO0GPn1hPGnNOP2UDL0d5",
+        "7AXHZylhc2mgBKchDEJ1XL",
+        "6UxBXKD1nAYLxDhrF3tK76",
+        "4GLC2oWnXu8I7w3DfHkLqB",
+        "4Covj8sPzMt12wlhxWD5C9",
+        "28v46wAhwaTSOYCUAwEWWB",
+        "55FOZATEDVRh7UXV4gXXh0"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "42gokOGxxInN6n43Xekxqk",
+          "name": "Chotto Matteyo",
+          "artists": [
+            {
+              "id": "2YtvgEYiTH6jh7n2UmUdXX",
+              "name": "never young beach"
+            }
+          ],
+          "album": {
+            "id": "0goGQGSDHbNzp9Oaqqllgg",
+            "name": "YASHINOKI HOUSE"
+          },
+          "durationMs": 203626,
+          "availability": "playable"
+        }
+      ]
     },
     {
       "sourceId": 2139361238,
@@ -1548,17 +2368,60 @@
         "2He9deEfdXYWxnTUi0oOb0",
         "3IM2I88PCBQUgRpomZSVtf"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "album",
         "id": "3ulQkh3QCuLs4lNbPuwYHq",
         "sourceId": 2139361238
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:11:01.469Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "album",
+            "id": "3ulQkh3QCuLs4lNbPuwYHq",
+            "sourceId": 2139361238
+          },
+          "checkedAt": "2026-11-16T01:11:01.469Z",
+          "resultCount": 11
+        }
+      ],
+      "reviewedCandidateIds": [
+        "1B9Y1UFxPKQ0Ae09g1oOHJ",
+        "7e7BAi6TsniLrMV4JRUStt",
+        "5EpqwhibVDnWuRKGOBhmOs",
+        "5k6UM3TQ376end6BlvvUsu",
+        "45boq8sj1kAWHXgCLxnYbb",
+        "5VSdhCGPkmh8sGvnd5pE1p",
+        "4LToc1FZHJrXNgep2JOuDH",
+        "5Xx1VbToBlayj6FIkCKpD6",
+        "6kV1D7ISVgncyhbcRjhhGE",
+        "5n8B6kkQiQxA4mZAtZ2wXm",
+        "3wBVPyrHeUoyCV2SVX7lQb"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "3wBVPyrHeUoyCV2SVX7lQb",
+          "name": "ずっとずっとずっと",
+          "artists": [
+            {
+              "id": "5BANJdBRihIaUpzjqAec7E",
+              "name": "Ohashi Trio"
+            }
+          ],
+          "album": {
+            "id": "3ulQkh3QCuLs4lNbPuwYHq",
+            "name": "『まなざし』 ～羊毛とおはなトリビュート～"
+          },
+          "durationMs": 262754,
+          "availability": "unknown",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 26389381,
@@ -1596,17 +2459,50 @@
         "6epRWgwouOTmH9jwod4mrK",
         "5Q3yy3AwyKPvnlX33C1vZw"
       ],
-      "status": "pending-online-verification",
+      "status": "source-recording-identity-unresolved",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "3AVLsBieDGotYuo5RPEL64",
         "sourceId": 26389381
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Southern All Stars track is playable, but solo-source attribution still requires provenance. A cross-language score is insufficient to confirm the source recording.",
+      "lastAttemptAt": "2026-11-16T01:11:09.209Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "3AVLsBieDGotYuo5RPEL64",
+            "sourceId": 26389381
+          },
+          "checkedAt": "2026-11-16T01:11:09.209Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "3AVLsBieDGotYuo5RPEL64"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "3AVLsBieDGotYuo5RPEL64",
+          "name": "真夏の果実",
+          "artists": [
+            {
+              "id": "79nkC8XZ5ohEVU0Xlf5Ael",
+              "name": "サザンオールスターズ"
+            }
+          ],
+          "album": {
+            "id": "6yqQMQGUPlrEHUC8WHHwp1",
+            "name": "真夏の果実"
+          },
+          "durationMs": 279300,
+          "availability": "playable",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 22773649,
@@ -1645,17 +2541,39 @@
         "4F1BP3249boAf2BQcAGj45",
         "5qEBjeHHYGPh3JEcj3hyYq"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-14",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "最愛 Miyuki Nakajima",
         "sourceId": 22773649
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:11:17.880Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "最愛 Miyuki Nakajima",
+            "sourceId": 22773649
+          },
+          "checkedAt": "2026-11-16T01:11:17.880Z",
+          "resultCount": 8
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6PxOJ230kQcabrToyl91FV",
+        "0BDBdU06C1MUnq8kbTsgBD",
+        "538UsyDPc6FgEmxFgztl8r",
+        "1zGnuABdQiSQ6oh4ejLXFg",
+        "5EunhmBCbBk2hzn8jKgKBL",
+        "49j7bVxwEW1z29Ut8PM71u",
+        "6S7rShWxpKfA7jpDfYSDD2",
+        "1OEOLnlFnscuL9gEJw1Hm4"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 26123720,
@@ -1693,17 +2611,51 @@
         "74iDQrenIlMyV8HIXdj0ES",
         "4eKWYcfmSSnV3F5pDYiEWo"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "02OjX2aaE5EAyveeluFR2B",
         "sourceId": 26123720
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:11:25.205Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "02OjX2aaE5EAyveeluFR2B",
+            "sourceId": 26123720
+          },
+          "checkedAt": "2026-11-16T01:11:25.205Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "02OjX2aaE5EAyveeluFR2B"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "02OjX2aaE5EAyveeluFR2B",
+          "name": "無人の島",
+          "artists": [
+            {
+              "id": "3Wyq7BrdyuJog5zOkr4HF5",
+              "name": "Miho Karasawa"
+            }
+          ],
+          "album": {
+            "id": "7nyz8Ns0yE1olpTlgKD7zr",
+            "name": "TRACKS"
+          },
+          "durationMs": 362080,
+          "availability": "restricted",
+          "restriction": "market",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 2680631339,
@@ -1741,17 +2693,50 @@
         "18mZuiiN95kIbi5S8dFkk7",
         "6OdwxMFlAFqd9QgPghHfdV"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-playable",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "5f7nYDvM5Hj9cPJnbwZrre",
         "sourceId": 2680631339
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:11:33.197Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "5f7nYDvM5Hj9cPJnbwZrre",
+            "sourceId": 2680631339
+          },
+          "checkedAt": "2026-11-16T01:11:33.197Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5f7nYDvM5Hj9cPJnbwZrre"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "5f7nYDvM5Hj9cPJnbwZrre",
+          "name": "いとしのエリー",
+          "artists": [
+            {
+              "id": "79nkC8XZ5ohEVU0Xlf5Ael",
+              "name": "サザンオールスターズ"
+            }
+          ],
+          "album": {
+            "id": "0bGPAuSyCVVTMehiMv3xeD",
+            "name": "バラッド　'77～'82"
+          },
+          "durationMs": 265373,
+          "availability": "playable",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 29848057,
@@ -1793,17 +2778,41 @@
         "3wB7yAm4WwIvz3TrsYPgOt",
         "2Gd25nA8k3K01ZKR0bCySw"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "Happen Ending Lee Hi Japanese",
         "sourceId": 29848057
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:11:41.754Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Happen Ending Lee Hi Japanese",
+            "sourceId": 29848057
+          },
+          "checkedAt": "2026-11-16T01:11:41.754Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6KrJn7TLGbkXwbU8GAS5Sk",
+        "31bWEfr4LwC1hVLjP7yWJL",
+        "0ZGEW86nQmGafmGQ24GxVa",
+        "06EMBzxDm2hueehobAlMtm",
+        "3wB7yAm4WwIvz3TrsYPgOt",
+        "6OhLNTT1ac1h2NiIuDDfg5",
+        "4vpxqiy4cN2efISc02SCH3",
+        "56DqIsrDZzhULt30k4Y4JY",
+        "1vd6RAAMj6SZyXFKtsW2jl",
+        "7zAdHY1MsSjcahcd2jVqbg"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 454567,
@@ -1841,17 +2850,49 @@
         "29Ll3I1DgonLKAUGdgNPMV",
         "5pmo2MOGwfi0HNVIqDf5IH"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-recording-availability-limited",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "album",
         "id": "5GrnlgYqa9I9eemh0g7lvN",
         "sourceId": 454567
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Official Universal Goodbye Day identity and Spotify single metadata agree with Takao Kisugi; 4996 ms difference. Album response omits availability: direct track read remains pending.",
+      "lastAttemptAt": "2026-11-16T01:11:49.186Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "album",
+            "id": "5GrnlgYqa9I9eemh0g7lvN",
+            "sourceId": 454567
+          },
+          "checkedAt": "2026-11-16T01:11:49.186Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "2lz7CkVTDjtHamN6zaQJZj"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "2lz7CkVTDjtHamN6zaQJZj",
+          "name": "Goodbye Day",
+          "artists": [
+            {
+              "id": "0fzFpiDDFQspynZvGDlGC6",
+              "name": "Takao Kisugi"
+            }
+          ],
+          "album": {
+            "id": "5GrnlgYqa9I9eemh0g7lvN",
+            "name": "Goodbye Day"
+          },
+          "durationMs": 319000,
+          "availability": "unknown"
+        }
+      ]
     },
     {
       "sourceId": 1999290990,
@@ -1888,17 +2929,41 @@
         "1fAwdgyZuzPjk84ppDrytL",
         "0eNc2H9m8yzSSUDB4Xqs9j"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "誘魚灯 伊藤美奈子",
         "sourceId": 1999290990
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:11:57.605Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "誘魚灯 伊藤美奈子",
+            "sourceId": 1999290990
+          },
+          "checkedAt": "2026-11-16T01:11:57.605Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6kyKY1NorrwV2Nhel9WYzQ",
+        "1zGnuABdQiSQ6oh4ejLXFg",
+        "2iGrc21d7bfvLAdlNeNerI",
+        "1oMRfPV6MpRw0fOhLGbfh6",
+        "5OxxK9JLmEuHZzp2RajmKv",
+        "4lVL8ix7R7P5MjKvxTSLvY",
+        "4gLe0k54ph93kzNvh8V2PV",
+        "49j7bVxwEW1z29Ut8PM71u",
+        "05eAPgnF4yZF2NmXi4pFZK",
+        "2Ak7FHOSMChAMOzkBDwVUX"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 407440,
@@ -1936,17 +3001,41 @@
         "2NzQgPlKWQIoFWbtrjR7PJ",
         "3l6fy5jlgsHHZYrc6bCtjL"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "世界中の誰よりきっと 徳永英明",
         "sourceId": 407440
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:12:05.824Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "世界中の誰よりきっと 徳永英明",
+            "sourceId": 407440
+          },
+          "checkedAt": "2026-11-16T01:12:05.824Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "7tGDXCPLpAScEwmqab9YZd",
+        "7vvdk7B2gYiwyyeTNxq9QV",
+        "4U77xvBDzk8e03mgP30g73",
+        "1chETycPdQmdJsWX1BoMVj",
+        "29rRca4BXxuUCNmcCzHvtl",
+        "23phSRwoMy48rwFpmuAP8q",
+        "3x4378ztiLvFmm2nuzEI0C",
+        "3dDZFJSvdT9N2nNAdsE9j2",
+        "6DFGadOMJoJUNXjO3lHU7T",
+        "0NmuhKfQD3AZE4SqW1wxGL"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 701026,
@@ -1983,17 +3072,40 @@
         "5yjTfouI3yQGLiXywxRied",
         "5DNmBcs2AqUzCLigmIqC1m"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "日和 Canappeco",
         "sourceId": 701026
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:12:13.675Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "日和 Canappeco",
+            "sourceId": 701026
+          },
+          "checkedAt": "2026-11-16T01:12:13.675Z",
+          "resultCount": 9
+        }
+      ],
+      "reviewedCandidateIds": [
+        "2ACNqc7tz3ZNDDoHUGhYL8",
+        "47zLo5zbdEn1lUeQRsfpOD",
+        "5WS8GN8RMFgb6SNCT7xixT",
+        "1eV8d10G3S0YbK5Zn0Q20I",
+        "0WtYVwg3sYsiRiVQKbBG9d",
+        "0Rcw5o06hoSTYx2vN8GzMJ",
+        "27064NGzls7hJqVbd2KxQf",
+        "2xHu33sRZaQ3T725emVgbA",
+        "4wKQfi7BK5PgqkOyy288Iw"
+      ],
+      "verifiedCandidates": []
     },
     {
       "sourceId": 27158959,
@@ -2030,17 +3142,50 @@
         "0NSSqYISjnav81CEn6EgBY",
         "62HKW77nt6tudsIHXT2A0M"
       ],
-      "status": "pending-online-verification",
+      "status": "verified-playable",
       "lastEvidenceDate": "2026-11-15",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "track",
         "id": "5wwiq5TX0bFx4MrR2l9kc0",
         "sourceId": 27158959
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "lastAttemptAt": "2026-11-16T01:12:21.423Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "5wwiq5TX0bFx4MrR2l9kc0",
+            "sourceId": 27158959
+          },
+          "checkedAt": "2026-11-16T01:12:21.423Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "5wwiq5TX0bFx4MrR2l9kc0"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "5wwiq5TX0bFx4MrR2l9kc0",
+          "name": "Come Back To Me - Remastered 2026",
+          "artists": [
+            {
+              "id": "3cOksS0L23DEPJd3JwMuVs",
+              "name": "Utada"
+            }
+          ],
+          "album": {
+            "id": "3yp0h809cxcMf2fTD40eGt",
+            "name": "This Is The One (Remastered)"
+          },
+          "durationMs": 237960,
+          "availability": "playable",
+          "alternate": false
+        }
+      ]
     },
     {
       "sourceId": 28718974,
@@ -2065,26 +3210,50 @@
       },
       "evidence": "docs/catalog-review-2026-11-05.md",
       "candidateIds": [],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-05",
-      "blockedBy": "local-api-connection-timeout",
-      "retryAt": "2026-11-15T14:51:24.852Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
         "type": "search",
         "query": "別れ1940 ICHIGO ICHIE",
         "sourceId": 28718974
       },
-      "conclusion": "Online verification not completed: /me connection timed out before any catalog job.",
-      "lastAttemptAt": "2026-11-15T14:36:24.857Z"
+      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "lastAttemptAt": "2026-11-16T01:12:29.678Z",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "別れ1940 ICHIGO ICHIE",
+            "sourceId": 28718974
+          },
+          "checkedAt": "2026-11-16T01:12:29.678Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "6dQHnLbn8IholTJzr58OT4",
+        "6hwU0yYOtNXKKkEabVyaMr",
+        "5v1mr5dotj5paoc9Lbp33C",
+        "4a7PpWQhMWEIePrVZuOUhj",
+        "7CpHNUj1eTtGsTArUY2ivh",
+        "2kgViwQzMBoYE5wvBpmHpj",
+        "1eXAFAHzrF6W9ULHG9aDg8",
+        "2u2kyKAf9mpQegLo9IedWA",
+        "37S0h3ZdGn0zw27ZWWoJiz",
+        "5CgFo7SryNGxU4HFe1Pmhg"
+      ],
+      "verifiedCandidates": []
     }
   ],
   "lastAttempt": {
-    "reason": "transient-backoff",
-    "retryAt": 1794754284852,
-    "networkCode": "ETIMEDOUT",
-    "at": "2026-11-15T14:36:24.857Z",
-    "requests": 4,
-    "retries": 2,
-    "completedCatalogRequests": 0
-  }
+    "at": "2026-11-16T01:13:43.744Z",
+    "requests": 44,
+    "retries": 0,
+    "completedCatalogRequests": 42,
+    "networkFailure": false
+  },
+  "requestPlanComplete": true,
+  "remainingScope": "All 41 received this bounded catalog pass; unresolved identities, unknown availability and structural mapping remain open. No global absence claims."
 }

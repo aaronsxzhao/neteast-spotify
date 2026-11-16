@@ -9,7 +9,7 @@ export function reviewJobKey(job) {
   return createHash('sha256').update(JSON.stringify([job.type, job.id || job.query])).digest('hex')
 }
 function trackMetadata(t) {
-  return { id: t.id, name: t.name, duration_ms: t.duration_ms, is_playable: t.is_playable,
+  return { id: t.id, name: t.name, duration_ms: t.duration_ms, is_playable: t.restrictions?.reason ? false : t.is_playable,
     restrictions: t.restrictions?.reason ? { reason: t.restrictions.reason } : undefined,
     artists: t.artists?.map(a => ({ id: a.id, name: a.name })),
     album: t.album && { id: t.album.id, name: t.album.name } }
@@ -26,6 +26,8 @@ export async function runCatalogReview(client, { accountId, playlistId, jobs, pr
     if (me.id !== accountId) throw Error('Wrong Spotify account')
     const playlist = await client.request(`/playlists/${playlistId}?fields=id,name,owner(id),items(total)`)
     if (playlist.owner?.id !== accountId || playlist.id !== playlistId) throw Error('Wrong playlist owner')
+    delete progress.blocked
+    progress.requestPlanComplete = false
     progress.verifiedAt = new Date().toISOString()
     progress.playlist = { id: playlist.id, name: playlist.name, total: playlist.items?.total }
     for (const job of jobs) {
