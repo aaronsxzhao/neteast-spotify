@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T01:12:56.913Z",
+  "updatedAt": "2026-11-16T01:40:59.907Z",
   "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
   "reviewComplete": false,
   "entries": [
@@ -1523,14 +1523,13 @@
         "281GZa4NRfuxGRMOKkFVgZ",
         "2qxaECOG9R6jU4h4htLDmz"
       ],
-      "status": "verified-playable",
+      "status": "verified-playable-offline-recovery-tested",
       "lastEvidenceDate": "2026-11-13",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "今天是我的 汪晨蕊",
-        "sourceId": 2103300863
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
       "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
       "lastAttemptAt": "2026-11-16T01:09:41.908Z",
@@ -1575,7 +1574,15 @@
           "availability": "playable",
           "alternate": false
         }
-      ]
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-direct-retrieval",
+        "evidenceModule": "src/reviewed-recordings.js",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "searchesInReplay": 0,
+        "actualImported": false
+      }
     },
     {
       "sourceId": 1355979244,
@@ -2279,14 +2286,13 @@
         "70s4AX8TnzGWVU0v4C7hDA",
         "4MJLjO4M4jZDq14S3kXaXK"
       ],
-      "status": "verified-playable-needs-title-retrieval",
+      "status": "verified-playable-offline-recovery-tested",
       "lastEvidenceDate": "2026-11-14",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "Chotto Matteyo never young beach",
-        "sourceId": 32069683
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
       "conclusion": "Chotto Matteyo / ちょっと待ってよ verified against prior Apple/TuneCore release evidence, identical artist and album, 14 ms difference. Search result explicitly playable. Automatic title transliteration remains unsupported; no forced fuzzy match.",
       "lastAttemptAt": "2026-11-16T01:10:53.832Z",
@@ -2330,7 +2336,15 @@
           "durationMs": 203626,
           "availability": "playable"
         }
-      ]
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-cross-title-identity",
+        "evidenceModule": "src/reviewed-recordings.js",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "searchesInReplay": 0,
+        "actualImported": false
+      }
     },
     {
       "sourceId": 2139361238,
@@ -2693,14 +2707,13 @@
         "18mZuiiN95kIbi5S8dFkk7",
         "6OdwxMFlAFqd9QgPghHfdV"
       ],
-      "status": "verified-playable",
+      "status": "verified-playable-offline-recovery-tested",
       "lastEvidenceDate": "2026-11-15",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "track",
-        "id": "5f7nYDvM5Hj9cPJnbwZrre",
-        "sourceId": 2680631339
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
       "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
       "lastAttemptAt": "2026-11-16T01:11:33.197Z",
@@ -2736,7 +2749,15 @@
           "availability": "playable",
           "alternate": false
         }
-      ]
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-direct-retrieval",
+        "evidenceModule": "src/reviewed-recordings.js",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "searchesInReplay": 0,
+        "actualImported": false
+      }
     },
     {
       "sourceId": 29848057,

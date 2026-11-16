@@ -1,3 +1,4 @@
+import { reviewedRecording, reviewedCandidate } from './reviewed-recordings.js'
 import OpenCC from 'opencc-js'
 
 const toSimplified = OpenCC.Converter({ from: 'hk', to: 'cn' })
@@ -180,6 +181,8 @@ const CATALOG_HINTS = new Map([
 ])
 
 export function knownTrackIds(song) {
+  const learned = reviewedRecording(song)
+  if (learned) return [learned.target.id]
   const hint = CATALOG_HINTS.get(String(song.id))
   return hint && normalize(song.name) === normalize(hint.name) &&
     metadataNames((song.ar || song.artists || [])[0]).some(name => normalize(name) === normalize(hint.artist))
@@ -569,12 +572,19 @@ function albumIdentity(value) {
 // still goes through the ordinary title/artist/version checks.
 export function albumSearchQueries(song) {
   const names = songAlbumNames(song).slice(0, 2)
-  // Explicit translations must get a slot before spelling/shortening variants
-  // of the first name consume the entire two-query allowance.
-  return [...new Set([...names, ...names
-    .flatMap(name => [name, String(name).replace(/Vol\.?\s*1\b/gi, 'Vol.I')])
-    .flatMap(name => [name, String(name).split(/[~〜～―]/u)[0].trim()])]
-    .map(name => `album:"${quoted(name)}"`))].slice(0, 2)
+  const artist = searchableArtists(song, { identity: true })[0]
+  const queries = []
+  for (const name of names) {
+    // Short/common album names need artist qualification before broad search.
+    // Long tribute/compilation titles stay unqualified to retain Various Artists.
+    const short = normalize(name).replace(/\s/g, '').length < 8
+    if (short && artist) queries.push(`album:"${quoted(name)}" artist:"${quoted(artist)}"`)
+    queries.push(`album:"${quoted(name)}"`)
+  }
+  // Preserve a second explicit translation ahead of extra variants.
+  if (names.length > 1) return [queries[0], `album:"${quoted(names[1])}"`]
+  if (queries.length < 2 && names[0]) queries.push(`album:"${quoted(String(names[0]).split(/[~〜～―]/u)[0].trim())}"`)
+  return [...new Set(queries)].slice(0, 2)
 }
 
 export function selectSourceAlbums(song, albums) {
@@ -649,6 +659,10 @@ function stripPromotionLabel(value) {
   // Taiwan release metadata may append a promotional single's campaign wave.
   // Match the entire delimited label; preserve real subtitles and editions.
   return String(value).normalize('NFKC').replace(/\s+[-–—]\s*第[0-9一二三四五六七八九十]+波\s*$/u, '')
+}
+
+function withoutCampaignNote(value) {
+  return String(value).replace(/\s*[(（]([^()（）]*概念[创創]作集[^()（）]*作品)[)）]\s*$/u, '').trim()
 }
 
 const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version|mix)$/i
@@ -817,7 +831,7 @@ function sameCompleteRoster(sourceArtists, targetArtists, manual) {
 
 function evidence(song, candidate, options) {
   const targetTitles = titleVariants(withoutCollaborator(candidate.name, candidate.artists)).map(recordingTitle)
-  const title = Math.max(0, ...titlePairs(song, candidate, options, recordingTitle).map(([left, right]) => similarity(left, right)))
+  let title = Math.max(0, ...titlePairs(song, candidate, options, value => recordingTitle(withoutCampaignNote(value))).map(([left, right]) => similarity(left, right)))
   const artistOptions = options?.artistManual ? { ...options, manual: true } : options
   const neteaseArtists = searchableArtists(song, { ...artistOptions, identity: true })
   const spotifyArtists = (candidate.artists || []).map((artist) => artist.name)
@@ -843,7 +857,9 @@ function evidence(song, candidate, options) {
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
   const album = Math.max(0, ...songAlbumNames(song).flatMap(name => albumTitleVariants(song, name))
     .flatMap(name => albumTitleVariants(song, candidate.album?.name || '').map(target => similarity(name, target))))
-  const identityEvidence = corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
+  const learned = options?.manual !== false && reviewedCandidate(song, candidate)
+  if (learned) title = 1
+  const identityEvidence = learned ? 'reviewed-recording-fingerprint' : corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
   if (identityEvidence) { artist = 1; primaryMatch = true; guestOnly = false }
   const crossScript = neteaseArtists.length > 0 && spotifyArtists.length > 0 &&
     neteaseArtists.every((left) => spotifyArtists.every((right) => differentScripts(left, right)))

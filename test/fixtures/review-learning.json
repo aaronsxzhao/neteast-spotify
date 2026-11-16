@@ -1,0 +1,115 @@
+[
+  {
+    "source": {
+      "id": 32069683,
+      "name": "ちょっと待ってよ",
+      "ar": [
+        {
+          "name": "never young beach"
+        }
+      ],
+      "al": {
+        "name": "YASHINOKI HOUSE",
+        "tns": [
+          "YASHINOKI HOUSE"
+        ]
+      },
+      "dt": 203640,
+      "tns": [
+        "ちょっと待ってよ",
+        "等等我"
+      ]
+    },
+    "candidate": {
+      "id": "42gokOGxxInN6n43Xekxqk",
+      "name": "Chotto Matteyo",
+      "duration_ms": 203626,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "2YtvgEYiTH6jh7n2UmUdXX",
+          "name": "never young beach"
+        }
+      ],
+      "album": {
+        "id": "0goGQGSDHbNzp9Oaqqllgg",
+        "name": "YASHINOKI HOUSE"
+      }
+    }
+  },
+  {
+    "source": {
+      "id": 2103300863,
+      "name": "今天是我的",
+      "ar": [
+        {
+          "name": "汪晨蕊"
+        }
+      ],
+      "al": {
+        "name": "今天是我的",
+        "tns": [
+          "今天是我的"
+        ]
+      },
+      "dt": 195600,
+      "tns": [
+        "今天是我的"
+      ]
+    },
+    "candidate": {
+      "id": "0AcJw5tom8Lz4yocOlpwv9",
+      "name": "今天是我的",
+      "duration_ms": 195600,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "6RWBF6aZR4dGYT5BQJ7eYA",
+          "name": "汪晨蕊"
+        }
+      ],
+      "album": {
+        "id": "1UdNqUE9Lf9jQiNI1J71TV",
+        "name": "今天是我的"
+      }
+    }
+  },
+  {
+    "source": {
+      "id": 2680631339,
+      "name": "いとしのエリー",
+      "ar": [
+        {
+          "name": "サザンオールスターズ"
+        }
+      ],
+      "al": {
+        "name": "いとしのエリー",
+        "tns": [
+          "いとしのエリー"
+        ]
+      },
+      "dt": 266066,
+      "tns": [
+        "いとしのエリー",
+        "心爱的艾莉"
+      ]
+    },
+    "candidate": {
+      "id": "5f7nYDvM5Hj9cPJnbwZrre",
+      "name": "いとしのエリー",
+      "duration_ms": 265373,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "79nkC8XZ5ohEVU0Xlf5Ael",
+          "name": "サザンオールスターズ"
+        }
+      ],
+      "album": {
+        "id": "0bGPAuSyCVVTMehiMv3xeD",
+        "name": "バラッド　'77～'82"
+      }
+    }
+  }
+]
