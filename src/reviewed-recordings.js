@@ -66,6 +66,50 @@ const recordings = [
     },
     "evidence": "https://southernallstars.jp/discography/artist/1/detail/82/",
     "verifiedAt": "2026-11-16T01:11:33.197Z"
+  },
+  {
+    "source": {
+      "id": 2139361238,
+      "name": "ずっとずっとずっと",
+      "artists": [
+        "大橋トリオ"
+      ],
+      "album": "『まなざし』 ～羊毛とおはなトリビュート～",
+      "durationMs": 262755
+    },
+    "target": {
+      "id": "3wBVPyrHeUoyCV2SVX7lQb",
+      "name": "ずっとずっとずっと",
+      "artists": [
+        "Ohashi Trio"
+      ],
+      "album": "『まなざし』 ～羊毛とおはなトリビュート～",
+      "durationMs": 262754
+    },
+    "evidence": "https://ohashi-trio.com/news/detail.php?id=1115771",
+    "verifiedAt": "2026-11-16T10:32:39.979Z"
+  },
+  {
+    "source": {
+      "id": 454567,
+      "name": "グッドバイ・デイ",
+      "artists": [
+        "来生たかお"
+      ],
+      "album": "テーマ・ソングス(1)CMソン",
+      "durationMs": 323996
+    },
+    "target": {
+      "id": "2lz7CkVTDjtHamN6zaQJZj",
+      "name": "Goodbye Day",
+      "artists": [
+        "Takao Kisugi"
+      ],
+      "album": "Goodbye Day",
+      "durationMs": 319000
+    },
+    "evidence": "https://www.universal-music.co.jp/kisugi-takao/products/h00k-20154/",
+    "verifiedAt": "2026-11-16T10:32:48.001Z"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()

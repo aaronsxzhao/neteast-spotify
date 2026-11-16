@@ -1,0 +1,986 @@
+[
+  {
+    "source": {
+      "id": 1850135,
+      "name": "Say You Love Me",
+      "ar": [
+        {
+          "name": "Patti Austin"
+        }
+      ],
+      "al": {
+        "name": "End of a Rainbow",
+        "tns": [
+          "End of a Rainbow"
+        ]
+      },
+      "dt": 367827,
+      "tns": [
+        "Say You Love Me"
+      ]
+    },
+    "candidate": {
+      "id": "0gse1QXCrwGakIME52dhXN",
+      "name": "Say You Love Me",
+      "artists": [
+        {
+          "name": "Patti Austin"
+        }
+      ],
+      "album": {
+        "name": "End of a Rainbow"
+      },
+      "duration_ms": 367773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 483880,
+      "name": "恋人も濡れる街角",
+      "ar": [
+        {
+          "name": "中村雅俊"
+        }
+      ],
+      "al": {
+        "name": "恋人も濡れる街角",
+        "tns": [
+          "恋人も濡れる街角"
+        ]
+      },
+      "dt": 264173,
+      "tns": [
+        "恋人も濡れる街角",
+        "淋湿恋人的街角"
+      ]
+    },
+    "candidate": {
+      "id": "4whXjWvXxL0qccNMxZAUGR",
+      "name": "恋人も濡れる街角",
+      "artists": [
+        {
+          "name": "Masatoshi Nakamura"
+        }
+      ],
+      "album": {
+        "name": "恋人も濡れる街角"
+      },
+      "duration_ms": 264173,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22663877,
+      "name": "OH NO,OH YES!",
+      "ar": [
+        {
+          "name": "中森明菜"
+        }
+      ],
+      "al": {
+        "name": "CRIMSON",
+        "tns": [
+          "CRIMSON"
+        ]
+      },
+      "dt": 287533,
+      "tns": [
+        "OH NO,OH YES!"
+      ]
+    },
+    "candidate": {
+      "id": "3azWTe7wgJhQkC5B11mepk",
+      "name": "OH NO,OH YES!",
+      "artists": [
+        {
+          "name": "Akina Nakamori"
+        }
+      ],
+      "album": {
+        "name": "CRIMSON"
+      },
+      "duration_ms": 287533,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22817983,
+      "name": "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+      "ar": [
+        {
+          "name": "杏里"
+        }
+      ],
+      "al": {
+        "name": "Timely!!",
+        "tns": [
+          "Timely!!"
+        ]
+      },
+      "dt": 263706,
+      "tns": [
+        "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+        "悲伤不止"
+      ]
+    },
+    "candidate": {
+      "id": "3FYDqY5BRtx3IVSaiQZSze",
+      "name": "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+      "artists": [
+        {
+          "name": "Anri"
+        }
+      ],
+      "album": {
+        "name": "Timely!!"
+      },
+      "duration_ms": 263706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 659350,
+      "name": "駅",
+      "ar": [
+        {
+          "name": "竹内まりや"
+        }
+      ],
+      "al": {
+        "name": "駅 / After Years",
+        "tns": [
+          "駅 / After Years"
+        ]
+      },
+      "dt": 300613,
+      "tns": [
+        "駅",
+        "车站"
+      ]
+    },
+    "candidate": {
+      "id": "57MaGVVg5DXncBKkrsCnEM",
+      "name": "駅",
+      "artists": [
+        {
+          "name": "Mariya Takeuchi"
+        }
+      ],
+      "album": {
+        "name": "REQUEST (30th Anniversary Edition)"
+      },
+      "duration_ms": 300613,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 643017,
+      "name": "月が泣いてる",
+      "ar": [
+        {
+          "name": "つじあやの"
+        }
+      ],
+      "al": {
+        "name": "恋恋風歌",
+        "tns": [
+          "恋恋風歌"
+        ]
+      },
+      "dt": 159700,
+      "tns": [
+        "月が泣いてる",
+        "月亮在哭泣",
+        "月亮在哭泣"
+      ]
+    },
+    "candidate": {
+      "id": "77qpVizMPEgWzoD2yA3pOJ",
+      "name": "月が泣いてる",
+      "artists": [
+        {
+          "name": "Tsuji Ayano"
+        }
+      ],
+      "album": {
+        "name": "恋恋風歌"
+      },
+      "duration_ms": 159700,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1299557976,
+      "name": "遥かなる楽園",
+      "ar": [
+        {
+          "name": "児島未散"
+        }
+      ],
+      "al": {
+        "name": "MICHILLE",
+        "tns": [
+          "MICHILLE"
+        ]
+      },
+      "dt": 275640,
+      "tns": [
+        "遥かなる楽園",
+        "遥远的乐园"
+      ]
+    },
+    "candidate": {
+      "id": "7n6LlpFFNSYQSqDQqeWcNG",
+      "name": "遥かなる楽園",
+      "artists": [
+        {
+          "name": "児島未散"
+        }
+      ],
+      "album": {
+        "name": "MICHILLE"
+      },
+      "duration_ms": 275666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1960762952,
+      "name": "往日如风",
+      "ar": [
+        {
+          "name": "Anthony Lazaro"
+        },
+        {
+          "name": "Mia Liu"
+        }
+      ],
+      "al": {
+        "name": "往日如风",
+        "tns": [
+          "往日如风"
+        ]
+      },
+      "dt": 192260,
+      "tns": [
+        "往日如风"
+      ]
+    },
+    "candidate": {
+      "id": "6qykmBcy3KhCZH1JIKGOMC",
+      "name": "往日如风",
+      "artists": [
+        {
+          "name": "Anthony Lazaro"
+        },
+        {
+          "name": "Mia Liu"
+        }
+      ],
+      "album": {
+        "name": "People on Vacation"
+      },
+      "duration_ms": 192260,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2689907614,
+      "name": "I Met a Comet(我遇见了彗星)",
+      "ar": [
+        {
+          "name": "莫非定律乐团"
+        }
+      ],
+      "al": {
+        "name": "私人电影院（Private Cinema）",
+        "tns": [
+          "私人电影院（Private Cinema）"
+        ]
+      },
+      "dt": 284693,
+      "tns": [
+        "I Met a Comet(我遇见了彗星)"
+      ]
+    },
+    "candidate": {
+      "id": "42vDjjruW5ftDHsFWzy1vY",
+      "name": "I Met a Comet",
+      "artists": [
+        {
+          "name": "莫非定律乐团"
+        }
+      ],
+      "album": {
+        "name": "私人电影院"
+      },
+      "duration_ms": 284693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2604907832,
+      "name": "Sunnyday,Holiday",
+      "ar": [
+        {
+          "name": "Satellite Lovers"
+        }
+      ],
+      "al": {
+        "name": "Sons of 1973",
+        "tns": [
+          "Sons of 1973"
+        ]
+      },
+      "dt": 285721,
+      "tns": [
+        "Sunnyday,Holiday"
+      ]
+    },
+    "candidate": {
+      "id": "4hDRRp2F9QdRYFu9ITOYMq",
+      "name": "Sunnyday,Holiday",
+      "artists": [
+        {
+          "name": "Satellite Lovers"
+        }
+      ],
+      "album": {
+        "name": "Sons of 1973"
+      },
+      "duration_ms": 285666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 567817,
+      "name": "CHA-CHA-CHA",
+      "ar": [
+        {
+          "name": "石井明美"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション",
+        "tns": [
+          "ゴールデン☆ベスト 石井明美セレクション"
+        ]
+      },
+      "dt": 219000,
+      "tns": [
+        "CHA-CHA-CHA"
+      ]
+    },
+    "candidate": {
+      "id": "4c8iGaGVnW37QrYU2S0VRe",
+      "name": "CHA-CHA-CHA",
+      "artists": [
+        {
+          "name": "Akemi Ishii"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション"
+      },
+      "duration_ms": 217706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 638353,
+      "name": "涙をたばねて",
+      "ar": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－",
+        "tns": [
+          "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+        ]
+      },
+      "dt": 253053,
+      "tns": [
+        "涙をたばねて",
+        "含着眼泪"
+      ]
+    },
+    "candidate": {
+      "id": "5Ym5hDQX32Ano97ndP0f7o",
+      "name": "涙をたばねて",
+      "artists": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+      },
+      "duration_ms": 253053,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28587152,
+      "name": "さがしもの",
+      "ar": [
+        {
+          "name": "ハンバート ハンバート"
+        }
+      ],
+      "al": {
+        "name": "おかえりなさい",
+        "tns": [
+          "おかえりなさい"
+        ]
+      },
+      "dt": 257776,
+      "tns": [
+        "さがしもの",
+        "寻找的东西"
+      ]
+    },
+    "candidate": {
+      "id": "01fEfnT88ESUek1DmE62NV",
+      "name": "さがしもの",
+      "artists": [
+        {
+          "name": "ENJIN"
+        }
+      ],
+      "album": {
+        "name": "円神 Second Stage『nonagon〜2つの歌～』"
+      },
+      "duration_ms": 256071,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26620747,
+      "name": "A Thousand Dreams Of You",
+      "ar": [
+        {
+          "name": "张国荣"
+        }
+      ],
+      "al": {
+        "name": "最红",
+        "tns": [
+          "最红"
+        ]
+      },
+      "dt": 210666,
+      "tns": [
+        "A Thousand Dreams Of You",
+        "电影《风月》插曲"
+      ]
+    },
+    "candidate": {
+      "id": "06kKLksWEuRCiIr42uNeWy",
+      "name": "A Thousand Dreams Of You",
+      "artists": [
+        {
+          "name": "Leslie Cheung"
+        }
+      ],
+      "album": {
+        "name": "風月 電影原聲帶"
+      },
+      "duration_ms": 210666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2604213594,
+      "name": "The Sorcerer",
+      "ar": [
+        {
+          "name": "Cory Wong"
+        },
+        {
+          "name": "Metropole Orkest"
+        },
+        {
+          "name": "Jules Buckley"
+        }
+      ],
+      "al": {
+        "name": "Starship Syncopation",
+        "tns": [
+          "Starship Syncopation"
+        ]
+      },
+      "dt": 253257,
+      "tns": [
+        "The Sorcerer"
+      ]
+    },
+    "candidate": {
+      "id": "2KtfCgvh5zQIa6cNJnElw8",
+      "name": "The Sorcerer",
+      "artists": [
+        {
+          "name": "Cory Wong"
+        },
+        {
+          "name": "Metropole Orkest"
+        },
+        {
+          "name": "Jules Buckley"
+        }
+      ],
+      "album": {
+        "name": "Starship Syncopation"
+      },
+      "duration_ms": 253257,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28306270,
+      "name": "Lonely",
+      "ar": [
+        {
+          "name": "陈慧娴"
+        }
+      ],
+      "al": {
+        "name": "By Heart",
+        "tns": [
+          "By Heart"
+        ]
+      },
+      "dt": 240827,
+      "tns": [
+        "Lonely"
+      ]
+    },
+    "candidate": {
+      "id": "4HwlVSZrcJ5RHkmETSLC4j",
+      "name": "Lonely",
+      "artists": [
+        {
+          "name": "Priscilla Chan"
+        }
+      ],
+      "album": {
+        "name": "By Heart"
+      },
+      "duration_ms": 242826,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1364370748,
+      "name": "こころをこめて",
+      "ar": [
+        {
+          "name": "手嶌葵"
+        }
+      ],
+      "al": {
+        "name": "Highlights from Aoi Works II",
+        "tns": [
+          "Highlights from Aoi Works II"
+        ]
+      },
+      "dt": 297266,
+      "tns": [
+        "こころをこめて",
+        "Kokoro wo komete"
+      ]
+    },
+    "candidate": {
+      "id": "3c8k1iPo45JM4fKvIfumwh",
+      "name": "こころをこめて",
+      "artists": [
+        {
+          "name": "Aoi Teshima"
+        }
+      ],
+      "album": {
+        "name": "Highlights from Aoi Works II"
+      },
+      "duration_ms": 297266,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2776347,
+      "name": "Never On Sunday (Remastered)",
+      "ar": [
+        {
+          "name": "Julie London"
+        }
+      ],
+      "al": {
+        "name": "Love Letters",
+        "tns": [
+          "Love Letters"
+        ]
+      },
+      "dt": 144312,
+      "tns": [
+        "Never On Sunday (Remastered)"
+      ]
+    },
+    "candidate": {
+      "id": "62mVE0gAOXUcvUdB6u9Orm",
+      "name": "Never On Sunday - Remastered",
+      "artists": [
+        {
+          "name": "Julie London"
+        }
+      ],
+      "album": {
+        "name": "Love Letters"
+      },
+      "duration_ms": 144253,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2066710153,
+      "name": "ひとひら",
+      "ar": [
+        {
+          "name": "BLU-SWING"
+        }
+      ],
+      "al": {
+        "name": "BLU-SWING 10th ANNIVERSARY BEST",
+        "tns": [
+          "BLU-SWING 10th ANNIVERSARY BEST"
+        ]
+      },
+      "dt": 165626,
+      "tns": [
+        "ひとひら",
+        "飘动"
+      ]
+    },
+    "candidate": {
+      "id": "0NsQs28wv5MGAXq5Mw6xzh",
+      "name": "ひとひら",
+      "artists": [
+        {
+          "name": "Blu-Swing"
+        }
+      ],
+      "album": {
+        "name": "BLU-SWING 10th ANNIVERSARY BEST"
+      },
+      "duration_ms": 165626,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 276774,
+      "name": "风中的早晨",
+      "ar": [
+        {
+          "name": "马宜中"
+        },
+        {
+          "name": "王新莲"
+        }
+      ],
+      "al": {
+        "name": "重逢.王新莲.马宜中.郑怡民歌精选辑",
+        "tns": [
+          "重逢.王新莲.马宜中.郑怡民歌精选辑"
+        ]
+      },
+      "dt": 237160,
+      "tns": [
+        "风中的早晨"
+      ]
+    },
+    "candidate": {
+      "id": "1qihp2igCRtYWxnr8l1oEu",
+      "name": "風中的早晨",
+      "artists": [
+        {
+          "name": "王新蓮"
+        },
+        {
+          "name": "馬宜中"
+        }
+      ],
+      "album": {
+        "name": "重逢 王新蓮‧馬宜中‧鄭怡 民歌精選輯"
+      },
+      "duration_ms": 235800,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 414613,
+      "name": "夏のクラクション",
+      "ar": [
+        {
+          "name": "稲垣潤一"
+        }
+      ],
+      "al": {
+        "name": "J．I．",
+        "tns": [
+          "J．I．"
+        ]
+      },
+      "dt": 232579,
+      "tns": [
+        "夏のクラクション",
+        "夏天的车笛声"
+      ]
+    },
+    "candidate": {
+      "id": "0amHaWvbCh9heYbmFfIcWh",
+      "name": "夏のクラクション",
+      "artists": [
+        {
+          "name": "Junichi Inagaki"
+        }
+      ],
+      "album": {
+        "name": "J．I．"
+      },
+      "duration_ms": 230333,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 722935,
+      "name": "Departures 〜あなたにおくるアイの歌〜 (TV Edit)",
+      "ar": [
+        {
+          "name": "EGOIST"
+        }
+      ],
+      "al": {
+        "name": "Departures~あなたにおくるアイの歌~",
+        "tns": [
+          "Departures~あなたにおくるアイの歌~"
+        ]
+      },
+      "dt": 95387,
+      "tns": [
+        "Departures 〜あなたにおくるアイの歌〜 (TV Edit)",
+        "离别～赠予你的爱之歌",
+        "TV动画《罪恶王冠》片尾曲",
+        "TVアニメ「ギルティクラウン」EDテーマ"
+      ]
+    },
+    "candidate": {
+      "id": "6O06qe9TrNRV3ux0KIFg80",
+      "name": "Departures 〜あなたにおくるアイの歌〜（TV Edit）",
+      "artists": [
+        {
+          "name": "EGOIST"
+        }
+      ],
+      "album": {
+        "name": "Departures - Anata Ni Okuru Ai No Uta"
+      },
+      "duration_ms": 95333,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1445152232,
+      "name": "I Will Follow You",
+      "ar": [
+        {
+          "name": "Rick Nelson"
+        }
+      ],
+      "al": {
+        "name": "Live Through This",
+        "tns": [
+          "Live Through This"
+        ]
+      },
+      "dt": 142092,
+      "tns": [
+        "I Will Follow You"
+      ]
+    },
+    "candidate": {
+      "id": "3jvvhyzHJhmErnGzKkQLZm",
+      "name": "I Will Follow You",
+      "artists": [
+        {
+          "name": "Rick Nelson"
+        }
+      ],
+      "album": {
+        "name": "walking down the aisle"
+      },
+      "duration_ms": 146133,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 18774561,
+      "name": "Just Walking In The Rain",
+      "ar": [
+        {
+          "name": "Jim Reeves"
+        }
+      ],
+      "al": {
+        "name": "Love Songs",
+        "tns": [
+          "Love Songs"
+        ]
+      },
+      "dt": 146634,
+      "tns": [
+        "Just Walking In The Rain"
+      ]
+    },
+    "candidate": {
+      "id": "5ulNTdEJs92wpO1o4szN8T",
+      "name": "Just Walkin' In the Rain",
+      "artists": [
+        {
+          "name": "Jim Reeves"
+        }
+      ],
+      "album": {
+        "name": "A Touch of Velvet (Expanded Edition)"
+      },
+      "duration_ms": 150000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 386544,
+      "name": "Sha La La",
+      "ar": [
+        {
+          "name": "温拿乐队"
+        }
+      ],
+      "al": {
+        "name": "真情廿五年",
+        "tns": [
+          "真情廿五年"
+        ]
+      },
+      "dt": 175589,
+      "tns": [
+        "Sha La La"
+      ]
+    },
+    "candidate": {
+      "id": "6hLelISkM6WJjw4mZCippo",
+      "name": "Sha La La La",
+      "artists": [
+        {
+          "name": "溫拿樂隊"
+        }
+      ],
+      "album": {
+        "name": "華語經典回憶殺"
+      },
+      "duration_ms": 178373,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 540596230,
+      "name": "Pusher Man",
+      "ar": [
+        {
+          "name": "Danielle Nicole"
+        }
+      ],
+      "al": {
+        "name": "Cry No More",
+        "tns": [
+          "Cry No More"
+        ]
+      },
+      "dt": 226403,
+      "tns": [
+        "Pusher Man"
+      ]
+    },
+    "candidate": {
+      "id": "7veISidmMY7zmdmq9GGvwT",
+      "name": "Pusher Man",
+      "artists": [
+        {
+          "name": "Danielle Nicole"
+        }
+      ],
+      "album": {
+        "name": "Cry No More"
+      },
+      "duration_ms": 224026,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 25698048,
+      "name": "三个人的晚餐",
+      "ar": [
+        {
+          "name": "王若琳"
+        }
+      ],
+      "al": {
+        "name": "为爱做的一切",
+        "tns": [
+          "为爱做的一切"
+        ]
+      },
+      "dt": 271046,
+      "tns": [
+        "三个人的晚餐"
+      ]
+    },
+    "candidate": {
+      "id": "35YZjbqhWztRVwJHVhXaK8",
+      "name": "三個人的晚餐",
+      "artists": [
+        {
+          "name": "Joanna Wang"
+        }
+      ],
+      "album": {
+        "name": "The Things We Do for Love"
+      },
+      "duration_ms": 270986,
+      "is_playable": true
+    }
+  }
+]

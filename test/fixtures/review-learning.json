@@ -111,5 +111,81 @@
         "name": "バラッド　'77～'82"
       }
     }
+  },
+  {
+    "source": {
+      "id": 2139361238,
+      "name": "ずっとずっとずっと",
+      "ar": [
+        {
+          "name": "大橋トリオ"
+        }
+      ],
+      "al": {
+        "name": "『まなざし』 ～羊毛とおはなトリビュート～",
+        "tns": [
+          "『まなざし』 ～羊毛とおはなトリビュート～"
+        ]
+      },
+      "dt": 262755,
+      "tns": [
+        "ずっとずっとずっと",
+        "永远永远永远"
+      ]
+    },
+    "candidate": {
+      "id": "3wBVPyrHeUoyCV2SVX7lQb",
+      "name": "ずっとずっとずっと",
+      "duration_ms": 262754,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "5BANJdBRihIaUpzjqAec7E",
+          "name": "Ohashi Trio"
+        }
+      ],
+      "album": {
+        "id": "3ulQkh3QCuLs4lNbPuwYHq",
+        "name": "『まなざし』 ～羊毛とおはなトリビュート～"
+      }
+    }
+  },
+  {
+    "source": {
+      "id": 454567,
+      "name": "グッドバイ・デイ",
+      "ar": [
+        {
+          "name": "来生たかお"
+        }
+      ],
+      "al": {
+        "name": "テーマ・ソングス(1)CMソン",
+        "tns": [
+          "テーマ・ソングス(1)CMソン"
+        ]
+      },
+      "dt": 323996,
+      "tns": [
+        "グッドバイ・デイ",
+        "离别之日 Goodbye Day"
+      ]
+    },
+    "candidate": {
+      "id": "2lz7CkVTDjtHamN6zaQJZj",
+      "name": "Goodbye Day",
+      "duration_ms": 319000,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "0fzFpiDDFQspynZvGDlGC6",
+          "name": "Takao Kisugi"
+        }
+      ],
+      "album": {
+        "id": "5GrnlgYqa9I9eemh0g7lvN",
+        "name": "Goodbye Day"
+      }
+    }
   }
 ]

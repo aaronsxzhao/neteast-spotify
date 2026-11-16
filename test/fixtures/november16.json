@@ -1,0 +1,379 @@
+[
+  {
+    "source": {
+      "id": 28718974,
+      "name": "別れ1940",
+      "ar": [
+        {
+          "name": "深津絵里"
+        }
+      ],
+      "al": {
+        "name": "毒苺",
+        "tns": [
+          "毒苺"
+        ]
+      },
+      "dt": 181000,
+      "tns": [
+        "別れ1940",
+        "离别1940"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3m0p1a0BFMfiaT0tMTlaCv",
+        "name": "190304-08",
+        "artists": [
+          {
+            "name": "Hideyuki Hashimoto"
+          }
+        ],
+        "album": {
+          "name": "Soukou"
+        },
+        "duration_ms": 169106,
+        "is_playable": true
+      },
+      {
+        "id": "7EU9e4eD6TcR1ZyRRgWfwl",
+        "name": "离别",
+        "artists": [
+          {
+            "name": "黄丹"
+          }
+        ],
+        "album": {
+          "name": "电荷"
+        },
+        "duration_ms": 80179,
+        "is_playable": true
+      },
+      {
+        "id": "2dH9QItHcFEN8xoanqP36w",
+        "name": "离别的码头",
+        "artists": [
+          {
+            "name": "LovesYouJesus"
+          }
+        ],
+        "album": {
+          "name": "老上海慢節奏爵士 | Slow Jazz Classics from Old Shanghai 1940s–1950s"
+        },
+        "duration_ms": 167159,
+        "is_playable": true
+      },
+      {
+        "id": "7kKrrgnTwLZGxN4tFA8uSE",
+        "name": "1984 (西暦2000年に向けて) - 2012 Remaster",
+        "artists": [
+          {
+            "name": "Junko Yagami"
+          }
+        ],
+        "album": {
+          "name": "コミュニケーション (+3, 2012 Remaster)"
+        },
+        "duration_ms": 322773,
+        "is_playable": true
+      },
+      {
+        "id": "0VVqM9e1FFkjfZLbkmBJ9W",
+        "name": "別れの曲",
+        "artists": [
+          {
+            "name": "Michiru Oshima"
+          }
+        ],
+        "album": {
+          "name": "鋼の錬金術師 オリジナル・サウンドトラック 3"
+        },
+        "duration_ms": 258665,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 211520,
+      "name": "你不要那样看着我的眼睛",
+      "ar": [
+        {
+          "name": "蔡琴"
+        }
+      ],
+      "al": {
+        "name": "你不要那样看着我的眼睛",
+        "tns": [
+          "你不要那样看着我的眼睛"
+        ]
+      },
+      "dt": 273000,
+      "tns": [
+        "你不要那样看着我的眼睛"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1WIYoQ5crkhLgOtM8kC3BG",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "钟心妍"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 226120,
+        "is_playable": true
+      },
+      {
+        "id": "6OnkhLQAVtw2wTZrYB2Gi0",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "林羲焱"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 235600,
+        "is_playable": true
+      },
+      {
+        "id": "5Lra6Ot7vu491nG53omUj2",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "吕口口"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛"
+        },
+        "duration_ms": 199905,
+        "is_playable": true
+      },
+      {
+        "id": "2bVYG421ZMIGHBgfbH2JpN",
+        "name": "你不要那样看着我的眼睛 - 柔情版",
+        "artists": [
+          {
+            "name": "是沛沛呀"
+          }
+        ],
+        "album": {
+          "name": "你不要那样看着我的眼睛 (柔情版)"
+        },
+        "duration_ms": 263640,
+        "is_playable": true
+      },
+      {
+        "id": "0jX5FZrpoVAWyUvpa13uU8",
+        "name": "你不要那样看着我的眼睛",
+        "artists": [
+          {
+            "name": "黄绮珊"
+          }
+        ],
+        "album": {
+          "name": "爱的归途"
+        },
+        "duration_ms": 231191,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22655497,
+      "name": "Deeper and Deeper",
+      "ar": [
+        {
+          "name": "CAGNET"
+        },
+        {
+          "name": "Anna McMurphy"
+        }
+      ],
+      "al": {
+        "name": "Here We Are Again",
+        "tns": [
+          "Here We Are Again"
+        ]
+      },
+      "dt": 288925,
+      "tns": [
+        "Deeper and Deeper",
+        "日剧《Long Vacation》插曲"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "name": "Cagnet"
+          }
+        ],
+        "album": {
+          "name": "Here We Are Again～「ロングバケーション」オリジナルサウンドトラック III"
+        },
+        "duration_ms": 288866,
+        "is_playable": false
+      },
+      {
+        "id": "4ycvkX3kxm0bDTDAmxzu4P",
+        "name": "Deeper and Deeper - Album Edit",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Deeper and Deeper"
+        },
+        "duration_ms": 295514,
+        "is_playable": true
+      },
+      {
+        "id": "5TCPfd2sUyyTthOhFNRo4Q",
+        "name": "Deeper and Deeper - 7\" Edit",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "GHV2"
+        },
+        "duration_ms": 294626,
+        "is_playable": true
+      },
+      {
+        "id": "5Roo8xy0qjRppfwmSWWXQF",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Erotica"
+        },
+        "duration_ms": 333466,
+        "is_playable": true
+      },
+      {
+        "id": "6KU8g98m1tcrUXRNjPQeOI",
+        "name": "Deeper and Deeper",
+        "artists": [
+          {
+            "name": "Madonna"
+          }
+        ],
+        "album": {
+          "name": "Erotica (PA Version)"
+        },
+        "duration_ms": 333466,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22819662,
+      "name": "Off Shore",
+      "ar": [
+        {
+          "name": "角松敏生"
+        }
+      ],
+      "al": {
+        "name": "ON THE CITY SHORE",
+        "tns": [
+          "ON THE CITY SHORE"
+        ]
+      },
+      "dt": 312733,
+      "tns": [
+        "Off Shore"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1iKeyjVjKoO3PlbHvIcFRV",
+        "name": "Off Shore",
+        "artists": [
+          {
+            "name": "Debris of Titan"
+          }
+        ],
+        "album": {
+          "name": "Are We Astronauts"
+        },
+        "duration_ms": 312509,
+        "is_playable": true
+      },
+      {
+        "id": "5dxvD5aRhns6ksqqHXqiuJ",
+        "name": "Forgotten shores",
+        "artists": [
+          {
+            "name": "角松 敏生"
+          }
+        ],
+        "album": {
+          "name": "Forgotten Shores"
+        },
+        "duration_ms": 311151,
+        "is_playable": true
+      },
+      {
+        "id": "3HofSXf406PxfUu1p3IUWV",
+        "name": "Offshore",
+        "artists": [
+          {
+            "name": "Chicane"
+          }
+        ],
+        "album": {
+          "name": "Twenty"
+        },
+        "duration_ms": 268600,
+        "is_playable": true
+      },
+      {
+        "id": "0H7tSA5Ggzf7WLUWlVh22Z",
+        "name": "Off Shore",
+        "artists": [
+          {
+            "name": "Geike"
+          }
+        ],
+        "album": {
+          "name": "Lost in Time"
+        },
+        "duration_ms": 229640,
+        "is_playable": true
+      },
+      {
+        "id": "3yIHidoNrRkw3ZNBf2lYdW",
+        "name": "Off Shore",
+        "artists": [
+          {
+            "name": "Martin Denny"
+          }
+        ],
+        "album": {
+          "name": "The Enchanted Sea"
+        },
+        "duration_ms": 137146,
+        "is_playable": true
+      }
+    ]
+  }
+]

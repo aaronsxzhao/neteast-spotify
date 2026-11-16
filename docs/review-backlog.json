@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T01:40:59.907Z",
+  "updatedAt": "2026-11-16T10:31:44.076Z",
   "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
   "reviewComplete": false,
   "entries": [
@@ -479,24 +479,23 @@
         "0jX5FZrpoVAWyUvpa13uU8"
       ],
       "status": "searched-no-confirmed-recording",
-      "lastEvidenceDate": "2026-11-07",
+      "lastEvidenceDate": "2026-11-16",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "你不要那样看着我的眼睛 蔡琴",
-        "sourceId": 211520
+        "type": "new-release-or-provenance-evidence",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "conclusion": "Original/alternate credits, official release and all saved/current candidates reviewed; no confirmed Spotify recording. Not proof of absence.",
       "lastAttemptAt": "2026-11-16T01:07:57.834Z",
       "checkedRequests": [
         {
           "job": {
             "type": "search",
-            "query": "你不要那样看着我的眼睛 蔡琴",
+            "query": "你不要那樣看著我的眼睛 Tsai Chin",
             "sourceId": 211520
           },
-          "checkedAt": "2026-11-16T01:07:57.834Z",
+          "checkedAt": "2026-11-16T10:32:00.579Z",
           "resultCount": 10
         }
       ],
@@ -504,13 +503,13 @@
         "0jX5FZrpoVAWyUvpa13uU8",
         "48AvbJHidJuaGTwhRLztWk",
         "6LoBiMGrgNgJzmVLDi27bi",
-        "2ACZ3Gr66MoMzMr6QeXIFG",
-        "7MD4UdYIcBWfihdhLRcpN7",
-        "1VlbPwD20BZa4qtx103SPA",
-        "66lwKjyofBME9MGeeViuJc",
-        "4Iiu0boS5F09b4GM4O7H3R",
-        "3km1ZF4zenoM6VVLoebiQw",
-        "0E3gqN4l5Hw8e7OCc9LhXQ"
+        "3hVVaaGsDYJ5o4DKQIVOIl",
+        "6Ag9WIFdPMGaVoWCbQCXCf",
+        "3zgFrZH3ku8NrnniZdVxam",
+        "1nJUbgXMyeR997I8oQgvN1",
+        "4GlURLELUHxPKjazQBJb72",
+        "0TChpQUs1GonGED57v6nYn",
+        "6UNPBBPPxPoPfeHdAjnNM2"
       ],
       "verifiedCandidates": []
     },
@@ -629,15 +628,14 @@
         "3e6Z2h3LsACpW7vqKawOVn"
       ],
       "status": "verified-recording-availability-limited",
-      "lastEvidenceDate": "2026-11-08",
+      "lastEvidenceDate": "2026-11-16",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "track",
-        "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
-        "sourceId": 22655497
+        "type": "new-release-or-provenance-evidence",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
+      "conclusion": "Both known releases market-restricted in AaronZ US account.",
       "lastAttemptAt": "2026-11-16T01:08:13.198Z",
       "checkedRequests": [
         {
@@ -646,12 +644,22 @@
             "id": "5ElzKkLs6ZQ1Sp2YEkzHm9",
             "sourceId": 22655497
           },
-          "checkedAt": "2026-11-16T01:08:13.198Z",
+          "checkedAt": "2026-11-16T10:32:07.947Z",
+          "resultCount": 1
+        },
+        {
+          "job": {
+            "type": "track",
+            "id": "3e6Z2h3LsACpW7vqKawOVn",
+            "sourceId": 22655497
+          },
+          "checkedAt": "2026-11-16T10:32:16.118Z",
           "resultCount": 1
         }
       ],
       "reviewedCandidateIds": [
-        "5ElzKkLs6ZQ1Sp2YEkzHm9"
+        "5ElzKkLs6ZQ1Sp2YEkzHm9",
+        "3e6Z2h3LsACpW7vqKawOVn"
       ],
       "verifiedCandidates": [
         {
@@ -2382,17 +2390,16 @@
         "2He9deEfdXYWxnTUi0oOb0",
         "3IM2I88PCBQUgRpomZSVtf"
       ],
-      "status": "verified-recording-availability-limited",
+      "status": "verified-playable-offline-recovery-tested",
       "lastEvidenceDate": "2026-11-14",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "album",
-        "id": "3ulQkh3QCuLs4lNbPuwYHq",
-        "sourceId": 2139361238
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
-      "conclusion": "Recording metadata passes existing identity/title/version/duration rules; availability recorded separately.",
-      "lastAttemptAt": "2026-11-16T01:11:01.469Z",
+      "conclusion": "Fresh AaronZ direct read confirms playable; independently verified release identity. Saved as fingerprint evidence, not a global artist/title alias.",
+      "lastAttemptAt": "2026-11-16T10:32:39.979Z",
       "checkedRequests": [
         {
           "job": {
@@ -2421,6 +2428,8 @@
         {
           "id": "3wBVPyrHeUoyCV2SVX7lQb",
           "name": "ずっとずっとずっと",
+          "duration_ms": 262754,
+          "is_playable": true,
           "artists": [
             {
               "id": "5BANJdBRihIaUpzjqAec7E",
@@ -2430,12 +2439,15 @@
           "album": {
             "id": "3ulQkh3QCuLs4lNbPuwYHq",
             "name": "『まなざし』 ～羊毛とおはなトリビュート～"
-          },
-          "durationMs": 262754,
-          "availability": "unknown",
-          "alternate": false
+          }
         }
-      ]
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-recording-evidence",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "actualImported": false
+      }
     },
     {
       "sourceId": 26389381,
@@ -2871,17 +2883,16 @@
         "29Ll3I1DgonLKAUGdgNPMV",
         "5pmo2MOGwfi0HNVIqDf5IH"
       ],
-      "status": "verified-recording-availability-limited",
+      "status": "verified-playable-offline-recovery-tested",
       "lastEvidenceDate": "2026-11-15",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "album",
-        "id": "5GrnlgYqa9I9eemh0g7lvN",
-        "sourceId": 454567
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
-      "conclusion": "Official Universal Goodbye Day identity and Spotify single metadata agree with Takao Kisugi; 4996 ms difference. Album response omits availability: direct track read remains pending.",
-      "lastAttemptAt": "2026-11-16T01:11:49.186Z",
+      "conclusion": "Fresh AaronZ direct read confirms playable; independently verified release identity. Saved as fingerprint evidence, not a global artist/title alias.",
+      "lastAttemptAt": "2026-11-16T10:32:48.001Z",
       "checkedRequests": [
         {
           "job": {
@@ -2900,6 +2911,8 @@
         {
           "id": "2lz7CkVTDjtHamN6zaQJZj",
           "name": "Goodbye Day",
+          "duration_ms": 319000,
+          "is_playable": true,
           "artists": [
             {
               "id": "0fzFpiDDFQspynZvGDlGC6",
@@ -2909,11 +2922,15 @@
           "album": {
             "id": "5GrnlgYqa9I9eemh0g7lvN",
             "name": "Goodbye Day"
-          },
-          "durationMs": 319000,
-          "availability": "unknown"
+          }
         }
-      ]
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-recording-evidence",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "actualImported": false
+      }
     },
     {
       "sourceId": 1999290990,
@@ -3232,15 +3249,14 @@
       "evidence": "docs/catalog-review-2026-11-05.md",
       "candidateIds": [],
       "status": "searched-no-confirmed-recording",
-      "lastEvidenceDate": "2026-11-05",
+      "lastEvidenceDate": "2026-11-16",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "別れ1940 ICHIGO ICHIE",
-        "sourceId": 28718974
+        "type": "new-release-or-provenance-evidence",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
+      "conclusion": "Original/alternate credits, official release and all saved/current candidates reviewed; no confirmed Spotify recording. Not proof of absence.",
       "lastAttemptAt": "2026-11-16T01:12:29.678Z",
       "checkedRequests": [
         {
@@ -3249,23 +3265,84 @@
             "query": "別れ1940 ICHIGO ICHIE",
             "sourceId": 28718974
           },
-          "checkedAt": "2026-11-16T01:12:29.678Z",
+          "checkedAt": "2026-11-16T10:31:52.502Z",
           "resultCount": 10
         }
       ],
       "reviewedCandidateIds": [
-        "6dQHnLbn8IholTJzr58OT4",
         "6hwU0yYOtNXKKkEabVyaMr",
+        "6dQHnLbn8IholTJzr58OT4",
         "5v1mr5dotj5paoc9Lbp33C",
         "4a7PpWQhMWEIePrVZuOUhj",
-        "7CpHNUj1eTtGsTArUY2ivh",
         "2kgViwQzMBoYE5wvBpmHpj",
         "1eXAFAHzrF6W9ULHG9aDg8",
-        "2u2kyKAf9mpQegLo9IedWA",
+        "7CpHNUj1eTtGsTArUY2ivh",
+        "4RDwW3mfsiED7GMxHqoyQG",
         "37S0h3ZdGn0zw27ZWWoJiz",
         "5CgFo7SryNGxU4HFe1Pmhg"
       ],
       "verifiedCandidates": []
+    },
+    {
+      "sourceId": 22819662,
+      "name": "Off Shore",
+      "artists": [
+        "角松敏生"
+      ],
+      "album": "ON THE CITY SHORE",
+      "durationMs": 312733,
+      "source": {
+        "id": 22819662,
+        "name": "Off Shore",
+        "ar": [
+          {
+            "name": "角松敏生"
+          }
+        ],
+        "al": {
+          "name": "ON THE CITY SHORE"
+        },
+        "dt": 312733
+      },
+      "lastEvidenceDate": "2026-11-16",
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Off Shore Toshiki Kadomatsu",
+            "sourceId": 22819662
+          },
+          "checkedAt": "2026-11-16T10:32:24.534Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "album:\"ON THE CITY SHORE\"",
+            "sourceId": 22819662
+          },
+          "checkedAt": "2026-11-16T10:32:32.053Z",
+          "resultCount": 0
+        }
+      ],
+      "reviewedCandidateIds": [
+        "22DSFdWKbqJCb0yNLrJPFM",
+        "3E4meqellpKgsGvgUZ5N3c",
+        "4RULLDnanO84wz1QpCsqig",
+        "2mYJCrSy6VLrDXLi5F28cx",
+        "1E0yH4SqP3qkPIAjDUtdoT",
+        "4KPnyneWrW9kvAnwvLcJua",
+        "3qlWyv2wrWHPNfDVbxXh4s",
+        "23fxmzlm1WGi2dGEFfr4Mo",
+        "3bLtdC7r59InGTRIVNbYKr",
+        "6fG61itFOMJwh9VJMwIwIu"
+      ],
+      "status": "searched-no-confirmed-recording",
+      "conclusion": "Original/alternate credits, official release and all saved/current candidates reviewed; no confirmed Spotify recording. Not proof of absence.",
+      "nextAction": {
+        "type": "new-release-or-provenance-evidence",
+        "avoidRepeatIdenticalQueries": true
+      }
     }
   ],
   "lastAttempt": {
@@ -3276,5 +3353,17 @@
     "networkFailure": false
   },
   "requestPlanComplete": true,
-  "remainingScope": "All 41 received this bounded catalog pass; unresolved identities, unknown availability and structural mapping remain open. No global absence claims."
+  "remainingScope": "All 41 received this bounded catalog pass; unresolved identities, unknown availability and structural mapping remain open. No global absence claims.",
+  "dailyReview": {
+    "date": "2026-11-16",
+    "actualImported": 27,
+    "sourceCount": 31,
+    "reviewRequests": 11,
+    "retries": 0,
+    "dailyRecoveries": 0,
+    "backlogRecoveries": 2,
+    "testCount": 417,
+    "historicalConfirmedPairs": 197,
+    "report": "docs/catalog-review-2026-11-16.md"
+  }
 }

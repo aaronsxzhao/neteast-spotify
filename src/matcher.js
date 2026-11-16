@@ -770,7 +770,7 @@ export function songSearchStages(song) {
       combined(titles, artists), combined(titles.slice(0, 1), primaryAliases.slice(0, 1)),
     ]) },
     { name: 'title-only', manual: false, queries: titleOnly(titles) },
-    { name: 'free-text', manual: false, queries: plain(titles, artists) },
+    { name: 'free-text', manual: false, queries: interleave([plain(titles, artists), plain(titles.slice(0, 1), primaryAliases.slice(0, 1))]) },
     { name: 'album', manual: false, queries: albumQueries(artists) },
     { name: 'manual-alias', manual: true, queries: [...interleave([
       // When BOTH fields differ, querying each translation against the old
