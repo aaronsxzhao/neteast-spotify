@@ -32,3 +32,7 @@ test('campaign subtitle normalization generalizes beyond recorded IDs without ac
  assert.equal(pickBestMatch(source,[{...c,name:'Independent Song (Japanese Version)'}]),null)
  assert.ok(pickBestMatch(source,[{...c,name:'Independent Song (Different Story)'}]).title < 1)
 })
+test('Lena original learned recording never accepts changed guest remake or karaoke',()=>{
+ const row=rows.find(r=>r.source.id===22831533),c=row.candidate
+ for(const wrong of [{...c,artists:[...c.artists,{name:'Verbal Jint'}]},{...c,name:'Sweet(Brand New Mix) (feat.Verbal Jint)',album:{name:'Syncrofusion Lena Park + Brand New Music'}},{...c,name:"It's Sweet - Karaoke"},{...c,is_playable:false}]) assert.equal(pickBestMatch(row.source,[wrong]),null)
+})

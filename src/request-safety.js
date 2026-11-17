@@ -7,6 +7,24 @@ export function safeNetworkDiagnostic(error) {
   return code || (['AbortError', 'TimeoutError'].includes(error?.name) ? error.name : 'UNKNOWN_NETWORK_ERROR')
 }
 
+// Keep only bounded diagnostic categories and hexadecimal request identifiers.
+// Raw response bodies, arbitrary headers, URLs and credentials never enter logs.
+export function safeResponseDiagnostic(response, operation, at) {
+  const get = name => String(response.headers?.get(name) || '')
+  const gateway = ['envoy','edgeproxy','google','cloudflare','nginx','varnish','fastly']
+    .filter(name => new RegExp(name, 'i').test(get('server') + ' ' + get('via')))
+  const ids = {}
+  for (const name of ['x-request-id','spotify-request-id','x-spotify-trace-id','cf-ray']) {
+    const value = get(name)
+    if (/^[a-f0-9-]{16,128}$/i.test(value)) ids[name] = value
+  }
+  const contentType = get('content-type').toLowerCase()
+  return { status: response.status, operation, at, gateway,
+    bodyType: contentType.includes('json') ? 'json' : contentType.includes('html') ? 'html' : contentType.startsWith('text/') ? 'text' : 'other',
+    ...(Object.keys(ids).length ? { requestIds: ids } : {}),
+    ...(response.headers?.get('retry-after') ? { retryAt: retryDeadline(get('retry-after'), at) } : {}) }
+}
+
 const HOUR = 60 * 60_000
 
 // Retire only the old application's 60/hour pause. Provider and network
@@ -166,6 +184,11 @@ export class RequestSafety {
           state.spotify.retryAfterUntil = Math.max(state.spotify.retryAfterUntil || 0, until)
         })
         throw pauseError('provider-cooldown', this.store.state.spotify.retryAfterUntil, 429)
+      }
+      if (response.status >= 500) {
+        const diagnostic = safeResponseDiagnostic(response, this.stats.lastOperation, this.now())
+        this.stats.lastHttpError = diagnostic
+        await this.store.update(state => { state.spotify.lastHttpError = diagnostic })
       }
       if (response.status >= 500) throw Object.assign(new Error('provider-error'), {
         transient: true, status: response.status, retryAfter: response.headers?.get('retry-after'),

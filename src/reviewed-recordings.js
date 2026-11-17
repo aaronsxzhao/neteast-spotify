@@ -110,6 +110,28 @@ const recordings = [
     },
     "evidence": "https://www.universal-music.co.jp/kisugi-takao/products/h00k-20154/",
     "verifiedAt": "2026-11-16T10:32:48.001Z"
+  },
+  {
+    "source": {
+      "id": 22831533,
+      "name": "달아요",
+      "artists": [
+        "朴正炫"
+      ],
+      "album": "Come To Where I Am",
+      "durationMs": 224000
+    },
+    "target": {
+      "id": "1yOXm94bEF0RzSX1gCFyGq",
+      "name": "It's Sweet",
+      "artists": [
+        "Lena Park"
+      ],
+      "album": "Come To Where I Am",
+      "durationMs": 224906
+    },
+    "evidence": "https://music.amazon.ca/tracks/B07ZRXH6CH",
+    "verifiedAt": "2026-11-17T11:38:00.019Z"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()

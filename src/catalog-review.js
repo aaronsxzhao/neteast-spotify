@@ -52,9 +52,39 @@ export async function runCatalogReview(client, { accountId, playlistId, jobs, pr
   } catch (error) {
     progress.requestPlanComplete = false
     progress.blocked = { reason: error.pauseReason || 'verification-failed', retryAt: error.retryAt,
-      status: error.status, networkCode: error.networkCode, at: new Date().toISOString() }
+      status: error.status, networkCode: error.networkCode, httpDiagnostic: client.safety?.stats?.lastHttpError, at: new Date().toISOString() }
     await save(progress)
     throw error
   }
   return progress
+}
+
+// A fresh authorized review cycle after a persisted deadline is distinct from
+// replaying an ambiguous token POST immediately. Never clear safety state.
+export async function resumeCatalogReview(client, options, { now = Date.now,
+  sleep = ms => new Promise(resolve => setTimeout(resolve, ms)),
+  maxResumes = 2, maxWaitMs = 60 * 60_000, onWait = async () => {} } = {}) {
+  const deadline = now() + maxWaitMs
+  const progress = options.progress || (options.progress = {})
+  for (let resumed = 0; ; resumed++) {
+    try {
+      const result = await runCatalogReview(client, options)
+      delete progress.resume
+      await options.save?.(progress)
+      return result
+    } catch (error) {
+      const allowed = error.pauseReason === 'transient-backoff'
+      // A 429 ends this invocation. Preserve its provider deadline; no retry.
+      if (!allowed || error.status === 429 || !Number.isFinite(error.retryAt) ||
+        resumed >= maxResumes || error.retryAt > deadline || now() >= deadline) throw error
+      progress.resume = { retryAt: error.retryAt, attempt: resumed + 1, deadline }
+      await options.save?.(progress)
+      while (now() < error.retryAt) {
+        await onWait(progress.resume)
+        await sleep(Math.min(30_000, error.retryAt - now()))
+      }
+      // Same client and budget counters survive every cycle. Completed jobs
+      // remain cached; /me and playlist ownership are reverified on resumption.
+    }
+  }
 }

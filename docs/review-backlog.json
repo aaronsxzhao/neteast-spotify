@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T10:33:03.230Z",
+  "updatedAt": "2026-11-17T11:42:10.528Z",
   "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
   "reviewComplete": false,
   "entries": [
@@ -97,7 +97,7 @@
           "夏待"
         ]
       },
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "7cSOQ3LGP7KkqdQMehlpCU",
         "27uvU0Rtt05hDYwFmpBA9s",
@@ -105,38 +105,36 @@
         "0k94brBOknUiIgQ7kUNUkA",
         "6zlNkJOqNncHklCUAPZ61g"
       ],
-      "status": "pending-online-verification",
+      "status": "searched-no-confirmed-recording",
       "lastEvidenceDate": "2026-11-17",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "夏待 Himawari Aosaki",
-        "sourceId": 3394841456
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
-      "lastAttemptAt": "2026-11-16T01:07:17.521Z",
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence.",
+      "lastAttemptAt": "2026-11-17T11:37:35.795Z",
       "checkedRequests": [
         {
           "job": {
             "type": "search",
-            "query": "夏待 Aosaki",
+            "query": "夏待 Himawari Aosaki",
             "sourceId": 3394841456
           },
-          "checkedAt": "2026-11-16T01:07:17.521Z",
-          "resultCount": 10
+          "checkedAt": "2026-11-17T11:37:35.795Z",
+          "resultCount": 9
         }
       ],
       "reviewedCandidateIds": [
         "6zlNkJOqNncHklCUAPZ61g",
         "0OxBVRzo5bJcZklm3gsWOZ",
-        "4MwVirVMyerMiHkFomOZay",
-        "1w2tdCsX2yKFjbh3wHII94",
-        "3FUqp10RhCmMjyyB9extmo",
-        "5stUI9U3VGp2j4sbqJEiVI",
+        "1ZErIRlL0I2mHKDEat3lym",
+        "4ExVFhrJqFqgKSUAqDM5AZ",
         "48eAOOo2COGKCT34alma3O",
-        "2Tl9plCC1mml1tS9jepjC4",
-        "0Q5IxEqrMOl6rN4Mfkol1s",
+        "53mioS2nnOFyknS2qGPig8",
+        "4xXP2Un6CayLoQjYEFRTNL",
+        "6dZGdhtEwd2yrW6ftK65OK",
         "4PoNYxoWLABH1fjL0PZTLc"
       ],
       "verifiedCandidates": []
@@ -2806,7 +2804,7 @@
           "随和的结尾"
         ]
       },
-      "evidence": "docs/catalog-review-2026-11-15.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "6KrJn7TLGbkXwbU8GAS5Sk",
         "1Szz2K6zjz3tbHJFfuIb4E",
@@ -2819,34 +2817,33 @@
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "Happen Ending Lee Hi Japanese",
-        "sourceId": 29848057
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
-      "lastAttemptAt": "2026-11-16T01:11:41.754Z",
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence.",
+      "lastAttemptAt": "2026-11-17T11:36:47.788Z",
       "checkedRequests": [
         {
           "job": {
             "type": "search",
-            "query": "Happen Ending Lee Hi Japanese",
+            "query": "Happen Ending LeeHi Japanese Version",
             "sourceId": 29848057
           },
-          "checkedAt": "2026-11-16T01:11:41.754Z",
+          "checkedAt": "2026-11-17T11:36:47.788Z",
           "resultCount": 10
         }
       ],
       "reviewedCandidateIds": [
-        "6KrJn7TLGbkXwbU8GAS5Sk",
         "31bWEfr4LwC1hVLjP7yWJL",
-        "0ZGEW86nQmGafmGQ24GxVa",
-        "06EMBzxDm2hueehobAlMtm",
         "3wB7yAm4WwIvz3TrsYPgOt",
         "6OhLNTT1ac1h2NiIuDDfg5",
-        "4vpxqiy4cN2efISc02SCH3",
-        "56DqIsrDZzhULt30k4Y4JY",
+        "10yf4pwPFJE3oIvJi98O4H",
+        "4Vg262UJVApIlI7d0xhkoc",
         "1vd6RAAMj6SZyXFKtsW2jl",
-        "7zAdHY1MsSjcahcd2jVqbg"
+        "56DqIsrDZzhULt30k4Y4JY",
+        "40dldx3qHgMtlaMPPPlmPs",
+        "0rZG0kkQgUx5ftvOlQ2j6i",
+        "6jFkzgUT0T1XC47yGgkFRo"
       ],
       "verifiedCandidates": []
     },
@@ -3372,7 +3369,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "2OtGqy6FjHrSEL0bRKy4uJ",
         "4bYEhWXr1FNQA6qQRcqYFt",
@@ -3380,14 +3377,47 @@
         "37Ad5RL4wcSyJ6qoq2dgwu",
         "4OwBvwdLoD2Qw8Fcf4EjjI"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "GIN TONIC Kaoruko Otake Bartender",
-        "sourceId": 637852
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "GIN TONIC Kaoruko Otake Bartender",
+            "sourceId": 637852
+          },
+          "checkedAt": "2026-11-17T11:36:55.759Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"GIN TONIC\" artist:\"大嶽香子\"",
+            "sourceId": 637852
+          },
+          "checkedAt": "2026-11-17T11:39:41.762Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:41.762Z",
+      "reviewedCandidateIds": [
+        "59LpNWwrxJHcv5M8W0zxSV",
+        "1Wvi4tNCu1LmUKvOCKbNNJ",
+        "1vNn7rVQT6UtEW1NGH53fT",
+        "2OtGqy6FjHrSEL0bRKy4uJ",
+        "37Ad5RL4wcSyJ6qoq2dgwu",
+        "3waUCQw6FzbImpXAQ282Zm",
+        "6RPDweEbghikQ9PnRBeyzT",
+        "3Sgrm0mwjnUGksy36wTgJr",
+        "3QwLzNwYCAMaVC7pEhkOkV",
+        "2O7uSOhgq61rNTkV8SneFT"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 2130054123,
@@ -3414,7 +3444,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "31V46yiGiGhHigO915wszL",
         "5ZkGZSU92rmyd1wKGi2RFs",
@@ -3422,14 +3452,47 @@
         "2hNPrPLezGSUcQ9qh0ZSRk",
         "0r0JkAuB9sTkqs8fUOQZOY"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "和月亮談的夜晚 鄒念慈",
-        "sourceId": 2130054123
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "和月亮談的夜晚 鄒念慈",
+            "sourceId": 2130054123
+          },
+          "checkedAt": "2026-11-17T11:37:03.654Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"和月亮谈的夜晚\"",
+            "sourceId": 2130054123
+          },
+          "checkedAt": "2026-11-17T11:39:17.728Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:17.728Z",
+      "reviewedCandidateIds": [
+        "7jFNX9aTdcQfhIgUVE02hi",
+        "48QK6QFlq98TfKYdWIxv1h",
+        "0OjvEr0Yk5ZMI3ZPHvuk5z",
+        "79PqSbWa7xPJogmwvLrxnz",
+        "5LwfZ8ILRnUJKsmNeUUEKa",
+        "0r0JkAuB9sTkqs8fUOQZOY",
+        "5ddh06BdH4h07KTaHF7MK5",
+        "2hNPrPLezGSUcQ9qh0ZSRk",
+        "7uSWk3ApqW2i0k0o0rkv5c",
+        "1Mvk25S5BAv63ZCKl18sFC"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 5382902,
@@ -3457,7 +3520,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "0lVJIHTB13L9HgvmyghcPV",
         "4jFhwHrFWkcPJZJj89JykC",
@@ -3465,20 +3528,54 @@
         "5MQgWvjpYrPxnhhtZlZHez",
         "7JTAdE1l08YE1P5xjLCBVI"
       ],
-      "status": "offline-recovery-live-check-pending",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "verified-playable-offline-recovery-tested",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "track",
-        "id": "0lVJIHTB13L9HgvmyghcPV",
-        "sourceId": 5382902
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
       },
       "algorithmFix": {
         "kind": "corroborated-hangul-initial",
         "regression": "test/daily-november17.test.js",
         "queriesInReplay": 1,
         "actualImported": false
-      }
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "track",
+            "id": "0lVJIHTB13L9HgvmyghcPV",
+            "sourceId": 5382902
+          },
+          "checkedAt": "2026-11-17T11:37:11.304Z",
+          "resultCount": 1
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:37:11.304Z",
+      "reviewedCandidateIds": [
+        "0lVJIHTB13L9HgvmyghcPV"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "0lVJIHTB13L9HgvmyghcPV",
+          "name": "슈케이저",
+          "duration_ms": 213626,
+          "is_playable": true,
+          "artists": [
+            {
+              "id": "7LyaQJxH634U3S8Xu6DDrK",
+              "name": "Misty Blue"
+            }
+          ],
+          "album": {
+            "id": "3cy3oLNV6WlkWZD6wGTAZT",
+            "name": "4/4 Sentimental Painkiller - 겨울은 봄의 심장"
+          },
+          "availability": "playable"
+        }
+      ],
+      "conclusion": "Fresh AaronZ read/search confirms playable; offline recovery tested. Not imported."
     },
     {
       "sourceId": 3346080407,
@@ -3505,7 +3602,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "3jldZnNrAYI6IErBqAxeGd",
         "4Zci4SQuAxZsgfBiWaOk1d",
@@ -3513,14 +3610,47 @@
         "0lXYSqfx2QOlFTx9gEPBn0",
         "5xT8QvcYOKG0zCNhYH8kwD"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "Ride The Tide Mr.Bruce",
-        "sourceId": 3346080407
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Ride The Tide Mr.Bruce",
+            "sourceId": 3346080407
+          },
+          "checkedAt": "2026-11-17T11:37:19.775Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"Ride The Tide\" artist:\"Mr.Bruce\"",
+            "sourceId": 3346080407
+          },
+          "checkedAt": "2026-11-17T11:39:33.771Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:33.771Z",
+      "reviewedCandidateIds": [
+        "2ctvdKmETyOzPb2GiJJT53",
+        "0iNf5PLeDpBIrr9yBCprCR",
+        "5B7Aeln3v0fMgJh8MhxTw0",
+        "0inB67IHflRVtb2pmnykz8",
+        "4ni36cZOQZldZGpHyLHFqX",
+        "0s8cxvVIscW4OjljTIsrxo",
+        "2hlu4IAqoxiJf1DzHUOwbC",
+        "2rgSSpCz98hcyJc9P6DTt4",
+        "68xeCKtguS5dBRKIf5Rv5S",
+        "2OnTluP3yNVsFXTkbuQ8VH"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 3400372710,
@@ -3547,7 +3677,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "6VctsLzjFGQvRuUfXzxZ95",
         "5ll6r4NijiGnFq1HuwOeUB",
@@ -3555,14 +3685,47 @@
         "7ADuqU4zMEAGjgbeUhElnL",
         "0nJx06quWzRoqStpsyv4fe"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "半口咸檸 王以諾",
-        "sourceId": 3400372710
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "半口咸檸 王以諾",
+            "sourceId": 3400372710
+          },
+          "checkedAt": "2026-11-17T11:37:27.564Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"半口咸柠\"",
+            "sourceId": 3400372710
+          },
+          "checkedAt": "2026-11-17T11:39:25.727Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:25.727Z",
+      "reviewedCandidateIds": [
+        "6VctsLzjFGQvRuUfXzxZ95",
+        "5ll6r4NijiGnFq1HuwOeUB",
+        "2yi5oVKciFctxrM551fqFY",
+        "3iWGXuIBm7Vhfu9o8lfugs",
+        "7uCE7ea2vefE6mSoZAzmLq",
+        "1NtGoGODk2Uvy9IInEDYd9",
+        "6jCW8ecUn9WOiqXlLwOgGH",
+        "2WX81nH4fOQmE3Rax37Wsy",
+        "1ScsROQNIFl7XXAlb0oRup",
+        "3OhLjxyNnZZcqdgT6qKqG8"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 27591711,
@@ -3589,7 +3752,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "77jIEebt4z9WzaI6LsntDG",
         "3l1na9hnVMgsSQ0vmVZ1lw",
@@ -3597,14 +3760,46 @@
         "31cMcQqWbVsgNSC8dvEfXb",
         "11jS7NW4FsxhBsodkaoMot"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "不能愛戀 只能暗戀 Charles Ying",
-        "sourceId": 27591711
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "不能愛戀 只能暗戀 Charles Ying",
+            "sourceId": 27591711
+          },
+          "checkedAt": "2026-11-17T11:37:43.891Z",
+          "resultCount": 9
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"不能愛戀 只能暗戀\" artist:\"Charles Ying\"",
+            "sourceId": 27591711
+          },
+          "checkedAt": "2026-11-17T11:39:01.736Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:01.736Z",
+      "reviewedCandidateIds": [
+        "3QSh37f3Sp4SjG4hOtsRTf",
+        "3PUgmO3998FquMS1j5tWiN",
+        "5swT7KlTOsD8xInEv9NoPA",
+        "6kQirLoQ0TYEbcT6NIW0Zm",
+        "5a3uz9YGWyn4T5aESzPXFS",
+        "5ltfgx9GHwzkeudUlTE8jo",
+        "2XBAV1NKICu7B9Tz9cUQA6",
+        "5To6lR5O2yA3kFzHBOwuqH",
+        "36TZjnZG9xfPnMMEm9VVJ5"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 30431837,
@@ -3631,7 +3826,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "1IvedQhfGLJwUfG3ht9dfl",
         "3M9xpeV4meagA6ZBXsbxfg",
@@ -3639,14 +3834,47 @@
         "2XthhZUpnWIMmiZrpREz8y",
         "4sgtiHPwErwGLrUu4atg9u"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "searched-no-confirmed-recording",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "Luv is True 3rd Coast DJMAX",
-        "sourceId": 30431837
-      }
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Luv is True 3rd Coast DJMAX",
+            "sourceId": 30431837
+          },
+          "checkedAt": "2026-11-17T11:37:51.954Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"Luv Is True\" artist:\"3rd Coast\"",
+            "sourceId": 30431837
+          },
+          "checkedAt": "2026-11-17T11:39:09.762Z",
+          "resultCount": 0
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:39:09.762Z",
+      "reviewedCandidateIds": [
+        "35TLG0PJOUouIpvDYTvPKM",
+        "2mFJfExy0ZBZMH1mae2kFd",
+        "7wnYn58RlfhQ1EK1Uege7A",
+        "7ggCxX3t5yePq0b7PEIgyq",
+        "7gu2vBZqiW4eN7qrbUGNWN",
+        "3WXpnko9Il6pNXsOb0aJa7",
+        "6H9PSNZmBnfHos2vdKlRcV",
+        "1ko5OCUJ0LSrRvBoeOjdQi",
+        "1RE09J4zbBrfN6vo71svf3",
+        "4Tq1d4wiPpsXeHXHiZKPVy"
+      ],
+      "conclusion": "Bounded live original/alternate-credit/title queries completed; no verified correct target. Not proof of absence."
     },
     {
       "sourceId": 22831533,
@@ -3674,7 +3902,7 @@
         ]
       },
       "lastEvidenceDate": "2026-11-17",
-      "evidence": "docs/catalog-review-2026-11-17.md",
+      "evidence": "docs/review-resume-2026-11-17.md",
       "candidateIds": [
         "13JdE7qQ502LMkUeUP2qfg",
         "17r0QOU13yjiEP38skWLjo",
@@ -3682,13 +3910,85 @@
         "5E1nZvJ91NF5s0Kqm91UZr",
         "3WCp5g5hJKONQHtkAAU1vv"
       ],
-      "status": "pending-online-verification",
-      "blockedBy": "authorization-http502-backoff",
-      "retryAt": "2026-11-17T10:44:43.482Z",
+      "status": "verified-playable-offline-recovery-tested",
+      "blockedBy": null,
+      "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "달아요 Lena Park",
-        "sourceId": 22831533
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "달아요 Lena Park",
+            "sourceId": 22831533
+          },
+          "checkedAt": "2026-11-17T11:38:00.019Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"달아요\" artist:\"박정현\"",
+            "sourceId": 22831533
+          },
+          "checkedAt": "2026-11-17T11:38:46.086Z",
+          "resultCount": 2
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"Sweet\" artist:\"Lena Park\"",
+            "sourceId": 22831533
+          },
+          "checkedAt": "2026-11-17T11:38:53.868Z",
+          "resultCount": 7
+        }
+      ],
+      "lastAttemptAt": "2026-11-17T11:38:53.868Z",
+      "reviewedCandidateIds": [
+        "1yOXm94bEF0RzSX1gCFyGq",
+        "12YVdrlWZONFqxr7MrTwsO",
+        "0xxuOUyx3HkfKKh2JJ3ytZ",
+        "6nuC4nrMEk0zq2dWrv1juf",
+        "6FHmmoCDc0BHkL8HzJGOhj",
+        "13JdE7qQ502LMkUeUP2qfg",
+        "66gpdt3rCgmasaDexTjib8",
+        "0pBZFyyLFV48OwbYQiy3sM",
+        "1JxFry2HX89GiLmgDP45ER",
+        "6l6SIDw8kveiSNgEbPXOSi",
+        "4o5xsw9QT1Fol54tSbVxXO",
+        "2dK8rN7jeXGlmn1mGVVvyw",
+        "45EACDakpM2ONra7qsSEVH",
+        "58nI48RcVhYjqz7jj9nvnz",
+        "1D0J4zA6QajwisTS96vmla"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "1yOXm94bEF0RzSX1gCFyGq",
+          "name": "It's Sweet",
+          "duration_ms": 224906,
+          "is_playable": true,
+          "artists": [
+            {
+              "id": "7MNyflLAWpaH0EPw1fdORD",
+              "name": "Lena Park"
+            }
+          ],
+          "album": {
+            "id": "0T5CSu2G6JgZHIwbVt68UU",
+            "name": "Come To Where I Am"
+          },
+          "availability": "playable"
+        }
+      ],
+      "conclusion": "Fresh AaronZ read/search confirms playable; offline recovery tested. Not imported.",
+      "algorithmFix": {
+        "kind": "reviewed-recording-evidence",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "actualImported": false
       }
     }
   ],
@@ -3705,18 +4005,12 @@
     "date": "2026-11-17",
     "actualImported": 21,
     "sourceCount": 30,
-    "reviewRequests": 1,
+    "reviewRequests": 23,
     "retries": 0,
-    "dailyOfflineRecoveries": 1,
-    "freshPlayableVerified": 0,
-    "testCount": 429,
+    "dailyOfflineRecoveries": 2,
+    "freshPlayableVerified": 2,
+    "testCount": 436,
     "historicalConfirmedPairs": 218,
-    "report": "docs/catalog-review-2026-11-17.md",
-    "blocked": {
-      "reason": "transient-backoff",
-      "retryAt": 1794912283482,
-      "status": 502,
-      "at": "2026-11-17T10:29:43.491Z"
-    }
+    "report": "docs/review-resume-2026-11-17.md"
   }
 }

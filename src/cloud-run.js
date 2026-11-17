@@ -69,7 +69,8 @@ async function main() {
     retrySourceIds: (process.env.RETRY_SOURCE_IDS || '').split(',').map(id => id.trim()).filter(Boolean),
     onDecision: details => audit('policy-decision', details),
   }) } finally {
-    const { requests, cacheHits, retries, lastStatus, lastOperation } = spotify.safety.stats
+    const { requests, cacheHits, retries, lastStatus, lastOperation, lastHttpError } = spotify.safety.stats
+    if (lastHttpError) console.log(`Spotify HTTP diagnostic: ${JSON.stringify(lastHttpError)}`)
     console.log(`Spotify request metrics: requests=${requests}, cachedQueries=${cacheHits}, retries=${retries}, lastOperation=${lastOperation ?? 'none'}, lastStatus=${lastStatus ?? 'none'}, completedSongs=${run?.sourceCount ?? store.state.sync.checkpoint?.completed ?? 0}.`)
     audit('request-metrics', { requests, cacheHits, retries, status: lastStatus })
   }
