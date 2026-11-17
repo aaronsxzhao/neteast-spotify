@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T10:31:44.076Z",
+  "updatedAt": "2026-11-17T10:33:03.230Z",
   "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
   "reviewComplete": false,
   "entries": [
@@ -92,9 +92,12 @@
         "al": {
           "name": "夏待"
         },
-        "dt": 217299
+        "dt": 217299,
+        "tns": [
+          "夏待"
+        ]
       },
-      "evidence": "docs/catalog-review-2026-11-06.md",
+      "evidence": "docs/catalog-review-2026-11-17.md",
       "candidateIds": [
         "7cSOQ3LGP7KkqdQMehlpCU",
         "27uvU0Rtt05hDYwFmpBA9s",
@@ -102,13 +105,13 @@
         "0k94brBOknUiIgQ7kUNUkA",
         "6zlNkJOqNncHklCUAPZ61g"
       ],
-      "status": "searched-no-confirmed-recording",
-      "lastEvidenceDate": "2026-11-06",
-      "blockedBy": null,
-      "retryAt": null,
+      "status": "pending-online-verification",
+      "lastEvidenceDate": "2026-11-17",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
       "nextAction": {
         "type": "search",
-        "query": "夏待 Aosaki",
+        "query": "夏待 Himawari Aosaki",
         "sourceId": 3394841456
       },
       "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
@@ -3343,6 +3346,350 @@
         "type": "new-release-or-provenance-evidence",
         "avoidRepeatIdenticalQueries": true
       }
+    },
+    {
+      "sourceId": 637852,
+      "name": "GIN TONIC ~オヤジ~",
+      "artists": [
+        "大嶽香子"
+      ],
+      "album": "バーテンダー　オリジナルサウンドトラック",
+      "durationMs": 139000,
+      "source": {
+        "id": 637852,
+        "name": "GIN TONIC ~オヤジ~",
+        "ar": [
+          {
+            "name": "大嶽香子"
+          }
+        ],
+        "al": {
+          "name": "バーテンダー　オリジナルサウンドトラック"
+        },
+        "dt": 139000,
+        "tns": [
+          "GIN TONIC ~オヤジ~"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "2OtGqy6FjHrSEL0bRKy4uJ",
+        "4bYEhWXr1FNQA6qQRcqYFt",
+        "03hGrk2NqB9r5XzCO0loJJ",
+        "37Ad5RL4wcSyJ6qoq2dgwu",
+        "4OwBvwdLoD2Qw8Fcf4EjjI"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "GIN TONIC Kaoruko Otake Bartender",
+        "sourceId": 637852
+      }
+    },
+    {
+      "sourceId": 2130054123,
+      "name": "和月亮谈的夜晚",
+      "artists": [
+        "邹念慈"
+      ],
+      "album": "夏日美梦",
+      "durationMs": 182318,
+      "source": {
+        "id": 2130054123,
+        "name": "和月亮谈的夜晚",
+        "ar": [
+          {
+            "name": "邹念慈"
+          }
+        ],
+        "al": {
+          "name": "夏日美梦"
+        },
+        "dt": 182318,
+        "tns": [
+          "和月亮谈的夜晚"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "31V46yiGiGhHigO915wszL",
+        "5ZkGZSU92rmyd1wKGi2RFs",
+        "79PqSbWa7xPJogmwvLrxnz",
+        "2hNPrPLezGSUcQ9qh0ZSRk",
+        "0r0JkAuB9sTkqs8fUOQZOY"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "和月亮談的夜晚 鄒念慈",
+        "sourceId": 2130054123
+      }
+    },
+    {
+      "sourceId": 5382902,
+      "name": "슈게이저",
+      "artists": [
+        "Misty Blue"
+      ],
+      "album": "4/4 Sentimental Painkiller - 겨울은 봄의 심장",
+      "durationMs": 213626,
+      "source": {
+        "id": 5382902,
+        "name": "슈게이저",
+        "ar": [
+          {
+            "name": "Misty Blue"
+          }
+        ],
+        "al": {
+          "name": "4/4 Sentimental Painkiller - 겨울은 봄의 심장"
+        },
+        "dt": 213626,
+        "tns": [
+          "슈게이저",
+          "计划"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "0lVJIHTB13L9HgvmyghcPV",
+        "4jFhwHrFWkcPJZJj89JykC",
+        "36uq5DVrglbmYgKRxwSs6x",
+        "5MQgWvjpYrPxnhhtZlZHez",
+        "7JTAdE1l08YE1P5xjLCBVI"
+      ],
+      "status": "offline-recovery-live-check-pending",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "track",
+        "id": "0lVJIHTB13L9HgvmyghcPV",
+        "sourceId": 5382902
+      },
+      "algorithmFix": {
+        "kind": "corroborated-hangul-initial",
+        "regression": "test/daily-november17.test.js",
+        "queriesInReplay": 1,
+        "actualImported": false
+      }
+    },
+    {
+      "sourceId": 3346080407,
+      "name": "Ride The Tide",
+      "artists": [
+        "Mr.Bruce"
+      ],
+      "album": "AlL iS wElL",
+      "durationMs": 249500,
+      "source": {
+        "id": 3346080407,
+        "name": "Ride The Tide",
+        "ar": [
+          {
+            "name": "Mr.Bruce"
+          }
+        ],
+        "al": {
+          "name": "AlL iS wElL"
+        },
+        "dt": 249500,
+        "tns": [
+          "Ride The Tide"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "3jldZnNrAYI6IErBqAxeGd",
+        "4Zci4SQuAxZsgfBiWaOk1d",
+        "51bq69leoOBsFua5PAZ5r0",
+        "0lXYSqfx2QOlFTx9gEPBn0",
+        "5xT8QvcYOKG0zCNhYH8kwD"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Ride The Tide Mr.Bruce",
+        "sourceId": 3346080407
+      }
+    },
+    {
+      "sourceId": 3400372710,
+      "name": "半口咸柠",
+      "artists": [
+        "王以诺"
+      ],
+      "album": "半口咸柠",
+      "durationMs": 130746,
+      "source": {
+        "id": 3400372710,
+        "name": "半口咸柠",
+        "ar": [
+          {
+            "name": "王以诺"
+          }
+        ],
+        "al": {
+          "name": "半口咸柠"
+        },
+        "dt": 130746,
+        "tns": [
+          "半口咸柠"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "6VctsLzjFGQvRuUfXzxZ95",
+        "5ll6r4NijiGnFq1HuwOeUB",
+        "2V42jeCmAOTdV1C4tSRWgJ",
+        "7ADuqU4zMEAGjgbeUhElnL",
+        "0nJx06quWzRoqStpsyv4fe"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "半口咸檸 王以諾",
+        "sourceId": 3400372710
+      }
+    },
+    {
+      "sourceId": 27591711,
+      "name": "不能爱恋 只能暗恋",
+      "artists": [
+        "应昌佑"
+      ],
+      "album": "charles 同名EP",
+      "durationMs": 277293,
+      "source": {
+        "id": 27591711,
+        "name": "不能爱恋 只能暗恋",
+        "ar": [
+          {
+            "name": "应昌佑"
+          }
+        ],
+        "al": {
+          "name": "charles 同名EP"
+        },
+        "dt": 277293,
+        "tns": [
+          "不能爱恋 只能暗恋"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "77jIEebt4z9WzaI6LsntDG",
+        "3l1na9hnVMgsSQ0vmVZ1lw",
+        "1B9TJD0CzBDf8iYvA5LJv2",
+        "31cMcQqWbVsgNSC8dvEfXb",
+        "11jS7NW4FsxhBsodkaoMot"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "不能愛戀 只能暗戀 Charles Ying",
+        "sourceId": 27591711
+      }
+    },
+    {
+      "sourceId": 30431837,
+      "name": "Luv is True",
+      "artists": [
+        "3Rd Coast"
+      ],
+      "album": "DJMAX Portable 3 Original Sound Track",
+      "durationMs": 173000,
+      "source": {
+        "id": 30431837,
+        "name": "Luv is True",
+        "ar": [
+          {
+            "name": "3Rd Coast"
+          }
+        ],
+        "al": {
+          "name": "DJMAX Portable 3 Original Sound Track"
+        },
+        "dt": 173000,
+        "tns": [
+          "Luv is True"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "1IvedQhfGLJwUfG3ht9dfl",
+        "3M9xpeV4meagA6ZBXsbxfg",
+        "4c1T92biEiCYhEXtFCweP3",
+        "2XthhZUpnWIMmiZrpREz8y",
+        "4sgtiHPwErwGLrUu4atg9u"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "Luv is True 3rd Coast DJMAX",
+        "sourceId": 30431837
+      }
+    },
+    {
+      "sourceId": 22831533,
+      "name": "달아요",
+      "artists": [
+        "朴正炫"
+      ],
+      "album": "Come To Where I Am",
+      "durationMs": 224000,
+      "source": {
+        "id": 22831533,
+        "name": "달아요",
+        "ar": [
+          {
+            "name": "朴正炫"
+          }
+        ],
+        "al": {
+          "name": "Come To Where I Am"
+        },
+        "dt": 224000,
+        "tns": [
+          "달아요",
+          "甜甜的"
+        ]
+      },
+      "lastEvidenceDate": "2026-11-17",
+      "evidence": "docs/catalog-review-2026-11-17.md",
+      "candidateIds": [
+        "13JdE7qQ502LMkUeUP2qfg",
+        "17r0QOU13yjiEP38skWLjo",
+        "194f8qChyCYdsGXNftD72K",
+        "5E1nZvJ91NF5s0Kqm91UZr",
+        "3WCp5g5hJKONQHtkAAU1vv"
+      ],
+      "status": "pending-online-verification",
+      "blockedBy": "authorization-http502-backoff",
+      "retryAt": "2026-11-17T10:44:43.482Z",
+      "nextAction": {
+        "type": "search",
+        "query": "달아요 Lena Park",
+        "sourceId": 22831533
+      }
     }
   ],
   "lastAttempt": {
@@ -3355,15 +3702,21 @@
   "requestPlanComplete": true,
   "remainingScope": "All 41 received this bounded catalog pass; unresolved identities, unknown availability and structural mapping remain open. No global absence claims.",
   "dailyReview": {
-    "date": "2026-11-16",
-    "actualImported": 27,
-    "sourceCount": 31,
-    "reviewRequests": 11,
+    "date": "2026-11-17",
+    "actualImported": 21,
+    "sourceCount": 30,
+    "reviewRequests": 1,
     "retries": 0,
-    "dailyRecoveries": 0,
-    "backlogRecoveries": 2,
-    "testCount": 417,
-    "historicalConfirmedPairs": 197,
-    "report": "docs/catalog-review-2026-11-16.md"
+    "dailyOfflineRecoveries": 1,
+    "freshPlayableVerified": 0,
+    "testCount": 429,
+    "historicalConfirmedPairs": 218,
+    "report": "docs/catalog-review-2026-11-17.md",
+    "blocked": {
+      "reason": "transient-backoff",
+      "retryAt": 1794912283482,
+      "status": 502,
+      "at": "2026-11-17T10:29:43.491Z"
+    }
   }
 }

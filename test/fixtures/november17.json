@@ -1,0 +1,875 @@
+[
+  {
+    "source": {
+      "id": 637852,
+      "name": "GIN TONIC ~オヤジ~",
+      "ar": [
+        {
+          "name": "大嶽香子"
+        }
+      ],
+      "al": {
+        "name": "バーテンダー　オリジナルサウンドトラック",
+        "tns": [
+          "バーテンダー　オリジナルサウンドトラック",
+          "调酒师原声集"
+        ]
+      },
+      "dt": 139000,
+      "tns": [
+        "GIN TONIC ~オヤジ~"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "2OtGqy6FjHrSEL0bRKy4uJ",
+        "name": "GIN TONIC",
+        "artists": [
+          {
+            "name": "LEONARDO"
+          }
+        ],
+        "album": {
+          "name": "GIN TONIC"
+        },
+        "duration_ms": 150325,
+        "is_playable": true
+      },
+      {
+        "id": "4bYEhWXr1FNQA6qQRcqYFt",
+        "name": "Gin tonic (Feat. 210, Kid Milli)",
+        "artists": [
+          {
+            "name": "YANGHONGWON"
+          },
+          {
+            "name": "210"
+          },
+          {
+            "name": "Kid Milli"
+          }
+        ],
+        "album": {
+          "name": "SOkoNYUN"
+        },
+        "duration_ms": 221704,
+        "is_playable": true
+      },
+      {
+        "id": "03hGrk2NqB9r5XzCO0loJJ",
+        "name": "Gin Tonic",
+        "artists": [
+          {
+            "name": "Parov Stelar"
+          }
+        ],
+        "album": {
+          "name": "The Demon Diaries"
+        },
+        "duration_ms": 198714,
+        "is_playable": true
+      },
+      {
+        "id": "37Ad5RL4wcSyJ6qoq2dgwu",
+        "name": "Gin & Tonic",
+        "artists": [
+          {
+            "name": "Brandy Butler"
+          },
+          {
+            "name": "The Fonxionaires"
+          }
+        ],
+        "album": {
+          "name": "Don't Want Nothing"
+        },
+        "duration_ms": 203520,
+        "is_playable": true
+      },
+      {
+        "id": "4OwBvwdLoD2Qw8Fcf4EjjI",
+        "name": "Gin & Tonic",
+        "artists": [
+          {
+            "name": "The Dirty Shirts"
+          }
+        ],
+        "album": {
+          "name": "In The Get Up From The Get Go"
+        },
+        "duration_ms": 221418,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 2130054123,
+      "name": "和月亮谈的夜晚",
+      "ar": [
+        {
+          "name": "邹念慈"
+        }
+      ],
+      "al": {
+        "name": "夏日美梦",
+        "tns": [
+          "夏日美梦"
+        ]
+      },
+      "dt": 182318,
+      "tns": [
+        "和月亮谈的夜晚"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "31V46yiGiGhHigO915wszL",
+        "name": "和谐的夜晚",
+        "artists": [
+          {
+            "name": "谭飞洁"
+          }
+        ],
+        "album": {
+          "name": "刊载"
+        },
+        "duration_ms": 68074,
+        "is_playable": true
+      },
+      {
+        "id": "5ZkGZSU92rmyd1wKGi2RFs",
+        "name": "有可能的夜晚 - Live",
+        "artists": [
+          {
+            "name": "Zhou Shen"
+          }
+        ],
+        "album": {
+          "name": "歌手·当打之年 (第七期 Live)"
+        },
+        "duration_ms": 324095,
+        "is_playable": true
+      },
+      {
+        "id": "79PqSbWa7xPJogmwvLrxnz",
+        "name": "有可能的夜晚",
+        "artists": [
+          {
+            "name": "颜人中"
+          }
+        ],
+        "album": {
+          "name": "有可能的夜晚"
+        },
+        "duration_ms": 276521,
+        "is_playable": true
+      },
+      {
+        "id": "2hNPrPLezGSUcQ9qh0ZSRk",
+        "name": "和月亮說晚安",
+        "artists": [
+          {
+            "name": "郭衡 (Guo Heng)"
+          }
+        ],
+        "album": {
+          "name": "寶寶睡眠音樂 鋼琴搖籃曲 輕柔旋律入夢鄉"
+        },
+        "duration_ms": 260726,
+        "is_playable": true
+      },
+      {
+        "id": "0r0JkAuB9sTkqs8fUOQZOY",
+        "name": "月亮",
+        "artists": [
+          {
+            "name": "Priscilla Chan"
+          }
+        ],
+        "album": {
+          "name": "陳慧嫻精選-今天的愛人是誰"
+        },
+        "duration_ms": 283533,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 5382902,
+      "name": "슈게이저",
+      "ar": [
+        {
+          "name": "Misty Blue"
+        }
+      ],
+      "al": {
+        "name": "4/4 Sentimental Painkiller - 겨울은 봄의 심장",
+        "tns": [
+          "4/4 Sentimental Painkiller - 겨울은 봄의 심장"
+        ]
+      },
+      "dt": 213626,
+      "tns": [
+        "슈게이저",
+        "计划"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "0lVJIHTB13L9HgvmyghcPV",
+        "name": "슈케이저",
+        "artists": [
+          {
+            "name": "Misty Blue"
+          }
+        ],
+        "album": {
+          "name": "4/4 Sentimental Painkiller - 겨울은 봄의 심장"
+        },
+        "duration_ms": 213626,
+        "is_playable": true
+      },
+      {
+        "id": "4jFhwHrFWkcPJZJj89JykC",
+        "name": "计划",
+        "artists": [
+          {
+            "name": "WAV"
+          },
+          {
+            "name": "姚伟涛"
+          }
+        ],
+        "album": {
+          "name": "计划"
+        },
+        "duration_ms": 206363,
+        "is_playable": true
+      },
+      {
+        "id": "36uq5DVrglbmYgKRxwSs6x",
+        "name": "计划",
+        "artists": [
+          {
+            "name": "李品翰"
+          }
+        ],
+        "album": {
+          "name": "计划"
+        },
+        "duration_ms": 325656,
+        "is_playable": true
+      },
+      {
+        "id": "5MQgWvjpYrPxnhhtZlZHez",
+        "name": "計劃",
+        "artists": [
+          {
+            "name": "馮達"
+          },
+          {
+            "name": "祁勃力"
+          }
+        ],
+        "album": {
+          "name": "影視劇《正好遇見你》原聲帶"
+        },
+        "duration_ms": 109909,
+        "is_playable": true
+      },
+      {
+        "id": "7JTAdE1l08YE1P5xjLCBVI",
+        "name": "計劃",
+        "artists": [
+          {
+            "name": "Ding Ke"
+          }
+        ],
+        "album": {
+          "name": "重生 電影原聲音樂 (配乐专辑)"
+        },
+        "duration_ms": 100000,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 3346080407,
+      "name": "Ride The Tide",
+      "ar": [
+        {
+          "name": "Mr.Bruce"
+        }
+      ],
+      "al": {
+        "name": "AlL iS wElL",
+        "tns": [
+          "AlL iS wElL"
+        ]
+      },
+      "dt": 249500,
+      "tns": [
+        "Ride The Tide"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "3jldZnNrAYI6IErBqAxeGd",
+        "name": "Ride The Tide",
+        "artists": [
+          {
+            "name": "Alan-K"
+          }
+        ],
+        "album": {
+          "name": "Once For A Change"
+        },
+        "duration_ms": 264000,
+        "is_playable": true
+      },
+      {
+        "id": "4Zci4SQuAxZsgfBiWaOk1d",
+        "name": "Ride the Tide",
+        "artists": [
+          {
+            "name": "The Screamin' Cheetah Wheelies"
+          }
+        ],
+        "album": {
+          "name": "The Screamin' Cheetah Wheelies"
+        },
+        "duration_ms": 272626,
+        "is_playable": true
+      },
+      {
+        "id": "51bq69leoOBsFua5PAZ5r0",
+        "name": "Ride the Tide",
+        "artists": [
+          {
+            "name": "Donnie & Joe Emerson"
+          }
+        ],
+        "album": {
+          "name": "Still Dreamin' Wild: The Lost Recordings 1979-81"
+        },
+        "duration_ms": 222813,
+        "is_playable": true
+      },
+      {
+        "id": "0lXYSqfx2QOlFTx9gEPBn0",
+        "name": "Ride the Tide",
+        "artists": [
+          {
+            "name": "Dual Current"
+          }
+        ],
+        "album": {
+          "name": "Ride the Tide"
+        },
+        "duration_ms": 187200,
+        "is_playable": true
+      },
+      {
+        "id": "5xT8QvcYOKG0zCNhYH8kwD",
+        "name": "Ride The Tide",
+        "artists": [
+          {
+            "name": "The Screamin' Cheetah Wheelies"
+          }
+        ],
+        "album": {
+          "name": "Live Vol 1 & 2"
+        },
+        "duration_ms": 389786,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 3400372710,
+      "name": "半口咸柠",
+      "ar": [
+        {
+          "name": "王以诺"
+        }
+      ],
+      "al": {
+        "name": "半口咸柠",
+        "tns": [
+          "半口咸柠"
+        ]
+      },
+      "dt": 130746,
+      "tns": [
+        "半口咸柠"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "6VctsLzjFGQvRuUfXzxZ95",
+        "name": "渡口 - Remastered",
+        "artists": [
+          {
+            "name": "Tsai Chin"
+          }
+        ],
+        "album": {
+          "name": "民歌蔡琴 (Remastered)"
+        },
+        "duration_ms": 227280,
+        "is_playable": true
+      },
+      {
+        "id": "5ll6r4NijiGnFq1HuwOeUB",
+        "name": "渡口",
+        "artists": [
+          {
+            "name": "Tsai Chin"
+          }
+        ],
+        "album": {
+          "name": "民歌蔡琴"
+        },
+        "duration_ms": 227333,
+        "is_playable": true
+      },
+      {
+        "id": "2V42jeCmAOTdV1C4tSRWgJ",
+        "name": "珠玉",
+        "artists": [
+          {
+            "name": "單依純"
+          }
+        ],
+        "album": {
+          "name": "純妹妹"
+        },
+        "duration_ms": 202402,
+        "is_playable": true
+      },
+      {
+        "id": "7ADuqU4zMEAGjgbeUhElnL",
+        "name": "日夕回味",
+        "artists": [
+          {
+            "name": "林姍姍"
+          },
+          {
+            "name": "Zhang Zi Qing"
+          }
+        ],
+        "album": {
+          "name": "我愛經典系列"
+        },
+        "duration_ms": 278493,
+        "is_playable": true
+      },
+      {
+        "id": "0nJx06quWzRoqStpsyv4fe",
+        "name": "傳聞",
+        "artists": [
+          {
+            "name": "Pakho Chau"
+          }
+        ],
+        "album": {
+          "name": "傳聞"
+        },
+        "duration_ms": 247017,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 3394841456,
+      "name": "夏待",
+      "ar": [
+        {
+          "name": "Himawari"
+        },
+        {
+          "name": "Aosaki"
+        }
+      ],
+      "al": {
+        "name": "夏待",
+        "tns": [
+          "夏待"
+        ]
+      },
+      "dt": 217299,
+      "tns": [
+        "夏待"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "7cSOQ3LGP7KkqdQMehlpCU",
+        "name": "夏待",
+        "artists": [
+          {
+            "name": "If"
+          },
+          {
+            "name": "鏡音リン"
+          }
+        ],
+        "album": {
+          "name": "READYBABY"
+        },
+        "duration_ms": 244000,
+        "is_playable": true
+      },
+      {
+        "id": "27uvU0Rtt05hDYwFmpBA9s",
+        "name": "夏待ち",
+        "artists": [
+          {
+            "name": "ROUND TABLE featuring Nino"
+          }
+        ],
+        "album": {
+          "name": "「ARIA The NATURAL」エンディングテーマ　夏待ち"
+        },
+        "duration_ms": 344633,
+        "is_playable": true
+      },
+      {
+        "id": "1pU6PB9hZyoqTPTOyorkWL",
+        "name": "夏待ち",
+        "artists": [
+          {
+            "name": "ROUND TABLE featuring Nino"
+          }
+        ],
+        "album": {
+          "name": "Nino"
+        },
+        "duration_ms": 344633,
+        "is_playable": true
+      },
+      {
+        "id": "0k94brBOknUiIgQ7kUNUkA",
+        "name": "夏待ち",
+        "artists": [
+          {
+            "name": "ROUND TABLE featuring Nino"
+          }
+        ],
+        "album": {
+          "name": "「ARIA The NATURAL」ボーカルソング・コレクション"
+        },
+        "duration_ms": 344633,
+        "is_playable": true
+      },
+      {
+        "id": "6zlNkJOqNncHklCUAPZ61g",
+        "name": "夏実",
+        "artists": [
+          {
+            "name": "AKASAKI"
+          }
+        ],
+        "album": {
+          "name": "AKASAKI - 2024"
+        },
+        "duration_ms": 307220,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 27591711,
+      "name": "不能爱恋 只能暗恋",
+      "ar": [
+        {
+          "name": "应昌佑"
+        }
+      ],
+      "al": {
+        "name": "charles 同名EP",
+        "tns": [
+          "charles 同名EP"
+        ]
+      },
+      "dt": 277293,
+      "tns": [
+        "不能爱恋 只能暗恋"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "77jIEebt4z9WzaI6LsntDG",
+        "name": "不能說的秘密",
+        "artists": [
+          {
+            "name": "Jay Chou"
+          }
+        ],
+        "album": {
+          "name": "不能說的秘密電影原聲帶"
+        },
+        "duration_ms": 296533,
+        "is_playable": true
+      },
+      {
+        "id": "3l1na9hnVMgsSQ0vmVZ1lw",
+        "name": "不能說的秘密",
+        "artists": [
+          {
+            "name": "Jay Chou"
+          }
+        ],
+        "album": {
+          "name": "周杰倫2007世界巡迴演唱會"
+        },
+        "duration_ms": 297386,
+        "is_playable": true
+      },
+      {
+        "id": "1B9TJD0CzBDf8iYvA5LJv2",
+        "name": "不能说的秘密",
+        "artists": [
+          {
+            "name": "林项"
+          }
+        ],
+        "album": {
+          "name": "欲望的酒坛"
+        },
+        "duration_ms": 86000,
+        "is_playable": true
+      },
+      {
+        "id": "31cMcQqWbVsgNSC8dvEfXb",
+        "name": "暗恋 (《暗恋·橘生淮南》电影主题曲)",
+        "artists": [
+          {
+            "name": "Jane Zhang"
+          }
+        ],
+        "album": {
+          "name": "暗恋 (《暗恋·橘生淮南》电影主题曲)"
+        },
+        "duration_ms": 266960,
+        "is_playable": true
+      },
+      {
+        "id": "11jS7NW4FsxhBsodkaoMot",
+        "name": "永不失联的爱",
+        "artists": [
+          {
+            "name": "單依純"
+          }
+        ],
+        "album": {
+          "name": "永不失联的爱"
+        },
+        "duration_ms": 272544,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 30431837,
+      "name": "Luv is True",
+      "ar": [
+        {
+          "name": "3Rd Coast"
+        }
+      ],
+      "al": {
+        "name": "DJMAX Portable 3 Original Sound Track",
+        "tns": [
+          "DJMAX Portable 3 Original Sound Track"
+        ]
+      },
+      "dt": 173000,
+      "tns": [
+        "Luv is True"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "1IvedQhfGLJwUfG3ht9dfl",
+        "name": "Luv Is True",
+        "artists": [
+          {
+            "name": "Rappin' 4-Tay"
+          }
+        ],
+        "album": {
+          "name": "Rappen 4 Tay Is Back!"
+        },
+        "duration_ms": 271293,
+        "is_playable": true
+      },
+      {
+        "id": "3M9xpeV4meagA6ZBXsbxfg",
+        "name": "Luv Is True (Luv.i.t)",
+        "artists": [
+          {
+            "name": "PinkFantasy"
+          }
+        ],
+        "album": {
+          "name": "Luv Is True (Luv.i.t)"
+        },
+        "duration_ms": 218399,
+        "is_playable": true
+      },
+      {
+        "id": "4c1T92biEiCYhEXtFCweP3",
+        "name": "Luv Is Tru",
+        "artists": [
+          {
+            "name": "Swan Lingo"
+          }
+        ],
+        "album": {
+          "name": "Luv Is Tru"
+        },
+        "duration_ms": 252371,
+        "is_playable": true
+      },
+      {
+        "id": "2XthhZUpnWIMmiZrpREz8y",
+        "name": "true luv",
+        "artists": [
+          {
+            "name": "whimsyboy"
+          }
+        ],
+        "album": {
+          "name": "true luv"
+        },
+        "duration_ms": 173584,
+        "is_playable": true
+      },
+      {
+        "id": "4sgtiHPwErwGLrUu4atg9u",
+        "name": "Love is True",
+        "artists": [
+          {
+            "name": "Phlocalyst"
+          },
+          {
+            "name": "Sátyr"
+          },
+          {
+            "name": "The Sims"
+          },
+          {
+            "name": "Lofi Girl"
+          }
+        ],
+        "album": {
+          "name": "Lofi Girl x The Sims - cozy music to feel ooh be gah!"
+        },
+        "duration_ms": 175962,
+        "is_playable": true
+      }
+    ]
+  },
+  {
+    "source": {
+      "id": 22831533,
+      "name": "달아요",
+      "ar": [
+        {
+          "name": "朴正炫"
+        }
+      ],
+      "al": {
+        "name": "Come To Where I Am",
+        "tns": [
+          "Come To Where I Am"
+        ]
+      },
+      "dt": 224000,
+      "tns": [
+        "달아요",
+        "甜甜的"
+      ]
+    },
+    "candidates": [
+      {
+        "id": "13JdE7qQ502LMkUeUP2qfg",
+        "name": "Sweet (달아요) (By Lena Park(박정현)) - Melody Karaoke Version",
+        "artists": [
+          {
+            "name": "ZZang KARAOKE"
+          }
+        ],
+        "album": {
+          "name": "ZZang KARAOKE 2024 K-POP Vol.167"
+        },
+        "duration_ms": 228571,
+        "is_playable": true
+      },
+      {
+        "id": "17r0QOU13yjiEP38skWLjo",
+        "name": "甜甜的",
+        "artists": [
+          {
+            "name": "Jay Chou"
+          }
+        ],
+        "album": {
+          "name": "我很忙"
+        },
+        "duration_ms": 243853,
+        "is_playable": true
+      },
+      {
+        "id": "194f8qChyCYdsGXNftD72K",
+        "name": "甜甜的 - Live",
+        "artists": [
+          {
+            "name": "Jay Chou"
+          }
+        ],
+        "album": {
+          "name": "周杰倫2007世界巡迴演唱會"
+        },
+        "duration_ms": 251026,
+        "is_playable": true
+      },
+      {
+        "id": "5E1nZvJ91NF5s0Kqm91UZr",
+        "name": "甜甜的空气",
+        "artists": [
+          {
+            "name": "蔡巽洋"
+          }
+        ],
+        "album": {
+          "name": "网剧《淑女飘飘拳》原声音乐"
+        },
+        "duration_ms": 160992,
+        "is_playable": true
+      },
+      {
+        "id": "3WCp5g5hJKONQHtkAAU1vv",
+        "name": "태극기를 달아요",
+        "artists": [
+          {
+            "name": "동요유치원"
+          }
+        ],
+        "album": {
+          "name": "태극기를 달아요"
+        },
+        "duration_ms": 83652,
+        "is_playable": true
+      }
+    ]
+  }
+]

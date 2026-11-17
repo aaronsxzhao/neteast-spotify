@@ -829,6 +829,26 @@ function sameCompleteRoster(sourceArtists, targetArtists, manual) {
   })
 }
 
+// Hangul loanword catalogs sometimes alternate plain/aspirated initials.
+// This is NOT general edit-distance forgiveness: require one such initial,
+// >=4 complete syllables, identical full roster/album and near-identical time.
+function corroboratedHangulSpelling(song, candidate, difference) {
+  if (difference > 250) return false
+  const roster = names => JSON.stringify(names.map(normalize))
+  if (roster(songArtists(song)) !== roster((candidate.artists || []).map(a => a.name))) return false
+  if (!songAlbumNames(song).some(name => normalize(name) && normalize(name) === normalize(candidate.album?.name))) return false
+  const right = String(candidate.name).normalize('NFC').replace(/\s/g, '')
+  if (!/^[가-힣]{4,}$/u.test(right)) return false
+  return titleMetadata(song).some(value => {
+    const left = String(value).normalize('NFC').replace(/\s/g, '')
+    if (!/^[가-힣]{4,}$/u.test(left) || left.length !== right.length) return false
+    const a = [...left.normalize('NFD')], b = [...right.normalize('NFD')]
+    if (a.length !== b.length) return false
+    const changed = a.map((c,i) => c === b[i] ? '' : [c,b[i]].sort().join('')).filter(Boolean)
+    return changed.length === 1 && ['ᄀᄏ','ᄃᄐ','ᄇᄑ','ᄌᄎ'].includes(changed[0])
+  })
+}
+
 function evidence(song, candidate, options) {
   const targetTitles = titleVariants(withoutCollaborator(candidate.name, candidate.artists)).map(recordingTitle)
   let title = Math.max(0, ...titlePairs(song, candidate, options, value => recordingTitle(withoutCampaignNote(value))).map(([left, right]) => similarity(left, right)))
@@ -857,6 +877,8 @@ function evidence(song, candidate, options) {
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
   const album = Math.max(0, ...songAlbumNames(song).flatMap(name => albumTitleVariants(song, name))
     .flatMap(name => albumTitleVariants(song, candidate.album?.name || '').map(target => similarity(name, target))))
+  const titleEvidence = corroboratedHangulSpelling(song, candidate, difference) ? 'corroborated-hangul-initial' : null
+  if (titleEvidence) title = Math.max(title, 0.98)
   const learned = options?.manual !== false && reviewedCandidate(song, candidate)
   if (learned) title = 1
   const identityEvidence = learned ? 'reviewed-recording-fingerprint' : corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
@@ -910,7 +932,7 @@ function evidence(song, candidate, options) {
     ...(title < 0.78 ? ['title'] : []),
     ...(artist < 0.85 && !crossLanguage ? ['artist-identity'] : []),
   ]
-  return { title, artist, primaryMatch, identityEvidence, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, castConflict, eligible, score, rejectionReasons }
+  return { title, artist, primaryMatch, identityEvidence, titleEvidence, albumSimilarity: album, difference, crossLanguage, versionMismatch, creditConflict, castConflict, eligible, score, rejectionReasons }
 }
 
 function recordingKinds(name = '', album = '') {
