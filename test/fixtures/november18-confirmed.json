@@ -1,0 +1,959 @@
+[
+  {
+    "source": {
+      "id": 452620656,
+      "name": "missing you",
+      "ar": [
+        {
+          "name": "具島直子"
+        }
+      ],
+      "al": {
+        "name": "missing you",
+        "tns": [
+          "missing you"
+        ]
+      },
+      "dt": 330396,
+      "tns": [
+        "missing you"
+      ]
+    },
+    "candidate": {
+      "id": "5E7nOftyzWQxbsVjvOAlpF",
+      "name": "missing you",
+      "artists": [
+        {
+          "name": "Naoko Gushima"
+        }
+      ],
+      "album": {
+        "name": "mellow medicine"
+      },
+      "duration_ms": 330360,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 630621,
+      "name": "Dear",
+      "ar": [
+        {
+          "name": "NANASE"
+        }
+      ],
+      "al": {
+        "name": "PIANO MEETS HIPHOP",
+        "tns": [
+          "PIANO MEETS HIPHOP"
+        ]
+      },
+      "dt": 247386,
+      "tns": [
+        "Dear"
+      ]
+    },
+    "candidate": {
+      "id": "2l5z3ZWpU5Vlo2Hl4oM0dC",
+      "name": "Dear",
+      "artists": [
+        {
+          "name": "NANASE"
+        }
+      ],
+      "album": {
+        "name": "PIANO MEETS HIPHOP"
+      },
+      "duration_ms": 247386,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26512614,
+      "name": "바빠 (Bad Boy)",
+      "ar": [
+        {
+          "name": "Sistar"
+        }
+      ],
+      "al": {
+        "name": "Give It To Me",
+        "tns": [
+          "Give It To Me"
+        ]
+      },
+      "dt": 211499,
+      "tns": [
+        "바빠 (Bad Boy)",
+        "坏"
+      ]
+    },
+    "candidate": {
+      "id": "4l4j8jCRHr561Dxph8qXr8",
+      "name": "Bad boy",
+      "artists": [
+        {
+          "name": "SISTAR"
+        }
+      ],
+      "album": {
+        "name": "Give It To Me"
+      },
+      "duration_ms": 212973,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1424460203,
+      "name": "After Hours",
+      "ar": [
+        {
+          "name": "The Weeknd"
+        }
+      ],
+      "al": {
+        "name": "After Hours",
+        "tns": [
+          "After Hours"
+        ]
+      },
+      "dt": 361026,
+      "tns": [
+        "After Hours"
+      ]
+    },
+    "candidate": {
+      "id": "2p8IUWQDrpjuFltbdgLOag",
+      "name": "After Hours",
+      "artists": [
+        {
+          "name": "The Weeknd"
+        }
+      ],
+      "album": {
+        "name": "After Hours"
+      },
+      "duration_ms": 361026,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 300591,
+      "name": "季候风",
+      "ar": [
+        {
+          "name": "王菲"
+        }
+      ],
+      "al": {
+        "name": "执迷不悔 (Remastered 2019)",
+        "tns": [
+          "执迷不悔 (Remastered 2019)"
+        ]
+      },
+      "dt": 277640,
+      "tns": [
+        "季候风"
+      ]
+    },
+    "candidate": {
+      "id": "4HcsshxVrHmwOphqKct7Gc",
+      "name": "季候風",
+      "artists": [
+        {
+          "name": "Faye Wong"
+        }
+      ],
+      "album": {
+        "name": "執迷不悔 (Remastered 2019)"
+      },
+      "duration_ms": 276360,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2535867,
+      "name": "A Lovely Way to Spend an Evening",
+      "ar": [
+        {
+          "name": "Eddie Higgins Trio"
+        }
+      ],
+      "al": {
+        "name": "a lovely way to spend an evening",
+        "tns": [
+          "a lovely way to spend an evening"
+        ]
+      },
+      "dt": 251994,
+      "tns": [
+        "A Lovely Way to Spend an Evening"
+      ]
+    },
+    "candidate": {
+      "id": "3LLl88CHsHgYbGSBlWkNRf",
+      "name": "A Lovely Way to Spend an Evening",
+      "artists": [
+        {
+          "name": "The Eddie Higgins Trio"
+        }
+      ],
+      "album": {
+        "name": "a lovely way to spend an evening"
+      },
+      "duration_ms": 252000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 601640,
+      "name": "恋人たちの地平線",
+      "ar": [
+        {
+          "name": "菊池桃子"
+        }
+      ],
+      "al": {
+        "name": "Miroir―鏡の向こう側に―",
+        "tns": [
+          "Miroir―鏡の向こう側に―"
+        ]
+      },
+      "dt": 229533,
+      "tns": [
+        "恋人たちの地平線",
+        "恋人们的地平线"
+      ]
+    },
+    "candidate": {
+      "id": "5qhVC29ZJ5uiAyKp6bYDJM",
+      "name": "恋人たちの地平線",
+      "artists": [
+        {
+          "name": "Momoko Kikuchi"
+        }
+      ],
+      "album": {
+        "name": "Miroir―鏡の向こう側に―"
+      },
+      "duration_ms": 229533,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 427595456,
+      "name": "우주를 줄게",
+      "ar": [
+        {
+          "name": "脸红的思春期"
+        }
+      ],
+      "al": {
+        "name": "Full Album RED PLANET",
+        "tns": [
+          "Full Album RED PLANET"
+        ]
+      },
+      "dt": 215120,
+      "tns": [
+        "우주를 줄게",
+        "给你宇宙"
+      ]
+    },
+    "candidate": {
+      "id": "15c7KZTrsCUxCQcOdUVELc",
+      "name": "Galaxy",
+      "artists": [
+        {
+          "name": "BOL4"
+        }
+      ],
+      "album": {
+        "name": "Full Album RED PLANET"
+      },
+      "duration_ms": 213853,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3399839173,
+      "name": "甲乙丙丁 (你我怎么两清)",
+      "ar": [
+        {
+          "name": "李佳薇"
+        }
+      ],
+      "al": {
+        "name": "甲乙丙丁",
+        "tns": [
+          "甲乙丙丁"
+        ]
+      },
+      "dt": 210461,
+      "tns": [
+        "甲乙丙丁 (你我怎么两清)"
+      ]
+    },
+    "candidate": {
+      "id": "629FqLOdjtsXh5b45FTk43",
+      "name": "甲乙丙丁Strangers",
+      "artists": [
+        {
+          "name": "Jess Lee"
+        }
+      ],
+      "album": {
+        "name": "甲乙丙丁Strangers"
+      },
+      "duration_ms": 210461,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22824934,
+      "name": "カシミヤのほほえみ (2012 Remaster)",
+      "ar": [
+        {
+          "name": "八神純子"
+        }
+      ],
+      "al": {
+        "name": "コミュニケーション (+3) [2012 Remaster]",
+        "tns": [
+          "コミュニケーション (+3) [2012 Remaster]"
+        ]
+      },
+      "dt": 273466,
+      "tns": [
+        "カシミヤのほほえみ (2012 Remaster)",
+        "如羊绒般的微笑",
+        "如羊绒般温柔的微笑"
+      ]
+    },
+    "candidate": {
+      "id": "2H31Eva4Ijl9SKJ20Z2jKE",
+      "name": "カシミヤのほほえみ - 2012 Remaster",
+      "artists": [
+        {
+          "name": "Junko Yagami"
+        }
+      ],
+      "album": {
+        "name": "コミュニケーション (+3, 2012 Remaster)"
+      },
+      "duration_ms": 273466,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 29732222,
+      "name": "Skyfall",
+      "ar": [
+        {
+          "name": "Damiano"
+        },
+        {
+          "name": "方敏雅"
+        }
+      ],
+      "al": {
+        "name": "Skyfall",
+        "tns": [
+          "Skyfall",
+          "Skyfall (feat.Mina Of Girl's Day)"
+        ]
+      },
+      "dt": 242048,
+      "tns": [
+        "Skyfall",
+        "Skyfall (feat.Mina Of Girl's Day)"
+      ]
+    },
+    "candidate": {
+      "id": "40Dv2LstuZYBjuEjyStfSQ",
+      "name": "Skyfall (feat.Mina Of Girl's Day)",
+      "artists": [
+        {
+          "name": "Damiano"
+        },
+        {
+          "name": "Mina Of Girl's Day"
+        }
+      ],
+      "album": {
+        "name": "Skyfall (feat.Mina Of Girl's Day)"
+      },
+      "duration_ms": 242048,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1321424472,
+      "name": "Summer Situation",
+      "ar": [
+        {
+          "name": "鈴木真海子"
+        },
+        {
+          "name": "SIKK-O"
+        },
+        {
+          "name": "STUTS"
+        }
+      ],
+      "al": {
+        "name": "ALLSEASON EP.",
+        "tns": [
+          "ALLSEASON EP."
+        ]
+      },
+      "dt": 290218,
+      "tns": [
+        "Summer Situation"
+      ]
+    },
+    "candidate": {
+      "id": "7Da7crN49ehmABnxJuo52J",
+      "name": "Summer Situation",
+      "artists": [
+        {
+          "name": "STUTS"
+        },
+        {
+          "name": "SIKK-O"
+        },
+        {
+          "name": "Mamiko Suzuki"
+        }
+      ],
+      "album": {
+        "name": "ALLSEASON EP."
+      },
+      "duration_ms": 290218,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 327721,
+      "name": "读心术",
+      "ar": [
+        {
+          "name": "卓文萱"
+        }
+      ],
+      "al": {
+        "name": "幸福氧气",
+        "tns": [
+          "幸福氧气"
+        ]
+      },
+      "dt": 260300,
+      "tns": [
+        "读心术"
+      ]
+    },
+    "candidate": {
+      "id": "0EOBRd9L5XimzvjHBXWKH7",
+      "name": "讀心術",
+      "artists": [
+        {
+          "name": "卓文萱"
+        }
+      ],
+      "album": {
+        "name": "幸福氧氣"
+      },
+      "duration_ms": 260300,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28240418,
+      "name": "썸",
+      "ar": [
+        {
+          "name": "昭宥"
+        },
+        {
+          "name": "Junggigo"
+        },
+        {
+          "name": "lIlBOI"
+        }
+      ],
+      "al": {
+        "name": "썸",
+        "tns": [
+          "썸"
+        ]
+      },
+      "dt": 211374,
+      "tns": [
+        "썸",
+        "暧昧"
+      ]
+    },
+    "candidate": {
+      "id": "0g1AmSKokPboFrxmG1dxKx",
+      "name": "Some (feat. Lil Boi)",
+      "artists": [
+        {
+          "name": "SOYOU"
+        },
+        {
+          "name": "Junggigo"
+        },
+        {
+          "name": "lIlBOI"
+        }
+      ],
+      "album": {
+        "name": "Some"
+      },
+      "duration_ms": 211374,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 475277350,
+      "name": "一格格",
+      "ar": [
+        {
+          "name": "卫兰"
+        }
+      ],
+      "al": {
+        "name": "一格格",
+        "tns": [
+          "一格格"
+        ]
+      },
+      "dt": 248347,
+      "tns": [
+        "一格格"
+      ]
+    },
+    "candidate": {
+      "id": "5Hmldq1s1Ap8cSZBXpZquV",
+      "name": "一格格",
+      "artists": [
+        {
+          "name": "Janice Vidal"
+        }
+      ],
+      "album": {
+        "name": "一格格"
+      },
+      "duration_ms": 248347,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22766090,
+      "name": "想い出はあざやかに",
+      "ar": [
+        {
+          "name": "田中好子"
+        }
+      ],
+      "al": {
+        "name": "Yoshiko",
+        "tns": [
+          "Yoshiko"
+        ]
+      },
+      "dt": 245691,
+      "tns": [
+        "想い出はあざやかに",
+        "回忆鲜艳"
+      ]
+    },
+    "candidate": {
+      "id": "5fTq3kufSbWmQeDd1VxKbw",
+      "name": "想い出はあざやかに",
+      "artists": [
+        {
+          "name": "田中好子"
+        }
+      ],
+      "album": {
+        "name": "好子"
+      },
+      "duration_ms": 245691,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 569108,
+      "name": "雨にキッスの花束を",
+      "ar": [
+        {
+          "name": "今井美樹"
+        }
+      ],
+      "al": {
+        "name": "retour",
+        "tns": [
+          "retour"
+        ]
+      },
+      "dt": 278493,
+      "tns": [
+        "雨にキッスの花束を",
+        "在雨中献上一束吻",
+        "TV动画《以柔克刚！特别篇 一直对你……。》OP2 / TVアニメ「YAWARA!」OP2テーマ"
+      ]
+    },
+    "candidate": {
+      "id": "4ydvnLC5X6YVibRcjp40j1",
+      "name": "雨にキッスの花束を",
+      "artists": [
+        {
+          "name": "Miki Imai"
+        }
+      ],
+      "album": {
+        "name": "retour"
+      },
+      "duration_ms": 278493,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 25727705,
+      "name": "Replay",
+      "ar": [
+        {
+          "name": "SHINee"
+        }
+      ],
+      "al": {
+        "name": "Replay -君は仆のeverything-",
+        "tns": [
+          "Replay -君は仆のeverything-"
+        ]
+      },
+      "dt": 213405,
+      "tns": [
+        "Replay",
+        "姐姐真漂亮"
+      ]
+    },
+    "candidate": {
+      "id": "1rp986nzkyAX1wFpxzbwlC",
+      "name": "Replay",
+      "artists": [
+        {
+          "name": "SHINee"
+        }
+      ],
+      "album": {
+        "name": "The SHINee World - The First Album"
+      },
+      "duration_ms": 213826,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 561877,
+      "name": "Lie Lie Lie",
+      "ar": [
+        {
+          "name": "BONNIE PINK"
+        }
+      ],
+      "al": {
+        "name": "Bonnie's Kitchen #1",
+        "tns": [
+          "Bonnie's Kitchen #1"
+        ]
+      },
+      "dt": 239866,
+      "tns": [
+        "Lie Lie Lie"
+      ]
+    },
+    "candidate": {
+      "id": "5wT9ffI4K87G4hmuuqNt9b",
+      "name": "Lie Lie Lie",
+      "artists": [
+        {
+          "name": "BONNIE PINK"
+        }
+      ],
+      "album": {
+        "name": "Bonnie's Kitchen #1"
+      },
+      "duration_ms": 240826,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 287398,
+      "name": "我不难过",
+      "ar": [
+        {
+          "name": "孙燕姿"
+        }
+      ],
+      "al": {
+        "name": "未完成",
+        "tns": [
+          "未完成"
+        ]
+      },
+      "dt": 320400,
+      "tns": [
+        "我不难过"
+      ]
+    },
+    "candidate": {
+      "id": "4XrWar13kLO1jr535AzKrQ",
+      "name": "我不難過",
+      "artists": [
+        {
+          "name": "Stefanie Sun"
+        }
+      ],
+      "album": {
+        "name": "未完成"
+      },
+      "duration_ms": 320400,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 29751583,
+      "name": "CITY HUNTER ~愛よ消えないで~",
+      "ar": [
+        {
+          "name": "小比類巻かほる"
+        }
+      ],
+      "al": {
+        "name": "City Hunter Sound Collection X -Theme Songs-",
+        "tns": [
+          "City Hunter Sound Collection X -Theme Songs-",
+          "动画《城市猎人》系列主题曲集"
+        ]
+      },
+      "dt": 245013,
+      "tns": [
+        "CITY HUNTER ~愛よ消えないで~",
+        "城市猎人~爱啊请别消失~",
+        "TV动画《城市猎人》第1-26集片头曲"
+      ]
+    },
+    "candidate": {
+      "id": "76X2KY7pDefceL4VDaeCJo",
+      "name": "City Hunter 〜愛よ消えないで〜",
+      "artists": [
+        {
+          "name": "Kahoru Kohiruimaki"
+        }
+      ],
+      "album": {
+        "name": "劇場版シティーハンター <新宿プライベート・アイズ> -VOCAL COLLECTION-"
+      },
+      "duration_ms": 244720,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 255515,
+      "name": "真的想见你",
+      "ar": [
+        {
+          "name": "李玟"
+        }
+      ],
+      "al": {
+        "name": "李玟粤语专辑",
+        "tns": [
+          "李玟粤语专辑"
+        ]
+      },
+      "dt": 329533,
+      "tns": [
+        "真的想见你"
+      ]
+    },
+    "candidate": {
+      "id": "7BqZRiX6zkOgLznbCt70Ns",
+      "name": "真的想見你",
+      "artists": [
+        {
+          "name": "CoCo Lee"
+        }
+      ],
+      "album": {
+        "name": "李玟粵語專輯"
+      },
+      "duration_ms": 329533,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2712254611,
+      "name": "有你万事屋",
+      "ar": [
+        {
+          "name": "雷同二友"
+        }
+      ],
+      "al": {
+        "name": "有你万事屋",
+        "tns": [
+          "有你万事屋"
+        ]
+      },
+      "dt": 231340,
+      "tns": [
+        "有你万事屋"
+      ]
+    },
+    "candidate": {
+      "id": "4hX2vMHvJ9gxLoUS5W8qur",
+      "name": "有你萬事屋",
+      "artists": [
+        {
+          "name": "雷同二友"
+        }
+      ],
+      "album": {
+        "name": "有你萬事屋"
+      },
+      "duration_ms": 231340,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 307594,
+      "name": "泪海",
+      "ar": [
+        {
+          "name": "许茹芸"
+        }
+      ],
+      "al": {
+        "name": "泪海",
+        "tns": [
+          "泪海"
+        ]
+      },
+      "dt": 298000,
+      "tns": [
+        "泪海",
+        "中视黄金剧场《真爱一世情》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "3NXr1tLoDTEjz5V13vbLXG",
+      "name": "淚海",
+      "artists": [
+        {
+          "name": "Valen Hsu"
+        }
+      ],
+      "album": {
+        "name": "淚海"
+      },
+      "duration_ms": 298000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26145318,
+      "name": "Ma Boy",
+      "ar": [
+        {
+          "name": "Sistar19"
+        }
+      ],
+      "al": {
+        "name": "있다 없으니까",
+        "tns": [
+          "있다 없으니까"
+        ]
+      },
+      "dt": 198000,
+      "tns": [
+        "Ma Boy"
+      ]
+    },
+    "candidate": {
+      "id": "4mUoYd1F53Sml4JDdSoKIV",
+      "name": "Ma boy",
+      "artists": [
+        {
+          "name": "SISTAR19"
+        }
+      ],
+      "album": {
+        "name": "Gone not around any longer"
+      },
+      "duration_ms": 198640,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 27506041,
+      "name": "Falling U",
+      "ar": [
+        {
+          "name": "T-ara"
+        }
+      ],
+      "al": {
+        "name": "Breaking Heart (Repackage)",
+        "tns": [
+          "Breaking Heart (Repackage)",
+          "Breaking Heart"
+        ]
+      },
+      "dt": 210466,
+      "tns": [
+        "Falling U"
+      ]
+    },
+    "candidate": {
+      "id": "0ai64B68jOO3aDD0uLqbEt",
+      "name": "Falling U",
+      "artists": [
+        {
+          "name": "T-ARA"
+        }
+      ],
+      "album": {
+        "name": "Breaking Heart"
+      },
+      "duration_ms": 209790,
+      "is_playable": true
+    }
+  }
+]

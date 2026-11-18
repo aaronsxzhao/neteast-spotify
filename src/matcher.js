@@ -879,7 +879,7 @@ function evidence(song, candidate, options) {
     .flatMap(name => albumTitleVariants(song, candidate.album?.name || '').map(target => similarity(name, target))))
   const titleEvidence = corroboratedHangulSpelling(song, candidate, difference) ? 'corroborated-hangul-initial' : null
   if (titleEvidence) title = Math.max(title, 0.98)
-  const learned = options?.manual !== false && reviewedCandidate(song, candidate)
+  const learned = options?.manual === false ? null : reviewedCandidate(song, candidate)
   if (learned) title = 1
   const identityEvidence = learned ? 'reviewed-recording-fingerprint' : corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })
   if (identityEvidence) { artist = 1; primaryMatch = true; guestOnly = false }
@@ -898,8 +898,11 @@ function evidence(song, candidate, options) {
   // coincidence if the fetched metadata unexpectedly names another artist.
   const reviewedPointer = knownTrackIds(song).includes(candidate.id)
   const crossLanguage = !reviewedPointer && !primaryHasAlias && crossScript && title >= 0.98 && difference <= 2500 && (album >= 0.75 || distinctive)
+  // A release can omit a language label in its track title. Only use verified
+  // metadata for a matching fingerprint, and preserve any explicit edition.
+  const targetLanguage = languageEdition(candidate.name) || learned?.target.language || ''
   const versionMismatch = recordingKinds(song.name, songAlbum(song)) !== recordingKinds(candidate.name, candidate.album?.name) ||
-    languageEdition(song.name) !== languageEdition(candidate.name) ||
+    languageEdition(song.name) !== targetLanguage ||
     directorEdition(song.name) !== directorEdition(candidate.name) || animeEdition(song.name) !== animeEdition(candidate.name) ||
     Boolean(DIFFERENT_RECORDINGS.get(String(song.id))?.has(candidate.id))
   const sourceCredits = song.ar || song.artists || []

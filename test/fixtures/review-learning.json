@@ -222,5 +222,42 @@
         "name": "Come To Where I Am"
       }
     }
+  },
+  {
+    "source": {
+      "id": 26343056,
+      "name": "Only One (Japanese Ver.)",
+      "ar": [
+        {
+          "name": "BoA"
+        }
+      ],
+      "al": {
+        "name": "Only One(Japanese Ver.)",
+        "tns": [
+          "Only One(Japanese Ver.)"
+        ]
+      },
+      "dt": 217506,
+      "tns": [
+        "Only One (Japanese Ver.)"
+      ]
+    },
+    "candidate": {
+      "id": "4FOIzp5aI8yIrStN19IPQu",
+      "name": "Only One",
+      "duration_ms": 217506,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "4muJrGMndyYWqZtfk8OWy4",
+          "name": "BoA"
+        }
+      ],
+      "album": {
+        "id": "0yiBl2XSXvLSUNnmtAXHp1",
+        "name": "Only One"
+      }
+    }
   }
 ]

@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { knownTrackIds, findTrackMatch, pickBestMatch, albumSearchQueries } from '../src/matcher.js'
+import { knownTrackIds, findTrackMatch, pickBestMatch, pickAlternateVersion, albumSearchQueries } from '../src/matcher.js'
 import { reviewedCandidate, reviewedRecording } from '../src/reviewed-recordings.js'
 const rows=JSON.parse(fs.readFileSync(new URL('./fixtures/review-learning.json',import.meta.url)))
 for(const {source,candidate} of rows){
@@ -35,4 +35,22 @@ test('campaign subtitle normalization generalizes beyond recorded IDs without ac
 test('Lena original learned recording never accepts changed guest remake or karaoke',()=>{
  const row=rows.find(r=>r.source.id===22831533),c=row.candidate
  for(const wrong of [{...c,artists:[...c.artists,{name:'Verbal Jint'}]},{...c,name:'Sweet(Brand New Mix) (feat.Verbal Jint)',album:{name:'Syncrofusion Lena Park + Brand New Music'}},{...c,name:"It's Sweet - Karaoke"},{...c,is_playable:false}]) assert.equal(pickBestMatch(row.source,[wrong]),null)
+})
+
+test('a verified Japanese recording can omit its language label without accepting a Korean recording', () => {
+ const { source, candidate } = rows.find(row => row.source.id === 26343056)
+ const korean = {
+  ...candidate,
+  id: '3Hyl7YrOtBcnh1geON2kSO',
+  album: { name: 'Only One - The 7th Album' },
+  duration_ms: 217085,
+ }
+ assert.equal(pickBestMatch(source, [korean, candidate])?.candidate.id, candidate.id)
+ assert.equal(pickBestMatch(source, [candidate], 0.68, { manual: false }), null)
+ const conflictingLabel = { ...candidate, name: 'Only One - Korean Version' }
+ for (const wrong of [korean, conflictingLabel, { ...candidate, id: 'unreviewed-recording' }]) {
+  assert.equal(pickBestMatch(source, [wrong]), null)
+  assert.equal(pickAlternateVersion(source, [wrong]), null)
+ }
+ assert.equal(pickBestMatch({ ...source, id: 0 }, [candidate]), null)
 })

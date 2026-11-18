@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T11:42:10.528Z",
-  "scope": "Unresolved November 5–15 reviews plus two offline-only fixes awaiting account verification",
+  "updatedAt": "2026-11-18T10:33:21.169Z",
+  "scope": "Persistent catalog review backlog through November 18, including verified offline recoveries awaiting normal sync",
   "reviewComplete": false,
   "entries": [
     {
@@ -25,7 +25,7 @@
         },
         "dt": 348133
       },
-      "evidence": "docs/catalog-review-2026-11-06.md",
+      "evidence": "docs/catalog-review-2026-11-18.md",
       "candidateIds": [
         "5hiJ26z9axLX6xrqG5sZUS",
         "2t0grwjSOxV72V1RWXhscB",
@@ -34,16 +34,15 @@
         "3K2cK2d1yGJyr6QKu89HT0"
       ],
       "status": "searched-no-confirmed-recording",
-      "lastEvidenceDate": "2026-11-06",
+      "lastEvidenceDate": "2026-11-18",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "夜の海 桑名晴子",
-        "sourceId": 1969845251
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
-      "lastAttemptAt": "2026-11-16T01:07:09.602Z",
+      "conclusion": "Romanized Haruko Kuwana exact search returned no results. Saved candidates credit other performers. Source Moonlight Island reissue confirmed.",
+      "lastAttemptAt": "2026-11-18T10:29:50.942Z",
       "checkedRequests": [
         {
           "job": {
@@ -53,6 +52,15 @@
           },
           "checkedAt": "2026-11-16T01:07:09.602Z",
           "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"夜の海\" artist:\"Haruko Kuwana\"",
+            "sourceId": 1969845251
+          },
+          "checkedAt": "2026-11-18T10:29:50.942Z",
+          "resultCount": 0
         }
       ],
       "reviewedCandidateIds": [
@@ -793,7 +801,7 @@
           "雨后"
         ]
       },
-      "evidence": "docs/catalog-review-2026-11-08.md",
+      "evidence": "docs/catalog-review-2026-11-18.md",
       "candidateIds": [
         "2fHvk1zW4ZU8nCezkuR9sj",
         "0HTslntkrmJnoioyln03g0",
@@ -820,16 +828,15 @@
         "70z9gQLHt0QUXaOYvpV3Og"
       ],
       "status": "searched-no-confirmed-recording",
-      "lastEvidenceDate": "2026-11-08",
+      "lastEvidenceDate": "2026-11-18",
       "blockedBy": null,
       "retryAt": null,
       "nextAction": {
-        "type": "search",
-        "query": "雨上がり ari",
-        "sourceId": 559961
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
       },
-      "conclusion": "All returned candidates reviewed; no safe match under existing identity/title/version/duration rules. Not proof of catalog absence.",
-      "lastAttemptAt": "2026-11-16T01:08:29.738Z",
+      "conclusion": "Title, album and artist search returned no results. Saved same-title hits have different artists. VOZ Records release corroborates the source.",
+      "lastAttemptAt": "2026-11-18T10:29:59.004Z",
       "checkedRequests": [
         {
           "job": {
@@ -839,6 +846,15 @@
           },
           "checkedAt": "2026-11-16T01:08:29.738Z",
           "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"雨上がり\" album:\"雨上がり\" artist:\"ari\"",
+            "sourceId": 559961
+          },
+          "checkedAt": "2026-11-18T10:29:59.004Z",
+          "resultCount": 0
         }
       ],
       "reviewedCandidateIds": [
@@ -3990,6 +4006,234 @@
         "queriesInReplay": 1,
         "actualImported": false
       }
+    },
+    {
+      "sourceId": 541020,
+      "name": "好・き・好・き SWEET KISS",
+      "artists": [
+        "山下達郎"
+      ],
+      "album": "RARITIE",
+      "durationMs": 253152,
+      "source": {
+        "id": 541020,
+        "name": "好・き・好・き SWEET KISS",
+        "ar": [
+          {
+            "name": "山下達郎"
+          }
+        ],
+        "al": {
+          "name": "RARITIE",
+          "tns": [
+            "RARITIE"
+          ]
+        },
+        "dt": 253152,
+        "tns": [
+          "好・き・好・き SWEET KISS"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-18.md",
+      "lastEvidenceDate": "2026-11-18",
+      "lastAttemptAt": "2026-11-18T10:30:07.454Z",
+      "status": "searched-no-confirmed-recording",
+      "conclusion": "Warner RARITIES issue corroborates the source. New mixed-script artist query returned other performers. No correct Spotify target confirmed.",
+      "nextAction": {
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "好・き・好・き SWEET KISS Tatsuro Yamashita",
+            "sourceId": 541020
+          },
+          "checkedAt": "2026-11-18T10:30:07.454Z",
+          "resultCount": 10
+        }
+      ],
+      "reviewedCandidateIds": [
+        "7lcyxu32BrWtRRq345j4fD",
+        "6ggCUjC5j2uhighYnTee8X",
+        "6Ys5Xmyl13GuzVWDOqZlcL",
+        "0LxBsUJG6FVNEOM1hJsFmK",
+        "4oENespYEAw65Aa5GjE2X0",
+        "6xnOdpUKfUDIA2md9jpbTr",
+        "7j4bFMTP32A7fmLaco0PRV",
+        "3KVf756FvR2vC6Pm14fxbG",
+        "2a1yNMDoZs3I3M5IhJsV8a",
+        "4XHdIpZhZbPIVBcPZQ7xCG"
+      ],
+      "blockedBy": null,
+      "retryAt": null
+    },
+    {
+      "sourceId": 1335835527,
+      "name": "Give Me The Nighttime",
+      "artists": [
+        "Craig Ruhnke"
+      ],
+      "album": "True Love",
+      "durationMs": 199133,
+      "source": {
+        "id": 1335835527,
+        "name": "Give Me The Nighttime",
+        "ar": [
+          {
+            "name": "Craig Ruhnke"
+          }
+        ],
+        "al": {
+          "name": "True Love",
+          "tns": [
+            "True Love"
+          ]
+        },
+        "dt": 199133,
+        "tns": [
+          "Give Me The Nighttime"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-18.md",
+      "lastEvidenceDate": "2026-11-18",
+      "lastAttemptAt": "2026-11-18T10:30:14.963Z",
+      "status": "searched-no-confirmed-recording",
+      "conclusion": "Exact source title and artist returned no results. Same-title tracks by other credited performers are unverified alternatives. Source True Love and Craig Ruhnke release documented.",
+      "nextAction": {
+        "type": "new-source-or-distributor-release-identifier",
+        "avoidRepeatIdenticalQueries": true
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"Give Me The Nighttime\" artist:\"Craig Ruhnke\"",
+            "sourceId": 1335835527
+          },
+          "checkedAt": "2026-11-18T10:30:14.963Z",
+          "resultCount": 0
+        }
+      ],
+      "reviewedCandidateIds": [],
+      "blockedBy": null,
+      "retryAt": null
+    },
+    {
+      "sourceId": 26343056,
+      "name": "Only One (Japanese Ver.)",
+      "artists": [
+        "BoA"
+      ],
+      "album": "Only One(Japanese Ver.)",
+      "durationMs": 217506,
+      "source": {
+        "id": 26343056,
+        "name": "Only One (Japanese Ver.)",
+        "ar": [
+          {
+            "name": "BoA"
+          }
+        ],
+        "al": {
+          "name": "Only One(Japanese Ver.)",
+          "tns": [
+            "Only One(Japanese Ver.)"
+          ]
+        },
+        "dt": 217506,
+        "tns": [
+          "Only One (Japanese Ver.)"
+        ]
+      },
+      "evidence": "docs/catalog-review-2026-11-18.md",
+      "lastEvidenceDate": "2026-11-18",
+      "lastAttemptAt": "2026-11-18T10:30:31.000Z",
+      "status": "verified-playable-offline-recovery-tested",
+      "conclusion": "Avex Japanese single (2013-02-27) and WHO'S BACK? share ISRC JPB601300402, both playable. The 2012 Korean recording is KRA301200362. Verified single passes offline matching.",
+      "nextAction": {
+        "type": "future-normal-sync-availability-check",
+        "automaticallyDispatch": false
+      },
+      "checkedRequests": [
+        {
+          "job": {
+            "type": "search",
+            "query": "Only One Japanese BoA",
+            "sourceId": 26343056
+          },
+          "checkedAt": "2026-11-18T10:30:23.304Z",
+          "resultCount": 10
+        },
+        {
+          "job": {
+            "type": "search",
+            "query": "track:\"Only One\" artist:\"BoA\" album:\"Who's Back?\"",
+            "sourceId": 26343056
+          },
+          "checkedAt": "2026-11-18T10:30:31.000Z",
+          "resultCount": 1
+        }
+      ],
+      "reviewedCandidateIds": [
+        "0MLzbTVLANQfPc2dV5hiv8",
+        "4FOIzp5aI8yIrStN19IPQu",
+        "3Hyl7YrOtBcnh1geON2kSO",
+        "2e1gUS6Wv8GS8ZT6FMeE1J",
+        "0G25jiypLyljfwPI6L0U6T",
+        "7MCIMtonC4TA2FRsGq4Ctq",
+        "1mcNZCvco4Vh7gmaxLy1Vr",
+        "0fgosF2PWrYbyy9e7BclKz",
+        "5pgoOjrLoH7dqrsxufSjnU",
+        "2u2KcpSa5GhXwmQPnhomU9"
+      ],
+      "verifiedCandidates": [
+        {
+          "id": "0MLzbTVLANQfPc2dV5hiv8",
+          "name": "Only One",
+          "duration_ms": 217360,
+          "is_playable": true,
+          "artists": [
+            {
+              "id": "4muJrGMndyYWqZtfk8OWy4",
+              "name": "BoA"
+            }
+          ],
+          "album": {
+            "id": "1HdNlqFSppUorSoYQeOcBu",
+            "name": "WHO'S BACK?"
+          },
+          "availability": "playable",
+          "isrc": "JPB601300402"
+        },
+        {
+          "id": "4FOIzp5aI8yIrStN19IPQu",
+          "name": "Only One",
+          "duration_ms": 217506,
+          "is_playable": true,
+          "artists": [
+            {
+              "id": "4muJrGMndyYWqZtfk8OWy4",
+              "name": "BoA"
+            }
+          ],
+          "album": {
+            "id": "0yiBl2XSXvLSUNnmtAXHp1",
+            "name": "Only One"
+          },
+          "availability": "playable",
+          "isrc": "JPB601300402"
+        }
+      ],
+      "algorithmFix": {
+        "kind": "reviewed-recording-language",
+        "regression": "test/review-learning.test.js",
+        "queriesInReplay": 1,
+        "actualImported": false
+      },
+      "blockedBy": null,
+      "retryAt": null
     }
   ],
   "lastAttempt": {

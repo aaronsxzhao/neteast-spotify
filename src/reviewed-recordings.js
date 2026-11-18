@@ -132,6 +132,25 @@ const recordings = [
     },
     "evidence": "https://music.amazon.ca/tracks/B07ZRXH6CH",
     "verifiedAt": "2026-11-17T11:38:00.019Z"
+  },
+  {
+    "source": {
+      "id": 26343056,
+      "name": "Only One (Japanese Ver.)",
+      "artists": ["BoA"],
+      "album": "Only One(Japanese Ver.)",
+      "durationMs": 217506
+    },
+    "target": {
+      "id": "4FOIzp5aI8yIrStN19IPQu",
+      "name": "Only One",
+      "artists": ["BoA"],
+      "album": "Only One",
+      "durationMs": 217506,
+      "language": "japanese"
+    },
+    "evidence": "https://avex.jp/boa/discography/detail.php?id=1004128",
+    "verifiedAt": "2026-11-18"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()
