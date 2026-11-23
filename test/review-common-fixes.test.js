@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { songSearchQueries, songTitles, pickBestMatch, pickAlternateVersion } from '../src/matcher.js'
+import { findTrackMatch, songSearchQueries, songTitles, pickBestMatch, pickAlternateVersion } from '../src/matcher.js'
 import { RequestSafety } from '../src/request-safety.js'
 import { safeFailureDetails } from '../src/sync-errors.js'
 import { spotifyFetch } from '../src/spotify.js'
@@ -19,6 +19,45 @@ test('Japanese Mix and Japanese Version are compatible, but Korean version is no
    assert.equal(pickBestMatch(source,[{...c,name}]),null)
    assert.equal(pickAlternateVersion(source,[{...c,name}]),null)
  }
+})
+
+test('Joey Yung theme credit matches in the first search when corroborated', async () => {
+ const source = {
+  id: 27906318, name: '续集', ar: [{ name: '容祖儿' }], al: { name: '续集' },
+  dt: 319130, tns: ['剧集《On Call 36 小时 II》主题曲'],
+ }
+ const candidate = {
+  id: '0vG6VyHA4kKt793ErzQuB5', name: '續集 - 《On Call 36 小時 II》 主題曲',
+  artists: [{ name: 'Joey Yung' }], album: { name: '續集' }, duration_ms: 319130, is_playable: true,
+ }
+ const diagnostics = {}
+ let calls = 0
+ const result = await findTrackMatch(source, async () => (++calls === 1 ? [candidate] : []), diagnostics)
+ assert.equal(result?.candidate.id, candidate.id)
+ assert.equal(result.titleEvidence, 'corroborated-theme-usage')
+ assert.equal(diagnostics.catalogQueryCount, 1)
+ assert.equal(calls, 1)
+ for (const wrong of [
+  { name: '續集 - 《On Call 36 小時 II》' },
+  { name: '續集 - 《On Call 36 小時 II》 主題曲 (Instrumental)' },
+  { artists: [{ name: 'Andy Lau' }] },
+  { artists: [...candidate.artists, { name: 'Guest' }] },
+  { album: { name: 'Different release' } },
+  { duration_ms: 319650 },
+  { is_playable: false },
+ ]) assert.equal(pickBestMatch(source, [{ ...candidate, ...wrong }]), null)
+})
+
+test('corroborated theme usage also works on the source side for another recording', () => {
+ const source = {
+  name: '晚风（電影《漫長的旅途》片尾曲）', ar: [{ name: 'Artist' }], al: { name: 'Release' }, dt: 200000,
+ }
+ const candidate = {
+  id: 'recording', name: '晚風', artists: [{ name: 'Artist' }],
+  album: { name: 'Release' }, duration_ms: 200200, is_playable: true,
+ }
+ assert.equal(pickBestMatch(source, [candidate])?.titleEvidence, 'corroborated-theme-usage')
+ assert.equal(pickBestMatch(source, [{ ...candidate, name: '晚風 - 《別的故事》片尾曲' }]), null)
 })
 test('transport diagnostics preserve safe error codes through backoff without secrets', async () => {
  let time=100000;const state={spotify:{}};const store={state,async update(fn){fn(state)}}

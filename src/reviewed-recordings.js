@@ -151,6 +151,24 @@ const recordings = [
     },
     "evidence": "https://avex.jp/boa/discography/detail.php?id=1004128",
     "verifiedAt": "2026-11-18"
+  },
+  {
+    "source": {
+      "id": 26123720,
+      "name": "無人の島",
+      "artists": ["TRUE"],
+      "album": "anytime,anywhere",
+      "durationMs": 362080
+    },
+    "target": {
+      "id": "7mYFIOsNll6baBQpcakooR",
+      "name": "Mujin no Shima",
+      "artists": ["唐沢美帆"],
+      "album": "Anytime, Anywhere",
+      "durationMs": 365826
+    },
+    "evidence": "https://music.apple.com/us/song/389077799",
+    "verifiedAt": "2026-11-23T03:21:24.103Z"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()

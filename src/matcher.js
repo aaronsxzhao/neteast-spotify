@@ -665,6 +665,22 @@ function withoutCampaignNote(value) {
   return String(value).replace(/\s*[(（]([^()（）]*概念[创創]作集[^()（）]*作品)[)）]\s*$/u, '').trim()
 }
 
+function themeUsageBase(value) {
+  const parts = String(value).normalize('NFKC').trim()
+    .match(/^(.+?)(?:\s+[-–—]\s+([^()]+)|\s*\(([^()]*)\))$/u)
+  const label = parts?.[2] ?? parts?.[3]
+  // Require a named production and a complete usage label at the end.
+  if (!label || !/^(?:(?:電視劇|电视剧|劇集|剧集|電影|电影|動畫|动画)\s*)?《[^《》]+》\s*(?:主[題题]曲|片[頭头]曲|片尾曲|插曲)\s*$/u.test(label)) return ''
+  return normalize(parts[1])
+}
+
+function sameTitleWithThemeUsage(source, target) {
+  const left = themeUsageBase(source)
+  const right = themeUsageBase(target)
+  return Boolean((left && !right && left === normalize(target)) ||
+    (right && !left && right === normalize(source)))
+}
+
 const LANGUAGE_LABEL = /^(English|Japanese|Korean|Chinese|Mandarin|Cantonese)\s+(?:ver\.?|version|mix)$/i
 
 function languageEdition(value) {
@@ -877,8 +893,18 @@ function evidence(song, candidate, options) {
   const duration = difference <= 2500 ? 1 : difference <= 8000 ? 0.7 : difference <= 18000 ? 0.25 : 0
   const album = Math.max(0, ...songAlbumNames(song).flatMap(name => albumTitleVariants(song, name))
     .flatMap(name => albumTitleVariants(song, candidate.album?.name || '').map(target => similarity(name, target))))
-  const titleEvidence = corroboratedHangulSpelling(song, candidate, difference) ? 'corroborated-hangul-initial' : null
-  if (titleEvidence) title = Math.max(title, 0.98)
+  let titleEvidence = null
+  if (corroboratedHangulSpelling(song, candidate, difference)) {
+    titleEvidence = 'corroborated-hangul-initial'
+    title = Math.max(title, 0.98)
+  }
+  const matchingCredits = completeRoster || (primaryMatch && songArtists(song).length === 1 && spotifyArtists.length === 1)
+  if (title < 1 && difference <= 250 && matchingCredits &&
+    songAlbumNames(song).some(name => normalize(name) && normalize(name) === normalize(candidate.album?.name)) &&
+    sameTitleWithThemeUsage(song.name, candidate.name)) {
+    titleEvidence = 'corroborated-theme-usage'
+    title = 1
+  }
   const learned = options?.manual === false ? null : reviewedCandidate(song, candidate)
   if (learned) title = 1
   const identityEvidence = learned ? 'reviewed-recording-fingerprint' : corroboratedCredit(song, candidate, { title, album, difference, manual: artistOptions?.manual !== false })

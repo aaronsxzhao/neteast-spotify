@@ -1,0 +1,935 @@
+[
+  {
+    "source": {
+      "id": 3389326869,
+      "name": "Ladyy",
+      "ar": [
+        {
+          "name": "chilldspot"
+        }
+      ],
+      "al": {
+        "name": "Ladyy",
+        "tns": [
+          "Ladyy"
+        ]
+      },
+      "dt": 217302,
+      "tns": [
+        "Ladyy"
+      ]
+    },
+    "candidate": {
+      "id": "2AGDuYq2ALgltKDAZTBGxw",
+      "name": "Ladyy",
+      "artists": [
+        {
+          "name": "chilldspot"
+        }
+      ],
+      "album": {
+        "name": "Ladyy"
+      },
+      "duration_ms": 217302,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1363553440,
+      "name": "出现又离开 (Live)",
+      "ar": [
+        {
+          "name": "梁博"
+        }
+      ],
+      "al": {
+        "name": "我是唱作人 第2期",
+        "tns": [
+          "我是唱作人 第2期"
+        ]
+      },
+      "dt": 403968,
+      "tns": [
+        "出现又离开 (Live)"
+      ]
+    },
+    "candidate": {
+      "id": "3bhwysSZLvxoGrbrioYcp7",
+      "name": "出现又离开 - Live",
+      "artists": [
+        {
+          "name": "梁博"
+        }
+      ],
+      "album": {
+        "name": "我是唱作人 第2期 (Live)"
+      },
+      "duration_ms": 403968,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22763956,
+      "name": "世界中の誰よりきっと ～Album Verion～",
+      "ar": [
+        {
+          "name": "WANDS"
+        }
+      ],
+      "al": {
+        "name": "SINGLES COLLECTION+6",
+        "tns": [
+          "SINGLES COLLECTION+6"
+        ]
+      },
+      "dt": 266693,
+      "tns": [
+        "世界中の誰よりきっと ～Album Verion～",
+        "胜过世间任何人"
+      ]
+    },
+    "candidate": {
+      "id": "7vvdk7B2gYiwyyeTNxq9QV",
+      "name": "世界中の誰よりきっと [WANDS 第5期ver.]",
+      "artists": [
+        {
+          "name": "WANDS"
+        }
+      ],
+      "album": {
+        "name": "BURN THE SECRET"
+      },
+      "duration_ms": 240546,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1306507575,
+      "name": "UMBRELLA",
+      "ar": [
+        {
+          "name": "THREE1989"
+        }
+      ],
+      "al": {
+        "name": "JET BLUE",
+        "tns": [
+          "JET BLUE"
+        ]
+      },
+      "dt": 240744,
+      "tns": [
+        "UMBRELLA"
+      ]
+    },
+    "candidate": {
+      "id": "3CXfh03zDQYTbuMVlZ3sMp",
+      "name": "UMBRELLA",
+      "artists": [
+        {
+          "name": "THREE1989"
+        }
+      ],
+      "album": {
+        "name": "JET BLUE"
+      },
+      "duration_ms": 240415,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1305367751,
+      "name": "テレフォン・ナンバー",
+      "ar": [
+        {
+          "name": "大橋純子"
+        }
+      ],
+      "al": {
+        "name": "MAGICAL 大橋純子の世界 III",
+        "tns": [
+          "MAGICAL 大橋純子の世界 III"
+        ]
+      },
+      "dt": 239573,
+      "tns": [
+        "テレフォン・ナンバー",
+        "电话号码"
+      ]
+    },
+    "candidate": {
+      "id": "49vIvmsneQwxyFTdmCQzmV",
+      "name": "テレフォン・ナンバー",
+      "artists": [
+        {
+          "name": "Junko Ohashi"
+        }
+      ],
+      "album": {
+        "name": "MAGICAL 大橋純子の世界 III"
+      },
+      "duration_ms": 239573,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28838055,
+      "name": "再见悲哀",
+      "ar": [
+        {
+          "name": "林忆莲"
+        }
+      ],
+      "al": {
+        "name": "我最喜爱的Eric Kwok作品展",
+        "tns": [
+          "我最喜爱的Eric Kwok作品展"
+        ]
+      },
+      "dt": 220450,
+      "tns": [
+        "再见悲哀"
+      ]
+    },
+    "candidate": {
+      "id": "4dtGOHiORFemWpob6iNcSu",
+      "name": "再見悲哀",
+      "artists": [
+        {
+          "name": "Sandy Lam"
+        }
+      ],
+      "album": {
+        "name": "大男人真女人"
+      },
+      "duration_ms": 222000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1891835283,
+      "name": "Dancing with my phone",
+      "ar": [
+        {
+          "name": "HYBS"
+        }
+      ],
+      "al": {
+        "name": "Dancing with my phone",
+        "tns": [
+          "Dancing with my phone"
+        ]
+      },
+      "dt": 203532,
+      "tns": [
+        "Dancing with my phone"
+      ]
+    },
+    "candidate": {
+      "id": "4Zh9zZmEBoDLTKQRjXwict",
+      "name": "Dancing with my phone",
+      "artists": [
+        {
+          "name": "HYBS"
+        }
+      ],
+      "album": {
+        "name": "Dancing with my phone"
+      },
+      "duration_ms": 203532,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2632144428,
+      "name": "Real Love",
+      "ar": [
+        {
+          "name": "TEN'S UNIQUE"
+        },
+        {
+          "name": "KAYA"
+        },
+        {
+          "name": "JAMS ONE"
+        },
+        {
+          "name": "BEAR B"
+        },
+        {
+          "name": "1LAW"
+        }
+      ],
+      "al": {
+        "name": "G.B.C CAMP 2020 in SAYO (2024 Remaster)",
+        "tns": [
+          "G.B.C CAMP 2020 in SAYO (2024 Remaster)"
+        ]
+      },
+      "dt": 222309,
+      "tns": [
+        "Real Love"
+      ]
+    },
+    "candidate": {
+      "id": "4XllWkCpLXLqgXEp67OTHg",
+      "name": "Real Love",
+      "artists": [
+        {
+          "name": "TEN's UNIQUE"
+        },
+        {
+          "name": "KAYA"
+        },
+        {
+          "name": "JAMS ONE"
+        },
+        {
+          "name": "BEAR.B"
+        },
+        {
+          "name": "1LAW"
+        }
+      ],
+      "album": {
+        "name": "G.B.C CAMP 2020 in SAYO (2024 Remaster)"
+      },
+      "duration_ms": 222309,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3329690223,
+      "name": "bestie",
+      "ar": [
+        {
+          "name": "muque"
+        }
+      ],
+      "al": {
+        "name": "bestie",
+        "tns": [
+          "bestie"
+        ]
+      },
+      "dt": 259903,
+      "tns": [
+        "bestie"
+      ]
+    },
+    "candidate": {
+      "id": "3LlShzvjsM4nem8uADXWvn",
+      "name": "bestie",
+      "artists": [
+        {
+          "name": "muque"
+        }
+      ],
+      "album": {
+        "name": "bestie"
+      },
+      "duration_ms": 259903,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2033878965,
+      "name": "花曇り",
+      "ar": [
+        {
+          "name": "佐藤千亜妃"
+        }
+      ],
+      "al": {
+        "name": "花曇り",
+        "tns": [
+          "花曇り",
+          "樱花朦胧"
+        ]
+      },
+      "dt": 242633,
+      "tns": [
+        "花曇り",
+        "樱花朦胧",
+        "樱花朦胧"
+      ]
+    },
+    "candidate": {
+      "id": "6v18W0JUT46W2FEAGUoB3k",
+      "name": "花曇り",
+      "artists": [
+        {
+          "name": "CHIAKI SATO"
+        }
+      ],
+      "album": {
+        "name": "花曇り"
+      },
+      "duration_ms": 242633,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1923210613,
+      "name": "滥俗的歌",
+      "ar": [
+        {
+          "name": "汉堡黄"
+        }
+      ],
+      "al": {
+        "name": "十万小时",
+        "tns": [
+          "十万小时"
+        ]
+      },
+      "dt": 275876,
+      "tns": [
+        "滥俗的歌"
+      ]
+    },
+    "candidate": {
+      "id": "11PUmGN587l1pLClQyt7SA",
+      "name": "滥俗的歌",
+      "artists": [
+        {
+          "name": "puppiebelly"
+        }
+      ],
+      "album": {
+        "name": "十万小时"
+      },
+      "duration_ms": 275876,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26107935,
+      "name": "Serendipity",
+      "ar": [
+        {
+          "name": "西原健一郎"
+        }
+      ],
+      "al": {
+        "name": "Illuminus",
+        "tns": [
+          "Illuminus"
+        ]
+      },
+      "dt": 245093,
+      "tns": [
+        "Serendipity"
+      ]
+    },
+    "candidate": {
+      "id": "5ryxdobYDJWyQQFamfDOxb",
+      "name": "Serendipity",
+      "artists": [
+        {
+          "name": "Kenichiro Nishihara"
+        },
+        {
+          "name": "Tamala"
+        },
+        {
+          "name": "Takurah"
+        }
+      ],
+      "album": {
+        "name": "Illuminus"
+      },
+      "duration_ms": 245093,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3419824228,
+      "name": "花束じゃなくキミといたい feat. 玉置浩二",
+      "ar": [
+        {
+          "name": "絢香"
+        },
+        {
+          "name": "玉置浩二"
+        }
+      ],
+      "al": {
+        "name": "20 Lights - The Collection -",
+        "tns": [
+          "20 Lights - The Collection -"
+        ]
+      },
+      "dt": 297840,
+      "tns": [
+        "花束じゃなくキミといたい feat. 玉置浩二",
+        " 不要花束只想与你一起 feat. 玉置浩二"
+      ]
+    },
+    "candidate": {
+      "id": "4il15pZcNNkbwLMrI7dBaC",
+      "name": "花束じゃなくキミといたい feat. 玉置浩二",
+      "artists": [
+        {
+          "name": "ayaka"
+        },
+        {
+          "name": "Koji Tamaki"
+        }
+      ],
+      "album": {
+        "name": "20 Lights - The Collection -"
+      },
+      "duration_ms": 297840,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 454567,
+      "name": "グッドバイ・デイ",
+      "ar": [
+        {
+          "name": "来生たかお"
+        }
+      ],
+      "al": {
+        "name": "テーマ・ソングス(1)CMソン",
+        "tns": [
+          "テーマ・ソングス(1)CMソン"
+        ]
+      },
+      "dt": 323996,
+      "tns": [
+        "グッドバイ・デイ",
+        "离别之日 Goodbye Day"
+      ]
+    },
+    "candidate": {
+      "id": "2lz7CkVTDjtHamN6zaQJZj",
+      "name": "Goodbye Day",
+      "artists": [
+        {
+          "name": "Takao Kisugi"
+        }
+      ],
+      "album": {
+        "name": "Goodbye Day"
+      },
+      "duration_ms": 319000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2041212293,
+      "name": "荒漠上行走",
+      "ar": [
+        {
+          "name": "亚森"
+        }
+      ],
+      "al": {
+        "name": "眼里有星星的人",
+        "tns": [
+          "眼里有星星的人"
+        ]
+      },
+      "dt": 233475,
+      "tns": [
+        "荒漠上行走"
+      ]
+    },
+    "candidate": {
+      "id": "5OV46FzPS5Jfqb1Y4KpGBv",
+      "name": "荒漠上行走",
+      "artists": [
+        {
+          "name": "亞森"
+        }
+      ],
+      "album": {
+        "name": "眼裡有星星的人"
+      },
+      "duration_ms": 233475,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22696713,
+      "name": "Dance In The Memories",
+      "ar": [
+        {
+          "name": "中原めいこ"
+        }
+      ],
+      "al": {
+        "name": "GOLDEN☆BEST",
+        "tns": [
+          "GOLDEN☆BEST"
+        ]
+      },
+      "dt": 251611,
+      "tns": [
+        "Dance In The Memories",
+        "TVアニメ「きまぐれオレンジ★ロード」ED3テーマ"
+      ]
+    },
+    "candidate": {
+      "id": "4sqJiloGOEnKQMNzc1O769",
+      "name": "Dance in the memories",
+      "artists": [
+        {
+          "name": "Meiko Nakahara"
+        }
+      ],
+      "album": {
+        "name": "TWIN BEST 中原めいこ"
+      },
+      "duration_ms": 251706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26598946,
+      "name": "山丘",
+      "ar": [
+        {
+          "name": "李宗盛"
+        }
+      ],
+      "al": {
+        "name": "山丘",
+        "tns": [
+          "山丘"
+        ]
+      },
+      "dt": 405800,
+      "tns": [
+        "山丘"
+      ]
+    },
+    "candidate": {
+      "id": "4sZDrNBr9EsEvoOj7Z9Gr7",
+      "name": "山丘",
+      "artists": [
+        {
+          "name": "Jonathan Lee"
+        }
+      ],
+      "album": {
+        "name": "山丘"
+      },
+      "duration_ms": 405800,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28546494,
+      "name": "うたかたの恋",
+      "ar": [
+        {
+          "name": "原田知世"
+        }
+      ],
+      "al": {
+        "name": "noon moon",
+        "tns": [
+          "noon moon"
+        ]
+      },
+      "dt": 267040,
+      "tns": [
+        "うたかたの恋",
+        "如泡沫般的恋爱",
+        "如泡沫般的戀愛"
+      ]
+    },
+    "candidate": {
+      "id": "70c9RR3BlQflNs7VUUtFDX",
+      "name": "うたかたの恋",
+      "artists": [
+        {
+          "name": "Tomoyo Harada"
+        }
+      ],
+      "album": {
+        "name": "音楽と私"
+      },
+      "duration_ms": 272773,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1501153061,
+      "name": "OH NO, OH YES! (2012 Remastered)",
+      "ar": [
+        {
+          "name": "中森明菜"
+        }
+      ],
+      "al": {
+        "name": "AKINA BOX 1982-1991 (2012 Remastered)",
+        "tns": [
+          "AKINA BOX 1982-1991 (2012 Remastered)"
+        ]
+      },
+      "dt": 286906,
+      "tns": [
+        "OH NO, OH YES! (2012 Remastered)"
+      ]
+    },
+    "candidate": {
+      "id": "0PXdZbnjSdjy9mzifyx5l0",
+      "name": "OH NO,OH YES! - 2012 Remaster",
+      "artists": [
+        {
+          "name": "Akina Nakamori"
+        }
+      ],
+      "album": {
+        "name": "AKINA BOX 1982-1991 (2012 Remaster)"
+      },
+      "duration_ms": 286906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22683685,
+      "name": "ずっと ずっと ずっと",
+      "ar": [
+        {
+          "name": "羊毛とおはな"
+        }
+      ],
+      "al": {
+        "name": "LIVE IN LIVING '10",
+        "tns": [
+          "LIVE IN LIVING '10"
+        ]
+      },
+      "dt": 253066,
+      "tns": [
+        "ずっと ずっと ずっと",
+        "永远的永远"
+      ]
+    },
+    "candidate": {
+      "id": "2utXC4kUUSyDN0sTo8VdXK",
+      "name": "ずっと ずっと ずっと",
+      "artists": [
+        {
+          "name": "YOUMOU TO OHANA"
+        }
+      ],
+      "album": {
+        "name": "LIVE IN LIVING '10"
+      },
+      "duration_ms": 253066,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26144177,
+      "name": "明日晴れるかな",
+      "ar": [
+        {
+          "name": "桑田佳祐"
+        }
+      ],
+      "al": {
+        "name": "桑田さんのお仕事 07/08 ~魅惑のAVマリアージュ",
+        "tns": [
+          "桑田さんのお仕事 07/08 ~魅惑のAVマリアージュ"
+        ]
+      },
+      "dt": 315000,
+      "tns": [
+        "明日晴れるかな",
+        "明天还会放晴吗"
+      ]
+    },
+    "candidate": {
+      "id": "3hluDFiaL1ntJ58xVTBjxT",
+      "name": "明日晴れるかな",
+      "artists": [
+        {
+          "name": "Keisuke Kuwata"
+        }
+      ],
+      "album": {
+        "name": "明日晴れるかな"
+      },
+      "duration_ms": 315446,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1364370190,
+      "name": "Reminiscences",
+      "ar": [
+        {
+          "name": "re:plus"
+        },
+        {
+          "name": "島裕介"
+        }
+      ],
+      "al": {
+        "name": "Prayer",
+        "tns": [
+          "Prayer"
+        ]
+      },
+      "dt": 265600,
+      "tns": [
+        "Reminiscences"
+      ]
+    },
+    "candidate": {
+      "id": "49mEaAAMaZZQ6ceszeU5jU",
+      "name": "Reminiscences",
+      "artists": [
+        {
+          "name": "re:plus"
+        },
+        {
+          "name": "Yusuke Shima"
+        }
+      ],
+      "album": {
+        "name": "Prayer"
+      },
+      "duration_ms": 265600,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 584816,
+      "name": "私らしく",
+      "ar": [
+        {
+          "name": "岩崎宏美"
+        }
+      ],
+      "al": {
+        "name": "Me too",
+        "tns": [
+          "Me too",
+          "Me too"
+        ]
+      },
+      "dt": 270758,
+      "tns": [
+        "私らしく",
+        "如我"
+      ]
+    },
+    "candidate": {
+      "id": "4ftrkCSsRZudXRWDvc0OcD",
+      "name": "私らしく",
+      "artists": [
+        {
+          "name": "Hiromi Iwasaki"
+        }
+      ],
+      "album": {
+        "name": "Me too"
+      },
+      "duration_ms": 270758,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1996902507,
+      "name": "Morning Subway",
+      "ar": [
+        {
+          "name": "新井正人"
+        }
+      ],
+      "al": {
+        "name": "Masahito Arai",
+        "tns": [
+          "Masahito Arai"
+        ]
+      },
+      "dt": 261666,
+      "tns": [
+        "Morning Subway",
+        "2015年晨间赛百味"
+      ]
+    },
+    "candidate": {
+      "id": "6m77CiSF5fdRpo8mZRAoV4",
+      "name": "モーニング・サブウェイ - 2024 Remaster",
+      "artists": [
+        {
+          "name": "新井正人"
+        }
+      ],
+      "album": {
+        "name": "City Music Tokyo destination"
+      },
+      "duration_ms": 261665,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28798666,
+      "name": "高層ビル",
+      "ar": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "al": {
+        "name": "FOREVER FOREVER",
+        "tns": [
+          "FOREVER FOREVER"
+        ]
+      },
+      "dt": 339813,
+      "tns": [
+        "高層ビル",
+        "高楼"
+      ]
+    },
+    "candidate": {
+      "id": "12AOivvdPKyvFGuBFwZ01M",
+      "name": "高層ビル",
+      "artists": [
+        {
+          "name": "NONA REEVES"
+        }
+      ],
+      "album": {
+        "name": "FOREVER FOREVER"
+      },
+      "duration_ms": 339813,
+      "is_playable": true
+    }
+  }
+]

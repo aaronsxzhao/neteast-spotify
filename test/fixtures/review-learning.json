@@ -259,5 +259,43 @@
         "name": "Only One"
       }
     }
+  },
+  {
+    "source": {
+      "id": 26123720,
+      "name": "無人の島",
+      "ar": [
+        {
+          "name": "TRUE"
+        }
+      ],
+      "al": {
+        "name": "anytime,anywhere",
+        "tns": [
+          "anytime,anywhere"
+        ]
+      },
+      "dt": 362080,
+      "tns": [
+        "無人の島",
+        "无人岛"
+      ]
+    },
+    "candidate": {
+      "id": "7mYFIOsNll6baBQpcakooR",
+      "name": "Mujin no Shima",
+      "duration_ms": 365826,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "00CnPgNdclrujdxs1I8J5d",
+          "name": "唐沢美帆"
+        }
+      ],
+      "album": {
+        "id": "2OYv8vOV8sCKEqW5p3bWAV",
+        "name": "Anytime, Anywhere"
+      }
+    }
   }
 ]
