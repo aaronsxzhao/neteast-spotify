@@ -37,6 +37,22 @@ test('Lena original learned recording never accepts changed guest remake or kara
  for(const wrong of [{...c,artists:[...c.artists,{name:'Verbal Jint'}]},{...c,name:'Sweet(Brand New Mix) (feat.Verbal Jint)',album:{name:'Syncrofusion Lena Park + Brand New Music'}},{...c,name:"It's Sweet - Karaoke"},{...c,is_playable:false}]) assert.equal(pickBestMatch(row.source,[wrong]),null)
 })
 
+test('Dedicated forever prefers the verified solo single over the later duet', () => {
+ const { source, candidate } = rows.find(row => row.source.id === 2119793675)
+ const duet = {
+  id: '2U5denBuD0HxY65fAAgfTj',
+  name: '献给永远的 - 也许对你的记忆就是这爱情本身',
+  artists: [{ name: '大粉乐队' }, { name: '錢正昊' }],
+  album: { name: '献给永远的 (也许对你的记忆就是这爱情本身)' },
+  duration_ms: 199331,
+  is_playable: true,
+ }
+ assert.equal(pickBestMatch(source, [duet, candidate])?.candidate.id, candidate.id)
+ assert.equal(pickBestMatch(source, [duet]), null)
+ assert.equal(pickAlternateVersion(source, [duet]), null)
+ assert.equal(pickBestMatch(source, [duet, { ...candidate, is_playable: false }]), null)
+})
+
 test('a verified Japanese recording can omit its language label without accepting a Korean recording', () => {
  const { source, candidate } = rows.find(row => row.source.id === 26343056)
  const korean = {

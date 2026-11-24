@@ -297,5 +297,42 @@
         "name": "Anytime, Anywhere"
       }
     }
+  },
+  {
+    "source": {
+      "id": 2119793675,
+      "name": "献给永远的",
+      "ar": [
+        {
+          "name": "大粉乐队"
+        }
+      ],
+      "al": {
+        "name": "献给永远的",
+        "tns": [
+          "献给永远的"
+        ]
+      },
+      "dt": 228964,
+      "tns": [
+        "献给永远的"
+      ]
+    },
+    "candidate": {
+      "id": "6XKkzKCnePET1vf3foFDoW",
+      "name": "Dedicated forever",
+      "duration_ms": 228964,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "1XzsnPoV2oNQ9kBYGVTlKf",
+          "name": "大粉樂隊"
+        }
+      ],
+      "album": {
+        "id": "5FCZWqx9mV7SjrHnlQxeBC",
+        "name": "Dedicated forever"
+      }
+    }
   }
 ]

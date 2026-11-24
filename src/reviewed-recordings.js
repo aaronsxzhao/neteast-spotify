@@ -169,6 +169,24 @@ const recordings = [
     },
     "evidence": "https://music.apple.com/us/song/389077799",
     "verifiedAt": "2026-11-23T03:21:24.103Z"
+  },
+  {
+    "source": {
+      "id": 2119793675,
+      "name": "献给永远的",
+      "artists": ["大粉乐队"],
+      "album": "献给永远的",
+      "durationMs": 228964
+    },
+    "target": {
+      "id": "6XKkzKCnePET1vf3foFDoW",
+      "name": "Dedicated forever",
+      "artists": ["大粉樂隊"],
+      "album": "Dedicated forever",
+      "durationMs": 228964
+    },
+    "evidence": "docs/catalog-review-2026-11-24.md",
+    "verifiedAt": "2026-11-24T10:35:55.683Z"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()

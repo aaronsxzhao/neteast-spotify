@@ -1,0 +1,923 @@
+[
+  {
+    "source": {
+      "id": 22817983,
+      "name": "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+      "ar": [
+        {
+          "name": "杏里"
+        }
+      ],
+      "al": {
+        "name": "Timely!!",
+        "tns": [
+          "Timely!!"
+        ]
+      },
+      "dt": 263706,
+      "tns": [
+        "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+        "悲伤不止"
+      ]
+    },
+    "candidate": {
+      "id": "3FYDqY5BRtx3IVSaiQZSze",
+      "name": "悲しみがとまらない　I CAN'T STOP THE LONELINESS",
+      "artists": [
+        {
+          "name": "Anri"
+        }
+      ],
+      "album": {
+        "name": "Timely!!"
+      },
+      "duration_ms": 263706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2066709609,
+      "name": "満ちていく体温",
+      "ar": [
+        {
+          "name": "BLU-SWING"
+        }
+      ],
+      "al": {
+        "name": "BLU-SWING 10th ANNIVERSARY BEST",
+        "tns": [
+          "BLU-SWING 10th ANNIVERSARY BEST"
+        ]
+      },
+      "dt": 220040,
+      "tns": [
+        "満ちていく体温",
+        "体温升高"
+      ]
+    },
+    "candidate": {
+      "id": "5KyhlyyCgQoL7eP7v1TehN",
+      "name": "満ちていく体温",
+      "artists": [
+        {
+          "name": "Blu-Swing"
+        }
+      ],
+      "album": {
+        "name": "BLU-SWING 10th ANNIVERSARY BEST"
+      },
+      "duration_ms": 220040,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1367358886,
+      "name": "All about Anna",
+      "ar": [
+        {
+          "name": "昨夜派对（L.N Party）"
+        }
+      ],
+      "al": {
+        "name": "短篇与玫瑰的八毫米",
+        "tns": [
+          "短篇与玫瑰的八毫米"
+        ]
+      },
+      "dt": 268580,
+      "tns": [
+        "All about Anna"
+      ]
+    },
+    "candidate": {
+      "id": "2YdGZWYopKX9NaYJTQFtNB",
+      "name": "All about Anna",
+      "artists": [
+        {
+          "name": "昨夜派对"
+        }
+      ],
+      "album": {
+        "name": "短篇与玫瑰的八毫米"
+      },
+      "duration_ms": 268580,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2728184037,
+      "name": "你知道我最害怕一个人天黑",
+      "ar": [
+        {
+          "name": "金海心"
+        }
+      ],
+      "al": {
+        "name": "你知道我最害怕一个人天黑",
+        "tns": [
+          "你知道我最害怕一个人天黑"
+        ]
+      },
+      "dt": 201438,
+      "tns": [
+        "你知道我最害怕一个人天黑"
+      ]
+    },
+    "candidate": {
+      "id": "1LbGuCQ1Mvno4g9bMG1YLS",
+      "name": "你知道我最害怕一个人天黑",
+      "artists": [
+        {
+          "name": "Jin Hai Xin"
+        }
+      ],
+      "album": {
+        "name": "你知道我最害怕一个人天黑"
+      },
+      "duration_ms": 201438,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 408532377,
+      "name": "Grave of Music",
+      "ar": [
+        {
+          "name": "セカイイチ"
+        }
+      ],
+      "al": {
+        "name": "Round Table",
+        "tns": [
+          "Round Table"
+        ]
+      },
+      "dt": 213623,
+      "tns": [
+        "Grave of Music"
+      ]
+    },
+    "candidate": {
+      "id": "7zBbXrf8JHqftBgSvOOnOq",
+      "name": "Grave of Music",
+      "artists": [
+        {
+          "name": "Sekaiichi"
+        }
+      ],
+      "album": {
+        "name": "Round Table"
+      },
+      "duration_ms": 213560,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 568186,
+      "name": "Missin' ～cross.o.version～",
+      "ar": [
+        {
+          "name": "EMI MARIA"
+        }
+      ],
+      "al": {
+        "name": "cross over",
+        "tns": [
+          "cross over",
+          "cross over"
+        ]
+      },
+      "dt": 312712,
+      "tns": [
+        "Missin' ～cross.o.version～",
+        "Missin' ～cross.o.version～"
+      ]
+    },
+    "candidate": {
+      "id": "2fQVntMiQrOjMNNAqSlVjK",
+      "name": "Missin' ～cross.o.version～",
+      "artists": [
+        {
+          "name": "EMI MARIA"
+        }
+      ],
+      "album": {
+        "name": "cross over"
+      },
+      "duration_ms": 312712,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 642895,
+      "name": "すべりだい",
+      "ar": [
+        {
+          "name": "椎名林檎"
+        }
+      ],
+      "al": {
+        "name": "幸福論",
+        "tns": [
+          "幸福論"
+        ]
+      },
+      "dt": 241371,
+      "tns": [
+        "すべりだい",
+        "滑滑梯"
+      ]
+    },
+    "candidate": {
+      "id": "3cYSq7Skjd0eSwE10bjVbL",
+      "name": "すべりだい",
+      "artists": [
+        {
+          "name": "Sheena Ringo"
+        }
+      ],
+      "album": {
+        "name": "幸福論"
+      },
+      "duration_ms": 241306,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 18733198,
+      "name": "Dealbreaker",
+      "ar": [
+        {
+          "name": "Rachael Yamagata"
+        }
+      ],
+      "al": {
+        "name": "Chesapeake",
+        "tns": [
+          "Chesapeake"
+        ]
+      },
+      "dt": 344146,
+      "tns": [
+        "Dealbreaker"
+      ]
+    },
+    "candidate": {
+      "id": "2dyZe2rAzWVqVcRaS1QPXL",
+      "name": "Dealbreaker",
+      "artists": [
+        {
+          "name": "Rachael Yamagata"
+        }
+      ],
+      "album": {
+        "name": "Chesapeake"
+      },
+      "duration_ms": 346933,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 638353,
+      "name": "涙をたばねて",
+      "ar": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－",
+        "tns": [
+          "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+        ]
+      },
+      "dt": 253053,
+      "tns": [
+        "涙をたばねて",
+        "含着眼泪"
+      ]
+    },
+    "candidate": {
+      "id": "5Ym5hDQX32Ano97ndP0f7o",
+      "name": "涙をたばねて",
+      "artists": [
+        {
+          "name": "小川範子"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 小川範子 －トーラス・シングル・コレクション－"
+      },
+      "duration_ms": 253053,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1977455491,
+      "name": "恋は最高（I'M IN LOVE）",
+      "ar": [
+        {
+          "name": "高村亜留"
+        }
+      ],
+      "al": {
+        "name": "ARU FIRST",
+        "tns": [
+          "ARU FIRST"
+        ]
+      },
+      "dt": 266634,
+      "tns": [
+        "恋は最高（I'M IN LOVE）",
+        "爱恋的感觉最棒"
+      ]
+    },
+    "candidate": {
+      "id": "72HHTV84sDLstsPE8LhdEd",
+      "name": "I'm In Love (Yoshizawa dynamite.jp Gimmick Edit)",
+      "artists": [
+        {
+          "name": "高村亜留"
+        }
+      ],
+      "album": {
+        "name": "I'm In Love -EP-"
+      },
+      "duration_ms": 294065,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22753265,
+      "name": "SILENT NIGHT",
+      "ar": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "al": {
+        "name": "SONG FOR YOU",
+        "tns": [
+          "SONG FOR YOU",
+          "SONG FOR YOU"
+        ]
+      },
+      "dt": 281782,
+      "tns": [
+        "SILENT NIGHT",
+        "SILENT NIGHT"
+      ]
+    },
+    "candidate": {
+      "id": "6NqJJL4foOGSCYhC5his8c",
+      "name": "Silent Night",
+      "artists": [
+        {
+          "name": "paris match"
+        }
+      ],
+      "album": {
+        "name": "Song For You"
+      },
+      "duration_ms": 281554,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2309623,
+      "name": "Joey",
+      "ar": [
+        {
+          "name": "Concrete Blonde"
+        }
+      ],
+      "al": {
+        "name": "Recollection: The Best Of",
+        "tns": [
+          "Recollection: The Best Of"
+        ]
+      },
+      "dt": 248959,
+      "tns": [
+        "Joey"
+      ]
+    },
+    "candidate": {
+      "id": "3nfK9Gz63ZULUtuWCKvzHb",
+      "name": "Joey",
+      "artists": [
+        {
+          "name": "Concrete Blonde"
+        }
+      ],
+      "album": {
+        "name": "Recollection: The Best Of"
+      },
+      "duration_ms": 248746,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 299352,
+      "name": "如风",
+      "ar": [
+        {
+          "name": "王菲"
+        }
+      ],
+      "al": {
+        "name": "Faye Best",
+        "tns": [
+          "Faye Best"
+        ]
+      },
+      "dt": 270160,
+      "tns": [
+        "如风"
+      ]
+    },
+    "candidate": {
+      "id": "4up08ZDcvokbbnXFfVJvRX",
+      "name": "如風",
+      "artists": [
+        {
+          "name": "Faye Wong"
+        }
+      ],
+      "album": {
+        "name": "Faye Best"
+      },
+      "duration_ms": 270160,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 567817,
+      "name": "CHA-CHA-CHA",
+      "ar": [
+        {
+          "name": "石井明美"
+        }
+      ],
+      "al": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション",
+        "tns": [
+          "ゴールデン☆ベスト 石井明美セレクション"
+        ]
+      },
+      "dt": 219000,
+      "tns": [
+        "CHA-CHA-CHA"
+      ]
+    },
+    "candidate": {
+      "id": "4c8iGaGVnW37QrYU2S0VRe",
+      "name": "CHA-CHA-CHA",
+      "artists": [
+        {
+          "name": "Akemi Ishii"
+        }
+      ],
+      "album": {
+        "name": "ゴールデン☆ベスト 石井明美セレクション"
+      },
+      "duration_ms": 217706,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 571284,
+      "name": "もしかして",
+      "ar": [
+        {
+          "name": "福原美穂"
+        }
+      ],
+      "al": {
+        "name": "未来-ミライ-/もしかして",
+        "tns": [
+          "未来-ミライ-/もしかして"
+        ]
+      },
+      "dt": 261828,
+      "tns": [
+        "もしかして",
+        "如果"
+      ]
+    },
+    "candidate": {
+      "id": "0fypA4nsMBmvGX7djxcn9g",
+      "name": "もしかして",
+      "artists": [
+        {
+          "name": "Miho Fukuhara"
+        }
+      ],
+      "album": {
+        "name": "未来-ミライ-/もしかして"
+      },
+      "duration_ms": 263266,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 297951,
+      "name": "不确定",
+      "ar": [
+        {
+          "name": "万芳"
+        }
+      ],
+      "al": {
+        "name": "相爱的运气",
+        "tns": [
+          "相爱的运气"
+        ]
+      },
+      "dt": 276294,
+      "tns": [
+        "不确定"
+      ]
+    },
+    "candidate": {
+      "id": "6IA66gGj86VaNIQ7BDtNer",
+      "name": "不確定",
+      "artists": [
+        {
+          "name": "Wanfang"
+        }
+      ],
+      "album": {
+        "name": "相愛的運氣"
+      },
+      "duration_ms": 276293,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 835273,
+      "name": "Step By Step",
+      "ar": [
+        {
+          "name": "JADOES"
+        }
+      ],
+      "al": {
+        "name": "IT'S FRIDAY",
+        "tns": [
+          "IT'S FRIDAY"
+        ]
+      },
+      "dt": 252320,
+      "tns": [
+        "Step By Step"
+      ]
+    },
+    "candidate": {
+      "id": "1ouDQAcvOIeuLgRDPhMqie",
+      "name": "Step by Step",
+      "artists": [
+        {
+          "name": "JADOES"
+        }
+      ],
+      "album": {
+        "name": "It's Friday"
+      },
+      "duration_ms": 252320,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22816482,
+      "name": "海",
+      "ar": [
+        {
+          "name": "芳本美代子"
+        }
+      ],
+      "al": {
+        "name": "GOLDEN BEST",
+        "tns": [
+          "GOLDEN BEST"
+        ]
+      },
+      "dt": 245249,
+      "tns": [
+        "海"
+      ]
+    },
+    "candidate": {
+      "id": "0eHxE4VnTdqJjMDcwLvlVA",
+      "name": "海",
+      "artists": [
+        {
+          "name": "芳本美代子"
+        }
+      ],
+      "album": {
+        "name": "芳本美代子 ゴールデン★ベスト"
+      },
+      "duration_ms": 243186,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 21253949,
+      "name": "She Will Be Loved",
+      "ar": [
+        {
+          "name": "Maroon 5"
+        }
+      ],
+      "al": {
+        "name": "Songs About Jane",
+        "tns": [
+          "Songs About Jane"
+        ]
+      },
+      "dt": 257133,
+      "tns": [
+        "She Will Be Loved"
+      ]
+    },
+    "candidate": {
+      "id": "7sapKrjDij2fpDVj0GxP66",
+      "name": "She Will Be Loved",
+      "artists": [
+        {
+          "name": "Maroon 5"
+        }
+      ],
+      "album": {
+        "name": "Songs About Jane"
+      },
+      "duration_ms": 257133,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3341875325,
+      "name": "只是有人留在了昨天",
+      "ar": [
+        {
+          "name": "供销社乐队"
+        }
+      ],
+      "al": {
+        "name": "只是有人留在了昨天",
+        "tns": [
+          "只是有人留在了昨天"
+        ]
+      },
+      "dt": 216604,
+      "tns": [
+        "只是有人留在了昨天"
+      ]
+    },
+    "candidate": {
+      "id": "0KycPqc7W8ZGPDurkDMN3n",
+      "name": "只是有人留在了昨天",
+      "artists": [
+        {
+          "name": "供销社乐队"
+        }
+      ],
+      "album": {
+        "name": "只是有人留在了昨天"
+      },
+      "duration_ms": 216604,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26109009,
+      "name": "WHO ARE YOU?",
+      "ar": [
+        {
+          "name": "芳野藤丸"
+        }
+      ],
+      "al": {
+        "name": "YOSHINO FUJIMARU",
+        "tns": [
+          "YOSHINO FUJIMARU"
+        ]
+      },
+      "dt": 321000,
+      "tns": [
+        "WHO ARE YOU?"
+      ]
+    },
+    "candidate": {
+      "id": "2iapxg66laH1Z7BYuVHh8Y",
+      "name": "WHO ARE YOU? - 2022 Remaster",
+      "artists": [
+        {
+          "name": "芳野藤丸"
+        }
+      ],
+      "album": {
+        "name": "YOSHINO FUJIMAL (2022 Remaster)"
+      },
+      "duration_ms": 322651,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2142088477,
+      "name": "さびしくない",
+      "ar": [
+        {
+          "name": "カネコアヤノ"
+        }
+      ],
+      "al": {
+        "name": "ラッキー/さびしくない",
+        "tns": [
+          "ラッキー/さびしくない"
+        ]
+      },
+      "dt": 247645,
+      "tns": [
+        "さびしくない",
+        "不寂寞"
+      ]
+    },
+    "candidate": {
+      "id": "4K8FSzMLayfSbGtXdqJI3O",
+      "name": "さびしくない",
+      "artists": [
+        {
+          "name": "カネコアヤノ"
+        }
+      ],
+      "album": {
+        "name": "ラッキー/さびしくない"
+      },
+      "duration_ms": 247645,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 209046,
+      "name": "下一次爱情来的时候",
+      "ar": [
+        {
+          "name": "蔡健雅"
+        }
+      ],
+      "al": {
+        "name": "双栖动物",
+        "tns": [
+          "双栖动物"
+        ]
+      },
+      "dt": 258325,
+      "tns": [
+        "下一次爱情来的时候"
+      ]
+    },
+    "candidate": {
+      "id": "1mnELnVixuWR2nTyUJqaTx",
+      "name": "下一次愛情來的時候",
+      "artists": [
+        {
+          "name": "Tanya Chua"
+        }
+      ],
+      "album": {
+        "name": "雙棲動物"
+      },
+      "duration_ms": 258839,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2034468815,
+      "name": "Shine Your Light",
+      "ar": [
+        {
+          "name": "Family of Things"
+        }
+      ],
+      "al": {
+        "name": "Shine Your Light",
+        "tns": [
+          "Shine Your Light"
+        ]
+      },
+      "dt": 196629,
+      "tns": [
+        "Shine Your Light"
+      ]
+    },
+    "candidate": {
+      "id": "2fmcFO4mL1l7YybJAQf48b",
+      "name": "Shine Your Light",
+      "artists": [
+        {
+          "name": "Family of Things"
+        }
+      ],
+      "album": {
+        "name": "Shine Your Light"
+      },
+      "duration_ms": 196629,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 21948077,
+      "name": "Communication",
+      "ar": [
+        {
+          "name": "The Cardigans"
+        }
+      ],
+      "al": {
+        "name": "Long Gone Before Daylight",
+        "tns": [
+          "Long Gone Before Daylight"
+        ]
+      },
+      "dt": 269213,
+      "tns": [
+        "Communication"
+      ]
+    },
+    "candidate": {
+      "id": "2XOTqTNpELKBqq2FQaXcik",
+      "name": "Communication",
+      "artists": [
+        {
+          "name": "The Cardigans"
+        }
+      ],
+      "album": {
+        "name": "Long Gone Before Daylight"
+      },
+      "duration_ms": 268680,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3312508533,
+      "name": "我系我",
+      "ar": [
+        {
+          "name": "杨千嬅"
+        }
+      ],
+      "al": {
+        "name": "RECOLLECTION, VOL. I - MY Harmonic Minor",
+        "tns": [
+          "RECOLLECTION, VOL. I - MY Harmonic Minor"
+        ]
+      },
+      "dt": 260891,
+      "tns": [
+        "我系我"
+      ]
+    },
+    "candidate": {
+      "id": "7Lo2uemQrjf2IBkeA30bYd",
+      "name": "我係我",
+      "artists": [
+        {
+          "name": "Miriam Yeung"
+        }
+      ],
+      "album": {
+        "name": "RECOLLECTION, VOL. I - MY Harmonic Minor"
+      },
+      "duration_ms": 260891,
+      "is_playable": true
+    }
+  }
+]
