@@ -334,5 +334,43 @@
         "name": "Dedicated forever"
       }
     }
+  },
+  {
+    "source": {
+      "id": 22750046,
+      "name": "一夜一代に夢見頃",
+      "ar": [
+        {
+          "name": "平松愛理"
+        }
+      ],
+      "al": {
+        "name": "一夜一代に夢見頃",
+        "tns": [
+          "一夜一代に夢見頃"
+        ]
+      },
+      "dt": 294973,
+      "tns": [
+        "一夜一代に夢見頃",
+        "一夜成梦"
+      ]
+    },
+    "candidate": {
+      "id": "6Pt5hiVEE1qKH0mcft72ju",
+      "name": "一夜一代に夢見頃",
+      "duration_ms": 293000,
+      "is_playable": true,
+      "artists": [
+        {
+          "id": "6WQ9x2HEcRH639m1IGMU7H",
+          "name": "Eri Hiramatsu"
+        }
+      ],
+      "album": {
+        "id": "58bR3chqvCTeIF6ZebQcjo",
+        "name": "一夜一代に夢見頃"
+      }
+    }
   }
 ]

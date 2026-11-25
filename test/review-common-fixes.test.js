@@ -59,6 +59,29 @@ test('corroborated theme usage also works on the source side for another recordi
  assert.equal(pickBestMatch(source, [candidate])?.titleEvidence, 'corroborated-theme-usage')
  assert.equal(pickBestMatch(source, [{ ...candidate, name: '晚風 - 《別的故事》片尾曲' }]), null)
 })
+
+test('the verified 比莉 credit recognizes 王雪娥 across releases without accepting another Billie', async () => {
+ const source = {
+  id: 207497, name: 'DEAR JOHN', ar: [{ name: '比莉' }], al: { name: '傻瓜就是我' }, dt: 311333,
+ }
+ const original = {
+  id: '7ddiY4vKMxBMesaRPV5dU2', name: 'Dear John', artists: [{ name: '王雪娥' }],
+  album: { name: '傻瓜就是我' }, duration_ms: 311333, is_playable: true,
+ }
+ const unrelated = { ...original, id: 'another-billie', artists: [{ name: 'Billie Eilish' }] }
+ const cover = { ...original, id: '7hZuICN5eaCuQyp443RCt6', artists: [{ name: 'Taylor Swift' }],
+  album: { name: 'Speak Now' }, duration_ms: 403920 }
+ const diagnostics = {}
+ let calls = 0
+ const match = await findTrackMatch(source, async () => (++calls === 1 ? [unrelated, cover, original] : []), diagnostics)
+ assert.equal(match?.candidate.id, original.id)
+ assert.equal(diagnostics.catalogQueryCount, 1)
+ assert.equal(calls, 1)
+ assert.equal(pickBestMatch(source, [unrelated, cover]), null)
+ assert.equal(pickBestMatch(source, [{ ...original, is_playable: false }]), null)
+ assert.equal(pickBestMatch({ ...source, id: 0, name: '傻瓜就是我', dt: 230000 },
+  [{ ...original, id: 'second-song', name: '傻瓜就是我', duration_ms: 230000 }])?.candidate.id, 'second-song')
+})
 test('transport diagnostics preserve safe error codes through backoff without secrets', async () => {
  let time=100000;const state={spotify:{}};const store={state,async update(fn){fn(state)}}
  const safety=new RequestSafety(store,{now:()=>time,sleep:async ms=>{time+=ms},minIntervalMs:8000})

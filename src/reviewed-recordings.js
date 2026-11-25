@@ -187,6 +187,24 @@ const recordings = [
     },
     "evidence": "docs/catalog-review-2026-11-24.md",
     "verifiedAt": "2026-11-24T10:35:55.683Z"
+  },
+  {
+    "source": {
+      "id": 22750046,
+      "name": "一夜一代に夢見頃",
+      "artists": ["平松愛理"],
+      "album": "一夜一代に夢見頃",
+      "durationMs": 294973
+    },
+    "target": {
+      "id": "6Pt5hiVEE1qKH0mcft72ju",
+      "name": "一夜一代に夢見頃",
+      "artists": ["Eri Hiramatsu"],
+      "album": "一夜一代に夢見頃",
+      "durationMs": 293000
+    },
+    "evidence": "https://www.hiramatsueri.com/release/discography-single",
+    "verifiedAt": "2026-11-25T10:34:35.977Z"
   }
 ]
 const clean = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim()

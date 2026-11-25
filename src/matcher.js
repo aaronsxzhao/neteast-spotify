@@ -219,6 +219,7 @@ const ARTIST_ALIASES = new Map([
   ['青葉市子', ['Ichiko Aoba']],
   ['小林未郁', ['Mika Kobayashi']],
   ['容祖儿', ['Joey Yung']],
+  ['比莉', ['王雪娥']],
   ['河合奈保子', ['Naoko Kawai']],
   ['大橋純子', ['Junko Ohashi']],
   ['林哲司', ['Tetsuji Hayashi']],

@@ -1,0 +1,987 @@
+[
+  {
+    "source": {
+      "id": 3367978523,
+      "name": "PERFECT",
+      "ar": [
+        {
+          "name": "claquepot"
+        },
+        {
+          "name": "RUNG HYANG"
+        },
+        {
+          "name": "向井太一"
+        }
+      ],
+      "al": {
+        "name": "PERFECT",
+        "tns": [
+          "PERFECT"
+        ]
+      },
+      "dt": 207209,
+      "tns": [
+        "PERFECT"
+      ]
+    },
+    "candidate": {
+      "id": "6YAmbi66KeU8CYPCxISfBZ",
+      "name": "PERFECT",
+      "artists": [
+        {
+          "name": "claquepot"
+        },
+        {
+          "name": "RUNG HYANG"
+        },
+        {
+          "name": "Taichi Mukai"
+        }
+      ],
+      "album": {
+        "name": "PERFECT"
+      },
+      "duration_ms": 207209,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 33419747,
+      "name": "Burning Friday Night",
+      "ar": [
+        {
+          "name": "Lucky Kilimanjaro"
+        }
+      ],
+      "al": {
+        "name": "FULLCOLOR",
+        "tns": [
+          "FULLCOLOR"
+        ]
+      },
+      "dt": 255465,
+      "tns": [
+        "Burning Friday Night",
+        "燃烧的周五之夜"
+      ]
+    },
+    "candidate": {
+      "id": "1NlkoYEA1ndLQIKzXTPh9V",
+      "name": "Burning Friday Night",
+      "artists": [
+        {
+          "name": "Lucky Kilimanjaro"
+        }
+      ],
+      "album": {
+        "name": "FULLCOLOR"
+      },
+      "duration_ms": 255408,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 191174,
+      "name": "闭目入神",
+      "ar": [
+        {
+          "name": "郑中基"
+        }
+      ],
+      "al": {
+        "name": "正宗K 新曲+精选",
+        "tns": [
+          "正宗K 新曲+精选"
+        ]
+      },
+      "dt": 216360,
+      "tns": [
+        "闭目入神"
+      ]
+    },
+    "candidate": {
+      "id": "6bSKNdog2KlfDPRYyHZtBO",
+      "name": "閉目入神",
+      "artists": [
+        {
+          "name": "Ronald Cheng"
+        }
+      ],
+      "album": {
+        "name": "鄭中基正宗 K 新曲精選"
+      },
+      "duration_ms": 216000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1299557976,
+      "name": "遥かなる楽園",
+      "ar": [
+        {
+          "name": "児島未散"
+        }
+      ],
+      "al": {
+        "name": "MICHILLE",
+        "tns": [
+          "MICHILLE"
+        ]
+      },
+      "dt": 275640,
+      "tns": [
+        "遥かなる楽園",
+        "遥远的乐园"
+      ]
+    },
+    "candidate": {
+      "id": "7n6LlpFFNSYQSqDQqeWcNG",
+      "name": "遥かなる楽園",
+      "artists": [
+        {
+          "name": "児島未散"
+        }
+      ],
+      "album": {
+        "name": "MICHILLE"
+      },
+      "duration_ms": 275666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 659350,
+      "name": "駅",
+      "ar": [
+        {
+          "name": "竹内まりや"
+        }
+      ],
+      "al": {
+        "name": "駅 / After Years",
+        "tns": [
+          "駅 / After Years"
+        ]
+      },
+      "dt": 300613,
+      "tns": [
+        "駅",
+        "车站"
+      ]
+    },
+    "candidate": {
+      "id": "57MaGVVg5DXncBKkrsCnEM",
+      "name": "駅",
+      "artists": [
+        {
+          "name": "Mariya Takeuchi"
+        }
+      ],
+      "album": {
+        "name": "REQUEST (30th Anniversary Edition)"
+      },
+      "duration_ms": 300613,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28157606,
+      "name": "Your Man",
+      "ar": [
+        {
+          "name": "Josh Turner"
+        }
+      ],
+      "al": {
+        "name": "Double Cream 5: 20 Years of Nashville #1's 1992-2012",
+        "tns": [
+          "Double Cream 5: 20 Years of Nashville #1's 1992-2012"
+        ]
+      },
+      "dt": 213013,
+      "tns": [
+        "Your Man"
+      ]
+    },
+    "candidate": {
+      "id": "11pJOHka7D0aoS8PD23LGL",
+      "name": "Your Man",
+      "artists": [
+        {
+          "name": "Josh Turner"
+        }
+      ],
+      "album": {
+        "name": "Greatest Hits"
+      },
+      "duration_ms": 211893,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 33789473,
+      "name": "My Life",
+      "ar": [
+        {
+          "name": "黒川沙良"
+        }
+      ],
+      "al": {
+        "name": "On My Piano",
+        "tns": [
+          "On My Piano"
+        ]
+      },
+      "dt": 249634,
+      "tns": [
+        "My Life"
+      ]
+    },
+    "candidate": {
+      "id": "0gYYdjLdQ2tVLS6ynmqg9a",
+      "name": "My Life",
+      "artists": [
+        {
+          "name": "Sala Kurokawa"
+        }
+      ],
+      "album": {
+        "name": "On My (Piano Version)"
+      },
+      "duration_ms": 249634,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 156915,
+      "name": "挪威的森林",
+      "ar": [
+        {
+          "name": "伍佰"
+        }
+      ],
+      "al": {
+        "name": "滚石香港黄金十年 伍佰精选",
+        "tns": [
+          "滚石香港黄金十年 伍佰精选"
+        ]
+      },
+      "dt": 392826,
+      "tns": [
+        "挪威的森林"
+      ]
+    },
+    "candidate": {
+      "id": "4yG8SbrLyFXzTtxGKQdyhv",
+      "name": "挪威的森林",
+      "artists": [
+        {
+          "name": "Wu Bai"
+        }
+      ],
+      "album": {
+        "name": "滾石香港黃金十年-伍佰精選"
+      },
+      "duration_ms": 392888,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3313987317,
+      "name": "昔語りふたりぼっち",
+      "ar": [
+        {
+          "name": "生田輝"
+        },
+        {
+          "name": "伊藤彩沙"
+        }
+      ],
+      "al": {
+        "name": "Acte Zéro",
+        "tns": [
+          "Acte Zéro"
+        ]
+      },
+      "dt": 277333,
+      "tns": [
+        "昔語りふたりぼっち",
+        "但余你我共话往年"
+      ]
+    },
+    "candidate": {
+      "id": "7H4ybl0Xjn5EMHDZdoUG7M",
+      "name": "Our Old Tale",
+      "artists": [
+        {
+          "name": "石動双葉(CV:生田輝)、花柳香子(CV:伊藤彩沙)"
+        }
+      ],
+      "album": {
+        "name": "Acte Zero"
+      },
+      "duration_ms": 277333,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3375214765,
+      "name": "真夏のパンクリアス",
+      "ar": [
+        {
+          "name": "7co"
+        }
+      ],
+      "al": {
+        "name": "真夏のパンクリアス",
+        "tns": [
+          "真夏のパンクリアス"
+        ]
+      },
+      "dt": 214158,
+      "tns": [
+        "真夏のパンクリアス",
+        "盛夏的胰腺"
+      ]
+    },
+    "candidate": {
+      "id": "5KuPSLOKN4L2VNCghXmkPS",
+      "name": "真夏のパンクリアス",
+      "artists": [
+        {
+          "name": "7co"
+        }
+      ],
+      "album": {
+        "name": "真夏のパンクリアス"
+      },
+      "duration_ms": 214158,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 26145413,
+      "name": "Freedom",
+      "ar": [
+        {
+          "name": "Anthony Hamilton"
+        },
+        {
+          "name": "Elayna Boynton"
+        }
+      ],
+      "al": {
+        "name": "Django Unchained",
+        "tns": [
+          "Django Unchained"
+        ]
+      },
+      "dt": 236653,
+      "tns": [
+        "Freedom"
+      ]
+    },
+    "candidate": {
+      "id": "6KufYdEosLjK6bEKPyz4oA",
+      "name": "Freedom",
+      "artists": [
+        {
+          "name": "Anthony Hamilton"
+        },
+        {
+          "name": "Elayna Boynton"
+        }
+      ],
+      "album": {
+        "name": "Quentin Tarantino’s Django Unchained Original Motion Picture Soundtrack"
+      },
+      "duration_ms": 236653,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1313852921,
+      "name": "Gifts",
+      "ar": [
+        {
+          "name": "Superfly"
+        }
+      ],
+      "al": {
+        "name": "Gifts",
+        "tns": [
+          "Gifts"
+        ]
+      },
+      "dt": 274733,
+      "tns": [
+        "Gifts",
+        "NHK 全国学校音楽コンクール 中学生の部課題曲"
+      ]
+    },
+    "candidate": {
+      "id": "4rVuwxkKjpQASrSMnL1B13",
+      "name": "Gifts",
+      "artists": [
+        {
+          "name": "Superfly"
+        }
+      ],
+      "album": {
+        "name": "Gifts"
+      },
+      "duration_ms": 274733,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1422883398,
+      "name": "写给黄淮（Live）",
+      "ar": [
+        {
+          "name": "邵帅"
+        }
+      ],
+      "al": {
+        "name": "2019「乐观主义」郑州跨年演唱会LIVE",
+        "tns": [
+          "2019「乐观主义」郑州跨年演唱会LIVE"
+        ]
+      },
+      "dt": 408812,
+      "tns": [
+        "写给黄淮（Live）"
+      ]
+    },
+    "candidate": {
+      "id": "5hFG42yvCiH6m9KNWLat4f",
+      "name": "写给黄淮 - Live",
+      "artists": [
+        {
+          "name": "邵帅"
+        }
+      ],
+      "album": {
+        "name": "2019「乐观主义」郑州跨年演唱会 (Live)"
+      },
+      "duration_ms": 408812,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 3443222100,
+      "name": "結び",
+      "ar": [
+        {
+          "name": "Ayumu Imazu"
+        }
+      ],
+      "al": {
+        "name": "結び",
+        "tns": [
+          "結び"
+        ]
+      },
+      "dt": 206998,
+      "tns": [
+        "結び"
+      ]
+    },
+    "candidate": {
+      "id": "2j0mQg77Ivev2aIksyiiqc",
+      "name": "結び",
+      "artists": [
+        {
+          "name": "Ayumu Imazu"
+        }
+      ],
+      "album": {
+        "name": "結び"
+      },
+      "duration_ms": 206998,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1824185544,
+      "name": "Wave",
+      "ar": [
+        {
+          "name": "山根麻以"
+        }
+      ],
+      "al": {
+        "name": "たそがれ",
+        "tns": [
+          "たそがれ"
+        ]
+      },
+      "dt": 280680,
+      "tns": [
+        "Wave"
+      ]
+    },
+    "candidate": {
+      "id": "0vMN8Xw0BiNYf1uhxx30PU",
+      "name": "Wave",
+      "artists": [
+        {
+          "name": "Mai Yamane"
+        }
+      ],
+      "album": {
+        "name": "Wave"
+      },
+      "duration_ms": 279379,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2144341808,
+      "name": "I wonder",
+      "ar": [
+        {
+          "name": "Da-iCE"
+        }
+      ],
+      "al": {
+        "name": "I wonder",
+        "tns": [
+          "I wonder"
+        ]
+      },
+      "dt": 157746,
+      "tns": [
+        "I wonder",
+        "我期望",
+        "ドラマ「くるり～誰が私と恋をした？～」主題歌",
+        "日剧《谁曾爱过我？》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "00Q3uYmFKFVYTRjbsnUq7H",
+      "name": "I wonder",
+      "artists": [
+        {
+          "name": "Da-iCE"
+        }
+      ],
+      "album": {
+        "name": "I wonder"
+      },
+      "duration_ms": 157746,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22824942,
+      "name": "Follow Me",
+      "ar": [
+        {
+          "name": "八神純子"
+        }
+      ],
+      "al": {
+        "name": "FULL MOON",
+        "tns": [
+          "FULL MOON"
+        ]
+      },
+      "dt": 246160,
+      "tns": [
+        "Follow Me"
+      ]
+    },
+    "candidate": {
+      "id": "7v0D2lTLUpiP7X5GHrngBt",
+      "name": "Follow Me",
+      "artists": [
+        {
+          "name": "Junko Yagami"
+        }
+      ],
+      "album": {
+        "name": "FULL MOON"
+      },
+      "duration_ms": 245693,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1867145415,
+      "name": "MOON NIGHT",
+      "ar": [
+        {
+          "name": "I Don't Like Mondays."
+        }
+      ],
+      "al": {
+        "name": "Black Humor",
+        "tns": [
+          "Black Humor"
+        ]
+      },
+      "dt": 190906,
+      "tns": [
+        "MOON NIGHT"
+      ]
+    },
+    "candidate": {
+      "id": "4Ndg10oNRmN8FtOrWxs3Q5",
+      "name": "MOON NIGHT",
+      "artists": [
+        {
+          "name": "I Don't Like Mondays."
+        }
+      ],
+      "album": {
+        "name": "Black Humor"
+      },
+      "duration_ms": 190906,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 22795853,
+      "name": "LOVIN' YOU",
+      "ar": [
+        {
+          "name": "吉田美奈子"
+        }
+      ],
+      "al": {
+        "name": "MONSTERS IN TOWN",
+        "tns": [
+          "MONSTERS IN TOWN"
+        ]
+      },
+      "dt": 357053,
+      "tns": [
+        "LOVIN' YOU"
+      ]
+    },
+    "candidate": {
+      "id": "6SPhT9qImXLKW7lquWp9u3",
+      "name": "LOVIN' YOU",
+      "artists": [
+        {
+          "name": "Minako Yoshida"
+        }
+      ],
+      "album": {
+        "name": "MONSTERS IN TOWN"
+      },
+      "duration_ms": 357000,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 673214,
+      "name": "Woman“Wの悲劇”より",
+      "ar": [
+        {
+          "name": "薬師丸ひろ子"
+        }
+      ],
+      "al": {
+        "name": "薬師丸ひろ子 ベスト・コレクション",
+        "tns": [
+          "薬師丸ひろ子 ベスト・コレクション"
+        ]
+      },
+      "dt": 235231,
+      "tns": [
+        "Woman“Wの悲劇”より",
+        "女人~电影《W的悲剧》主题曲",
+        "电影《W的悲剧》主题曲"
+      ]
+    },
+    "candidate": {
+      "id": "1EZQVFAMGCUcC54FJY9wm9",
+      "name": "Woman - 「Wの悲劇」より",
+      "artists": [
+        {
+          "name": "Hiroko Yakushimaru"
+        }
+      ],
+      "album": {
+        "name": "歌物語"
+      },
+      "duration_ms": 233666,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 239164,
+      "name": "顺其自然",
+      "ar": [
+        {
+          "name": "黄小琥"
+        }
+      ],
+      "al": {
+        "name": "如果能...重来",
+        "tns": [
+          "如果能...重来"
+        ]
+      },
+      "dt": 263826,
+      "tns": [
+        "顺其自然"
+      ]
+    },
+    "candidate": {
+      "id": "6VyjAi7xpDcg28kbOVAQav",
+      "name": "順其自然",
+      "artists": [
+        {
+          "name": "黃小琥"
+        }
+      ],
+      "album": {
+        "name": "如果能, 重來"
+      },
+      "duration_ms": 263826,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 28587152,
+      "name": "さがしもの",
+      "ar": [
+        {
+          "name": "ハンバート ハンバート"
+        }
+      ],
+      "al": {
+        "name": "おかえりなさい",
+        "tns": [
+          "おかえりなさい"
+        ]
+      },
+      "dt": 257776,
+      "tns": [
+        "さがしもの",
+        "寻找的东西"
+      ]
+    },
+    "candidate": {
+      "id": "01fEfnT88ESUek1DmE62NV",
+      "name": "さがしもの",
+      "artists": [
+        {
+          "name": "ENJIN"
+        }
+      ],
+      "album": {
+        "name": "円神 Second Stage『nonagon〜2つの歌～』"
+      },
+      "duration_ms": 256071,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2681859774,
+      "name": "The Landkeeper",
+      "ar": [
+        {
+          "name": "Men I Trust"
+        }
+      ],
+      "al": {
+        "name": "Equus Asinus",
+        "tns": [
+          "Equus Asinus"
+        ]
+      },
+      "dt": 224708,
+      "tns": [
+        "The Landkeeper"
+      ]
+    },
+    "candidate": {
+      "id": "199B05lG6hBgawhiiY12Ct",
+      "name": "The Landkeeper",
+      "artists": [
+        {
+          "name": "Men I Trust"
+        }
+      ],
+      "album": {
+        "name": "Equus Asinus"
+      },
+      "duration_ms": 224708,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2670901272,
+      "name": "Chroma Drift",
+      "ar": [
+        {
+          "name": "PLAVE"
+        }
+      ],
+      "al": {
+        "name": "Caligo Pt.1",
+        "tns": [
+          "Caligo Pt.1"
+        ]
+      },
+      "dt": 210826,
+      "tns": [
+        "Chroma Drift",
+        "色度漂移"
+      ]
+    },
+    "candidate": {
+      "id": "0BA3uoKlu9CsHgXIeAiXmJ",
+      "name": "Chroma Drift",
+      "artists": [
+        {
+          "name": "PLAVE"
+        }
+      ],
+      "album": {
+        "name": "Caligo Pt.1"
+      },
+      "duration_ms": 210826,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2040305436,
+      "name": "果犬的猜想",
+      "ar": [
+        {
+          "name": "花海列车"
+        }
+      ],
+      "al": {
+        "name": "距离",
+        "tns": [
+          "距离"
+        ]
+      },
+      "dt": 207103,
+      "tns": [
+        "果犬的猜想"
+      ]
+    },
+    "candidate": {
+      "id": "2zMoRAsqZbsjSzLrtrPWzn",
+      "name": "果犬的猜想",
+      "artists": [
+        {
+          "name": "花海列車"
+        }
+      ],
+      "album": {
+        "name": "距離"
+      },
+      "duration_ms": 207103,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 2139393035,
+      "name": "The Last Day of the End of the World",
+      "ar": [
+        {
+          "name": "NoMBe"
+        }
+      ],
+      "al": {
+        "name": "NOAH",
+        "tns": [
+          "NOAH"
+        ]
+      },
+      "dt": 219413,
+      "tns": [
+        "The Last Day of the End of the World"
+      ]
+    },
+    "candidate": {
+      "id": "70hRsoa28QiTS30KU2xHS5",
+      "name": "The Last Day of the End of the World",
+      "artists": [
+        {
+          "name": "NoMBe"
+        }
+      ],
+      "album": {
+        "name": "NOAH"
+      },
+      "duration_ms": 219413,
+      "is_playable": true
+    }
+  },
+  {
+    "source": {
+      "id": 1881363560,
+      "name": "Count Down To The Best Love",
+      "ar": [
+        {
+          "name": "FLY COAST"
+        },
+        {
+          "name": "二宮愛"
+        }
+      ],
+      "al": {
+        "name": "Flight Number 002",
+        "tns": [
+          "Flight Number 002"
+        ]
+      },
+      "dt": 285586,
+      "tns": [
+        "Count Down To The Best Love"
+      ]
+    },
+    "candidate": {
+      "id": "0Y9fxOmYKyOfWtYoP5dLdY",
+      "name": "Count Down to the Best Love",
+      "artists": [
+        {
+          "name": "FLY COAST"
+        },
+        {
+          "name": "Ai Ninomiya"
+        }
+      ],
+      "album": {
+        "name": "Flight Number 002"
+      },
+      "duration_ms": 285586,
+      "is_playable": true
+    }
+  }
+]
